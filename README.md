@@ -1,2 +1,2 @@
-# Page
+# The Tythe Protocol
 
