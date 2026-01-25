@@ -14,11 +14,12 @@
   * [Mainnet V1](ecosystem-and-network/chain-support/mainnet-v1.md)
   * [Beyond V1](ecosystem-and-network/chain-support/beyond-v1.md)
 * [Infrastructure Partners](ecosystem-and-network/infrastructure-partners/README.md)
-  * [Moralis](ecosystem-and-network/infrastructure-partners/moralis.md)
-  * [Centrifuge](ecosystem-and-network/infrastructure-partners/centrifuge.md)
-  * [World](ecosystem-and-network/infrastructure-partners/world.md)
-  * [Persona](ecosystem-and-network/infrastructure-partners/persona.md)
-  * [Reclaim](ecosystem-and-network/infrastructure-partners/reclaim.md)
+  * [Decentralized Identity (Method)](ecosystem-and-network/infrastructure-partners/decentralized-identity-method.md)
+  * [On-Chain Wallet Data](ecosystem-and-network/infrastructure-partners/on-chain-wallet-data.md)
+  * [Tokenized Asset Data](ecosystem-and-network/infrastructure-partners/tokenized-asset-data.md)
+  * [Proof of Humanity](ecosystem-and-network/infrastructure-partners/proof-of-humanity.md)
+  * [Regulated Compliance](ecosystem-and-network/infrastructure-partners/regulated-compliance.md)
+  * [Income & Employment](ecosystem-and-network/infrastructure-partners/income-and-employment.md)
 
 ## Locked Roadmap Items
 
