@@ -31,5 +31,4 @@
   * [Proposal Lifecycle](locked-roadmap-items/governance/proposal-lifecycle.md)
   * [GIL Program](locked-roadmap-items/governance/gil-program.md)
 * [Products & Solutions](locked-roadmap-items/products-and-solutions/README.md)
-  * [TDX: Trust Data Exchange](locked-roadmap-items/products-and-solutions/tdx-trust-data-exchange.md)
-  * [REP: Reputational Employment Platform](locked-roadmap-items/products-and-solutions/rep-reputational-employment-platform.md)
+  * [CDX: Credibility Data Exchange](locked-roadmap-items/products-and-solutions/cdx-credibility-data-exchange.md)
