@@ -32,4 +32,7 @@
   * [Proposal Lifecycle](locked-roadmap-items/governance/proposal-lifecycle.md)
   * [GIL Program](locked-roadmap-items/governance/gil-program.md)
 * [Products & Solutions](locked-roadmap-items/products-and-solutions/README.md)
-  * [CDX: Credibility Data Exchange](locked-roadmap-items/products-and-solutions/cdx-credibility-data-exchange.md)
+  * [tCDX](locked-roadmap-items/products-and-solutions/tcdx/README.md)
+    * [tCDS](locked-roadmap-items/products-and-solutions/tcdx/tcds.md)
+    * [tCDSI](locked-roadmap-items/products-and-solutions/tcdx/tcdsi.md)
+    * [tCDL](locked-roadmap-items/products-and-solutions/tcdx/tcdl.md)
