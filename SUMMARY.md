@@ -5,7 +5,6 @@
 * [The Tythe Protocol](README.md)
 * [Native Glossary](the-standard-for-global-credibility/native-glossary.md)
 * [Audiences & Roles](the-standard-for-global-credibility/audiences-and-roles.md)
-* [Guides & Resources](the-standard-for-global-credibility/guides-and-resources.md)
 
 ## Ecosystem & Network
 
@@ -13,13 +12,13 @@
   * [Testnet V1](ecosystem-and-network/chain-support/testnet-v1.md)
   * [Mainnet V1](ecosystem-and-network/chain-support/mainnet-v1.md)
   * [Beyond V1](ecosystem-and-network/chain-support/beyond-v1.md)
-* [Infrastructure Partners](ecosystem-and-network/infrastructure-partners/README.md)
-  * [Decentralized Identity (Method)](ecosystem-and-network/infrastructure-partners/decentralized-identity-method.md)
-  * [On-Chain Wallet Data](ecosystem-and-network/infrastructure-partners/on-chain-wallet-data.md)
-  * [Tokenized Asset Data](ecosystem-and-network/infrastructure-partners/tokenized-asset-data.md)
-  * [Proof of Humanity](ecosystem-and-network/infrastructure-partners/proof-of-humanity.md)
-  * [Regulated Compliance](ecosystem-and-network/infrastructure-partners/regulated-compliance.md)
-  * [Income & Employment](ecosystem-and-network/infrastructure-partners/income-and-employment.md)
+* [Infrastructure Power Sources](ecosystem-and-network/infrastructure-power-sources/README.md)
+  * [Decentralized Identity (Method)](ecosystem-and-network/infrastructure-power-sources/decentralized-identity-method.md)
+  * [On-Chain Wallet Data](ecosystem-and-network/infrastructure-power-sources/on-chain-wallet-data.md)
+  * [Tokenized Asset Data](ecosystem-and-network/infrastructure-power-sources/tokenized-asset-data.md)
+  * [Proof of Humanity](ecosystem-and-network/infrastructure-power-sources/proof-of-humanity.md)
+  * [Regulated Compliance](ecosystem-and-network/infrastructure-power-sources/regulated-compliance.md)
+  * [Income & Employment](ecosystem-and-network/infrastructure-power-sources/income-and-employment.md)
 
 ## Locked Roadmap Items
 

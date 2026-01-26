@@ -47,10 +47,10 @@ Credibility is the better form of risk-intelligence because it is designed to ac
 
 <summary><strong>The Problem:</strong> <strong>Why is Tythe needed?</strong></summary>
 
-The development of the Tythe standard is a response to the systemic failures of the models that preceded it.
+The development of the Tythe standard is a response to the systemic failures and limitations of the models that preceded it.
 
-* The Failure of Legacy Credit (Gen 1): Traditional off-chain models rely on black-box algorithms and centralized bureaus that store sensitive PII leading to single point failures (like Equifax 2017, where a single breach exposed the data of 147 million people). These systems also suffer from jurisdictional limitations (provided scores are meaningless the moment the scored entity crosses their national border) and lagging reports (these are days or sometimes even weeks out-of-sync with reality) that compromise user sovereignty and impose an "AI ceiling," effectively excluding autonomous agents and millions of "thin-file" humans while trapping global liquidity.
-* The Limits of Wallet Analytics (Gen 2): Early on-chain models improved transparency but remain tethered to disposable wallet addresses. Without an orchestrated identity layer, they are highly vulnerable to Sybil manipulation and identity recycling, failing to provide the long-term accountability or multi-sector depth required for institutional enforcement.
+* Traditional off-chain models: Rely on black-box algorithms and centralized bureaus that store sensitive PII leading to single point failures (like Equifax 2017, where a single breach exposed the data of 147 million people). These systems also suffer from jurisdictional limitations (provided scores are meaningless the moment the scored entity crosses their national border) and lagging reports (these are days or sometimes even weeks out-of-sync with reality) that compromise user sovereignty and impose an "AI ceiling," effectively excluding autonomous agents and millions of "thin-file" humans while trapping global liquidity.
+* Current on-chain models: Improve transparency but remain tethered to histories of disposable wallet addresses. Without an orchestrated identity layer, they are highly vulnerable to Sybil manipulation and identity recycling, failing to provide the long-term accountability or multi-sector depth required for institutional enforcement.
 
 </details>
 
@@ -69,16 +69,19 @@ Tythe solves these systemic failures by introducing a zk-private orchestration l
 * **Standardized Scores & Health Factors:** The DISC Engine transforms raw behavior into a 7–100 score and granular health factors (0.000–1.000), providing a high-fidelity snapshot of an actor’s multi-sector reliability and a universal language for reliability that institutions can underwrite.
 * **Privacy-Configurable Reports:** Similar to traditional credit reports, DISC Reports are off-chain, portable documents that allow users to share their verified standing with external institutions on their own terms.
 * **Policy-as-Code (VPs & APs):** Organizations define exactly how credibility is earned on for users on their platform by writing Validation Policies (VPs) using a standard set of automated behavioral-trigger rules. Access Policies (APs) are implemented to gate products and services behind credibility thresholds and compliance requirements. This removes human bias and black-box interference from the trust process.
-* **Decentralized Validation:** The Tri-Validator Model ensures that no single entity controls the standard. Verification is distributed across Organizational (for behavioral validation), Peer (for social reputation), and Jury validators (for network-wide enforcement at the root ID level) to eliminate bias, identity recycling, and central points of failure.
+* **Decentralized Validation:** The three-set validator model ensures that no single entity controls the standard. Validation power is distributed across Organizational (for behavioral attestation), Peer (for social reputation), and Jury validators (for decentralized justice) to eliminate bias, identity recycling, and central points of failure.
 
 \ <mark style="color:$info;">**Locked Modules:**</mark> The following modules represent the strategic growth of the protocol:
 
-* Proof of Liability: Utilizing Ricardian Contracts, this module will cryptographically bind AI Agents to their human or organizational registrants, creating a legal and economic anchor for accountable, high-stakes autonomous operations.
-* Credibility-Weighted Governance: A specialized governance framework where voting power is a function of both token stake and the participant’s credibility, ensuring that those with the highest verified reliability lead the protocol.
-* Dual Token Model: The formal launch of the Tythe's native measure of credibility and its utility/governance tokens.
-* Credibility Licensing & Insurance: A secure exchange for powering credibility data monetization, single-name credibility default swaps, and credibility default swap indices, turning credibility into a liquid financial asset class.
+* **Proof of Liability:** Utilizing Ricardian Contracts, this module will cryptographically bind AI Agents to their human or organizational registrants, creating a legal and economic anchor for accountable, high-stakes autonomous operations.
+* **Credibility-Weighted Governance:** A specialized governance framework where voting power is a function of both token stake and the participant’s credibility, ensuring that those with the highest verified reliability lead the protocol.
+* **Dual Token Model:** The formal launch of the Tythe's native measure of credibility and its utility/governance tokens.
+* **Credibility Licensing & Insurance:** A secure exchange for powering credibility data monetization, single-name credibility default swaps, and credibility default swap indices, turning credibility into a liquid financial asset class.
 
-\
-Note: To maintain accessibility for all audiences, we have refrained from using Tythe-native terminology on this canonical page where possible. To map Tythe-native terminology to specific protocol products, modules, and mechanics, please refer to the [Native Glossary](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/n9NH64V8Hfw4pxlNBmxl/~/edit/~/changes/27/the-standard-for-global-credibility/native-glossary).
+{% hint style="info" %}
+#### Reader Note
+
+To maintain accessibility for all audiences, we have refrained from using Tythe-native terminology on this canonical page where possible. To map Tythe-native terminology to specific protocol products, modules, and mechanics, please refer to the [Native Glossary](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/n9NH64V8Hfw4pxlNBmxl/~/edit/~/changes/27/the-standard-for-global-credibility/native-glossary).
+{% endhint %}
 
 </details>
