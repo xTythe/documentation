@@ -21,7 +21,15 @@ Tythe is a decentralized orchestration layer designed to establish the first glo
 
 <details>
 
-<summary><strong>The Definition:</strong> <strong>What is Credibility?</strong></summary>
+<summary><strong>The Definition: What is Credibility</strong></summary>
+
+
+
+</details>
+
+<details>
+
+<summary><strong>The Reason:</strong> <strong>Why is Credibility better?</strong></summary>
 
 Inside the Tythe ecosystem, credibility is treated as a multi-dimensional asset. While traditional systems focus narrowly on creditworthiness, Tythe recognizes that the complete picture of any actor's reliability is a composite of diverse, verifiable signals across various landscapes.
 
@@ -39,11 +47,11 @@ To achieve comprehensive inclusivity, greater accuracy, and higher granularity f
 
 <details>
 
-<summary><strong>The Problem:</strong> <strong>Why is Credibility needed?</strong></summary>
+<summary><strong>The Problem:</strong> <strong>Why is Tythe needed?</strong></summary>
 
-The transition to a credibility-based model is a response to the systemic failures of the models that preceded it.
+The development of the Tythe standard is a response to the systemic failures of the models that preceded it.
 
-* The Failure of Legacy Credit (Gen 1): Traditional off-chain models rely on black-box algorithms and centralized bureaus that store sensitive PII leading to single point failures (like Equifax 2017, where a single breach exposed the data of 147 million people). These systems also suffer from jurisdictional limitations (your score is meaningless the moment you cross your national border) and lagging reports that compromise user sovereignty and impose an "AI ceiling," effectively excluding autonomous agents and millions of "thin-file" humans while trapping global liquidity.
+* The Failure of Legacy Credit (Gen 1): Traditional off-chain models rely on black-box algorithms and centralized bureaus that store sensitive PII leading to single point failures (like Equifax 2017, where a single breach exposed the data of 147 million people). These systems also suffer from jurisdictional limitations (provided scores are meaningless the moment the scored entity crosses their national border) and lagging reports (these are days or sometimes even weeks out-of-sync with reality) that compromise user sovereignty and impose an "AI ceiling," effectively excluding autonomous agents and millions of "thin-file" humans while trapping global liquidity.
 * The Limits of Wallet Analytics (Gen 2): Early on-chain models improved transparency but remain tethered to disposable wallet addresses. Without an orchestrated identity layer, they are highly vulnerable to Sybil manipulation and identity recycling, failing to provide the long-term accountability or multi-sector depth required for institutional enforcement.
 
 </details>
@@ -57,8 +65,6 @@ Tythe solves these systemic failures by introducing a zk-private orchestration l
 \ <mark style="color:$primary;">**Live Modules:**</mark> These core components are operational and form the immediate utility of the protocol during the launch phase:
 
 * **Self-Sovereign DIDs:** Every participant—human or agent—anchors their decentralized identity on the `did:cheqd` network. This provides a persistent, globally unique identifier that remains decoupled from biological data or fragmented wallet addresses.
-* **Proof of Liability:** Tythe solves the AI reliability gap by establishing a legally-binding cryptographic link between an autonomous agent and its human or organizational Registrant via a Ricardian Contract. This ensures every automated action is programmatically auditable and anchored to an accountable entity.\
-  &#xNAN;_(Note: This feature is currently in development and will launch post-Beta)._
 * **Personal Encrypted Ledgers:** During the current phase, the Trovebook acts as an encrypted ledger for all verified activity. This will transition to a fully self-custodial ledger with local private key management during the Mainnet migration.
 * **Verifiable Credentials (VCs):** Important identity compliance attestations—Proof of Humanity/KYC/AML checks—are issued as W3C-compliant VCs. These are portable, tamper-proof, and can be presented to any verifier.
 * **Zero-Knowledge Proofs:** Users prove eligibility (e.g., "I am a qualified investor", "I am a reliable borrower", "I have high voting integrity") without revealing the underlying data, ensuring 0% PII exposure.
@@ -69,9 +75,9 @@ Tythe solves these systemic failures by introducing a zk-private orchestration l
 
 \ <mark style="color:$info;">**Locked Modules:**</mark> The following modules represent the strategic evolution of the protocol and are currently in the final stages of research and development:
 
-* Proof of Liability: Utilizing Ricardian Contracts, this module will bind AI Agents to their human or organizational registrants, creating a legal and economic anchor for autonomous operations.
-* Credibility-Weighted Governance: A specialized governance framework where voting power is a function of both token stake and the participant’s DISC score, ensuring that those with the highest verified "skin in the game" lead the protocol.
-* The tCDX Stack: The introduction of tCDL (Data Licensing), tCDS (Credibility Swaps), and tCDSI (Indexes), turning credibility into a liquid financial asset class.
-* Dual Token Model: The formal launch of TCT (the internal unit of credibility) and TYT (the utility and governance token).
+* Proof of Liability: Utilizing Ricardian Contracts, this module will bind AI Agents to their human or organizational registrants, creating a legal and economic anchor for optimizing autonomous operations with accountable, enforceable recourse.
+* Credibility-Weighted Governance: A specialized governance framework where voting power is a function of both token stake and the participant’s credibility, ensuring that those with the highest verified "skin in the game" lead the protocol.
+* Dual Token Model: The formal launch of TCT (the Tythe measure of credibility) and TYT (the utility and governance token).
+* Credibility Licensing & Insurance: A secure exchange for powering credibility data monetization, single-name credibility default swaps, and credibility default swap indices, turning credibility into a liquid financial asset class.
 
 </details>
