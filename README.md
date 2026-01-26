@@ -23,7 +23,9 @@ Tythe is a decentralized orchestration layer designed to establish the first glo
 
 <summary><strong>The Definition: What is Credibility?</strong></summary>
 
-In the Tythe ecosystem, "Credibility" is the multi-dimensional asset representing an actor's total reliability. It serves as the aggregated result of verified behavioral signals—spanning across: (_1) Compliance Reliability_, _(2) Financial Reliability_, _(3) Governance Reliability_, _(4) Security Reliability_, and _(5) Sustainability Reliability_ metrics—of which traditional "Creditworthiness" is merely a single _Financial Reliability_ sub-component.
+In the Tythe ecosystem, "Credibility" is the multi-dimensional asset representing an actor's total reliability. It serves as the aggregated result of verified behavioral signals—spanning across: (_1) Compliance Reliability_, _(2) Financial Reliability_, _(3) Governance Reliability_, _(4) Security Reliability_, and _(5) Sustainability Reliability_ metrics—of which traditional "Creditworthiness" is a sub-component of _Financial Reliability_.
+
+<figure><img src=".gitbook/assets/Image 1-25-26 at 10.36 PM.png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -32,8 +34,6 @@ In the Tythe ecosystem, "Credibility" is the multi-dimensional asset representin
 <summary><strong>The Evolution:</strong> <strong>How is Credibility better?</strong></summary>
 
 Credibility is the better form of risk-intelligence because it is designed to achieve comprehensive inclusivity, greater accuracy, and higher granularity for increased predictive power and a wider range of use cases using aggregated intelligence across five primary metrics:
-
-<figure><img src=".gitbook/assets/Image 1-25-26 at 10.36 PM.png" alt=""><figcaption></figcaption></figure>
 
 * **Compliance Reliability:** Verifies adherence to regulatory frameworks. This covers Proof of Humanity/KYC/AML status, jurisdictional eligibility, and sanction-list screening. It ensures that actors meet rigorous compliance standards for institutional interaction without ever exposing sensitive PII to the network.
 * **Financial Reliability:** Measures total solvency and capital efficiency. This includes verified income and employment, historical repayment reliability, and granular DeFi activity (lending, borrowing, staking, LP positioning, and trading). It further accounts for tokenized asset experience—including Real-World Asset (RWA) exposure, portfolio management, liquidity depth, and cashflow—incorporating and superseding traditional creditworthiness.
