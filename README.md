@@ -23,15 +23,15 @@ Tythe is a decentralized orchestration layer designed to establish the first glo
 
 <summary><strong>The Definition: What is Credibility?</strong></summary>
 
-In the Tythe ecosystem, "Credibility" is the multi-dimensional asset representing an actor's total reliability. It serves as the comprehensive orchestration of verified behavioral signals—spanning (1) Compliance Reliability, (2) Financial Reliability, (3) Governance Reliability, (4) Security Reliability, and (5) Sustainability Reliability metrics—of which traditional creditworthiness is merely a single Financial Reliability sub-component.
+In the Tythe ecosystem, "Credibility" is the multi-dimensional asset representing an actor's total reliability. It serves as the aggregated result of verified behavioral signals—spanning (_1) Compliance Reliability_, _(2) Financial Reliability_, _(3) Governance Reliability_, _(4) Security Reliability_, and _(5) Sustainability Reliability_ metrics—of which traditional "Creditworthiness" is merely a single _Financial Reliability_ sub-component.
 
 </details>
 
 <details>
 
-<summary><strong>The Reason:</strong> <strong>Why is Credibility better?</strong></summary>
+<summary><strong>The Evolution:</strong> <strong>How is Credibility better?</strong></summary>
 
-Credibility is the next step in the evolution of risk-intelligence because it is designed to achieve comprehensive inclusivity, greater accuracy, and higher granularity for increased predictive power and a wider range of use cases using aggregated intelligence across five primary metrics:
+Credibility is the better form of risk-intelligence because it is designed to achieve comprehensive inclusivity, greater accuracy, and higher granularity for increased predictive power and a wider range of use cases using aggregated intelligence across five primary metrics:
 
 <figure><img src=".gitbook/assets/Image 1-25-26 at 10.36 PM.png" alt=""><figcaption></figcaption></figure>
 
@@ -71,11 +71,14 @@ Tythe solves these systemic failures by introducing a zk-private orchestration l
 * **Policy-as-Code (VPs & APs):** Organizations define exactly how credibility is earned on for users on their platform by writing Validation Policies (VPs) using a standard set of automated behavioral-trigger rules. Access Policies (APs) are implemented to gate products and services behind credibility thresholds and compliance requirements. This removes human bias and black-box interference from the trust process.
 * **Decentralized Validation:** The Tri-Validator Model ensures that no single entity controls the standard. Verification is distributed across Organizational (for behavioral validation), Peer (for social reputation), and Jury validators (for network-wide enforcement at the root ID level) to eliminate bias, identity recycling, and central points of failure.
 
-\ <mark style="color:$info;">**Locked Modules:**</mark> The following modules represent the strategic evolution of the protocol and are currently in the final stages of research and development:
+\ <mark style="color:$info;">**Locked Modules:**</mark> The following modules represent the strategic growth of the protocol:
 
-* Proof of Liability: Utilizing Ricardian Contracts, this module will bind AI Agents to their human or organizational registrants, creating a legal and economic anchor for optimizing autonomous operations with accountable, enforceable recourse.
-* Credibility-Weighted Governance: A specialized governance framework where voting power is a function of both token stake and the participant’s credibility, ensuring that those with the highest verified "skin in the game" lead the protocol.
-* Dual Token Model: The formal launch of TCT (the Tythe measure of credibility) and TYT (the utility and governance token).
+* Proof of Liability: Utilizing Ricardian Contracts, this module will cryptographically bind AI Agents to their human or organizational registrants, creating a legal and economic anchor for accountable, high-stakes autonomous operations.
+* Credibility-Weighted Governance: A specialized governance framework where voting power is a function of both token stake and the participant’s credibility, ensuring that those with the highest verified reliability lead the protocol.
+* Dual Token Model: The formal launch of the Tythe's native measure of credibility and its utility/governance tokens.
 * Credibility Licensing & Insurance: A secure exchange for powering credibility data monetization, single-name credibility default swaps, and credibility default swap indices, turning credibility into a liquid financial asset class.
+
+\
+Note: To maintain accessibility for all audiences, we have refrained from using Tythe-native terminology on this canonical page where possible. To map Tythe-native terminology to specific protocol products, modules, and mechanics, please refer to the [Native Glossary](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/n9NH64V8Hfw4pxlNBmxl/~/edit/~/changes/27/the-standard-for-global-credibility/native-glossary).
 
 </details>
