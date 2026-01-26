@@ -17,15 +17,23 @@ layout:
 
 # The Tythe Protocol
 
-Tythe is a decentralized orchestration layer designed to establish the first global standard for assetized credibility. It serves as the foundational infrastructure for a risk-intelligent, borderless economy, empowering humans and AI agents with a credibility profile that proves their reliability—their ability to carry risk—without limiting the effectiveness of their profile to a single jurisdiction, compromising their privacy, or relying on centralized intermediaries. For digital institutions, DeFi protocols, DAOs, and cross-sector applications, Tythe provides the critical rails to scale operations by offloading risk-data liability, automating risk enforcement, and mitigating wallet disposability risks with verifiable, real-time intelligence.
+Tythe is a decentralized orchestration layer designed to establish the first global standard for assetized credibility. It serves as the foundational infrastructure for a risk-intelligent, borderless economy, empowering humans and AI agents with a purpose-built credibility profile that proves their reliability—their ability to carry risk—without limiting the effectiveness of their profile to a single jurisdiction, compromising their privacy, or relying on centralized intermediaries. For digital institutions, DeFi protocols, DAOs, and cross-sector applications, Tythe provides the critical rails to scale operations by offloading risk-data liability, automating risk enforcement, and mitigating wallet disposability risks with verifiable, real-time intelligence.
 
 <details>
 
 <summary><strong>The Definition: What is Credibility?</strong></summary>
 
-In the Tythe ecosystem, "Credibility" is the multi-dimensional asset representing an actor's total reliability. It serves as the aggregated result of verified behavioral signals—spanning across: (_1) Compliance Reliability_, _(2) Financial Reliability_, _(3) Governance Reliability_, _(4) Security Reliability_, and _(5) Sustainability Reliability_ metrics—of which traditional "Creditworthiness" is a sub-component of _Financial Reliability_.
+In the Tythe ecosystem, "Credibility" is the asset capable of representing an actor's total multi-dimensional reliability. It serves as the aggregated result of verified behavioral signals—spanning across: (_1) Compliance Reliability_, _(2) Financial Reliability_, _(3) Governance Reliability_, _(4) Security Reliability_, and _(5) Sustainability Reliability_ metrics—of which traditional "Creditworthiness" is a sub-component of _Financial Reliability_.
 
 <figure><img src=".gitbook/assets/Image 1-25-26 at 10.36 PM.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+#### Multi-Dimensional Credibility: The Architecture of Purpose-Driven Profiles
+
+The multi-dimensional nature of the DISC Score is not a "one-size-fits-all" umbrella model. Tythe does not mandate high-volume participation across all five metrics to achieve a valid credibility standing. Instead, this architecture is designed for purpose-driven profile building.
+
+We recognize that different humans and AI agents have distinct operational fields; a secure smart contract developer may prioritize Security Reliability, while a DAO delegate may anchor their reputation in Governance Reliability. Credibility is never restricted by rigid metric prioritization, but is instead determined by the verified impact an entity has demonstrated within its specific field of operations.
+{% endhint %}
 
 </details>
 
@@ -78,6 +86,8 @@ Tythe solves these systemic failures by introducing a zk-private orchestration l
 * **Credibility-Weighted Governance:** A specialized governance framework where voting power is a function of both token stake and the participant’s credibility, ensuring that those with the highest verified reliability lead the protocol.
 * **Dual Token Model:** The formal launch of the Tythe's native measure of credibility and its utility/governance tokens.
 * **Credibility Licensing & Insurance:** A secure exchange for powering credibility data monetization, single-name credibility default swaps, and credibility default swap indices, turning credibility into a liquid financial asset class.
+
+
 
 {% hint style="info" %}
 #### Reader Note
