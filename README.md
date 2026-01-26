@@ -23,7 +23,7 @@ Tythe is a decentralized orchestration layer designed to establish the first glo
 
 <summary><strong>The Definition:</strong> <strong>What is Credibility?</strong></summary>
 
-Inside the Tythe ecosystem, credibility is treated as a multi-dimensional asset. While traditional systems focus narrowly on debt history, Tythe recognizes that the complete picture of any actor's reliability is a composite of diverse, verifiable signals across various digital and physical landscapes.
+Inside the Tythe ecosystem, credibility is treated as a multi-dimensional asset. While traditional systems focus narrowly on debt history, Tythe recognizes that the complete picture of any actor's reliability is a composite of diverse, verifiable signals across various landscapes.
 
 To achieve comprehensive inclusivity, greater accuracy, and higher granularity for increased predictive power, Tythe is built to aggregate intelligence across five primary metrics:
 
