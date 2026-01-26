@@ -23,7 +23,7 @@ Tythe is a decentralized orchestration layer designed to establish the first glo
 
 <summary><strong>The Definition: What is Credibility?</strong></summary>
 
-In the Tythe ecosystem, "Credibility" is the multi-dimensional asset representing an actor's total reliability. It serves as the aggregated result of verified behavioral signals—spanning (_1) Compliance Reliability_, _(2) Financial Reliability_, _(3) Governance Reliability_, _(4) Security Reliability_, and _(5) Sustainability Reliability_ metrics—of which traditional "Creditworthiness" is merely a single _Financial Reliability_ sub-component.
+In the Tythe ecosystem, "Credibility" is the multi-dimensional asset representing an actor's total reliability. It serves as the aggregated result of verified behavioral signals—spanning across: (_1) Compliance Reliability_, _(2) Financial Reliability_, _(3) Governance Reliability_, _(4) Security Reliability_, and _(5) Sustainability Reliability_ metrics—of which traditional "Creditworthiness" is merely a single _Financial Reliability_ sub-component.
 
 </details>
 
