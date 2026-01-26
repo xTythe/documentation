@@ -30,7 +30,7 @@ In the Tythe ecosystem, "Credibility" is the asset capable of representing an ac
 {% hint style="info" %}
 #### Multi-Dimensional Credibility: The Architecture of Purpose-Driven Profiles
 
-The multi-dimensional nature of the DISC Score is not a "one-size-fits-all" umbrella model. Tythe does not mandate high-volume participation across all five metrics to achieve a valid credibility standing. Instead, this architecture is designed for purpose-driven profile building.
+The multi-dimensional nature of credibility in Tythe is not a "one-size-fits-all" umbrella model. Tythe does not mandate high-volume participation across all five metrics to achieve a valid credibility standing. Instead, this architecture is designed for purpose-driven profile building.
 
 We recognize that different humans and AI agents have distinct operational fields; a secure smart contract developer may prioritize Security Reliability, while a DAO delegate may anchor their reputation in Governance Reliability. Credibility is never restricted by rigid metric prioritization, but is instead determined by the verified impact an entity has demonstrated within its specific field of operations.
 {% endhint %}
