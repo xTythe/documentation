@@ -23,9 +23,9 @@ Tythe is a decentralized orchestration layer designed to establish the first glo
 
 <summary><strong>The Definition: What is Credibility?</strong></summary>
 
-In the Tythe ecosystem, "Credibility" is the asset capable of representing an actor's total multi-dimensional reliability. It serves as the aggregated result of verified behavioral signals spanning across five metrics, of which traditional "Creditworthiness" is a sub-component of the Financial Reliability metric:
+In the Tythe ecosystem, "Credibility" is the asset capable of representing an actor's total multi-dimensional reliability. It serves as the aggregated result of verified behavioral signals spanning across five reliability metrics, of which traditional "Creditworthiness" is a sub-component of the Financial Reliability metric:
 
-* **Compliance&#x20;**_**Reliability Metric**_**:** Verifies adherence to regulatory frameworks. This covers Proof of Personhood (PoP)/Know Your Customer (KYC)/Anti-Money Laundering (AML)/Know Your Agent (KYA) status, jurisdictional eligibility, and sanction-list screening. It ensures that actors meet rigorous compliance standards for institutional interaction without ever exposing sensitive PII to the network.
+* **Compliance&#x20;**_**Reliability Metric**_**:** Verifies adherence to regulatory frameworks. This covers Proof of Personhood (PoP)/Know Your Customer (KYC)/Anti-Money Laundering (AML)/Know Your Agent (KYA) status, jurisdictional eligibility, and sanction-list screening. It ensures that actors meet regulatory compliance standards for institutional interaction without ever exposing sensitive PII to the network.
 * **Financial&#x20;**_**Reliability Metric**_**:** Measures total solvency and capital efficiency. This includes verified income and employment, historical repayment reliability, cashflow, balance maintenance, and granular DeFi activity (lending, borrowing, staking, LP positioning, and trading). It further accounts for tokenized asset experience—including Real-World Asset (RWA) exposure, portfolio management, liquidity depth—incorporating and superseding traditional creditworthiness.
 * **Governance&#x20;**_**Reliability Metric**_**:** Evaluates the quality of participation within decentralized structures. This tracks on-chain voting history, proposal frequency, delegation reliability, and alignment with protocol-specific standards, distinguishing active, value-aligned contributors from passive or extractive actors.
 * **Security&#x20;**_**Reliability Metric**_: Assesses the technical and operational integrity of an actor. For developers, this includes smart contract authorship and audit history; for operators, it monitors validator uptime, slashing history, and secure key management behavior. This metric ensures of technical capabilty and soundness.
@@ -36,11 +36,11 @@ In the Tythe ecosystem, "Credibility" is the asset capable of representing an ac
 Credibility is a standard designed to achieve comprehensive inclusivity, greater accuracy, and higher granularity for increased predictive power and a wider range of use cases.
 
 {% hint style="info" %}
-#### Multi-Dimensional Credibility: The Architecture of Purpose-Driven Profiles
+#### About Multi-Dimensional Credibility
 
 The multi-dimensional nature of credibility in Tythe is not a "one-size-fits-all" umbrella model. Tythe does not mandate high-volume participation across all five metrics to achieve a valid credibility standing. Instead, this architecture is designed for purpose-driven profile building.
 
-We recognize that different humans and AI agents have distinct operational fields; a developer may anchor their identity in Security, while a delegate focuses on Governance. Credibility is determined by verified impact within an entity's specific field of operation.
+We recognize that different humans and AI agents have distinct operational fields; a developer may anchor their identity in Security, a delegate focuses on Governance, while Finance is probably common for all but prioritized by some. Tythe ensures that credibility is determined by verified impact within an entity's specific field of operational expertise.
 {% endhint %}
 
 </details>
@@ -49,7 +49,7 @@ We recognize that different humans and AI agents have distinct operational field
 
 <summary><strong>The Problem:</strong> <strong>Why is Tythe necessary?</strong></summary>
 
-The development of the Tythe standard is a response to the systemic failures and limitations of the models that preceded it.
+The development of the Tythe standard is a response to the systemic limitations of the models that preceded it.
 
 * **Traditional off-chain models (for creditworthiness):** \
   Rely on black-box algorithms and centralized bureaus that store sensitive PII leading to single point failures (like Equifax 2017, where a single breach exposed the data of 147 million people). These systems also suffer from jurisdictional friction (intelligence is limited by national borders) and lagging reports (these can be days or even weeks out-of-sync with reality) that compromise user sovereignty and impose an "AI ceiling," effectively excluding autonomous agents and millions of "thin-file" humans while trapping global liquidity.
