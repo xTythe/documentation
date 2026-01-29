@@ -25,7 +25,7 @@ Tythe is a decentralized orchestration layer designed to establish the first glo
 
 In the Tythe ecosystem, "Credibility" is the asset capable of representing an actor's total multi-dimensional reliability. It serves as the aggregated result of verified behavioral signals spanning across five metrics, of which traditional "Creditworthiness" is a sub-component of the Financial Reliability metric:
 
-* **Compliance&#x20;**_**Reliability Metric**_**:** Verifies adherence to regulatory frameworks. This covers Proof of Humanity/KYC/AML status, jurisdictional eligibility, and sanction-list screening. It ensures that actors meet rigorous compliance standards for institutional interaction without ever exposing sensitive PII to the network.
+* **Compliance&#x20;**_**Reliability Metric**_**:** Verifies adherence to regulatory frameworks. This covers Proof of Personhood (PoP)/Know Your Customer (KYC)/Anti-Money Laundering (AML)/Know Your Agent (KYA) status, jurisdictional eligibility, and sanction-list screening. It ensures that actors meet rigorous compliance standards for institutional interaction without ever exposing sensitive PII to the network.
 * **Financial&#x20;**_**Reliability Metric**_**:** Measures total solvency and capital efficiency. This includes verified income and employment, historical repayment reliability, cashflow, balance maintenance, and granular DeFi activity (lending, borrowing, staking, LP positioning, and trading). It further accounts for tokenized asset experience—including Real-World Asset (RWA) exposure, portfolio management, liquidity depth—incorporating and superseding traditional creditworthiness.
 * **Governance&#x20;**_**Reliability Metric**_**:** Evaluates the quality of participation within decentralized structures. This tracks on-chain voting history, proposal frequency, delegation reliability, and alignment with protocol-specific standards, distinguishing active, value-aligned contributors from passive or extractive actors.
 * **Security&#x20;**_**Reliability Metric**_: Assesses the technical and operational integrity of an actor. For developers, this includes smart contract authorship and audit history; for operators, it monitors validator uptime, slashing history, and secure key management behavior. This metric ensures of technical capabilty and soundness.
@@ -64,7 +64,7 @@ The development of the Tythe standard is a response to the systemic failures and
 
 Tythe’s architecture is designed to be audience-tailored, enabling Individuals, Developers, AI Agents, and Organizations to interact with the protocol’s foundational infrastructure to achieve specific operational goals. While all entities share the same underlying fabric, they navigate Tythe’s 7 Pillars differently to leverage assetized credibility in a privacy-preserving environment.
 
-**The 7 Pillars of Credibility**
+**Tythe's 7 Architectural Pillars**
 
 1. **Identity:** The foundation of the network. This pillar orchestrates identity authentication, uniqueness, compliance, and aggregation. Utilizing self-soveriegn, decentralized identities on the `did:cheqd network` as the anchoring layer (active on the cheqd testnet during Tythe testnet), Tythe enables its DIDs to function as universal, sovereign keys that persist across jurisdictions and platforms.\
    &#xNAN;_&#x4E;ote: AI Proof of Liability (Legal-grade) module is a roadmap item._
