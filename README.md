@@ -62,46 +62,11 @@ The development of the Tythe standard is a response to the systemic failures and
 
 <summary><strong>The Solution:</strong> <strong>How does Tythe work?</strong></summary>
 
-Tythe solves these systemic bottlenecks by introducing an orchestration layer that bridges the gap between raw data and actionable risk-intelligence. The protocol does not merely "score" a user; it manages the entire lifecycle of credibility through a robust, modular stack.
-
-\ <mark style="color:$primary;">**Live Modules:**</mark> These core components are operational and form the immediate utility of the protocol during the launch phase:
-
-* **Self-Sovereign DIDs:** Every participant—human or agent—anchors their decentralized identity on the `did:cheqd` network. This provides a persistent, globally unique identifier that remains decoupled from biological data or fragmented wallet addresses.
-* **Verifiable Credentials (VCs):** Important identity compliance attestations—Proof of Humanity/KYC/AML checks—are issued as W3C-compliant VCs. These are portable, tamper-proof, and can be presented to any verifier.
-* **Verifiable Receipts (VRs):** The units of memory inside Tythe. VRs are cryptographic proofs of specific events—such as a successful loan repayment or a governance vote—that serve as the raw evidencial inputs for provided risk-intelligence outputs. Each individual receipt can be exported and shared.
-* **Private Memory Ledgers:** These ledgers act as credibility footprint repositories that store Verifiable Receipts. During the current phase, these ledgers operate with cloud-based encryption and manageable decryption keys, transitioning to a fully self-custodial model with local private key management during the Mainnet migration.
-* **Zero-Knowledge Proofs:** Users prove eligibility (e.g., "I am a qualified investor", "I am a reliable borrower", "I have high voting integrity") without revealing the underlying data, ensuring 0% PII exposure.
-* **Standardized Values:** The computation engine transforms raw behavior into a 7–100 credibility score and 0.000–1.000 metric reliability factors for granular, multi-dimensional risk-intelligence. Conversely, negative behavior is categorized using violation codes (1–6), providing a standardized numerical language for reliability and misconduct that institutions can underwrite with confidence.
-* **Configurable Reports:** Similar to traditional credit reports, these off-chain, portable documents allow users to define granular privacy and permission settings over their verified standing, while enabling institutions to customize report generation by specific metrics, timeframes, and data depth to meet their unique underwriting or auditing requirements.&#x20;
-* **Policy-as-Code (VPs & APs):** Organizations define exactly how credibility is earned or lost for users on their platform by writing Validation Policies (VPs) using a standard set of automated behavioral-trigger rules. Access Policies (APs) are implemented to gate products and services behind credibility thresholds and compliance requirements. This removes human bias and black-box interference from the trust process.
-* **Decentralized Validation:** The three-set validator model ensures that no single entity controls the standard. Validation power is distributed across Organizational (for behavioral attestation), Peer (for social reputation), and Jury validators (for decentralized justice) to eliminate bias, identity recycling, and central points of failure.
-
-\ <mark style="color:$info;">**Locked Modules:**</mark> The following modules represent the strategic growth of the protocol:
-
-* **Proof of Liability:** Utilizing Ricardian Contracts, this module will cryptographically bind AI Agents to their human or organizational registrants, creating a legal and economic anchor for accountable, high-stakes autonomous operations.
-* **Credibility-Weighted Governance:** A specialized governance framework where voting power is a function of both token stake and the participant’s credibility, ensuring that those with the highest verified reliability lead the protocol.
-* **Dual Token Model:** The formal launch of the Tythe's native measure of credibility and its utility/governance tokens.
-* **Credibility Licensing & Insurance:** A secure exchange for powering credibility data monetization, single-name credibility default swaps, and credibility default swap indices, turning credibility into a liquid financial asset class.
-
-
-
-{% hint style="info" %}
-#### Reader Note
-
-To maintain accessibility for all audiences, we have refrained from using Tythe-native terminology on this canonical page where possible. To map Tythe-native terminology to specific protocol products, modules, and mechanics, please refer to the [Native Glossary](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/n9NH64V8Hfw4pxlNBmxl/~/edit/~/changes/27/the-standard-for-global-credibility/native-glossary).
-{% endhint %}
-
-</details>
-
-<details>
-
-<summary><strong>The Solution:</strong> <strong>How does Tythe work?</strong></summary>
-
 Tythe’s architecture is designed to be audience-tailored, enabling Individuals, Developers, AI Agents, and Organizations to interact with the protocol’s foundational infrastructure to achieve specific operational goals. While all entities share the same underlying fabric, they navigate Tythe’s 7 Pillars differently to leverage assetized credibility in a privacy-preserving environment.
 
 **The 7 Pillars of Credibility**
 
-1. **Identity:** The foundation of the network. This pillar orchestrates identity authentication, uniqueness, compliance, and aggregation. Utilizing `did:cheqd` as the anchoring layer (currently active on the cheqd testnet), Tythe enables its DIDs to function as universal, sovereign keys that persist across jurisdictions and platforms.\
+1. **Identity:** The foundation of the network. This pillar orchestrates identity authentication, uniqueness, compliance, and aggregation. Utilizing self-soveriegn, decentralized identities on the `did:cheqd network` as the anchoring layer (active on the cheqd testnet during Tythe testnet), Tythe enables its DIDs to function as universal, sovereign keys that persist across jurisdictions and platforms.\
    &#xNAN;_&#x4E;ote: AI Proof of Liability (Legal-grade) module is a roadmap item._
 2. **Data:** This pillar transforms raw behavioral signals into standardized, high-fidelity, machine-readable outputs for risk-intelligence: 1–6 (Violation Codes), 7–100 (Credibility Score), and 0.000–1.000 (Metric Reliability Factors—granular scoring across Tythe's 5 metrics). To support institutional decision-making, Tythe generates audit-grade Credibility Reports (available in configurable metrics, timeframe, and depth) that provide verifiable, privacy-preserving summaries of an actor’s profile. The protocol provides a Verifiable Receipt (VR)-based memory layer where data remains private and permissions-based by default, ensuring that sensitive evidence is never exposed without authorization.\
    &#xNAN;_&#x4E;ote: Advanced non-custodial upgrades for memory ledgers is a roadmap item._
