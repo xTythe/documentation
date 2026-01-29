@@ -17,35 +17,40 @@ layout:
 
 # The Tythe Protocol
 
-Tythe is a decentralized orchestration layer designed to establish the first global standard for assetized credibility. It serves as the foundational infrastructure for a risk-intelligent, borderless economy, empowering humans and AI agents with a purpose-built credibility profile that proves their reliability—their ability to carry risk—without limiting the effectiveness of their profile to a single jurisdiction, compromising their privacy, or relying on centralized intermediaries. For digital institutions, DeFi protocols, DAOs, and cross-sector applications, Tythe provides the critical rails to scale operations by offloading risk-data liability, automating risk enforcement, and going beyond proof of personhood risk-management with verifiable, real-time intelligence.
+Tythe is a decentralized orchestration layer designed to establish the first global standard for Assetized Credit. It serves as the foundational infrastructure for a risk-intelligent, borderless economy, empowering Humans and AI Agents with sovereign credit profiles that prove their financial reliability—their capacity to carry risk—without the friction of national borders, the risks of centralized data honeypots, or the opacity of legacy bureaus. For digital institutions, DeFi protocols, and global enterprises, Tythe provides the critical rails to scale operations by offloading risk-data liability, automating credit enforcement, and transforming static reliability signals into real-time, programmable assets.
 
 <details>
 
-<summary><strong>The Definition: What is Credibility?</strong></summary>
+<summary><strong>The Definition: What is Credit?</strong></summary>
 
-In the Tythe ecosystem, "Credibility" is the asset capable of representing an actor's total multi-dimensional reliability. It serves as the aggregated result of verified behavioral signals spanning across five reliability metrics, of which traditional "Creditworthiness" is a sub-component of the Financial Reliability metric:
+In the Tythe ecosystem, Credit is not merely a number; it is a sovereign financial asset representing an actor's total reliability within the global economy.
 
-* **Compliance Reliability Metric:** \
-  Verifies adherence to regulatory frameworks. This covers Proof of Personhood (PoP)/Know Your Customer (KYC)/Anti-Money Laundering (AML)/Know Your Agent (KYA) status, jurisdictional eligibility, and sanction-list screening. It ensures that actors meet regulatory compliance standards for institutional interaction without ever exposing sensitive PII to the network.
-* **Financial Reliability Metric:** \
-  Measures total solvency and capital efficiency. This includes verified income and employment, historical repayment reliability, cashflow, balance maintenance, and granular DeFi activity (lending, borrowing, staking, LP positioning, and trading). It further accounts for tokenized asset experience—including Real-World Asset (RWA) exposure, portfolio management, liquidity depth—incorporating and superseding traditional creditworthiness.
-* **Governance Reliability Metric:** \
-  Evaluates the quality of participation within decentralized structures. This tracks on-chain voting history, proposal frequency, delegation reliability, and alignment with protocol-specific standards, distinguishing active, value-aligned contributors from passive or extractive actors.
-* **Security Reliability Metric**: \
-  Assesses the technical and operational integrity of an actor. For developers, this includes smart contract authorship and audit history; for operators, it monitors validator uptime, slashing history, and secure key management behavior. This metric ensures of technical capabilty and soundness.
-* **Sustainability Reliability Metric:** \
-  Tracks alignment with ESG (Environmental, Social, and Governance) initiatives. This includes participation in carbon and renewable energy markets, sustainability-linked finance, and social impact programs, rewarding actors whose behavioral data reflects long-term environmental and social responsibility.
+Tythe Credit is the aggregated result of verified, real-time behavioral signals processed through the TCS-26 (Tythe Credit Standard 2026) engine. Unlike legacy models that equate credit solely with "debt history," Tythe defines credit as the capacity to carry and manage risk. This is quantified through two distinct but interconnected layers: the TCS Scoreand a suite of Granular Reliability Factors (GRFs).
 
-<figure><img src=".gitbook/assets/Image 1-25-26 at 10.36 PM.png" alt=""><figcaption></figcaption></figure>
+**1. The TCS Score: Bias-Blind Reliability**
 
-Credibility is a standard designed to achieve comprehensive inclusivity, greater accuracy, and higher granularity for increased predictive power and a wider range of use cases.
+The TCS Score (7–100) is the protocol’s primary measure of Behavioral Reliability. To ensure total fairness and global inclusivity, the TCS Score is designed to be bias-blind:
+
+* **Pure Behavior:** The engine does not intake employment status, income levels, or raw financial volumes (USD-equivalence) into the TCS calculation.
+* **Reliability over Capacity:** It is a pure reflection of _how_ an actor behaves—their consistency in repayment, adherence to security protocols, and alignment with compliance standards.
+* **Global Standard:** This allows a retail borrower and an institutional fund manager to be measured on the same scale of "Trustworthiness," independent of their net worth.
+
+**2. The Granular Reliability Factors (GRFs): Capacity-Weighted Intelligence**
+
+While the TCS Score measures intent, the GRFs (0.000–1.000) provide the "Economic DNA" required for institutional-grade underwriting. These factors account for Financial Capacity, proving an actor's reliability at scale:
+
+* **Solvency & Liquidity:** Measures real-time capital efficiency, stablecoin cashflow, and balance maintenance (savings).
+* **Borrower Integrity:** Tracks historical repayment reliability and settlement consistency across DeFi and tokenized debt markets.
+* **Security & Compliance:** Evaluates the safety of financial execution (wallet security, audit-aligned interactions) and ZK-verified regulatory standing (KYC/AML/Proof of Humanity).
+* **Asset Management:** Evaluates the quality of portfolio retention, including Real-World Asset (RWA) exposure, staking duration, and tokenized management.
+* **Market Experience:** Analyzes the depth of participation in liquidity pools, trading volume, and "stickiness" (non-mercenary behavior) across execution venues.
+
+The Tythe Credit Standard (TCS) and Granular Relibility Factors (GRFs) are designed to achieve comprehensive inclusivity, greater accuracy, and higher granularity for increased predictive power and a wider range of use cases.
 
 {% hint style="info" %}
-#### About Multi-Dimensional Credibility
+#### **Contextual Weighting: An Intelligent Scoring Standard**
 
-The multi-dimensional nature of credibility in Tythe is not a "one-size-fits-all" umbrella model. Tythe does not mandate high-volume participation across all five metrics to achieve a valid credibility standing. Instead, this architecture is designed for purpose-driven profile building.
-
-We recognize that different humans and AI agents have distinct operational fields; a developer may anchor their identity in Security, a delegate focuses on Governance, while Finance is probably common for all but prioritized by some. Tythe ensures that credibility is determined by verified impact within an entity's specific field of operational expertise.
+While the TCS-26 is a universal standard, Tythe applies Contextual Weighting to ensure accuracy across diverse actors. The protocol recognizes that an AI Agent managing a treasury and a human retail borrower demonstrate reliability through different behavioral patterns. Tythe ensures credit is evaluated based on the verified impact within an actor's specific economic context—merging behavioral intent with financial capacity to create a 360-degree risk profile.
 {% endhint %}
 
 </details>
@@ -54,12 +59,29 @@ We recognize that different humans and AI agents have distinct operational field
 
 <summary><strong>The Problem:</strong> <strong>Why is Tythe necessary?</strong></summary>
 
-The development of the Tythe standard is a response to the systemic limitations of the models that preceded it.
+The development of the Tythe Credit Standard is a direct response to the systemic failures and structural limitations of the financial models that preceded it. Traditional and early on-chain credit systems are no longer sufficient to underwrite the participants of a high-velocity, automated economy.
 
-* **Traditional off-chain models (for creditworthiness):** \
-  Rely on black-box algorithms and centralized bureaus that store sensitive PII leading to single point failures (like Equifax 2017, where a single breach exposed the data of 147 million people). These systems also suffer from jurisdictional friction (intelligence is limited by national borders) and lagging reports (these can be days or even weeks out-of-sync with reality) that compromise user sovereignty and impose an "AI ceiling," effectively excluding autonomous agents and millions of "thin-file" humans while trapping global liquidity.
-* **Current on-chain models (for creditworthiness):** \
-  Improve transparency but remain tethered to histories of disposable wallet addresses. Without an orchestrated identity layer, they are highly vulnerable to Sybil manipulation and wallet recycling, failing to provide the long-term accountability or multi-sector depth required for institutional risk management.
+1. **Traditional Off-Chain Models:** Traditional credit relies on opaque scoring algorithms and centralized architecture that is defined by systemic inaccuracies, lack of transparency, and inherent biases.
+   * **Security Risks:** Centralized PII storage creates massive single points of failure (e.g., the 2017 Equifax breach).
+   * **Compromised Sovereignty:** Users have zero control over their data, and errors in reporting often take months of manual dispute to resolve.
+   * **Jurisdictional Friction:** Credit intelligence is currently bound by national borders. A "Good" score in one country is functionally worthless the moment an actor crosses a border, trapping global liquidity.
+   * **Reporting Lag:** Legacy reports are days out-of-sync with reality, often relying on low-latency snapshots. In a high-velocity market, this lag represents unacceptable risk.
+   * **The AI Ceiling:** Biological-based identifiers (SSNs/Passports) cannot scale to underwrite AI Agents, effectively barring autonomous actors from participating in the global credit economy.
+   * **Limited View of Creditworthiness:** Traditional scores do not consider income, employment history, or rental payments, potentially making millions of people "credit invisible".&#x20;
+2. **Current On-Chain Models:** Early decentralized models improved output transparency but failed to solve the fundamental problem of identity integrity and opaque algorithmic scoring.
+   * **Identity Recycling:** Most on-chain models remain tethered to disposable wallet addresses. Without an orchestrated identity layer, actors can "wash" a poor credit history by simply rotating to a new address, making long-term accountability impossible.
+   * **Opaque Scoring:** Many DeFi credit protocols operate as "new bureaus," using closed-source scoring logic that lacks the multi-sector depth (RWA exposure, security audits, and compliance history) required for institutional-grade risk management.
+   * **Sybil Vulnerability:** Without compliance and uniqueness anchors embedded into credit, on-chain systems remain vulnerable to coordinated manipulation, leading to chronic over-collateralization and capital inefficiency.
+   * **Reporting Lag:** Legacy reports are days out-of-sync with reality, often relying on low-latency snapshots. In a high-velocity market, this lag represents unacceptable risk.
+   * **The AI Ceiling:** Biological-based identifiers (SSNs/Passports) cannot scale to underwrite AI Agents, effectively barring autonomous actors from participating in the global credit economy.
+
+{% hint style="danger" %}
+#### The Result: Fear-Driven Financial Markets
+
+* **In DeFi:** Protocols enforce extreme over-collateralization because they cannot verify counterparty reliability.
+* **In TradFi:** Institutions are blocked from blockchain markets because they cannot verify compliance or credit history without exposing sensitive data.
+* **In the Agent Economy:** AI Agents are treated as "bots" to be blocked rather than economic actors to be held liable.
+{% endhint %}
 
 </details>
 
@@ -67,19 +89,30 @@ The development of the Tythe standard is a response to the systemic limitations 
 
 <summary><strong>The Solution:</strong> <strong>How does Tythe work?</strong></summary>
 
-Tythe’s architecture is designed to be audience-tailored, enabling Individuals, Developers, AI Agents, and Organizations to interact with the protocol’s foundational infrastructure to achieve specific operational goals. While all entities share the same underlying fabric, they navigate Tythe differently to leverage assetized credibility in a privacy-preserving environment.
 
-**Tythe's 7 Architectural Pillars**
 
-1. **Identity:** The foundation of the network. This pillar orchestrates identity authentication, uniqueness, compliance, and aggregation. Utilizing self-soveriegn, decentralized identities on the `did:cheqd` network as the anchoring layer (active on the cheqd testnet during Tythe's testnet), Tythe enables its DIDs to function as universal, sovereign keys that persist across jurisdictions and platforms.\
-   &#xNAN;_&#x4E;ote: AI Proof of Liability (Legal-grade) module is a roadmap item._
-2. **Data:** This pillar transforms raw behavioral signals into standardized, high-fidelity, machine-readable outputs for risk-intelligence: 1–6 (Violation Codes), 7–100 (Credibility Score), and 0.000–1.000 (Metric Reliability Factors—granular scoring across Tythe's 5 metrics). To support institutional decision-making, Tythe generates audit-grade Credibility Reports (available in configurable metrics, timeframe, and depth) that provide verifiable, privacy-preserving summaries of an actor’s profile. The protocol provides a Verifiable Receipt (VR)-based memory layer where data remains private and permissions-based, ensuring that sensitive evidence is never exposed without authorization.\
-   &#xNAN;_&#x4E;ote: Advanced non-custodial upgrades for memory ledgers is a roadmap item._
-3. **Validation:** This pillar utilizes policy-as-code to allow organizations to automate attesting on observed valuable behavior within their digital boundaries using a standard set of behavioral trigger rules. It also facilitates credibility transfers, enabling peer-to-peer validation where actors can vouch for the performance of other actors, with built in manipulation-resistance systemic safeguards.
-4. **Enforcement:** Enforcement empowers institutional participants to define access conditions and eligibility requirements using policy-as-code; these gates automatically permit or deny entry based on real-time credibility scores, metric reliability factors, reports, and specific compliance checks. This ensures system privileges and products across multiple digital platforms are gated by the highest quality of merit.
-5. **Justice:** Credibility requires recourse. The Justice pillar utilizes Decentralized Juries—randomly selected, high-credibility participants—to review evidence-backed cases of misconduct and issue binding verdicts. This process protects the network from systemic abuse by applying a status of unreliability (using the 1-6 Violation Codes) to malicious identities, effectively blacklisting the root DID across every linked data aggregator.
-6. **Governance:** A locked roadmap module to be activated post-mainnet. This pillar will transition the protocol’s parameters into the hands of a decentralized community of "high-credibility" stakeholders. Tythe governance participants are weighted to lead only the pillars associated with their specific dimensions of operational expertise.
-7. **Value:** The economic layer of credibility. This pillar manages Tythe's dual-token framework (TCT for ecosystem credibility, and TYT for ecosystem incentives)—both of which contribute to governance weighting. While the core tokens launch during Testnet v1.2, Tythe's financial stack (for credibility data licensing and credibility default swaps) and economic programs are reserved for post-mainnet deployment.
+1. **Identity:** This pillar orchestrates identity authentication, uniqueness, compliance, and aggregation. Utilizing did:cheqd as the anchoring layer (currently active on the cheqd testnet), Tythe enables its DIDs to function as sovereign, root keys that persist across jurisdictions and platforms.
+2. **Data:** This pillar transforms raw behavioral signals into standardized, machine-readable outputs: 1-6 (Violation Codes), 7-100 (TCS Credit Score), and 0.000-1.000 (Granular Reliability Factors—GRFs). The protocol provides a Verifiable Receipt-based memory layer and institutional-grade, configurable reports (TCS Credit Reports and GRF Reliability Reports) where data remains private and permissions-based by default.
+3. **Validation:** This pillar utilizes policy-as-code to allow institutions and protocols to automate attesting based on observed valuable behavior within their digital boundaries. Organizations define the parameters of "reliability," and the protocol handles the cryptographically secure verification of those actions.
+4. **Enforcement:** Risk-Intelligent Gatekeeping This pillar empowers institutional participants to define access conditions and eligibility requirements using Policy-as-Code. These gates automatically permit or deny entry based on real-time TCS scores, GRFs, reports, and specific compliance checks. This ensures system privileges and financial products are gated by the highest quality of merit.
+5. **Justice:** Credit data requires recourse for maximum accuracy. The Justice pillar utilizes Decentralized Juries—randomly selected, high-reliability participants—to review evidence-backed cases of misconduct and handle credit reporting disputes. This process protects the network by applying a status of unreliability (Violation Codes 1-6) to malicious identities, effectively flagging the root DID across the entire ecosystem.
+6. **Governance:** A locked module to be activated post-mainnet. This pillar will transition the protocol’s parameters into the hands of a decentralized community of reliability weighted stakeholders. Tythe governance participants are selected to lead only their specific dimensions of operational expertise.
+7. **Value:** A locked module to be activated post-mainnet. This pillar manages a dual token framework for ecosystem credit and incentives. Both tokens are utilized for governance weighting. The Tythe financial stack and capital programs are reserved for post-mainnet launch.
+
+{% hint style="info" %}
+#### Navigation Note
+
+Tythe’s solutions are audience-tailored, currently enabling Individuals, Developers, and Institutions to interact with a unified foundational infrastructure. While all three entities share the same underlying fabric, they navigate Tythe’s 7 Pillars differently to leverage assetized credit in a privacy-preserving environment. To learn more about how currently supported audience groups interact with these pillars to achieve their goals, please refer to the \[Audience Orientation Guide].
+
+* For Individuals
+* For Developers
+* For Institutions
+
+\
+Note: The framework to support assetized credit for AI Agent actors is a post-mainnet launch item. Click here to learn more about the how Tythe will power agentic commerce.
+{% endhint %}
+
+
 
 </details>
 

@@ -1,10 +1,10 @@
 # Table of contents
 
-## The Standard for Global Credibility
+## The Standard for Global Credit
 
 * [The Tythe Protocol](README.md)
-* [Native Glossary](the-standard-for-global-credibility/native-glossary.md)
-* [Audiences & Roles](the-standard-for-global-credibility/audiences-and-roles.md)
+* [Native Glossary](the-standard-for-global-credit/native-glossary.md)
+* [Audiences & Roles](the-standard-for-global-credit/audiences-and-roles.md)
 
 ## Ecosystem & Network
 
