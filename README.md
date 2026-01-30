@@ -89,35 +89,37 @@ The development of the Tythe Credit Standard is a direct response to the systemi
 
 <summary><strong>The Solution:</strong> <strong>How does Tythe work?</strong></summary>
 
+Tythe flips the script on legacy credit by replacing opaque, centralized bureaus with a decentralized orchestration layer designed specifically to solve the systemic failures of modern risk-intelligence. Our architecture transforms static behavioral data into a liquid, sovereign, and Assetized Credit standard.
 
+#### **The 7 Pillars of Modern Credit**
 
-1. **Identity:** This pillar orchestrates identity authentication, uniqueness, compliance, and aggregation. Utilizing did:cheqd as the anchoring layer (currently active on the cheqd testnet), Tythe enables its DIDs to function as sovereign, root keys that persist across jurisdictions and platforms.
-2. **Data:** This pillar transforms raw behavioral signals into standardized, machine-readable outputs: 1-6 (Violation Codes), 7-100 (TCS Credit Score), and 0.000-1.000 (Granular Reliability Factors—GRFs). The protocol provides a Verifiable Receipt-based memory layer and institutional-grade, configurable reports (TCS Credit Reports and GRF Reliability Reports) where data remains private and permissions-based by default.
-3. **Validation:** This pillar utilizes policy-as-code to allow institutions and protocols to automate attesting based on observed valuable behavior within their digital boundaries. Organizations define the parameters of "reliability," and the protocol handles the cryptographically secure verification of those actions.
-4. **Enforcement:** Risk-Intelligent Gatekeeping This pillar empowers institutional participants to define access conditions and eligibility requirements using Policy-as-Code. These gates automatically permit or deny entry based on real-time TCS scores, GRFs, reports, and specific compliance checks. This ensures system privileges and financial products are gated by the highest quality of merit.
-5. **Justice:** Credit data requires recourse for maximum accuracy. The Justice pillar utilizes Decentralized Juries—randomly selected, high-reliability participants—to review evidence-backed cases of misconduct and handle credit reporting disputes. This process protects the network by applying a status of unreliability (Violation Codes 1-6) to malicious identities, effectively flagging the root DID across the entire ecosystem.
-6. **Governance:** A locked module to be activated post-mainnet. This pillar will transition the protocol’s parameters into the hands of a decentralized community of reliability weighted stakeholders. Tythe governance participants are selected to lead only their specific dimensions of operational expertise.
-7. **Value:** A locked module to be activated post-mainnet. This pillar manages a dual token framework for ecosystem credit and incentives. Both tokens are utilized for governance weighting. The Tythe financial stack and capital programs are reserved for post-mainnet launch.
+1. **Identity:** The foundation of the network. This pillar orchestrates identity authentication, uniqueness, compliance, and aggregation. Utilizing did:cheqd as the anchoring layer, Tythe enables its DIDs to function as sovereign, root keys that persist across jurisdictions and platforms.
+2. **Data:** This pillar transforms raw behavioral signals into standardized, machine-readable outputs: 1–6 (Violation Codes), 7–100 (TCS Credit Score), and 0.000–1.000 (GRFs). The protocol provides a Verifiable Receipt-based memory layer and institutional-grade, configurable reports (TCS Credit Reports and GRF Reliability Reports) where data remains private and permissions-based by default.
+3. **Validation:** This pillar utilizes policy-as-code to allow institutions and protocols to automate attesting based on observed valuable behavior within their digital boundaries. Institutions define the parameters of reliability, and the protocol handles the secure verification of those actions. Effectively, this empowers every digital institution and protocol to become an autonomous credit scorer for their users' activity, utilizing the Tythe Credit Standard 2026 (TCS-26) as the global language of financial reliability.
+4. **Enforcement:** Empowering institutional participants with risk-intelligent gatekeeping (to define access conditions and eligibility requirements) using policy-as-code. These gates automatically permit or deny entry based on real-time TCS scores, GRFs, reports, and specific compliance checks.
+5. **Justice:** Credit data requires recourse for maximum accuracy. The Justice pillar utilizes Decentralized Juries—randomly selected, high-reliability participants—to review evidence-backed cases of misconduct and handle credit reporting disputes. This further protects the network by applying a status of unreliability (Violation Codes 1-6) to malicious root identities, effectively flagging every data aggregator associated with the flagged DID.
+6. **Governance:** A locked module to be activated post-mainnet. This pillar will transition the protocol’s parameters into the hands of a decentralized community of reliability-weighted stakeholders. Governance participants lead only their specific dimensions of operational expertise.
+7. **Value:** This pillar manages a dual-token framework, the Tythe financial stack (neutral infrastructure for credit data monetization and credit default swap markets), and capital programs to ensure risk-intelligent routing of global capital—powered by Tythe.
 
 {% hint style="info" %}
 #### Navigation Note
 
 Tythe’s solutions are audience-tailored, currently enabling Individuals, Developers, and Institutions to interact with a unified foundational infrastructure. While all three entities share the same underlying fabric, they navigate Tythe’s 7 Pillars differently to leverage assetized credit in a privacy-preserving environment. To learn more about how currently supported audience groups interact with these pillars to achieve their goals, please refer to the \[Audience Orientation Guide].
 
+**Active Audience Support:**
+
 * For Individuals
 * For Developers
 * For Institutions
 
+**Future Audience Support:**
+
+* For AI Agent
+
 \
-Note: The framework to support assetized credit for AI Agent actors is a post-mainnet launch item. Click here to learn more about the how Tythe will power agentic commerce.
+**Note:** To maintain accessibility for all audiences, we have refrained from using Tythe-native terminology on this canonical page where possible. To map Tythe-native terminology to specific protocol products, modules, and mechanics, please refer to the Native Glossary.
 {% endhint %}
 
 
 
 </details>
-
-{% hint style="info" %}
-#### Reader Note
-
-To maintain accessibility for all audiences, we have refrained from using Tythe-native terminology on this canonical page where possible. To map Tythe-native terminology to specific protocol products, modules, and mechanics, please refer to the Native Glossary.
-{% endhint %}
