@@ -17,7 +17,7 @@ layout:
 
 # The Tythe Protocol
 
-Tythe is a decentralized orchestration layer designed to establish the first global standard for Assetized Credit. It serves as the foundational infrastructure for a risk-intelligent, borderless economy, empowering Humans and AI Agents with sovereign credit profiles that prove their financial reliability—their capacity to carry risk—without the friction of national borders, the risks of centralized data honeypots, or the opacity of legacy bureaus. For digital institutions, DeFi protocols, and global enterprises, Tythe provides the critical rails to scale operations by offloading risk-data liability, automating credit enforcement, and transforming static reliability signals into real-time, programmable assets.
+Tythe is a decentralized orchestration layer designed to establish the first global standard for Assetized Credit. It serves as the foundational infrastructure for a risk-intelligent, borderless economy, empowering Humans and AI Agents with sovereign credit profiles that prove their financial reliability—their capacity to carry risk—without the friction of national borders, the hurdles of centralized bureaus, or the opacity of legacy scorers. For digital institutions, DeFi protocols, enterprises and global markets, Tythe provides the critical rails to scale operations by offloading risk-data liability, automating credit enforcement, and transforming static reliability signals into real-time, programmable assets.
 
 <details>
 
