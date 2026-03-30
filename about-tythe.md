@@ -49,8 +49,6 @@ Credit enhancement is the process of leveraging a verified financial reputation 
 {% step %}
 **Intelligence Layer&#x20;**_**(V1.1)**_
 
-The full picture of your credit health, in two directions.&#x20;
-
 * **Tokenized Creditworthiness (TCT):** A TCT score (300–850) is a real-time, non-transferable ERC-20 token representing financial reliability. Embedded in its metadata is the Maximum Vouchsafed Value (MVV); the protocol's assessed credit limit for the position. TCT is earned in drops and lost in buckets, mirroring how trust actually works in the real world.
 * **Relay Emitter:** The AI-powered Relay Emitter monitors the lifecycle of negative credit events (nEvents); Liquidations, Defaults, Exploits, and more. It identifies behavioral patterns, generates event labels, and broadcasts real-time risk-alpha to institutional subscribers. The Relay Emitter informs and labels. Scoring is handled separately by a deterministic, auditable formula.
 
