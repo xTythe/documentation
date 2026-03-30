@@ -53,6 +53,8 @@ The full picture of your credit health, in two directions.&#x20;
 
 * **Tokenized Creditworthiness (TCT):** A TCT score (300–850) is a real-time, non-transferable ERC-20 token representing financial reliability. Embedded in its metadata is the Maximum Vouchsafed Value (MVV); the protocol's assessed credit limit for the position. TCT is earned in drops and lost in buckets, mirroring how trust actually works in the real world.
 * **Relay Emitter:** The AI-powered Relay Emitter monitors the lifecycle of negative credit events (nEvents); Liquidations, Defaults, Exploits, and more. It identifies behavioral patterns, generates event labels, and broadcasts real-time risk-alpha to institutional subscribers. The Relay Emitter informs and labels. Scoring is handled separately by a deterministic, auditable formula.
+
+> **Credit Vouchers (V1.2):** Verified banks, fintechs, funds, merchants, and AI networks vouch for participants by issuing on-chain EIP-712 attestations based on their internal due diligence or performance logs. Vouching institutions stake TYT protocol tokens, putting skin in the game on the accuracy of every voucher they issue. Credit Vouchers onboard after initial protocol traction, as institutional partners validate the live system before committing.
 {% endstep %}
 
 {% step %}
@@ -74,17 +76,11 @@ The full picture of your credit health, in two directions.&#x20;
 {% endstep %}
 
 {% step %}
-**Institutional Layer&#x20;**_**(V1.2)**_
-
-**Credit Vouchers:** Verified banks, fintechs, funds, merchants, and AI networks vouch for participants by issuing on-chain EIP-712 attestations based on their internal due diligence or performance logs. Vouching institutions stake TYT protocol tokens, putting skin in the game on the accuracy of every voucher they issue. Credit Vouchers onboard after initial protocol traction, as institutional partners validate the live system before committing.
-{% endstep %}
-
-{% step %}
 **Liquidity Layer&#x20;**_**(V2)**_
 
 **Credit Enhancement Vaults (CEV):** Intelligence-optimized ERC-4626 vaults where LPs provide collateral top-offs to back TCT-verified borrowers. CEVs are the only module enabling undercollateralized lending, where risk is distributed across LPs who opt in for yield and premiums. Launching after V1 scoring data has matured and the protocol has established a verifiable track record.
 
-> Agentic Credit: Allowing verified AI agents to leverage execution history for protocol-backed credit lines is on the Tythe roadmap. Details in the [roadmap section](resources/roadmap-modules/).
+> **Agentic Credit (V2):** Allowing verified AI agents to leverage execution history for protocol-backed credit lines is on the Tythe roadmap. Details in the [roadmap section](resources/roadmap-modules/).
 {% endstep %}
 
 {% step %}
