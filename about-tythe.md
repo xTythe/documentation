@@ -36,7 +36,7 @@ Tythe builds the missing layer; a shared, verifiable standard for creditworthine
 {% hint style="info" %}
 #### **What is Credit Enhancement?**&#x20;
 
-Credit enhancement is the process of leveraging a verified financial reputation to access better capital terms — lower interest rates, reduced fees, optimized borrowing limits, or increased deposit yields. Instead of locking up more capital, users put their track record to work.
+Credit enhancement is the process of leveraging a verified financial reputation to access better capital terms — lower interest rates, reduced fees, optimized borrowing limits, increased deposit yields, or tighter spreads. Instead of locking up more capital, users put their track record to work.
 {% endhint %}
 
 {% stepper %}
