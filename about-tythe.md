@@ -9,7 +9,7 @@ Tythe is the neutral, decentralized protocol for credit. We provide the infrastr
 Credit, in its current form, is reaching its limits.
 
 * **In Traditional Finance**, credit scoring is a black box. Opaque, non-portable, and owned by institutions. Users are a passive subject of their own financial data, stored in centralized databases they cannot control and cannot fully trust.
-* **In DeFi**, the solution to not trusting anyone was to demand everything upfront. To borrow $1, users lock up $1.50. Over-collateralization is capital trapped; it protects the protocol but prevents real financial growth.
+* **In DeFi and Crypto Markets**, the solution to not trusting anyone was to demand everything upfront. To borrow $1, users lock up $1.50. Over-collateralization is capital trapped; it protects the protocol but prevents real financial growth.
 * **For Institutions and RWA Platforms**, the demand for credit intelligence is real, but the path to it is blocked. Handling raw private user data creates legal exposure. Existing solutions force a choice between compliance and utility.
 * **For AI Agents**, the problem is structural. High-reputation autonomous agents are becoming primary economic actors, but they have no standardized way to prove that reputation or access credit. They operate on 100% upfront capital, regardless of their proven performance.
 
@@ -31,7 +31,7 @@ The protocol coordinates capital. It does not gamble with it.
 
 #### The Solution
 
-Tythe builds the missing layer; a shared, verifiable standard for creditworthiness that works across DeFi, RWAs, institutions, and AI networks.
+Tythe builds the missing layer; a shared, verifiable standard for creditworthiness that works across DeFi, RWAs, digital markets and institutions, and AI networks.
 
 {% hint style="info" %}
 #### **What is Credit Enhancement?**&#x20;
