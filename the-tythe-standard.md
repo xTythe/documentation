@@ -10,7 +10,7 @@ Creditworthiness in Tythe is established through a three-layer sovereign risk en
 
 #### I. The Gate (Compliance Eligibility)
 
-**Role:** Non-weighted prerequisite. The scoring engine remains dormant until the Compliance Gate is toggled to `True` via the TRIS registry. No TCT token can be minted or refreshed without a verified Compliance Gate, regardless of on-chain activity.
+**Role:** Non-weighted prerequisite. The scoring engine remains dormant until the individual's Compliance Eligibility conditions have been met. No TCT token can be minted or refreshed without a verified Compliance Gate, regardless of on-chain activity.
 
 The Gate operates in two tiers: mandatory requirements that unlock protocol access, and optional enhancements that strengthen a participant's profile.
 
@@ -18,14 +18,14 @@ The Gate operates in two tiers: mandatory requirements that unlock protocol acce
 
 The following steps are required to mint a `did:cheqd` identifier. Successful DID creation is the green light for protocol participation.
 
-* **zk-KYC via Privado ID:** Identity verification and sanctions screening (OFAC/AML) processed via zero-knowledge attestation. No raw identity data is held by the protocol at any point.
+* **zk-KYC via Billions ID:** Identity verification and sanctions screening (OFAC/AML) processed via zero-knowledge attestation. No raw identity data is held by the protocol at any point.
 * **Primary Wallet Address:** A verified primary wallet must be bound to the DID at registration. V1 launches with native Base and EVM support; additional EVM, SVM, and Move wallet support will be added alongside protocol growth.
 
 **Optional (Credit Profile Enhancements)**
 
 The following are not required for protocol access but positively affect a participant's TCT score.
 
-* **Proof of Personhood (PoP):** Biometric-anchored Sybil resistance via World ID or equivalent protocol. Attaching a verified PoP credential grants a fixed **+5 TCT boost** to the participant's score.
+* **Proof of Personhood (PoP):** Biometric-anchored Sybil resistance via World ID. Attaching a verified PoP credential grants a fixed **+5 TCT boost** to the participant's score.
 * **Additional Wallet Connections:** Participants may connect multiple active wallet addresses to their CEP. Multi-wallet connectivity is treated as a positive behavioral signal, reflecting responsible on-chain security practices and genuine protocol engagement. This signal is captured within the Action Integrity input of the Reliability Score.
 
 > **Protocol Note:** If a participant's compliance status is revoked post-mint, their TCT is immediately frozen and flagged. Reinstatement (which is usually accompanied by a TCT penalty) requires re-verification through the Compliance Gate.
@@ -102,7 +102,7 @@ The CAVB governs two things: the **Volatility Quotient** component of the Reliab
 {% hint style="info" %}
 #### **Design Note**
 
-Assets classes below AA (Blue-Chip) are not penalized in scoring (participants are not punished for holding them). However, the protocol applies progressively heavier MVV discounts against these positions. CCC assets actively hurt the Reliability Score and carry zero vouchsafe power.
+Asset classes below AA are not penalized in scoring; individual participants are not punished for holding them. However, the protocol applies progressively heavier MVV discounts against these positions. CCC assets actively hurt the Reliability Score and carry zero vouchsafe power.
 {% endhint %}
 
 ***
@@ -113,34 +113,43 @@ Tythe uses a unified registry of EIP-712 attestations to coordinate credit truth
 
 **Manual Refresh for Positive Growth (Participant-Initiated):** Participants control when to refresh their score for positive changes. The Tythe backend generates a signed EIP-712 attestation, which the participant anchors to their on-chain TCT balance and MVV limit via the dashboard. All gas costs for manual updates are borne by the participant.
 
-**Auto-Slash for Negative Enforcement (Protocol-Initiated):** When a critical nEvent is detected, the protocol bypasses the participant and immediately updates the on-chain TCT balance. Auto-slashes are gasless; enforcement is protocol-side.
+**Auto-Slash for Negative Enforcement (Protocol-Initiated):** When a critical nEvent is detected and classified by the Relay Emitter, the protocol bypasses the participant and immediately updates the on-chain TCT balance. Slash severity is determined by the individual's percentile rank within their label's spectrum. Auto-slashes are gasless; enforcement is protocol-side.
 
 ***
 
 #### Negative Event Typology (nEvents)
 
-The Relay Emitter is an AI-powered intelligence layer (not a blockchain feature). It continuously monitors on-chain behavioral patterns, generates structured nEvent labels, and distributes them through two channels:
+The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM) — not a blockchain feature. It continuously monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity relative to others in the same category. These rankings are distributed through two channels:
 
-* **Externally:** Delivered to institutional subscribers as real-time risk-alpha via a subscription feed. Institutions use this signal for independent risk management and capital decisions.
-* **Internally:** Consumed by Tythe's own deterministic scoring engine to maintain real-time TCT accuracy.
+* **Externally:** Delivered to institutional subscribers as real-time risk intelligence via tiered subscription feeds. Institutions use this signal for independent risk management and capital decisions.
+* **Internally:** Consumed by Tythe's own deterministic scoring engine to trigger Auto-Slash enforcement with proportional severity.
 
-The AI classifies and labels. The deterministic formula scores. These are distinct functions, the Relay Emitter never makes credit decisions directly. nEvent labels are attached to the acting entity's CEP ID. Where applicable, they trigger the corresponding on-chain enforcement response.
+The Relay Emitter classifies and ranks. The deterministic formula scores. These are distinct functions; the Relay Emitter never makes credit decisions directly.
 
-| Event       | Nature                                                     | Enforcement                                     |
-| ----------- | ---------------------------------------------------------- | ----------------------------------------------- |
-| Liquidation | Collateral failure on an integrated market                 | Auto-Slash = immediate TCT reduction            |
-| Default     | Failure to fulfill debt within grace period                | Auto-Slash = TCT set to Poor or Slashed bracket |
-| Exploit     | Verified involvement in smart contract or protocol attacks | Blacklist = TRIS ID revoked, TCT set to zero    |
-| Mercenary   | Rapid liquidity withdrawal during systemic stress          | Alert Only                                      |
-| Informed    | Patterned high-alpha trades indicating toxic arbitrage     | Alert Only                                      |
-| Whale       | Objectively large on-chain transactions or transfers       | Alert Only                                      |
+nEvent labels are attached to the acting entity's CEP ID. Where applicable, they trigger the corresponding on-chain enforcement response.
+
+| Event       | Nature                                                     | Enforcement                                                     |
+| ----------- | ---------------------------------------------------------- | --------------------------------------------------------------- |
+| Liquidation | Collateral failure on an integrated market                 | Auto-Slash; severity determined by percentile rank within label |
+| Default     | Failure to fulfill debt within grace period                | Auto-Slash; severity determined by percentile rank within label |
+| Exploit     | Verified involvement in smart contract or protocol attacks | Blacklist; CEP revoked, TCT set to zero                         |
+| Mercenary   | Rapid liquidity withdrawal during systemic stress          | Alert Only                                                      |
+| Informed    | Patterned high-alpha trades indicating toxic arbitrage     | Alert Only                                                      |
+| Whale       | Objectively large on-chain transactions or transfers       | Alert Only                                                      |
 
 **Standard Fields on Every nEvent Label:**
 
 * **CEP ID:** The sovereign identifier associated with the event.
 * **Event Typology:** The specific nature of the credit movement.
+* **Percentile Rank:** The individual's position within their label's spectrum relative to all others in the same category.
 * **TCT Delta:** The precise numerical change to the TCT balance, where applicable.
 * **Epoch Timestamp:** Cryptographic sequencing to prevent replay attacks.
+
+
+
+**Percentile-Based Slash Severity**
+
+The Relay Emitter's percentile ranking within each nEvent label determines the severity of the on-chain TCT reduction. The translation from percentile rank to slash severity is defined by a protocol-governed lookup table. The exact parameters are sealed under DAO license and modifiable only via a successful governance proposal with a mandatory timelock.
 
 ***
 
@@ -165,14 +174,14 @@ The Credit Enhancement Wrapper (CEW) translates a participant's TCT balance into
 Tythe operates a three-tier transparency model, balancing public trust with formula integrity.
 
 * **Smart Contract Code:** Fully open source. Auditable by anyone, always. Non-negotiable.
-* **Formula Structure:** Public. Category names, tier hierarchy, and percentage weights are disclosed — so all participants understand what drives the score.
+* **Formula Structure:** Public. Category names, tier hierarchy, and percentage weights are disclosed so all participants understand what drives the score.
 * **Exact Parameters & Weights:** Sealed under a DAO license. Visible only to institutional DAO members. Modifications require a successful governance proposal with a mandatory timelock. This prevents gaming without sacrificing accountability.
 
 ***
 
 #### The Evolving Standard
 
-TCE-26 is the protocol's launch model. As Tythe matures, new telemetry streams will be integrated into scoring, including zk-verified bank statements, payroll and tax data, cross-chain bridging history, encrypted imports of FICO, CIBIL, or other centralized credit scores, and expanded verifiable credential checks via zkTLS.
+TCE-26 is the protocol's launch model. As Tythe matures, new telemetry streams will be integrated into scoring; including zk-verified bank statements, payroll and tax data, cross-chain bridging history, encrypted imports of FICO, CIBIL, and other centralized credit scores, and expanded verifiable credential checks via zkTLS.
 
 This ensures TCT becomes increasingly inclusive, allowing participants with limited on-chain history but strong off-chain reliability to access on-chain capital over time.
 
