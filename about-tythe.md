@@ -31,28 +31,30 @@ The protocol coordinates capital. It does not gamble with it.
 
 #### The Solution
 
-Tythe builds the missing layer; a shared, verifiable standard for creditworthiness that works across DeFi, RWAs, digital markets and institutions, and AI networks.
+Tythe builds the missing layer; a shared, verifiable standard for creditworthiness that works across DeFi, RWAs, digital markets, institutions, and AI networks.
 
 {% hint style="info" %}
 #### **What is Credit Enhancement?**&#x20;
 
-Credit enhancement is the process of leveraging a verified creditworthiness (or financial reputation) to access better capital terms — lower interest rates, reduced fees, optimized borrowing limits, increased deposit yields, or tighter spreads; it makes capital offers risk-tailored and more competitive for all.
+Credit enhancement is the process of leveraging verified creditworthiness (or financial credibility) to access better capital terms; lower interest rates, reduced fees, optimized borrowing limits, increased deposit yields, or tighter spreads. It makes capital offers risk-tailored and more competitive for all.
 {% endhint %}
 
 {% stepper %}
 {% step %}
 **Identity Layer&#x20;**_**(V1.1)**_
 
-**Credit Enhancement Profile (CEP):** A portable, user-owned credit profile anchored on the did:cheqd network. The CEP aggregates on-chain wallet history and zkTLS-verified off-chain financial data into a single sovereign identity without exposing raw data at any point.
+**Credit Enhancement Profile (CEP):** AA portable, user-owned credit profile anchored on the did:cheqd network. The CEP aggregates on-chain wallet history into a single sovereign identity without exposing raw data at any point.
+
+> **zkTLS Off-Chain Verifications (V1.2):** Verification of off-chain financial data such as bank statements, income, and more) will be added to the CEP post-launch via zkTLS, expanding the scoring surface beyond on-chain activity without exposing raw, sensitive financial records.
 {% endstep %}
 
 {% step %}
 **Intelligence Layer&#x20;**_**(V1.1)**_
 
 * **Tokenized Creditworthiness (TCT):** A TCT score (300–850) is a real-time, non-transferable ERC-20 token representing financial reliability. Embedded in its metadata is the Maximum Vouchsafed Value (MVV); the protocol's assessed credit limit for the position. TCT is earned in drops and lost in buckets, mirroring how trust actually works in the real world.
-* **Relay Emitter:** The AI-powered Relay Emitter monitors the lifecycle of negative credit events (nEvents); Liquidations, Defaults, Exploits, and more. It identifies behavioral patterns, generates event labels, and broadcasts real-time risk-alpha to institutional subscribers. The Relay Emitter informs and labels. Scoring is handled separately by a deterministic, auditable formula.
+* **Relay Emitter:** The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). It monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Percentile rank determines Auto-Slash severity (a 95th percentile liquidation carries a heavier penalty than a 5th percentile one). Institutional subscribers receive ranked nEvent labels via tiered subscription feeds with configurable data pool size, user count, and cadence. The Relay Emitter informs and enforces. Scoring is handled separately by a deterministic, auditable formula.
 
-> **Credit Vouchers (V1.2):** Verified banks, fintechs, funds, merchants, and AI networks vouch for participants by issuing on-chain EIP-712 attestations based on their internal due diligence or performance logs. Vouching institutions stake TYT protocol tokens, putting skin in the game on the accuracy of every voucher they issue. Credit Vouchers onboard after initial protocol traction, as institutional partners validate the live system before committing.
+> **Credit Vouchers (V1.2):** Verified banks, fintechs, funds, merchants, and AI networks vouch for participants by issuing on-chain EIP-712 attestations based on their internal due diligence or performance logs. Vouching institutions stake TYT protocol tokens, putting skin in the game on the accuracy of every voucher they issue.
 {% endstep %}
 
 {% step %}
@@ -62,7 +64,7 @@ Credit enhancement is the process of leveraging a verified creditworthiness (or 
 {% endstep %}
 
 {% step %}
-**Justice Layer&#x20;**_**(V1.1)**_
+**Justice Layer&#x20;**_**(V1.1—Post Launch)**_
 
 **Tythe DAO (Justice Arm):** Handles disputed scores and contested slashes under the protocol's fixed launch formula. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. If the Justice Arm rules the slash was valid, a portion of the staked TCT is burned. If the dispute is upheld, the full stake is returned. AI clerks prepare evidence briefs from on-chain data; human juries drawn from the same TCT band as the disputant hear and resolve each case. Disputes at band boundaries are heard by mixed juries from both adjacent bands.
 {% endstep %}
