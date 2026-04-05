@@ -89,7 +89,7 @@ Once the credibility band is set, Capital Capacity acts as a scale multiplier �
 * **Verified Cashflow:** Recurring on-chain rewards or zkTLS-verified off-chain income.
 * **Transactional Weight:** Average transaction size — distinguishes heavyweight participants from retail activity.
 
-**Maximum Vouchsafed Value (MVV):** Capacity dictates a participant's dollar credit limit. A CEW boost is only applied up to the verified MVV — ensuring the protocol never over-extends its vouchsafe beyond a participant's proven capital surface.
+**Maximum Vouchsafed Value (MVV):** Capacity dictates a participant's dollar credit limit. A CEW boost is only applied up to the verified MVV; ensuring the protocol never over-extends its vouchsafe beyond a participant's proven capital surface.
 
 ***
 
@@ -155,13 +155,20 @@ The Relay Emitter's percentile ranking within each nEvent label determines the s
 
 The Credit Enhancement Wrapper (CEW) translates a participant's TCT balance into standardized economic actions across all integrated markets.
 
+{% hint style="info" %}
+#### CEW Action Key
+
+Enhancement = Positive Boost\
+Enforcement = Negative Adjustment
+{% endhint %}
+
 | Range   | Bracket   | CEW Action                     |
 | ------- | --------- | ------------------------------ |
-| 800–850 | Excellent | High Boost                     |
-| 740–799 | Very Good | Moderate Boost                 |
-| 670–739 | Good      | Low Boost                      |
-| 580–669 | Fair      | Risk Neutral                   |
-| 300–579 | Poor      | Negative Adjustment            |
+| 800–850 | Excellent | Enhancement (High)             |
+| 740–799 | Very Good | Enhancement (Low)              |
+| 670–739 | Good      | Risk Neutral; No Change        |
+| 580–669 | Fair      | Enforcement (Low)              |
+| 300–579 | Poor      | Enforcement (High)             |
 | 1       | No Data   | Conditional / Credit Invisible |
 | 0       | Slashed   | Hard Deny / Immediate Risk     |
 
