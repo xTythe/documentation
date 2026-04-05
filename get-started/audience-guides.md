@@ -117,7 +117,7 @@ Once your TCT balance is live, the CEW goes to work automatically on every integ
 
 **RWA Investors:** Integrated RWA platforms use your TCT and MVV to determine pool access and capital allocation tiers. Your on-chain history speaks before you do.
 
-**Your Score Travels With You:** Whether you're on Morpho, Lido, Centrifuge, or any integrated Uniswap DEX pair, your creditworthiness is readable by any integrated protocol globally. Your TCT follows your CEP, not your geography.
+> **Your Score Travels With You:** Whether you're on Morpho, Lido, Centrifuge, or any integrated Uniswap DEX pair, your creditworthiness is readable by any integrated protocol globally. Your TCT follows your CEP, not your geography.
 
 ***
 
