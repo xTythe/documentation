@@ -4,7 +4,7 @@
 
 The Tythe Credit Enhancement (TCE) standard is the protocol's canonical framework for scoring and tokenizing creditworthiness. It defines how raw behavioral telemetry and decisional signals are transformed into Tokenized Creditworthiness (TCT); a machine-enforceable, real-time financial risk signal.
 
-Creditworthiness in Tythe is established through a three-layer sovereign risk engine. Each layer has a distinct role: the Gate determines eligibility, the Metric determines the band, and the Multiplier determines the position within it.
+Creditworthiness in Tythe is established through a three-layer sovereign risk engine. Each layer has a distinct role: the Gate (Compliance) determines eligibility, the Metric (Credibility) determines the band, and the Multiplier (Capacity) determines the position within it.
 
 ***
 
@@ -32,13 +32,13 @@ The following are not required for protocol access but positively affect a parti
 
 ***
 
-#### II. The Metric (Behavioral Reliability)
+#### II. The Metric (Behavioral Credibility)
 
 **Role:** Primary creditworthiness signal. Determines the participant's TCT band (300–850).
 
-**Core Principle:** Reliability is the definitive measure of on-chain character. Capital cannot purchase entry into a higher band. It can only optimize a position within the band that behavior has earned. Tythe scores character first, capacity second.
+**Core Principle:** Credibility is the definitive measure of on-chain character. Capital cannot purchase entry into a higher band. It can only optimize a position within the band that behavior has earned. Tythe scores character first, capacity second.
 
-The Reliability Score is calculated as a weighted aggregate across two tiers of behavioral inputs.
+The Credibility Score is calculated as a weighted aggregate across two tiers of behavioral inputs.
 
 **Tier 1: Primary Drivers (80%)**
 
@@ -64,15 +64,15 @@ The Reliability Score is calculated as a weighted aggregate across two tiers of 
 The 24-month historical window and tier weights are fixed at launch under TCE-26. Adjustments to these parameters require a successful governance proposal to the Tythe DAO, available in V1.2.
 {% endhint %}
 
-**The Relative Rank Rule:** Reaching the Excellent bracket (800–850) requires a participant's Behavioral Reliability to be mathematically in the top 10% of all scored participants. Capital capacity cannot bridge a reliability gap. It can only maximize the score within the band that behavior has already earned.
+**The Relative Rank Rule:** Reaching the Excellent bracket (800–850) requires a participant's Behavioral Credibility to be mathematically in the top 10% of all scored participants. Capital capacity cannot bridge a reliability gap. It can only maximize the score within the band that behavior has already earned.
 
 ***
 
 #### III. The Multiplier (Capital Capacity)
 
-**Role:** Determines a participant's position within their reliability band and underwrites the Maximum Vouchsafed Value (MVV).
+**Role:** Determines a participant's position within their credibility band and underwrites the Maximum Vouchsafed Value (MVV).
 
-Once the reliability band is set, Capital Capacity acts as a scale multiplier — pushing the score toward the ceiling of the bracket and determining how much credit the protocol is willing to vouchsafe for the position.
+Once the credibility band is set, Capital Capacity acts as a scale multiplier — pushing the score toward the ceiling of the bracket and determining how much credit the protocol is willing to vouchsafe for the position.
 
 **Examples:**
 
@@ -95,7 +95,7 @@ Once the reliability band is set, Capital Capacity acts as a scale multiplier �
 
 #### The Collateral Asset Volatility Benchmark (CAVB)
 
-The CAVB governs two things: the **Volatility Quotient** component of the Reliability Score, and the **MVV ceiling**. Collateral quality affects both how the protocol scores participant behavior and how much it is willing to vouchsafe against a given position.
+The CAVB governs two things: the **Volatility Quotient** component of the Credibility Score, and the **MVV ceiling**. Collateral quality affects both how the protocol scores participant behavior and how much it is willing to vouchsafe against a given position.
 
 <table><thead><tr><th width="180">Class</th><th width="250">Standard</th><th width="155">Scoring Impact</th><th>MVV Impact</th></tr></thead><tbody><tr><td>AAA (Pristine)</td><td>Major stables, tokenized gold, T-bills, money market funds</td><td>Positive</td><td>Full MVV eligible</td></tr><tr><td>AA (Blue-Chip)</td><td>BTC, ETH and LSTs, short-term tokenized treasuries</td><td>Neutral-Positive</td><td>Full MVV eligible</td></tr><tr><td>A (Top Alternatives)</td><td>Top 3–40 CMC, tokenized stocks/ETFs</td><td>Neutral</td><td>Slightly discounted MVV</td></tr><tr><td>BBB (Hard Assets)</td><td>Top 41–100 CMC, tokenized private credit</td><td>Neutral</td><td>Discounted MVV</td></tr><tr><td>BB (High Retail)</td><td>Top 101–150 CMC, mid memes, tokenized real estate</td><td>Neutral</td><td>Moderately discounted MVV</td></tr><tr><td>B (Speculative)</td><td>Top 151–300 CMC, tokenized physical assets</td><td>Neutral</td><td>Heavily discounted MVV</td></tr><tr><td>CCC (Junk)</td><td>All other assets</td><td>Negative </td><td>Excluded from MVV</td></tr></tbody></table>
 
@@ -119,7 +119,7 @@ Tythe uses a unified registry of EIP-712 attestations to coordinate credit truth
 
 #### Negative Event Typology (nEvents)
 
-The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM) — not a blockchain feature. It continuously monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity relative to others in the same category. These rankings are distributed through two channels:
+The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM); not a blockchain feature. It continuously monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity relative to others in the same category. These rankings are distributed through two channels:
 
 * **Externally:** Delivered to institutional subscribers as real-time risk intelligence via tiered subscription feeds. Institutions use this signal for independent risk management and capital decisions.
 * **Internally:** Consumed by Tythe's own deterministic scoring engine to trigger Auto-Slash enforcement with proportional severity.
@@ -143,9 +143,7 @@ nEvent labels are attached to the acting entity's CEP ID. Where applicable, they
 * **Event Typology:** The specific nature of the credit movement.
 * **Percentile Rank:** The individual's position within their label's spectrum relative to all others in the same category.
 * **TCT Delta:** The precise numerical change to the TCT balance, where applicable.
-* **Epoch Timestamp:** Cryptographic sequencing to prevent replay attacks.
-
-
+* **Epoch Timestamp:** Cryptographic sequencing to prevent replay attacks.<br>
 
 **Percentile-Based Slash Severity**
 
