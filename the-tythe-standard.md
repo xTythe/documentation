@@ -8,7 +8,7 @@ Creditworthiness in Tythe is established through a three-layer sovereign risk en
 
 ***
 
-#### I. The Gate (Compliance Eligibility)
+#### I. The Gate (Compliance)
 
 **Role:** Non-weighted prerequisite. The scoring engine remains dormant until the individual's Compliance Eligibility conditions have been met. No TCT token can be minted or refreshed without a verified Compliance Gate, regardless of on-chain activity.
 
@@ -32,7 +32,7 @@ The following are not required for protocol access but positively affect a parti
 
 ***
 
-#### II. The Metric (Behavioral Credibility)
+#### II. The Metric (Credibility)
 
 **Role:** Primary creditworthiness signal. Determines the participant's TCT band (300–850).
 
@@ -68,26 +68,22 @@ The 24-month historical window and tier weights are fixed at launch under TCE-26
 
 ***
 
-#### III. The Multiplier (Capital Capacity)
+#### III. The Multiplier (Capacity)
 
 **Role:** Determines a participant's position within their credibility band and underwrites the Maximum Vouchsafed Value (MVV).
 
-Once the credibility band is set, Capital Capacity acts as a scale multiplier — pushing the score toward the ceiling of the bracket and determining how much credit the protocol is willing to vouchsafe for the position.
+Once the credibility band is set, Capital Capacity acts as a scale multiplier that pushes the score toward the ceiling of the bracket and determining how much credit the protocol is willing to vouchsafe for the position.
 
 **Examples:**
 
-| Profile                  | Reliability      | Capacity      | TCT Output                        |
-| ------------------------ | ---------------- | ------------- | --------------------------------- |
-| Retail, High Reliability | Top 10% behavior | Low capacity  | 803 — Excellent band, lower MVV   |
-| Whale, High Reliability  | Top 10% behavior | High capacity | 849 — Excellent band, maximum MVV |
-| Whale, Mid Reliability   | 60th percentile  | High capacity | 739 — Capped at Good band ceiling |
+<table><thead><tr><th width="200">Profile</th><th>Credibility</th><th>Capacity</th><th>TCT Output</th></tr></thead><tbody><tr><td>Retail, High Credibility</td><td>Top 10% behavior</td><td>Low capacity</td><td>803 (Excellent band, lower MVV)</td></tr><tr><td>Whale, High Credibility</td><td>Top 10% behavior</td><td>High capacity</td><td>849 (Excellent band, maximum MVV)</td></tr><tr><td>Whale, Mid Credibility</td><td>60th percentile</td><td>High capacity</td><td>739 (Capped at Good band ceiling)</td></tr></tbody></table>
 
 **Capacity Input Markers:**
 
 * **Aggregate Net Worth:** Real-time TVL across all mapped addresses.
 * **LP & Staking Depth:** Size and duration of provided DEX liquidity.
 * **Verified Cashflow:** Recurring on-chain rewards or zkTLS-verified off-chain income.
-* **Transactional Weight:** Average transaction size — distinguishes heavyweight participants from retail activity.
+* **Transactional Weight:** Average transaction size distinguishes heavyweight participants from retail activity.
 
 **Maximum Vouchsafed Value (MVV):** Capacity dictates a participant's dollar credit limit. A CEW boost is only applied up to the verified MVV; ensuring the protocol never over-extends its vouchsafe beyond a participant's proven capital surface.
 
