@@ -15,8 +15,10 @@
   * [Tythe DAO](resources/roadmap-modules/tythe-dao/README.md)
     * [Justice Arm](resources/roadmap-modules/tythe-dao/justice-arm.md)
     * [Governance Arm](resources/roadmap-modules/tythe-dao/governance-arm.md)
+  * [Institutional Credit Vouchers](resources/roadmap-modules/institutional-credit-vouchers.md)
   * [Credit Enhancement Vault (CEV)](resources/roadmap-modules/credit-enhancement-vault-cev.md)
   * [Credit Data Licensing (CDL)](resources/roadmap-modules/credit-data-licensing-cdl.md)
+  * [Agentic Credit](resources/roadmap-modules/agentic-credit.md)
 
 ## Legal
 
