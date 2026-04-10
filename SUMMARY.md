@@ -13,11 +13,10 @@
 * [Native Glossary](resources/native-glossary.md)
 * [Roadmap Modules](resources/roadmap-modules/README.md)
   * [Tythe DAO](resources/roadmap-modules/tythe-dao/README.md)
-    * [Structure, Scope, & Transparency](resources/roadmap-modules/tythe-dao/structure-scope-and-transparency.md)
-    * [Voting Power Model](resources/roadmap-modules/tythe-dao/voting-power-model.md)
-    * [Proposal Lifecycle](resources/roadmap-modules/tythe-dao/proposal-lifecycle.md)
-  * [Synclear Finance](resources/roadmap-modules/synclear-finance.md)
-  * [Credit Data Exchange](resources/roadmap-modules/credit-data-exchange.md)
+    * [Justice Arm](resources/roadmap-modules/tythe-dao/justice-arm.md)
+    * [Governance Arm](resources/roadmap-modules/tythe-dao/governance-arm.md)
+  * [Credit Enhancement Vault (CEV)](resources/roadmap-modules/credit-enhancement-vault-cev.md)
+  * [Credit Data Licensing (CDL)](resources/roadmap-modules/credit-data-licensing-cdl.md)
 
 ## Legal
 
