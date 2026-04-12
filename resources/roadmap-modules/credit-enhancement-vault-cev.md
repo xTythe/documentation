@@ -2,7 +2,7 @@
 
 Credit Enhancement Vaults are the only module on Tythe that enables undercollateralized lending. CEVs are ERC-4626 vaults where LPs provide collateral top-offs to back verified, high-TCT borrowers on existing integrated lending markets. CEVs allow borrowers to access loans at lower collateral requirements than those markets normally demand. CEVs do not replace lending markets, they simply extend and enhance what those markets can offer.
 
-The model is actuarial. Curators select borrowers by TCT score, set the vault's risk parameters, and earn yield on collected premiums. LPs provide the capital, bear the default risk, and earn Risk Premium share, float income, and TYT rewards in return. The protocol coordinates the participants. It does not backstop the risk.
+The model is actuarial. Curators select borrowers by TCT score, set the vault's risk parameters, and earn yield on collected premiums. LPs provide the capital, bear the default risk, and earn Risk Premium share, float income, and TYT rewards in return.&#x20;
 
 <details>
 
