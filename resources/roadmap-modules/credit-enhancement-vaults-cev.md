@@ -23,7 +23,7 @@ Deployment is fully permissionless. No TYT stake required. Any CEP-verified indi
 * **TCT Score Minimum:** Minimum TCT score required for borrower eligibility.
 * **LTV Maximum:** The maximum LTV the vault will top off any eligible position to. Curator-defined vault-level risk ceiling, independent of individual borrower MVV.
 * **Risk Premium:** The percentage of each top-off amount paid by the borrower at position opening. Curator-defined within a DAO-governed floor and ceiling.
-* **Fixed Deployment Fee (Optional):** A one-time fee paid by LPs at entry. Set by the curator at deployment. Compensates the curator for vault setup and ongoing management. Tythe retains 9% every Fixed Deployment Fee collected.
+* **Fixed Deployment Fee (Optional):** A one-time fee paid by LPs at entry. Set by the curator at deployment. Compensates the curator for vault setup and ongoing management. Tythe retains 9% of every Fixed Deployment Fee collected.
 
 </details>
 
