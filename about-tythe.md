@@ -51,10 +51,9 @@ Credit enhancement is the process of leveraging verified creditworthiness (or fi
 {% step %}
 **Intelligence Layer&#x20;**_**(V1.1)**_
 
-* **Tokenized Creditworthiness (TCT):** A TCT score (300–850) is a real-time, non-transferable ERC-20 token representing financial reliability. Embedded in its metadata is the Maximum Vouchsafed Value (MVV); the protocol's assessed credit limit for the position. TCT is earned in drops and lost in buckets, mirroring how trust actually works in the real world.
-* **Relay Emitter:** The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). It monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Percentile rank determines Auto-Slash severity (a 95th percentile liquidation carries a heavier penalty than a 5th percentile one). Institutional subscribers receive ranked nEvent labels via tiered subscription feeds with configurable data pool size, user count, and cadence. The Relay Emitter informs and enforces. Scoring is handled separately by a deterministic, auditable formula.
+**Tokenized Creditworthiness (TCT):** A TCT score (300–850) is a real-time, non-transferable ERC-20 token representing financial reliability. Embedded in its metadata is the Maximum Vouchsafed Value (MVV); the protocol's assessed credit limit for the position. TCT is earned in drops and lost in buckets, mirroring how trust actually works in the real world.
 
-> **Institutional Credit Vouchers (V1.2):** Verified banks, fintechs, funds, merchants, and AI networks vouch for participants by issuing on-chain EIP-712 attestations based on their internal due diligence or performance logs. Vouching institutions stake TYT protocol tokens, putting skin in the game on the accuracy of every voucher they issue.
+**Relay Emitter:** The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). It monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Institutional subscribers receive ranked nEvent labels via tiered subscription feeds with configurable data pool size, user count, and cadence.
 {% endstep %}
 
 {% step %}
@@ -64,23 +63,23 @@ Credit enhancement is the process of leveraging verified creditworthiness (or fi
 {% endstep %}
 
 {% step %}
-**Justice Layer&#x20;**_**(V1.1—Post Launch)**_
+**Justice Layer&#x20;**_**(V1.2)**_
 
-**Tythe DAO (Justice Arm):** Handles disputed scores and contested slashes under the protocol's fixed launch formula. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. If the Justice Arm rules the slash was valid, a portion of the staked TCT is burned. If the dispute is upheld, the full stake is returned. AI clerks prepare evidence briefs from on-chain data; human juries drawn from the same TCT band as the disputant hear and resolve each case. Disputes at band boundaries are heard by mixed juries from both adjacent bands.
+**Tythe DAO (Justice Arm):** Handles disputed scores and contested slashes under the protocol's fixed launch formula. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. If the Justice Arm ruling overturns the dispute, a portion of the staked TCT is burned. If the dispute is sustained, the full stake is returned. AI clerks prepare evidence briefs from on-chain data; human juries drawn from the same TCT band as the disputant hear and resolve each case. Disputes at band boundaries are heard by mixed juries from both adjacent bands.
 {% endstep %}
 
 {% step %}
 **Governance Layer&#x20;**_**(V1.2)**_
 
-**Tythe DAO (Governance Arm):** Manages scoring parameters, formula upgrades, and the TYT token. Governance activates in V1.2 once the TYT token is live and initial protocol data has given the community something real to govern. Formula weights are visible to institutional DAO members only, preventing gaming while enabling decentralized oversight.
+**Tythe DAO (Governance Arm):** Manages scoring parameters, formula upgrades, and the TYT token. Governance activates once the TYT token is live and initial protocol data has given the community something real to govern. Formula weights are visible to institutional DAO members only, preventing gaming while enabling decentralized oversight.
 {% endstep %}
 
 {% step %}
 **Liquidity Layer&#x20;**_**(V2)**_
 
-**Credit Enhancement Vaults (CEV):** Intelligence-optimized ERC-4626 vaults where LPs provide collateral top-offs to back TCT-verified borrowers. CEVs are the only module enabling undercollateralized lending, where risk is distributed across LPs who opt in for yield and premiums. Launching after V1 scoring data has matured and the protocol has established a verifiable track record.
+**Credit Enhancement Vaults (CEV):** Intelligence-optimized ERC-4626 vaults where LPs provide collateral top-offs to back TCT-verified borrowers. CEVs are the only module enabling undercollateralized lending, where risk is distributed across LPs who opt in for high yield and risk-premiums.
 
-> **Agentic Credit (V2):** Allowing verified AI agents to leverage execution history for protocol-backed credit lines is on the Tythe roadmap. Details in the [roadmap section](resources/roadmap-modules/).
+> **Agentic Credit (V2):** Allowing verified AI agents to leverage execution history for protocol-backed credit lines is on the Tythe roadmap. Details in the [roadmap section](resources/roadmap-modules/agentic-credit.md).
 {% endstep %}
 
 {% step %}

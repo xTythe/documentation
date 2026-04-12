@@ -10,11 +10,9 @@ Governance is deliberately deferred from launch. Activating governance before me
 
 TYT is Tythe's governance token. It represents a stake in the protocol's future and the right to participate in its direction. TYT holders vote on protocol upgrades, fee parameters, new module activations, treasury allocations, and ecosystem proposals.
 
-TYT staking is also the accountability mechanism behind Credit Voucher issuance. Vouching institutions stake TYT against every attestation they issue, and lose it on inaccurate vouchers. This creates direct skin-in-the-game for every institution participating in the credit layer.
-
 ***
 
-### Dual-Track Voting Model
+#### Dual-Track Voting Model
 
 Tythe DAO operates two separate governance tracks. Each track governs a distinct set of decisions and requires a different combination of participation signals.
 
