@@ -96,12 +96,12 @@ The borrower interacts with the CEV contract via the Tythe Dashboard, not with t
 1. Borrower selects an eligible vault, specifies loan amount and target lending market
 2. CEV calculates the top-off amount as whichever is lower: the borrower's MVV or the vault's LTV Maximum, applied to the total position collateral. It then presents the borrower with their required collateral share and Risk Premium cost.
 3. Borrower confirms, deposits their collateral share, and pays the Risk Premium
-4. CEV bundles the borrower's collateral and the vault's top-off and opens the position on the target lending market under the borrower's wallet address. Loan proceeds go directly to the borrower's wallet. CEV records its claim on the top-off portion separately.
+4. CEV bundles the borrower's collateral and the vault's top-off and opens the position on the target lending market on behalf of the borrower. Loan proceeds go directly to the borrower's wallet.&#x20;
 5. Position is live. CEV holds a claim on its top-off portion for the duration of the position.
 
 TCT is verified at execution time, not request time. If TCT drops below the vault minimum between steps 1 and 4, the transaction is blocked.
 
-Borrowers may hold one active top-off position per vault at a time. Multiple vaults may be accessed simultaneously provided MVV is sufficient across all active positions.
+Borrowers may hold one active top-off position per vault at a time. Multiple vaults may be accessed simultaneously provided borrower MVV is sufficient across all active positions.
 
 </details>
 
@@ -176,13 +176,13 @@ LPs can exit a CEV at any time by withdrawing their deposited collateral asset i
 
 * Withdrawals are executed immediately at the current share price with no exit delay or lock-up period.
 * Available liquidity for LP withdrawals = TFD minus active top-off exposure minus any queued top-off commitments. Capital committed to active positions is not available for withdrawal until those positions close and top-off amounts are returned to vault liquidity.
-* If available liquidity is insufficient to cover a withdrawal request in full, the LP can withdraw up to the available amount immediately. The remainder is queued and fulfilled as active positions close and liquidity is restored.
+* If available liquidity is insufficient to cover a withdrawal request in full, the LP can withdraw up to the available amount immediately. The remainder is queued and fulfilled as active positions close successfully and liquidity is restored.
 
 ***
 
 #### Exit After a Default
 
-If a default has occurred and share price has depreciated, the LP exits at the current depreciated share price. No holding period applies. The loss is already reflected in share price at the moment of default, hence, there is no delayed realization.
+If a default has occurred and share price has depreciated, the LP exits at the current depreciated share price. No holding period applies. There is no delayed realization.
 
 ***
 
