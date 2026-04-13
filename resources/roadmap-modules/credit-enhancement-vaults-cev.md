@@ -38,7 +38,7 @@ Any CEP-verified participant can deposit into a CEV as an LP. No minimum TCT req
 #### Deposit Mechanics
 
 * LPs deposit the vault's exact collateral asset. No asset swaps are permitted on entry.
-* LP Share = LP deposit amount / TFD
+* `LP Share = LP deposit amount / TFD`
 * Deposits are accepted on a first come first served basis until TFD is reached. Under Hard Close settings, the vault permanently closes to new deposits at TFD. Under Timelock Increase settings, the curator may expand TFD via timelock once reached, reopening capacity for additional LP deposits.
 * No lock-up period. LPs can withdraw at any time subject to available vault liquidity above the RCR threshold.
 
@@ -67,7 +67,7 @@ Curators cannot take a fee on Risk Premiums. Risk Premiums reflect the actual ri
 
 #### Exit Mechanics
 
-* LPs can withdraw at any time subject to available vault liquidity above the RCR threshold. The natural liquidity buffer (TFD minus active top-off exposure) is the pool available for LP withdrawals. Capital committed to active top-off positions is not available for withdrawal until those positions close.
+* LPs can withdraw at any time subject to available vault liquidity above the RCR threshold. The natural liquidity buffer (`TFD — active top-off exposure`) is the pool available for LP withdrawals. Capital committed to active top-off positions is not available for withdrawal until those positions close.
 * No exit delay. Withdrawals execute immediately at the current share price. If a default has occurred and share price has depreciated, LPs exit at the depreciated share price with no holding period.
 
 </details>
@@ -94,7 +94,7 @@ Any CEP-verified participant meeting the vault's eligibility criteria can reques
 The borrower interacts with the CEV contract via the Tythe Dashboard, not with the lending market directly. The CEV contract opens the position on their behalf in a single transaction.
 
 1. Borrower selects an eligible vault, specifies loan amount and target lending market
-2. CEV calculates the top-off amount as whichever is lower: the borrower's MVV or the vault's LTV Maximum, applied to the total position collateral. It then presents the borrower with their required collateral share and Risk Premium cost.
+2. CEV calculates the top-off amount as whichever is lower: _the borrower's MVV_ or _the vault's LTV Maximum_, applied to the total position collateral. It then presents the borrower with their required collateral share and Risk Premium cost.
 3. Borrower confirms, deposits their collateral share, and pays the Risk Premium
 4. CEV bundles the borrower's collateral and the vault's top-off and opens the position on the target lending market on behalf of the borrower. Loan proceeds go directly to the borrower's wallet.&#x20;
 5. Position is live. CEV holds a claim on its top-off portion for the duration of the position.
@@ -175,7 +175,8 @@ LPs can exit a CEV at any time by withdrawing their deposited collateral asset i
 #### Withdrawal Mechanics
 
 * Withdrawals are executed immediately at the current share price with no exit delay or lock-up period.
-* Available liquidity for LP withdrawals = TFD minus active top-off exposure minus any queued top-off commitments. Capital committed to active positions is not available for withdrawal until those positions close and top-off amounts are returned to vault liquidity.
+* `Available liquidity for LP withdrawals = TFD — active top-off exposure — any queued top-off commitments`. \
+  Capital committed to active positions is not available for withdrawal until those positions close and top-off amounts are returned to vault liquidity.
 * If available liquidity is insufficient to cover a withdrawal request in full, the LP can withdraw up to the available amount immediately. The remainder is queued and fulfilled as active positions close successfully and liquidity is restored.
 
 ***
