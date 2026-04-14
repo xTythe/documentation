@@ -35,11 +35,14 @@ Deployment is fully permissionless. No TYT stake required. Any CEP-verified indi
 
 * **Collateral Asset:** The asset the vault holds and deploys as collateral top-offs. AAA Class CAVB stablecoins exclusively at launch. AA Class CAVB assets (BTC, ETH, and LSTs) considered post-launch.
 * **Total Fixed Deposit (TFD):** The vault's total capital capacity in dollar ($) terms. The vault remains inactive and closed to borrowers until TFD is reached in full for the first time post-deployment. Once this initial activation threshold is met, the vault is permanently active regardless of future LP withdrawals.
-* **Capacity Policy:** Immutable setting. Two options:\
-  — _Hard Close:_ TFD is a permanent ceiling. Once reached, the vault closes to new LP deposits. If existing LPs withdraw, the freed capacity reopens to new LPs on a first come first served basis. New top-offs are only permitted while the current vault capital maintains the RCR. If a new top-off request would breach the RCR, it is queued until capacity is restored.\
-  — _Timelock Increase:_ Once TFD is reached, the curator may expand it via timelock. Expansion requires advance notice, giving LPs time to assess and exit before additional capital changes the vault's risk profile.
+* **Capacity Policy:** Immutable setting. Two options:
+  * _Hard Close:_ TFD is a permanent ceiling. Once reached, the vault closes to new LP deposits. If existing LPs withdraw, the freed capacity reopens to new LPs on a first come first served basis. New top-offs are only permitted while the current vault capital maintains the RCR. If a new top-off request would breach the RCR, it is queued until capacity is restored.
+  * _Timelock Increase:_ Once TFD is reached, the curator may expand it via timelock. Expansion requires advance notice, giving LPs time to assess and exit before additional capital changes the vault's risk profile.
 * **Risk Concentration Ratio (RCR):** Maximum active top-off exposure as a percentage of TFD. Immutable. For example, an RCR of 80% on a $1M vault means no more than $800K can be committed in active top-offs at any time. The remaining 20% constitutes the vault's natural liquidity buffer. New top-offs are blocked if committing them would push active exposure above the RCR.
-* **TCT Score Minimum:** Minimum TCT score required for borrower eligibility.
+* **TCT Score Minimum:** Minimum TCT score required for borrower eligibility. Required for Public vaults. Optional for Private vaults as an add-on filter to the whitelist membership.
+* **Vault Access Policy:** Immutable setting. Two options:
+  * _Public:_ Any CEP-verified participant meeting the TCT Score Minimum is eligible on a first come first served basis.
+  * _Private:_ Curator defines a whitelist of eligible wallet addresses or CEP DIDs at deployment. No TCT Score Minimum required. Eligibility is determined entirely by whitelist membership. Curator can update the whitelist via timelock post-deployment.
 * **LTV Maximum:** The maximum LTV the vault will top off any eligible position to. Curator-defined vault-level risk ceiling, independent of individual borrower MVV.
 * **Risk Premium:** The percentage of each top-off amount paid by the borrower at position opening. Curator-defined within a DAO-governed floor and ceiling.
 * **Fixed Deployment Fee (Optional):** A one-time fee paid by LPs at entry. Set by the curator at deployment. Compensates the curator for vault setup and ongoing management. Tythe retains 9% of every Fixed Deployment Fee collected.
@@ -101,8 +104,17 @@ Any CEP-verified participant meeting the vault's eligibility criteria can reques
 
 #### Eligibility Requirements
 
+**For Public vaults:**
+
 * CEP verified
 * TCT at or above the vault's TCT Score Minimum
+* MVV greater than zero
+* Vault has available capacity below the RCR threshold
+
+**For Private vaults:**
+
+* CEP verified
+* Wallet address or CEP DID on the curator's whitelist
 * MVV greater than zero
 * Vault has available capacity below the RCR threshold
 
