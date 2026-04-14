@@ -1,3 +1,22 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+---
+
 # About Tythe
 
 Tythe is the neutral, decentralized protocol for credit. We provide the infrastructure to transform behavioral data into verifiable creditworthiness, giving every participant in the decentralized economy a smarter, fairer way to access and deploy capital.

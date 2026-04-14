@@ -1,3 +1,22 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+---
+
 # Tythe DAO
 
 Tythe DAO is the decentralized governance and arbitration layer of the Tythe protocol. It ensures that no single entity (including Tythe itself) can unilaterally control scoring parameters, dispute outcomes, or protocol direction.

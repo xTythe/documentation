@@ -1,3 +1,22 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+---
+
 # Credit Data Exchange (CDX)
 
 Raw on-chain data tells you what happened. CDX provides determinstic, predictive data. It enables individuals to monetize their verified credit data through consent-gated, privacy-preserving exchanges, transforming credit history from an extracted resource into a bankable asset.

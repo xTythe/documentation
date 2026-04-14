@@ -1,3 +1,22 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+---
+
 # Justice Arm
 
 The Justice Arm of Tythe DAO handles disputed slashes and contested scoring events under the protocol's fixed launch formula. It is the mechanism through which participants can challenge enforcement decisions they believe were applied in error.

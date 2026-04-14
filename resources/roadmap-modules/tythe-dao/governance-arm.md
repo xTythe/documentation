@@ -1,3 +1,22 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+---
+
 # Governance Arm
 
 The Governance Arm of Tythe DAO manages scoring parameters, formula upgrades, treasury allocation, and the overall direction of the protocol. It activates in V1.2 once the TYT token is live and the protocol has established a verifiable data foundation worth governing.

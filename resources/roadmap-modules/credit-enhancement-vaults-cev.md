@@ -1,3 +1,22 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+---
+
 # Credit Enhancement Vaults (CEV)
 
 Credit Enhancement Vaults are the only module on Tythe that enables undercollateralized lending. CEVs are ERC-4626 vaults where LPs provide collateral top-offs to back verified, high-TCT borrowers on existing integrated lending markets. CEVs allow borrowers to access loans at lower collateral requirements than those markets normally demand. CEVs do not replace lending markets, they simply extend and enhance what those markets can offer.
