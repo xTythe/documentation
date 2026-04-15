@@ -51,7 +51,7 @@ Agent onboarding runs in selection periods, not continuously. This ensures each 
 
 **Stage 1. Co-Signer Verification:** The co-signer completes CEP verification and stakes TYT. Signs the Ricardian contract of agent accountability. Co-signer CEP DID is registered as an accountable identity on the protocol.
 
-**Stage 2. Agent Recommendation:** The co-signer nominates agents from their ecosystem for evaluation. Nominations must be accompanied by execution history evidence — on-chain performance logs, audit reports, and third-party evaluation results from recognized agent performance and code safety platforms.
+**Stage 2. Agent Recommendation:** The co-signer nominates agents from their ecosystem for evaluation. Nominations must be accompanied by execution history evidence (on-chain performance logs, audit reports, and third-party evaluation results) from recognized agent performance and code safety platforms.
 
 **Stage 3. Evaluation:** Nominated agents undergo a thorough evaluation of execution performance, code safety, security audit results, and behavioral consistency. Evaluation criteria and recognized third-party platforms are published by Tythe ahead of each selection period.
 
