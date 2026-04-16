@@ -35,7 +35,7 @@ This Privacy Policy (the "Policy") explains how Tythe Labs, Inc. ("Tythe," "the 
 * Tythe does not collect or store raw personal data such as your name, street address, date of birth, or IP address in connection with your use of the Services.
 * Identity verification is handled entirely by Billions (ZKID Labs AG), a third-party zero-knowledge KYC provider. Tythe receives only a cryptographic attestation confirming verification status. Tythe never receives, stores, or processes your raw identity documents or personal information.
 * Tythe collects publicly available on-chain data and limited technical data to operate and improve the Services.
-* Credit Enhancement Profile (CEP) identifiers are anchored on the did:cheqd network. Tythe stores only the DID and associated on-chain resources — not the underlying personal information that generated them.
+* Credit Enhancement Profile (CEP) identifiers are anchored on the did:cheqd network. Tythe stores only the DID and associated on-chain resources; not the underlying personal information that generated them.
 * Participation in the Credit Data Exchange (CDX) is entirely voluntary and consent-gated. Tythe does not access, compile, or share your credit data outside of active, participant-approved dataset orders.
 * Any material changes to this Policy will be communicated via the Services.
 
@@ -51,7 +51,7 @@ When you interact with the Services, we collect only:
 
 **Zero-knowledge attestation data.** When you complete identity verification via Billions, Tythe receives a cryptographic attestation confirming that verification and sanctions screening have been completed. Tythe does not receive, process, or store your passport, biometric data, or any other personal information submitted to Billions. Your relationship with Billions is governed by Billions' own privacy policy and terms of service.
 
-**Credit Enhancement Profile (CEP) data.** When you create a CEP, a did:cheqd decentralized identifier is minted and associated with your verified status and linked wallet addresses. Tythe stores this DID and its associated DID-Linked Resources — including wallet address mappings, TCT attestations, and verifiable credential statuses — as on-chain data. This data does not contain raw personal information.
+**Credit Enhancement Profile (CEP) data.** When you create a CEP, a did:cheqd decentralized identifier is minted and associated with your verified status and linked wallet addresses. Tythe stores this DID and its associated DID-Linked Resources (including wallet address mappings, TCT attestations, and verifiable credential statuses) as on-chain data. This data does not contain raw personal information.
 
 **On-chain behavioral data.** To compute your Tokenized Creditworthiness (TCT) score, Tythe's scoring engine processes publicly available on-chain transaction history, DeFi position data, token balances, and other behavioral signals associated with your linked wallet addresses. This data is publicly available on the blockchain and is not created or assigned by us.
 
@@ -71,7 +71,7 @@ When you opt into a CDX dataset order, Tythe compiles a Tythe Credit Report from
 
 You may withdraw consent before your report is delivered. Withdrawn consent results in removal of your report from the dataset and forfeiture of the associated payout.
 
-Tythe does not store, sell, or access your credit data outside of active, participant-approved dataset orders. Buyers receive a one-time report delivery. No ongoing data access is granted to buyers after delivery.
+Tythe does not store, sell, or access your credit data outside of active, participant-approved dataset orders. Buyers receive a one-time report delivery. No ongoing data access is granted to buyers after the one-time report delivery is complete.
 
 ***
 
@@ -120,7 +120,7 @@ We do not sell your personal information. We do not share your information with 
 
 #### Blockchain Data and On-Chain Limitations
 
-You acknowledge that certain data associated with your CEP — including your TCT score, MVV, wallet addresses, and nEvent labels — is stored on public blockchains. This data is publicly visible and immutable by its nature. Tythe cannot edit, delete, or modify information stored on-chain, including your TCT balance, attestation records, and nEvent history. Requests to delete on-chain data cannot be fulfilled.
+You acknowledge that certain data associated with your CEP (including your TCT score, MVV, wallet addresses, and nEvent labels) is stored on public blockchains. This data is publicly visible and immutable by its nature. Tythe cannot edit, delete, or modify information stored on-chain, including your TCT balance, attestation records, and nEvent history. Requests to delete on-chain data cannot be fulfilled.
 
 ***
 
