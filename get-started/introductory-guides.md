@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Audience Guides
+# Introductory Guides
 
 {% tabs %}
 {% tab title="Individuals" %}
@@ -210,13 +210,13 @@ A user's CEP is anchored to their root did:cheqd identity, not a single wallet. 
 
 **What you're doing:** Reading a user's creditworthiness score and protocol-assessed credit limit to power risk-adjusted financial logic.
 
-TCT is a non-transferable ERC-20 token. Reading a user's TCT balance gives you their live credit score. Reading the MVV embedded in the token's metadata gives you the protocol's assessed dollar credit limit for that user and their position. Your protocol should never extend credit beyond the user's MVV (doing so means operating outside the protocol's risk assessment).
+**TCT (Credit Score):** TCT is a non-transferable ERC-20 token. Reading a user's TCT balance gives you their live credit score.&#x20;
 
 **TCT Score Brackets:**
 
-<table><thead><tr><th>Range</th><th width="200">Bracket</th><th>Suggested Action</th></tr></thead><tbody><tr><td>800–850</td><td>Excellent</td><td>High Boost</td></tr><tr><td>740–799</td><td>Very Good</td><td>Low Boost</td></tr><tr><td>670–739</td><td>Good</td><td>No Change</td></tr><tr><td>580–669</td><td>Fair</td><td>Risk Neutral</td></tr><tr><td>300–579</td><td>Poor</td><td>Negative Adjustment</td></tr><tr><td>1</td><td>No Data</td><td>Anonymous / Credit Invisible</td></tr><tr><td>0</td><td>Slashed</td><td>Hard Deny / Immediate Risk</td></tr></tbody></table>
+<table><thead><tr><th>Range</th><th width="200">Bracket</th><th>Suggested Action</th></tr></thead><tbody><tr><td>800–850</td><td>Excellent</td><td>High Boost</td></tr><tr><td>740–799</td><td>Very Good</td><td>Low Boost</td></tr><tr><td>670–739</td><td>Good</td><td>No Change</td></tr><tr><td>580–669</td><td>Fair</td><td>Risk Neutral</td></tr><tr><td>300–579</td><td>Poor</td><td>Negative Adjustment</td></tr><tr><td>1</td><td>No Data</td><td>Anonymous / Credit Invisible</td></tr><tr><td>0</td><td>Flagged</td><td>Hard Deny / Immediate Risk</td></tr></tbody></table>
 
-**MVV (Credit Limit):** The Maximum Vouchsafed Value is embedded in the TCT token's metadata. It defines the maximum dollar value the Tythe protocol is willing to vouchsafe for that user's position. Your protocol should never extend credit beyond the user's MVV; doing so means operating outside the protocol's risk assessment.
+**MVV (Credit Limit):** The Maximum Vouchsafed Value is embedded in the TCT token's metadata. It defines the maximum dollar value the Tythe protocol is willing to vouchsafe for that user's. Your protocol should never extend credit beyond the user's MVV; doing so means operating outside the protocol's risk assessment.
 
 **Use cases:**
 
@@ -276,7 +276,7 @@ It will never apply a boost that extends credit beyond what the protocol has vou
 
 **What you're doing:** Subscribing to Tythe's real-time nEvent intelligence feed to monitor credit events across the ecosystem.
 
-The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM) — not a blockchain feature. It continuously monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Labels and percentile rankings are delivered off-chain to your systems in real time.
+The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). It continuously monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Labels and percentile rankings are delivered off-chain to your systems in real time.
 
 **nEvent Typology:**
 
@@ -312,13 +312,10 @@ The Relay Emitter is an ML-powered intelligence layer built on gradient boosting
 
 The four paths are designed to be composable. Here are the most common combinations:
 
-**Credit-aware lending market:** CEP resolution (compliance gate) + TCT/MVV reading (risk-adjusted terms) + CEW (automated enforcement)
-
-**Risk-managed vault:** TCT/MVV reading (entry thresholds and LTV logic) + Relay Emitter (real-time default monitoring)
-
-**Permissioned RWA pool:** CEP resolution (KYC gate) + TCT/MVV reading (investor quality scoring) + CEW (dynamic yield allocation)
-
-**Institutional risk desk:** Relay Emitter (nEvent feed) + TCT reading (portfolio-level credit exposure monitoring)
+* **Credit-aware lending market:** CEP resolution (compliance gate) + TCT/MVV reading (risk-adjusted terms) + CEW (automated enforcement)
+* **Risk-managed vault:** TCT/MVV reading (entry thresholds and LTV logic) + Relay Emitter (real-time default monitoring)
+* **Permissioned RWA pool:** CEP resolution (KYC gate) + TCT/MVV reading (investor quality scoring) + CEW (dynamic yield allocation)
+* **Institutional risk desk:** Relay Emitter (nEvent feed) + TCT reading (portfolio-level credit exposure monitoring)
 
 ***
 
@@ -328,13 +325,11 @@ The four paths are designed to be composable. Here are the most common combinati
 
 **Tythe DAO & TYT Token** _**(V1.2):**_ TYT is the Tythe protocol token. Once live, developers and technical contributors participate in Tythe DAO governance; voting on technical specifications, integration standards, new primitive proposals, and protocol upgrade paths. Build with visibility into where the protocol is heading.
 
-**Credit Voucher Verification&#x20;**_**(V1.2):**_ Protocols will be able to verify institutional Credit Vouchers as part of their workflow allowing vouched users to access enhanced terms on top of their TCT score.
-
 **CEV Integration** _**(V2):**_ Credit Enhancement Vaults will expose integration hooks for protocols that want to offer undercollateralized lending backed by LP capital. CEV integration will be available after V1 scoring data has matured.
 
-**Agentic Credit** _**(V2):**_ Verified AI agents will anchor to a CEP and leverage on-chain execution history for protocol-backed credit lines. The same primitives you build with today will serve agentic participants natively. No additional integration required.
-
 **CDL Consumer Data&#x20;**_**(V2):**_ Developers and AI engineers will be able to access anonymized, licensed consumer credit data in multiple formats for model building, risk research, and quantitative analysis. Data is sovereign and user-consented; participants opt in to license their credit profiles and are compensated directly. Details on data formats, licensing tiers, and access will be published ahead of the V2 launch.
+
+**Agentic Credit** _**(V2):**_ Verified AI agents will anchor to a CEP and leverage on-chain execution history for protocol-backed credit lines. The same primitives you build with today will serve agentic participants natively. No additional integration required.
 {% endtab %}
 
 {% tab title="Institutions" %}
@@ -392,13 +387,13 @@ TCT is a non-transferable ERC-20. Reading the balance gives you the score. Readi
 | 580–669 | Fair      | Risk neutral — tighter parameters recommended             |
 | 300–579 | Poor      | Elevated risk — high scrutiny recommended                 |
 | 1       | No Data   | Credit invisible — treat as anonymous                     |
-| 0       | Slashed   | Hard risk signal — deny or restrict immediately           |
+| 0       | Flagged   | Hard risk signal — deny or restrict immediately           |
 
 **Use cases by institution type:**
 
-* **Lending Markets:** Dynamic LTV and interest rate tiers based on TCT bracket. High-reliability borrowers access better rates — you retain more competitive positions without increasing default exposure.
+* **Lending Markets:** Dynamic LTV and interest rate tiers based on TCT bracket. High-reliability borrowers access better rates, you retain more competitive positions without increasing default exposure.
 * **Vaults:** Credit-aware entry thresholds and yield allocation. High-TCT depositors can unlock enhanced yield tiers; high-TCT borrowers unlock lower collateral requirements up to their MVV.
-* **CEXs:** Differentiated fee structures and trading limits. High-TCT traders access tighter spreads and higher position limits — rewarding reliable participants and reducing counterparty risk.
+* **CEXs:** Differentiated fee structures and trading limits. High-TCT traders access tighter spreads and higher position limits, rewarding reliable participants and reducing counterparty risk.
 * **Prediction Markets:** Position size limits and fee discounts calibrated to TCT score. Reliable participants get better access; high-risk profiles face automatic position constraints.
 * **Stablecoin Issuers:** Apply counterparty risk management for analyzing the risk profile of wallets interacting with your token (without needing to directly KYC every user), wallet mint limits, and wallet collateral requirements scaled to TCT and MVV.
 * **RWA / DeFi Institutions:** Investor quality scoring for permissioned pools. TCT and MVV provide an objective, on-chain measure of participant reliability that complements your internal underwriting.
@@ -426,7 +421,7 @@ The CEW is a smart contract proxy. It intercepts incoming transactions, reads th
 | Good        | Risk Neutral (standard terms)                                        |
 | Fair        | Low Negative Adjustment                                              |
 | Poor        | High Negative Adjustment                                             |
-| Slashed     | Hard Deny  (transaction blocked)                                     |
+| Flagged     | Hard Deny  (transaction blocked)                                     |
 
 **Use cases by institution/market type:**
 
@@ -453,7 +448,7 @@ It will never apply a boost that extends credit beyond what the Tythe protocol h
 
 **What you're doing:** Subscribing to Tythe's real-time nEvent intelligence feed to monitor credit events across the ecosystem before they affect your positions.
 
-The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM) — not a blockchain feature. It monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Labels and rankings are delivered directly to your risk systems in real time.
+The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). It monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Labels and rankings are delivered directly to your risk systems in real time.
 
 **nEvent Typology:**
 
@@ -499,14 +494,12 @@ The Relay Emitter is an ML-powered intelligence layer built on gradient boosting
 
 **APIs & SDKs** _(Roadmap)_ REST APIs and language-specific SDKs for web2-native integration will be released as the protocol grows and demand is established. If your stack requires API access ahead of the roadmap, reach out at [business@tythe.network](mailto:dev@tythe.network).
 
-**Tythe DAO & TYT Token&#x20;**_**(V1.2):**_ TYT is the Tythe protocol token. Institutional DAO members participate in Tythe governance with a specific mandate — voting on scoring formula parameters, weight adjustments, and protocol upgrade proposals. Institutional DAO members are the only participants with visibility into exact formula weights. TYT staking is also the accountability mechanism behind Credit Voucher issuance — vouching institutions stake TYT and lose it on inaccurate vouchers.
-
-**Credit Vouchers&#x20;**_**(V1.2):**_ Verified institutions (banks, fintechs, funds, and merchants) will be able to issue on-chain EIP-712 attestations vouching for participants based on internal due diligence or performance logs. Vouching institutions stake TYT protocol tokens, creating direct accountability for voucher accuracy. Full details in the Credit Voucher module documentation.
+**Tythe DAO & TYT Token&#x20;**_**(V1.2):**_ TYT is the Tythe protocol token. Institutional DAO members participate in Tythe governance with a specific mandate; voting on scoring formula parameters, weight adjustments, and protocol upgrade proposals. Institutional DAO members are the only participants with visibility into exact formula weights.
 
 **Credit Enhancement Vaults (CEV)** _**(V2):**_ ERC-4626 vaults where LPs provide collateral top-offs to back TCT-verified borrowers. CEVs are the only module enabling undercollateralized lending on Tythe; risk is distributed across LPs who opt in for yield and risk premiums. Institutions never absorb default risk they did not explicitly underwrite. Launching after V1 scoring data has matured.
 
-**Agentic Credit** _**(V2):**_ High-reputation AI agents with verified execution history will access credit through the same CEP/TCT/CEW stack as human participants. Institutions integrated with Tythe will automatically serve a new and growing class of creditworthy counterparty. No additional integration required.
-
 **Credit Data Licensing (CDL)&#x20;**_**(V2):**_ Institutional access to anonymized, user-consented credit data in structured formats for risk modeling, research, and AI training. Data is sovereign, participants opt in, and are compensated directly. Licensing tiers and format specifications will be published ahead of the V2 launch.
+
+**Agentic Credit** _**(V2):**_ High-reputation AI agents with verified execution history will access credit through the same CEP/TCT/CEW stack as human participants. Institutions integrated with Tythe will automatically serve a new and growing class of creditworthy counterparty. No additional integration required.
 {% endtab %}
 {% endtabs %}

@@ -6,7 +6,7 @@
 
 ## Get Started
 
-* [Audience Guides](get-started/audience-guides.md)
+* [Introductory Guides](get-started/introductory-guides.md)
 
 ## Resources
 
