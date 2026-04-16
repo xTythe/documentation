@@ -20,7 +20,9 @@
 * [Addresses](resources/addresses.md)
 * [Contracts](resources/contracts.md)
 * [Native Glossary](resources/native-glossary.md)
-* [Website Landing](https://tythe.network/)
+* [Whitepapers](resources/whitepapers.md)
+* [Landing Page](https://tythe.network/)
+* [Blog Page](https://tythe.network/blog/)
 
 ## Legal
 
