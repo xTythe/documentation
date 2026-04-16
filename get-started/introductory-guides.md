@@ -414,14 +414,14 @@ The CEW is a smart contract proxy. It intercepts incoming transactions, reads th
 
 **What the CEW applies:**
 
-| TCT Bracket | CEW Action                                                           |
-| ----------- | -------------------------------------------------------------------- |
-| Excellent   | High Boost (maximum rate discount, limit boost, or spread reduction) |
-| Very Good   | Low Boost                                                            |
-| Good        | Risk Neutral (standard terms)                                        |
-| Fair        | Low Negative Adjustment                                              |
-| Poor        | High Negative Adjustment                                             |
-| Flagged     | Hard Deny  (transaction blocked)                                     |
+| TCT Bracket | CEW Action                                                         |
+| ----------- | ------------------------------------------------------------------ |
+| Excellent   | <mark style="color:$success;">Enhancement</mark> (High)            |
+| Very Good   | <mark style="color:$success;">Enhancement</mark> (Low)             |
+| Good        | <mark style="color:$primary;">Risk Neutral</mark> (standard terms) |
+| Fair        | <mark style="color:$warning;">Enforcement</mark> (Low)             |
+| Poor        | <mark style="color:$warning;">Enforcement</mark> (High)            |
+| Slashed     | <mark style="color:$danger;">Blocked</mark>                        |
 
 **Use cases by institution/market type:**
 
