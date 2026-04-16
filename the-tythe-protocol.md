@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# About Tythe
+# The Tythe Protocol
 
 Tythe is the neutral, decentralized protocol for credit. We provide the infrastructure to transform behavioral data into verifiable creditworthiness, giving every participant in the decentralized economy a smarter, fairer way to access and deploy capital.
 
@@ -98,7 +98,7 @@ Credit enhancement is the process of leveraging verified creditworthiness (or fi
 
 **Credit Enhancement Vaults (CEV):** Intelligence-optimized ERC-4626 vaults where LPs provide collateral top-offs to back TCT-verified borrowers. CEVs are the only module enabling undercollateralized lending, where risk is distributed across LPs who opt in for high yield and risk-premiums.
 
-> **Agentic Credit (V2):** Allowing verified AI agents to leverage execution history for protocol-backed credit lines is on the Tythe roadmap. Details in the [roadmap section](resources/roadmap-modules/agentic-credit.md).
+> **Agentic Credit (V2):** Allowing verified AI agents to leverage execution history for protocol-backed credit lines is on the Tythe roadmap. Details in the [roadmap section](get-started/roadmap-modules/agentic-credit.md).
 {% endstep %}
 
 {% step %}
