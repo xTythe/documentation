@@ -21,8 +21,6 @@ layout:
 
 {% tabs %}
 {% tab title="Individuals" %}
-You are not a data point. You are not a passive subject in someone else's database. On Tythe, you are the sovereign owner of your financial reputation, and that reputation works for you.
-
 This guide walks you through everything you need to go from zero to a fully active credit profile on Tythe, step by step.
 
 ***
@@ -124,17 +122,12 @@ There is no benefit to refreshing every day. Refresh when it matters: before a n
 
 #### Step 5: Put Your TCT to Work
 
-**What you're doing:** Using your score to access better capital terms across integrated markets.
+**What you're doing:** Using your score to access better capital terms across integrated markets. Once your TCT balance is live, the CEW goes to work automatically on every integrated market you interact with.
 
-Once your TCT balance is live, the CEW goes to work automatically on every integrated market you interact with.
-
-**Borrowers:** CEW reads your TCT at the point of every loan interaction. A high score unlocks lower interest rates and higher borrowing limits automatically, without manual application or approval.
-
-**Yield Participants:** High-TCT depositors access enhanced yield tiers on integrated vaults. Your reliability earns you better allocation, not just access.
-
-**Traders:** On integrated exchanges, TCT unlocks tighter spreads, reduced margin requirements, and higher position limits. Your track record becomes an execution advantage.
-
-**RWA Investors:** Integrated RWA platforms use your TCT and MVV to determine pool access and capital allocation tiers. Your on-chain history speaks before you do.
+* **Borrowers:** CEW reads your TCT and MVV at the point of every loan interaction. A high score unlocks lower interest rates and higher borrowing limits automatically, without manual application or approval.
+* **Yield Participants:** High-TCT and MVV depositors access enhanced yield tiers on integrated vaults. Your reliability earns you better allocation, not just access.
+* **Traders:** On integrated exchanges, TCT/MVV unlocks tighter spreads, reduced margin requirements, and higher position limits. Your track record becomes an execution advantage.
+* **RWA Investors:** Integrated RWA platforms use your TCT and MVV to determine pool access and capital allocation tiers. Your on-chain history speaks before you do.
 
 > **Your Score Travels With You:** Whether you're on Morpho, Lido, Centrifuge, or any integrated Uniswap DEX pair, your creditworthiness is readable by any integrated protocol globally. Your TCT follows your CEP, not your geography.
 
@@ -144,13 +137,10 @@ Once your TCT balance is live, the CEW goes to work automatically on every integ
 
 Here is some important information you need to know about.
 
-**Negative events trigger automatic slashes.** If the protocol detects a Liquidation, Default, or Exploit on any wallet linked to your CEP, it bypasses the Refresh process and immediately burns a portion of your TCT balance. This happens automatically with no warning and no delay. The enforcement is protocol-side and gasless.
-
-**Slashed TCT affects your active positions.** A sudden TCT reduction may trigger automated margin calls or CEW adjustments on your active positions on integrated markets. Maintain healthy collateral ratios and avoid edge-behavior to protect your score.
-
-**Disputed slashes have a path to resolution.** If you believe a slash was applied in error, you can raise a dispute with the Justice Arm of the Tythe DAO. AI clerks prepare an evidence brief from your on-chain data. A human jury drawn from your TCT band reviews the case and delivers a verdict. You do not need a lawyer, just your on-chain history.
-
-**Protect your score across wallet changes.** Your CEP is anchored to your root did:cheqd identity, not a single wallet. If you lose access to your primary wallet or choose to rotate addresses, any linked secondary wallet can be promoted to primary via the Tythe Dashboard. To preserve your TCT scoring relationship across wallet changes, link the latest Tythe EIP-712 scoring attestation to your DID as a DID-Linked Resource. If the attestation is linked, your TCT balance can be reminted to a new primary address. If it is not linked, your score may not be recoverable. Linking the attestation is a sovereign action; only you can do it, and only you benefit from it.
+1. **Negative events trigger automatic slashes.** If the protocol detects a Liquidation, Default, or Exploit on any wallet linked to your CEP, it bypasses the Refresh process and immediately burns a portion of your TCT balance. This happens automatically with no warning and no delay. The enforcement is protocol-side and gasless.
+2. **Slashed TCT affects your active positions.** A sudden TCT reduction may trigger automated margin calls or CEW adjustments on your active positions on integrated markets. Maintain healthy collateral ratios and avoid edge-behavior to protect your score.
+3. **Disputed slashes have a path to resolution.** If you believe a slash was applied in error, you can raise a dispute with the Justice Arm of the Tythe DAO. AI clerks prepare an evidence brief from your on-chain data. A human jury drawn from your TCT band reviews the case and delivers a verdict. You do not need a lawyer, just your on-chain history.
+4. **Protect your score across wallet changes.** Your CEP is anchored to your root did:cheqd identity, not a single wallet. If you lose access to your primary wallet or choose to rotate addresses, any linked secondary wallet can be promoted to primary via the Tythe Dashboard. To preserve your TCT scoring relationship across wallet changes, link the latest Tythe EIP-712 scoring attestation to your DID as a DID-Linked Resource. If the attestation is linked, your TCT balance can be re-minted to a new primary address. If it is not linked, your score may not be recoverable. Linking the attestation is a sovereign action; only you can do it. The recoverable score is dependent on the recency of the attestation linked to your CEP.
 
 ***
 
@@ -160,11 +150,9 @@ The following features are on the Tythe roadmap and not yet live:
 
 **Tythe DAO & TYT Token** _**(V1.2):**_ TYT is the Tythe protocol token. Once live, TYT holders participate in Tythe DAO governance; voting on protocol upgrades, fee parameters, new feature proposals, and the general direction and growth of the protocol. As a TCT earner and protocol participant, your voice shapes what Tythe becomes.
 
-**Credit Vouchers&#x20;**_**(V1.2):**_ Verified institutions such as banks, fintechs, and funds, will be able to issue on-chain attestations vouching for your creditworthiness based on their internal due diligence. A Credit Voucher from a trusted institution will directly strengthen your CEP and TCT.
+**Credit Enhancement Vaults&#x20;**_**(V2):**_ The only module on Tythe that enables undercollateralized lending. LPs provide collateral top-offs to back high-TCT borrowers; meaning your proven reliability can unlock credit lines that go beyond your posted collateral.
 
 **Credit Data Licensing** _**(V2):**_ Choose to anonymize and license your credit data to institutional researchers, model builders, and AI engineers, and get paid for it. Your data, your revenue.
-
-**Credit Enhancement Vaults&#x20;**_**(V2):**_ The only module on Tythe that enables undercollateralized lending. LPs provide collateral top-offs to back high-TCT borrowers; meaning your proven reliability can unlock credit lines that go beyond your posted collateral.
 {% endtab %}
 
 {% tab title="Developers" %}

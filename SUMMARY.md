@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Tythe Documentation](README.md)
-* [About Tythe](about-tythe.md)
+* [The Tythe Protocol](the-tythe-protocol.md)
 * [The Tythe Standard](the-tythe-standard.md)
 
 ## Get Started
