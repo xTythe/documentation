@@ -19,7 +19,7 @@ layout:
 
 # Terms of Service
 
-## Tythe Protocol Terms of Service
+### Tythe Protocol Terms of Service
 
 Last modified: April 15, 2026
 
@@ -33,7 +33,7 @@ NOTICE: This Agreement contains a binding arbitration provision and a class acti
 
 ***
 
-### 1. The Services
+#### 1. The Services
 
 **1.1 The Tythe Protocol** The Tythe Protocol is a set of open-source smart contracts deployed on the Base blockchain and other compatible networks. The Protocol operates autonomously and is distinct from the Services operated by Tythe Labs, Inc. Tythe Labs does not control or operate the Protocol's smart contracts once deployed. By using the Services, you understand that you are interacting with self-executing smart contracts and that Tythe Labs does not intermediate, broker, or control any transactions executed through the Protocol.
 
@@ -63,7 +63,7 @@ TCT is not a credit score as defined under the Fair Credit Reporting Act (FCRA) 
 
 ***
 
-### 2. Modifications
+#### 2. Modifications
 
 **2.1 Modifications to this Agreement** We reserve the right to modify this Agreement at any time. Material modifications will be communicated by updating the date at the top of this Agreement and maintaining a current version at tythe.network/terms. Your continued use of the Services after modifications are posted constitutes your acceptance of the updated Agreement.
 
@@ -71,7 +71,7 @@ TCT is not a credit score as defined under the Fair Credit Reporting Act (FCRA) 
 
 ***
 
-### 3. Intellectual Property
+#### 3. Intellectual Property
 
 **3.1 Ownership** Tythe Labs owns all intellectual property rights in the Services and their contents, including software, text, images, trademarks, service marks, and their overall look and feel. Subject to this Agreement, we grant you a limited, revocable, non-exclusive, non-transferable license to access and use the Services solely in accordance with this Agreement. You may not use, modify, distribute, reverse engineer, disassemble, or decompile any part of the Services except as expressly permitted.
 
@@ -83,7 +83,7 @@ The Tythe Protocol smart contracts are open source. Nothing in this Agreement re
 
 ***
 
-### 4. Your Responsibilities
+#### 4. Your Responsibilities
 
 **4.1 Prohibited Activity** You agree not to engage in or attempt to engage in any of the following in connection with your use of the Services:
 
@@ -111,7 +111,7 @@ The Tythe Protocol smart contracts are open source. Nothing in this Agreement re
 
 ***
 
-### 5. Disclaimers
+#### 5. Disclaimers
 
 **5.1 Assumption of Risk** BY ACCESSING AND USING THE SERVICES, YOU REPRESENT THAT YOU ARE FINANCIALLY AND TECHNICALLY SOPHISTICATED ENOUGH TO UNDERSTAND THE INHERENT RISKS OF INTERACTING WITH CRYPTOGRAPHIC AND BLOCKCHAIN-BASED SYSTEMS. YOU UNDERSTAND THAT SMART CONTRACT TRANSACTIONS ARE IRREVERSIBLE ONCE CONFIRMED, THAT DIGITAL ASSET MARKETS ARE HIGHLY VOLATILE, AND THAT YOU MAY LOSE SOME OR ALL OF YOUR ASSETS THROUGH YOUR USE OF THE SERVICES OR THE PROTOCOL.
 
@@ -131,13 +131,13 @@ YOU SPECIFICALLY ACKNOWLEDGE THE FOLLOWING RISKS:
 
 ***
 
-### 6. Indemnification
+#### 6. Indemnification
 
 You agree to defend, indemnify, and hold harmless Tythe Labs, Inc. and its affiliates, officers, directors, employees, contractors, agents, licensors, and representatives from and against all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorney's fees) arising from or relating to your access to or use of the Services, your violation of this Agreement, your violation of any third party's rights, or any dispute between you and any third party arising from your use of the Services.
 
 ***
 
-### 7. Limitation of Liability
+#### 7. Limitation of Liability
 
 TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, TYTHE LABS, INC. AND ITS AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES ARISING FROM OR RELATING TO YOUR USE OF OR INABILITY TO USE THE SERVICES, INCLUDING BUT NOT LIMITED TO LOSS OF CAPITAL, LOSS OF PROFITS, LOSS OF DATA, OR ANY OTHER FINANCIAL LOSS, WHETHER BASED IN CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR OTHERWISE, EVEN IF TYTHE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
@@ -147,7 +147,7 @@ THE FOREGOING LIMITATIONS DO NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LA
 
 ***
 
-### 8. Governing Law and Dispute Resolution
+#### 8. Governing Law and Dispute Resolution
 
 **8.1 Governing Law** This Agreement is governed by the laws of the State of Delaware, without regard to conflict of law principles. The parties acknowledge that this Agreement evidences interstate commerce and that any arbitration conducted pursuant to this Agreement shall be governed by the Federal Arbitration Act.
 
@@ -159,7 +159,7 @@ THE FOREGOING LIMITATIONS DO NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LA
 
 ***
 
-### 9. Miscellaneous
+#### 9. Miscellaneous
 
 **9.1 Entire Agreement** This Agreement constitutes the entire agreement between you and Tythe with respect to the Services and supersedes all prior agreements and understandings relating to its subject matter.
 
@@ -177,7 +177,7 @@ THE FOREGOING LIMITATIONS DO NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LA
 
 ***
 
-### Contact Us
+#### Contact Us
 
 For questions about this Agreement, contact us at:
 
