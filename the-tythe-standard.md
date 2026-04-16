@@ -173,19 +173,20 @@ The Credit Enhancement Wrapper (CEW) translates a participant's TCT balance into
 {% hint style="info" %}
 #### CEW Action Key
 
-Enhancement = Positive Boost\
-Enforcement = Negative Adjustment
+<mark style="color:$success;">Enhancement</mark> = Positive Boost\
+<mark style="color:$warning;">Enforcement</mark> = Negative Adjustment\
+<mark style="color:$danger;">Block</mark> = Hard Deny
 {% endhint %}
 
-| Range   | Bracket   | CEW Action                     |
-| ------- | --------- | ------------------------------ |
-| 800–850 | Excellent | Enhancement (High)             |
-| 740–799 | Very Good | Enhancement (Low)              |
-| 670–739 | Good      | Risk Neutral; No Change        |
-| 580–669 | Fair      | Enforcement (Low)              |
-| 300–579 | Poor      | Enforcement (High)             |
-| 1       | No Data   | Conditional / Credit Invisible |
-| 0       | Slashed   | Hard Deny / Immediate Risk     |
+| Range   | Bracket   | CEW Action                                                   |
+| ------- | --------- | ------------------------------------------------------------ |
+| 800–850 | Excellent | <mark style="color:$success;">Enhancement</mark> (High)      |
+| 740–799 | Very Good | <mark style="color:$success;">Enhancement</mark> (Low)       |
+| 670–739 | Good      | <mark style="color:$primary;">Risk Neutral</mark>; No Change |
+| 580–669 | Fair      | <mark style="color:$warning;">Enforcement</mark> (Low)       |
+| 300–579 | Poor      | <mark style="color:$warning;">Enforcement</mark> (High)      |
+| 1       | No Data   | <mark style="color:$info;">Credit Invisible</mark>           |
+| 0       | Flagged   | <mark style="color:$danger;">Blocked</mark>                  |
 
 ***
 
