@@ -36,7 +36,7 @@ Deployment is fully permissionless. No TYT stake required. Any CEP-verified indi
 * **Collateral Asset:** The asset the vault holds and deploys as collateral top-offs. AAA Class CAVB stablecoins exclusively at launch. AA Class CAVB assets (BTC, ETH, and LSTs) considered post-launch.
 * **Total Fixed Deposit (TFD):** The vault's total capital capacity in dollar ($) terms. The vault remains inactive and closed to borrowers until TFD is reached in full for the first time post-deployment. Once this initial activation threshold is met, the vault is permanently active regardless of future LP withdrawals.
 * **Capacity Policy:** Immutable setting. Two options:
-  * _Hard Close:_ TFD is a permanent ceiling. Once reached, the vault closes to new LP deposits. If existing LPs withdraw, the freed capacity reopens to new LPs on a first come first served basis. New top-offs are only permitted while the current vault capital maintains the RCR. If a new top-off request would breach the RCR, it is queued until capacity is restored.
+  * _Hard Close:_ TFD is a permanent ceiling. Once the vault activates, it closes to new LP deposits. If existing LPs withdraw and total deposited capital drops below TFD, the freed capacity reopens to new LPs on a first come first served basis. New top-offs are only permitted while the current vault capital maintains the RCR.
   * _Timelock Increase:_ Once TFD is reached, the curator may expand it via timelock. Expansion requires advance notice, giving LPs time to assess and exit before additional capital changes the vault's risk profile.
 * **Risk Concentration Ratio (RCR):** Maximum active top-off exposure as a percentage of TFD. Immutable. For example, an RCR of 80% on a $1M vault means no more than $800K can be committed in active top-offs at any time. The remaining 20% constitutes the vault's natural liquidity buffer. New top-offs are blocked if committing them would push active exposure above the RCR.
 * **TCT Score Minimum:** Minimum TCT score required for borrower eligibility. Required for Public vaults. Optional for Private vaults as an add-on filter to the whitelist membership.
@@ -60,7 +60,7 @@ Any CEP-verified participant can deposit into a CEV as an LP. No minimum TCT req
 #### Deposit Mechanics
 
 * LPs deposit the vault's exact collateral asset. No asset swaps are permitted on entry.
-* `LP Share = LP deposit amount / TFD`
+* LP shares are minted at the current vault NAV. The first depositor receives shares equal to their net deposit amount. Subsequent depositors receive shares proportional to the current share price `shares = net deposit × total shares / total deposited`. Share price appreciates as Risk Premium income accrues and depreciates if a default occurs. This means later depositors pay the market price for a share, not a fixed fraction of TFD.
 * Deposits are accepted on a first come first served basis until TFD is reached. Under Hard Close settings, the vault permanently closes to new deposits at TFD. Under Timelock Increase settings, the curator may expand TFD via timelock once reached, reopening capacity for additional LP deposits.
 * No lock-up period. LPs can withdraw at any time subject to available vault liquidity above the RCR threshold.
 
@@ -206,8 +206,9 @@ LPs can exit a CEV at any time by withdrawing their deposited collateral asset i
 #### Withdrawal Mechanics
 
 * Withdrawals are executed immediately at the current share price with no exit delay or lock-up period.
-* `Available liquidity for LP withdrawals = TFD — active top-off exposure — any queued top-off commitments`. \
-  Capital committed to active positions is not available for withdrawal until those positions close and top-off amounts are returned to vault liquidity.
+*   `Available liquidity for LP withdrawals = total deposited — active top-off exposure`
+
+    When an LP queues a withdrawal, their shares are burned and their token claim is removed from total deposited immediately at queue-time NAV. Queued amounts are therefore already excluded from the available liquidity calculation, and are held as a separate liability until claimed.
 * If available liquidity is insufficient to cover a withdrawal request in full, the LP can withdraw up to the available amount immediately. The remainder is queued and fulfilled as active positions close successfully and liquidity is restored.
 
 ***
@@ -220,7 +221,7 @@ If a default has occurred and share price has depreciated, the LP exits at the c
 
 #### Vault Capacity After Exit
 
-* Under Hard Close, LP withdrawals free up capacity in the TFD. New LPs can fill that capacity on a first come first served basis. New top-offs are only permitted if the current vault capital maintains the RCR after the withdrawal.
+* Under Hard Close, LP withdrawals that bring total deposited capital below TFD reopen deposit capacity. New LPs can fill that capacity on a first come first served basis. New top-offs are only permitted if the current vault capital maintains the RCR post-withdrawal.
 * Under Timelock Increase, LP withdrawals reduce available capital but do not affect the expanded TFD ceiling. New LPs can deposit up to the expanded ceiling.
 
 </details>
