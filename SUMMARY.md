@@ -23,8 +23,6 @@
 * [Whitepapers](resources/whitepapers.md)
 * [Landing Page](https://tythe.network/)
 * [Blog Page](https://tythe.network/blog/)
-
-## Legal
-
-* [Privacy Policy](legal/privacy-policy.md)
-* [Terms of Service](legal/terms-of-service.md)
+* [Legal](resources/legal/README.md)
+  * [Privacy Policy](resources/legal/privacy-policy.md)
+  * [Terms of Service](resources/legal/terms-of-service.md)
