@@ -136,15 +136,12 @@ Tythe gives your protocol verifiable, real-time credit intelligence at the smart
 
 **What Tythe Exposes**
 
-Three on-chain primitives and one off-chain intelligence feed. Integrate one or all — they are composable by design.
+Three on-chain primitives and one off-chain intelligence feed. Integrate one or all, they are composable by design.
 
-**CEP (Credit Enhancement Profile):** Sovereign financial identity anchored on `did:cheqd`. Resolves any wallet to its verified owner, compliance status, and linked resources. The identity layer everything else builds on.
-
-**TCT (Tokenized Creditworthiness):** Non-transferable ERC-20 score (300–850) with MVV embedded in token metadata. The live credit signal your contracts read at transaction time.
-
-**CEW (Credit Enhancement Wrapper):** Smart contract proxy. Intercepts transactions, reads TCT, and applies credit logic automatically. Inherit CEW without re-architecting your stack.
-
-**Relay Emitter:** Off-chain ML-powered nEvent feed. Classifies and labels negative credit events in real time and delivers structured signals to your systems the moment they are detected.
+1. **CEP (Credit Enhancement Profile):** Sovereign financial identity anchored on `did:cheqd`. Resolves any wallet to its verified owner, compliance status, and linked resources. The identity layer everything else builds on.
+2. **TCT (Tokenized Creditworthiness):** Non-transferable ERC-20 score (300–850) with MVV embedded in token metadata. The live credit signal your contracts read at transaction time.
+3. **CEW (Credit Enhancement Wrapper):** Smart contract proxy. Intercepts transactions, reads TCT, and applies credit logic automatically. Inherit CEW without re-architecting your stack.
+4. **Relay Emitter:** Off-chain ML-powered nEvent feed. Classifies and labels negative credit events in real time and delivers structured, actionable signals to your systems.
 
 ***
 
