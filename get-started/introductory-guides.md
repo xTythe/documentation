@@ -130,155 +130,107 @@ Your creditworthiness follows your CEP, not your geography. Any integrated marke
 {% endtab %}
 
 {% tab title="Developers" %}
-Credit-invisible users are your biggest source of avoidable risk. Tythe gives your protocol the infrastructure to change that. By replacing anonymous over-collateralization with verifiable, real-time creditworthiness that works at the smart contract level.
-
-This guide covers the integration paths available to developers in V1 and how to use them to build credit-aware financial products.
+Tythe gives your protocol verifiable, real-time credit intelligence at the smart contract level. This guide covers what Tythe exposes to developers and which primitive solves which problem.
 
 ***
 
-#### What Tythe Gives You
+**What Tythe Exposes**
 
-Tythe exposes three on-chain primitives and one intelligence feed that developers can integrate independently or in combination:
+Three on-chain primitives and one off-chain intelligence feed. Integrate one or all — they are composable by design.
 
-| Primitive                        | What It Is                                                                                                                                                                           | What You Build With It                                    |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
-| CEP (Credit Enhancement Profile) | A permanent, sovereign financial identity anchored on `did:cheqd`. Resolves linked wallets, credentials, attestations, and financial history into one unified, accountable identity. | Permissioned market access, identity gating               |
-| TCT (Tokenized Creditworthiness) | A non-transferable ERC-20 score (300–850) with embedded MVV                                                                                                                          | Risk-adjusted rates, dynamic LTV, credit-aware vaults     |
-| CEW (Credit Enhancement Wrapper) | A smart contract proxy that applies TCT-based logic to financial positions                                                                                                           | Automated discounts, limit boosts, risk enforcement       |
-| Relay Emitter                    | ML-powered real-time nEvent labels and percentile rankings broadcast to subscribers                                                                                                  | Live risk monitoring, default detection, risk-alpha feeds |
+**CEP (Credit Enhancement Profile):** Sovereign financial identity anchored on `did:cheqd`. Resolves any wallet to its verified owner, compliance status, and linked resources. The identity layer everything else builds on.
 
-You do not need to integrate all four. Start with what your protocol needs.
+**TCT (Tokenized Creditworthiness):** Non-transferable ERC-20 score (300–850) with MVV embedded in token metadata. The live credit signal your contracts read at transaction time.
+
+**CEW (Credit Enhancement Wrapper):** Smart contract proxy. Intercepts transactions, reads TCT, and applies credit logic automatically. Inherit CEW without re-architecting your stack.
+
+**Relay Emitter:** Off-chain ML-powered nEvent feed. Classifies and labels negative credit events in real time and delivers structured signals to your systems the moment they are detected.
 
 ***
 
-#### Integration Path 1: CEP DID Resolution
+**1. CEP**
 
-**What you're doing:** Resolving an individual's complete financial identity to verify their standing before granting market access.
+Call `resolveWallet(address wallet)` on the Attestation Registry. Returns the wallet's associated `did:cheqd` identifier and primary wallet address. Returns `("", address(0))` for any unlinked wallet; treat these as anonymous.
 
-The CEP is anchored on the `did:cheqd` network. Each CEP maps a verified individual to one or more wallet addresses, compliance credentials, attestations, and financial history — all resolvable in a single call without touching raw personal data. Resolving a CEP gives your protocol a cryptographic confirmation that a wallet belongs to a verified individual with a complete, accountable financial identity.
+What resolution confirms:
 
-**What resolution returns:**
+* Verified KYC and sanctions status via zero-knowledge attestation
+* Proof of Personhood confirmed human uniqueness
+* Wallet-to-identity binding. Every linked address maps to one verified root DID
 
-* Verified KYC and sanctions status: confirmed via zero-knowledge attestation
-* Proof of Personhood: confirmed human uniqueness
-* Wallet-to-identity binding: every linked address maps to one verified root identity
-* Linked attestations and credentials: compliance status, scoring attestations, and more
+**Build to the DID, not the wallet address.** A participant's CEP persists across wallet rotations. The DID is the persistent identifier for a participant's credit state.
 
-**Use cases:**
-
-* Lending markets and derivatives that require verified, accountable participants
-* Identity-gated vault and pool access without handling raw user data
-* Compliance verification before executing high-value transactions
-
-No raw PII ever touches your protocol. The ZK attestation is the only signal you need.
+No raw PII ever touches your protocol. The ZK attestation is the only signal your system processes.
 
 {% hint style="info" %}
-#### Score portability across wallet changes
-
-A user's CEP is anchored to their root did:cheqd identity, not a single wallet. If a user rotates or loses their primary wallet, their scoring relationship is preserved if they have linked the latest Tythe EIP-712 scoring attestation as a DID-Linked Resource. Their TCT balance can be reminted to a new primary address by presenting that attestation. Build your integration to resolve the CEP root identity (not the wallet address) as the persistent identifier for a user's credit state.
+**Use when:** Your protocol needs to verify a participant is a real, KYC-compliant individual before granting access to lending markets, RWA pools, permissioned vaults, stablecoin issuers.
 {% endhint %}
 
 ***
 
-#### Integration Path 2: TCT & MVV Reading
+**2. TCT & MVV**
 
-**What you're doing:** Reading a user's creditworthiness score and protocol-assessed credit limit to power risk-adjusted financial logic.
+Call <mark style="color:red;">`balanceOf(address wallet)`</mark> on the TCT Contract to read the score. Call <mark style="color:red;">`getMVV(address wallet)`</mark> to read the MVV in USD, 18 decimals.
 
-**TCT (Credit Score):** TCT is a non-transferable ERC-20 token. Reading a user's TCT balance gives you their live credit score.&#x20;
+**Score brackets:**
 
-**TCT Score Brackets:**
+| Range   | Bracket   | CEW Action                                                   |
+| ------- | --------- | ------------------------------------------------------------ |
+| 800–850 | Excellent | <mark style="color:$success;">Enhancement</mark> (High)      |
+| 740–799 | Very Good | <mark style="color:$success;">Enhancement</mark> (Low)       |
+| 670–739 | Good      | <mark style="color:$primary;">Risk Neutral</mark>; No Change |
+| 580–669 | Fair      | <mark style="color:$warning;">Enforcement</mark> (Low)       |
+| 300–579 | Poor      | <mark style="color:$warning;">Enforcement</mark> (High)      |
+| 1       | No Data   | <mark style="color:$info;">Credit Invisible</mark>           |
+| 0       | Flagged   | <mark style="color:$danger;">Blocked</mark>                  |
 
-<table><thead><tr><th>Range</th><th width="200">Bracket</th><th>Suggested Action</th></tr></thead><tbody><tr><td>800–850</td><td>Excellent</td><td>High Boost</td></tr><tr><td>740–799</td><td>Very Good</td><td>Low Boost</td></tr><tr><td>670–739</td><td>Good</td><td>No Change</td></tr><tr><td>580–669</td><td>Fair</td><td>Risk Neutral</td></tr><tr><td>300–579</td><td>Poor</td><td>Negative Adjustment</td></tr><tr><td>1</td><td>No Data</td><td>Anonymous / Credit Invisible</td></tr><tr><td>0</td><td>Flagged</td><td>Hard Deny / Immediate Risk</td></tr></tbody></table>
+* **MVV is an enhancement ceiling, not a transaction gate.** \
+  Transactions above a participant's MVV still proceed, enhancement applies up to MVV, the remainder transacts at standard terms. Never treat MVV as a block.&#x20;
+* **Read at transaction time, not session initiation.** \
+  Scores update between transactions — positively via Manual Refresh, negatively via Auto-Slash. A cached value is stale the moment a score changes.
 
-**MVV (Credit Limit):** The Maximum Vouchsafed Value is embedded in the TCT token's metadata. It defines the maximum dollar value the Tythe protocol is willing to vouchsafe for that user's. Your protocol should never extend credit beyond the user's MVV; doing so means operating outside the protocol's risk assessment.
-
-**Use cases:**
-
-* Dynamic LTV adjustments
-* Dynamic yield adjustments and allocation
-* Tiered interest rates that reward high-reliability borrowers
-* Credit-aware vault entry thresholds
-* Risk-intel for DEX pairs and LP positions
-* Size limits and fee discounts for prediction markets calibrated to user TCT
-
-**How it works at the contract level:**
-
-Call the standard ERC-20 `balanceOf` function on the TCT contract to read a user's score. Read the MVV from the token metadata. Use these values as inputs to your protocol's rate or limit logic.
+Additional read functions: <mark style="color:red;">`isEligible(address, uint256 minTCT)`</mark>, <mark style="color:red;">`isBlacklisted(address)`</mark>, <mark style="color:red;">`getScoreBracket(address)`</mark>.
 
 {% hint style="info" %}
-#### TCT is a live signal, not a static snapshot
-
-A user's score can change between transactions (positively via Manual Refresh or negatively via Auto-Slash). Build your integration to read TCT at transaction time, not at session initiation.
+**Use when:** Your protocol needs differentiated risk pricing (such as dynamic LTV, tiered interest rates, credit-aware vault thresholds, stablecoin mint limits, DEX fee structures, yield allocation).
 {% endhint %}
 
 ***
 
-#### Integration Path 3: CEW Integration
+**3. CEW**
 
-**What you're doing:** Deploying the Credit Enhancement Wrapper to automate credit-aware logic directly on your protocol's financial positions.
+Inherit the CEW interface. Your market is registered via <mark style="color:red;">`registerMarket()`</mark> with a <mark style="color:red;">`MarketConfig`</mark> specifying <mark style="color:red;">`maxBoostBps`</mark>, <mark style="color:red;">`maxReductionBps`</mark>, <mark style="color:red;">`enforceBlock`</mark>, and <mark style="color:red;">`feeToken`</mark>.
 
-The CEW is a smart contract proxy that sits between your protocol and the user's transaction. It reads the user's credit data in real time and applies the appropriate credit enhancement or enforcement automatically.
+Call <mark style="color:red;">`getCreditAction(uint256 value)`</mark> from within your transaction logic to get a <mark style="color:red;">`CreditAction`</mark> (action type, magnitude in basis points, and MVV ceiling) without modifying state. <mark style="color:red;">`msg.sender`</mark> is the participant, <mark style="color:red;">`address(this)`</mark> is the market.
 
-**What the CEW applies:**
+**Action types and bracket mapping:**
 
-* **High TCT (Excellent / Very Good):** Rate discounts, limit boosts, reduced collateral requirements up to the user's MVV
-* **Mid TCT (Good):** Risk-neutral pass-through, standard terms
-* **Low TCT (Fair/Poor):** Negative adjustment, tighter terms, reduced limits
-* **Slashed (0):** Hard deny, transaction blocked at the wrapper level
 
-**Use cases:**
 
-* RWA pools that want dynamic yield adjustments and allocation
-* Lending markets that want to offer better rates to reliable borrowers without manual underwriting
-* Vault products that automate LTV optimization based on creditworthiness
-* DEX pairs that apply dynamic fee structures based on participant reliability
-* Prediction markets using Tythe intel for dynamic size limits and&#x20;
+<table><thead><tr><th width="120">Bracket</th><th width="374">Action</th><th>Magnitude</th></tr></thead><tbody><tr><td>Excellent</td><td>HighBoost if <mark style="color:red;"><code>maxBoostBps >= 600</code></mark>, <br>LowBoost if <mark style="color:red;"><code>maxBoostBps &#x3C; 600</code></mark></td><td>maxBoostBps or maxBoostBps / 2</td></tr><tr><td>Very Good</td><td>LowBoost</td><td>maxBoostBps / 2</td></tr><tr><td>Good</td><td>Neutral</td><td>0</td></tr><tr><td>Fair</td><td>LowReduction if <mark style="color:red;"><code>maxReductionBps &#x3C; 600</code></mark>, HighReduction if <mark style="color:red;"><code>maxReductionBps >= 600</code></mark></td><td>maxReductionBps or maxReductionBps / 2</td></tr><tr><td>Poor</td><td>HighReduction</td><td>maxReductionBps</td></tr><tr><td>No Data</td><td>Neutral</td><td>0</td></tr><tr><td>Flagged</td><td>Block if <mark style="color:red;"><code>enforceBlock = true</code></mark>, <br>HighReduction if <mark style="color:red;"><code>enforceBlock = false</code></mark></td><td>0 or maxReductionBps</td></tr></tbody></table>
 
-**How it works at the contract level:**
+* **On Block:** CEW returns <mark style="color:red;">`CreditAction(Block)`</mark> (it does not revert). Your protocol must implement the revert in your own execution logic after reading the returned action type.
+* **Fee switch:** CEW launches fee-free. When the Tythe DAO activates the fee-switch, a flat 0.07% applies to all three action types. Enhancement fee paid by the individual participant on-chain at transaction time, Enforcement and Blocker fees tracked off-chain and invoiced monthly to your market.
 
-Your protocol inherits or references the CEW contract. Incoming financial transactions are routed through the wrapper before execution. The CEW reads the initiating wallet's TCT balance, resolves the applicable bracket, and applies the corresponding logic before passing the transaction to your protocol's core execution layer. You can deploy it to apply boosts only, enforcement only, or both, depending on your protocol's risk appetite. Configuration options are covered in the CEW Technical Reference.
-
-{% hint style="success" %}
-#### CEW operates within the user's MVV at all times
-
-It will never apply a boost that extends credit beyond what the protocol has vouchsafed for.
+{% hint style="info" %}
+**Use when:** Your protocol wants automated, credit-differentiated execution without rebuilding core logic (lending markets, vaults, exchanges, RWA pools, prediction markets).
 {% endhint %}
 
 ***
 
-#### Integration Path 4: Relay Emitter Subscription
+**4. Relay Emitter**
 
-**What you're doing:** Subscribing to Tythe's real-time nEvent intelligence feed to monitor credit events across the ecosystem.
+Off-chain intelligence feed. Subscribe via the Tythe Portal. Labels and percentile rankings delivered to your systems in real time.
 
-The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). It continuously monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Labels and percentile rankings are delivered off-chain to your systems in real time.
+**nEvent types:**
 
-**nEvent Typology:**
+<table><thead><tr><th width="135">Event</th><th>Trigger</th><th>Enforcement</th></tr></thead><tbody><tr><td>Liquidation</td><td>Collateral failure on an integrated market</td><td>Auto-Slash (severity by percentile rank)</td></tr><tr><td>Default</td><td>Loan not repaid within grace period</td><td>Auto-Slash (severity by percentile rank)</td></tr><tr><td>Exploit</td><td>Verified protocol attack involvement</td><td>Blacklist</td></tr><tr><td>Mercenary</td><td>Rapid liquidity withdrawal under stress</td><td>Alert only (Velocity Risk flag)</td></tr><tr><td>Informed</td><td>Patterned high-alpha toxic flow</td><td>Alert only (metadata tag)</td></tr><tr><td>Whale</td><td>Objectively large on-chain transaction</td><td>Alert only (metadata tag)</td></tr></tbody></table>
 
-| Event       | Nature                                            | Signal Type                                      |
-| ----------- | ------------------------------------------------- | ------------------------------------------------ |
-| Liquidation | Collateral failure on an integrated market        | Auto-Slash triggered severity by percentile rank |
-| Default     | Failure to fulfill debt within grace period       | Auto-Slash triggered severity by percentile rank |
-| Exploit     | Verified involvement in smart contract attacks    | Blacklist triggered                              |
-| Mercenary   | Rapid liquidity withdrawal during systemic stress | Alert; Velocity Risk flag                        |
-| Informed    | Patterned high-alpha trades indicating toxic flow | Alert; metadata tag                              |
-| Whale       | Objectively large on-chain transactions           | Alert; metadata tag                              |
+Each label includes CEP ID, event typology, percentile rank within the label spectrum, TCT delta where applicable, and epoch timestamp for replay prevention.
 
-**Each nEvent label includes:**
-
-* CEP ID of the acting entity
-* Event typology
-* Percentile rank within the label's spectrum
-* TCT Delta (the precise score change), where applicable
-* Epoch Timestamp (cryptographic sequencing to prevent replay attacks)
-
-**Use cases:**
-
-* Real-time risk monitoring for lending markets and vault managers
-* Early warning systems for default or exploit exposure
-* Risk-alpha feeds for institutional capital allocators
-* Automated position management triggered by nEvent alerts
-
-**Access model:** The Relay Emitter is available to institutional subscribers via a tiered subscription feed. Integration details and pricing are available through the Tythe Developer Portal.
+{% hint style="info" %}
+**Use when:** Your protocol needs early warning on counterparty credit deterioration (lending markets, vault managers, institutional risk desks).
+{% endhint %}
 
 ***
 
@@ -286,24 +238,24 @@ The Relay Emitter is an ML-powered intelligence layer built on gradient boosting
 
 The four paths are designed to be composable. Here are the most common combinations:
 
-* **Credit-aware lending market:** CEP resolution (compliance gate) + TCT/MVV reading (risk-adjusted terms) + CEW (automated enforcement)
+* **Credit-aware lending market:** CEP resolution (eligibility gate) + TCT/MVV reading (risk-adjusted terms) + CEW (automated enforcement)
 * **Risk-managed vault:** TCT/MVV reading (entry thresholds and LTV logic) + Relay Emitter (real-time default monitoring)
 * **Permissioned RWA pool:** CEP resolution (KYC gate) + TCT/MVV reading (investor quality scoring) + CEW (dynamic yield allocation)
-* **Institutional risk desk:** Relay Emitter (nEvent feed) + TCT reading (portfolio-level credit exposure monitoring)
+* **Institutional risk desk:** Relay Emitter (nEvent feed) + TCT/MVV reading (portfolio-level credit exposure monitoring)
 
 ***
 
-### What's Coming for Developers
+**What's Coming**
 
-**APIs & SDKs** _(Roadmap)_ REST APIs and language-specific SDKs for web2-native integration will be released as the protocol grows and demand is established. If your stack requires API access ahead of the roadmap, reach out at [dev@tythe.network](mailto:dev@tythe.network).
+**APIs & SDKs** _(Roadmap):_ REST APIs and language-specific SDKs for web2-native integration. Contact [dev@tythe.network](mailto:dev@tythe.network) if your stack requires API access ahead of the roadmap.
 
-**Tythe DAO & TYT Token** _**(V1.2):**_ TYT is the Tythe protocol token. Once live, developers and technical contributors participate in Tythe DAO governance; voting on technical specifications, integration standards, new primitive proposals, and protocol upgrade paths. Build with visibility into where the protocol is heading.
+**Tythe DAO & TYT Token** _(V1.2):_ Vote on technical specifications, integration standards, and protocol upgrade paths.
 
-**CEV Integration** _**(V2):**_ Credit Enhancement Vaults will expose integration hooks for protocols that want to offer undercollateralized lending backed by LP capital. CEV integration will be available after V1 scoring data has matured.
+**CEV Integration** _(V2):_ Integration hooks for protocols offering undercollateralized lending backed by LP capital.
 
-**CDL Consumer Data&#x20;**_**(V2):**_ Developers and AI engineers will be able to access anonymized, licensed consumer credit data in multiple formats for model building, risk research, and quantitative analysis. Data is sovereign and user-consented; participants opt in to license their credit profiles and are compensated directly. Details on data formats, licensing tiers, and access will be published ahead of the V2 launch.
+**Credit Data Licensing** _(V2):_ Anonymized, user-consented credit data for model building and risk research.
 
-**Agentic Credit** _**(V2):**_ Verified AI agents will anchor to a CEP and leverage on-chain execution history for protocol-backed credit lines. The same primitives you build with today will serve agentic participants natively. No additional integration required.
+**Agentic Credit** _(V2):_ AI agents access credit through the same primitives. No additional integration required.
 {% endtab %}
 
 {% tab title="Institutions" %}
