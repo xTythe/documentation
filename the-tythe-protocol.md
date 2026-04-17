@@ -19,91 +19,38 @@ layout:
 
 # The Tythe Protocol
 
-Tythe is the neutral, decentralized protocol for credit. We provide the infrastructure to transform behavioral data into verifiable creditworthiness, giving every participant in the decentralized economy a smarter, fairer way to access and deploy capital.
+Tythe is the neutral, decentralized protocol for credit. It provides the infrastructure to transform on-chain behavioral data into verifiable creditworthiness across DeFi, RWAs, digital markets, institutions, and AI networks.
 
 ***
 
-#### The Problem
+**What Tythe Builds**
 
-Credit, in its current form, is reaching its limits.
+Three problems exist across every corner of on-chain finance. Tythe solves all three with a single, composable protocol stack.
 
-* **In Traditional Finance**, credit scoring is a black box. Opaque, non-portable, and owned by institutions. Users are a passive subject of their own financial data, stored in centralized databases they cannot control and cannot fully trust.
-* **In DeFi and Crypto Markets**, the solution to not trusting anyone was to demand everything upfront. To borrow $1, users lock up $1.50. Over-collateralization is capital trapped; it protects the protocol but prevents real financial growth.
-* **For Institutions and RWA Platforms**, the demand for credit intelligence is real, but the path to it is blocked. Handling raw private user data creates legal exposure. Existing solutions force a choice between compliance and utility.
-* **For AI Agents**, the problem is structural. High-reputation autonomous agents are becoming primary economic actors, but they have no standardized way to prove that reputation or access credit. They operate on 100% upfront capital, regardless of their proven performance.
-
-The result is the same across all four: capital locked behind gatekeepers, inefficiency baked into the system, and no portable standard for financial trust.
+1. **Anonymous counterparties.** Every wallet is unknown by default. Protocols cannot distinguish reliable participants from bad actors. Institutions cannot verify users without exposing private data. There is no portable standard for financial identity.
+2. **Undifferentiated risk pricing.** Every participant gets the same terms regardless of their track record. High-reliability participants are overcharged. Low-reliability participants are underpriced. Capital efficiency suffers on both sides.
+3. **Over-collateralization as the default.** DeFi's answer to trust was to demand everything upfront. To borrow $1, lock up $1.50. Capital trapped in collateral is capital that cannot work. There is no path to credit-based efficiency without a credit standard to build on.
 
 ***
 
-{% hint style="success" %}
-#### **Why Tythe Works Where Others Have Failed**
+**The Protocol Stack**
 
-Every previous attempt at decentralized credit made the same mistake: offering credit intelligence to institutions and expecting them to absorb the risk of default in return. No rational capital allocator accepts that trade.
+* **Identity (CEP):** The Credit Enhancement Profile is a permanent, user-owned financial identity anchored on the `did:cheqd` network. It unifies wallets, credentials, attestations, and credit history into one sovereign, privacy-preserving profile. Every participant in the protocol builds from a CEP.
+* **Intelligence (TCT & MVV):** The Tokenized Creditworthiness score (300 to 850) is a non-transferable ERC-20 token representing verified financial reliability. Embedded in its metadata is the Maximum Vouchsafed Value (MVV): the protocol's per-transaction enhancement ceiling.
+  * **Relay Emitter.** An ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). Monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each participant within their label's spectrum by severity. Institutional subscribers receive ranked nEvent labels via tiered subscription feeds with configurable data pool size, user count, and cadence.
+* **Integration (CEW):** The Credit Enhancement Wrapper intercepts financial transactions at execution time and applies TCT-based credit logic automatically. Rate discounts and limit boosts for high-reliability participants. Tighter terms and enforcement for low-reliability ones. Hard denial for blacklisted wallets. No manual underwriting. No static rate tables.
+* **Governance & Justice (Tythe DAO):** The Justice Arm resolves disputed slashes through decentralized arbitration: AI clerks prepare evidence briefs, human juries drawn from the disputant's TCT band deliver verdicts. The Governance Arm manages scoring parameters and formula upgrades via the TYT token. zkTLS extends the scoring surface to verified off-chain financial data without exposing raw records.
+* **Liquidity** **(CEV):** Credit Enhancement Vaults are the only module enabling undercollateralized lending on Tythe. LPs provide collateral top-offs to back TCT-verified borrowers on existing integrated lending markets. Risk is distributed across LPs who opt in explicitly for yield and risk premiums. Institutions never absorb default risk they did not underwrite.
+* **Data** **(CDX):** The Credit Data Exchange enables consent-gated sale of verified credit data from individuals to institutional buyers. Participants set their terms. Buyers list dataset orders. Tythe compiles and delivers at minimum fill.&#x20;
 
-Tythe does not ask institutions to change their risk appetite. The primary product is better capital terms on existing collateralized positions; credit intelligence that makes deals more competitive, not more dangerous. Where undercollateralized lending exists in the protocol, it is only possible through Credit Enhancement Vaults, where capital backs capital: risk is distributed across LPs who opt in explicitly for yield and risk premiums, never transferred silently to institutions.
-
-The protocol coordinates capital. It does not gamble with it.
-{% endhint %}
+> Agentic Credit extends the same stack to verified AI agents, letting them leverage execution history for protocol-backed credit lines.
 
 ***
 
-#### The Solution
+**How It Works Together**
 
-Tythe builds the missing layer; a shared, verifiable standard for creditworthiness that works across DeFi, RWAs, digital markets, institutions, and AI networks.
+Tythe is infrastructure. It does not provide liquidity, hold user data, or take positions.
 
-{% hint style="info" %}
-#### **What is Credit Enhancement?**&#x20;
+Individuals and agents own their credit profiles. LPs and institutions provide the capital. Tythe provides the objective standard that coordinates them all.
 
-Credit enhancement is the process of leveraging verified creditworthiness (or financial credibility) to access better capital terms; lower interest rates, reduced fees, optimized borrowing limits, increased deposit yields, or tighter spreads. It makes capital offers risk-tailored and more competitive for all.
-{% endhint %}
-
-{% stepper %}
-{% step %}
-**Identity Layer&#x20;**_**(V1.1)**_
-
-**Credit Enhancement Profile (CEP):** AA portable, user-owned credit profile anchored on the did:cheqd network. The CEP aggregates on-chain wallet history into a single sovereign identity without exposing raw data at any point.
-
-> **zkTLS Off-Chain Verifications (V1.2):** Verification of off-chain financial data such as bank statements, income, and more) will be added to the CEP post-launch via zkTLS, expanding the scoring surface beyond on-chain activity without exposing raw, sensitive financial records.
-{% endstep %}
-
-{% step %}
-**Intelligence Layer&#x20;**_**(V1.1)**_
-
-**Tokenized Creditworthiness (TCT):** A TCT score (300–850) is a real-time, non-transferable ERC-20 token representing financial reliability. Embedded in its metadata is the Maximum Vouchsafed Value (MVV); the protocol's assessed credit limit for the position. TCT is earned in drops and lost in buckets, mirroring how trust actually works in the real world.
-
-**Relay Emitter:** The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). It monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Institutional subscribers receive ranked nEvent labels via tiered subscription feeds with configurable data pool size, user count, and cadence.
-{% endstep %}
-
-{% step %}
-**Integration Layer&#x20;**_**(V1.1)**_
-
-**Credit Enhancement Wrapper (CEW):** The on-chain logic proxy that puts TCT to work. The CEW intercepts financial transactions and applies credit signals in real time, unlocking rate discounts, limit boosts, or risk enforcement depending on the participant's score. This is where creditworthiness becomes a live financial tool.
-{% endstep %}
-
-{% step %}
-**Justice Layer&#x20;**_**(V1.2)**_
-
-**Tythe DAO (Justice Arm):** Handles disputed scores and contested slashes under the protocol's fixed launch formula. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. If the Justice Arm ruling overturns the dispute, a portion of the staked TCT is burned. If the dispute is sustained, the full stake is returned. AI clerks prepare evidence briefs from on-chain data; human juries drawn from the same TCT band as the disputant hear and resolve each case. Disputes at band boundaries are heard by mixed juries from both adjacent bands.
-{% endstep %}
-
-{% step %}
-**Governance Layer&#x20;**_**(V1.2)**_
-
-**Tythe DAO (Governance Arm):** Manages scoring parameters, formula upgrades, and the TYT token. Governance activates once the TYT token is live and initial protocol data has given the community something real to govern. Formula weights are visible to institutional DAO members only, preventing gaming while enabling decentralized oversight.
-{% endstep %}
-
-{% step %}
-**Liquidity Layer&#x20;**_**(V2)**_
-
-**Credit Enhancement Vaults (CEV):** Intelligence-optimized ERC-4626 vaults where LPs provide collateral top-offs to back TCT-verified borrowers. CEVs are the only module enabling undercollateralized lending, where risk is distributed across LPs who opt in for high yield and risk-premiums.
-
-> **Agentic Credit (V2):** Allowing verified AI agents to leverage execution history for protocol-backed credit lines is on the Tythe roadmap. Details in the [roadmap section](get-started/roadmap-modules/agentic-credit.md).
-{% endstep %}
-
-{% step %}
-**Data Layer&#x20;**_**(V2)**_
-
-**Credit Data Licensing (CDL):** Participants choose to anonymize and license their credit data (to institutional researchers, model builders, and AI engineers) and are directly compensated for it. Tythe takes a platform cut. The participant keeps the rest. The first protocol to flip the credit bureau model in the user's favor.
-{% endstep %}
-{% endstepper %}
+The protocol's job is to make creditworthiness verifiable, portable, and machine-enforceable. Everything else follows from that.
