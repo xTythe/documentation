@@ -20,7 +20,7 @@ layout:
 # Introductory Guides
 
 {% tabs %}
-{% tab title="Individuals" %}
+{% tab title="User Guide (Individuals)" %}
 Tythe gives you a financial reputation that works for you. This guide walks you from zero footprint to active value; your profile set up, your live score, and your creditworthiness working across every integrated market.
 
 ***
@@ -129,7 +129,7 @@ Your creditworthiness follows your CEP, not your geography. Any integrated marke
 ***
 {% endtab %}
 
-{% tab title="Developers" %}
+{% tab title="Integration Guide (Developers)" %}
 Tythe gives your protocol verifiable, real-time credit intelligence at the smart contract level. This guide covers what Tythe exposes to developers and which primitive solves which problem.
 
 ***
@@ -255,174 +255,80 @@ The four paths are designed to be composable. Here are the most common combinati
 **Agentic Credit** _(V2):_ AI agents access credit through the same primitives. No additional integration required.
 {% endtab %}
 
-{% tab title="Institutions" %}
-Anonymous users are an expensive problem. Every position you size, every rate you set, every trade you clear, you're pricing in risk you cannot fully measure. Tythe gives you the infrastructure to measure it accurately.
-
+{% tab title="Business Guide (Institutions)" %}
 This guide covers how on-chain institutions integrate Tythe's credit primitives to deploy smarter capital, reduce risk exposure, and build more competitive products.
 
 ***
 
-#### What Tythe Gives You
+**What Tythe Gives You**
 
-Tythe exposes three on-chain primitives and one intelligence feed. Each addresses a specific capital efficiency or risk management problem.
+Three on-chain primitives and one off-chain intelligence feed. Each addresses a specific capital efficiency or risk management problem.
 
-| Primitive                        | What It Is                                                                                                                          | The Problem It Solves                                     |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| CEP (Credit Enhancement Profile) | A permanent, sovereign financial identity anchored on `did:cheqd`. Resolves a complete financial profile without exposing raw data. | Anonymous counterparties, fragmented financial identities |
-| TCT (Tokenized Creditworthiness) | A non-transferable ERC-20 score (300–850) with embedded MVV                                                                         | Undifferentiated risk pricing, capital inefficiency       |
-| CEW (Credit Enhancement Wrapper) | A smart contract proxy that applies TCT-based logic in real time                                                                    | Manual underwriting, static rate structures               |
-| Relay Emitter                    | ML-powered real-time nEvent intelligence and percentile rankings broadcast to subscribers                                           | Delayed default detection, reactive risk management       |
+<table><thead><tr><th width="137">Primitive</th><th>What It Is</th><th>The Problem It Solves</th></tr></thead><tbody><tr><td>CEP</td><td>Sovereign financial identity on <code>did:cheqd</code>. Resolves a complete financial profile without exposing raw data.</td><td>Anonymous counterparties. Compliance overhead.</td></tr><tr><td>TCT + MVV</td><td>Non-transferable ERC-20 score (300–850) with per-transaction enhancement ceiling.</td><td>Undifferentiated risk pricing. Capital locked behind worst-case assumptions.</td></tr><tr><td>CEW</td><td>Smart contract proxy applying TCT-based credit logic at transaction time.</td><td>Manual underwriting. Static rate structures. Reactive enforcement.</td></tr><tr><td>Relay Emitter</td><td>Off-chain ML-powered nEvent feed with real-time labels and percentile rankings.</td><td>Delayed default detection. Reactive risk management.</td></tr></tbody></table>
 
 ***
 
-#### Integration Path 1: CEP Resolution
+**The Capital Efficiency Case**
 
-**What you're doing:** Resolving an individual's complete financial identity before granting market access without handling any raw personal data.
+Every market today prices anonymous participants at the same worst-case rate. That is capital inefficiency by design, causing your market to leave revenue on the table from high-quality participants and absorb unnecessary risk from low-quality ones.
 
-Resolving a wallet's associated CEP gives your protocol a cryptographic confirmation that the individual is identity-verified, sanctions-screened, and carries a complete, accountable financial profile. The check is on-chain, gasless to read, and exposes zero PII to your system.
+TCT and MVV make the distinction machine-readable, on-chain, and enforceable at the contract level. A participant with an Excellent TCT score and a $500K MVV is not the same counterparty as someone with no credit history and zero vouchsafed value.&#x20;
 
-**Relevant for:** Lending markets, RWA pools, stablecoin issuers, and any institution operating permissioned markets.
+Tythe makes that difference actionable.
 
-**What resolution returns:**
-
-* Verified KYC and sanctions status: confirmed via zero-knowledge attestation
-* Proof of Personhood: confirmed human uniqueness
-* Wallet-to-identity binding: every linked address maps to one verified root identity
-* Linked attestations and credentials: compliance status, scoring attestations, and more
-
-**The institutional advantage:** You resolve a complete financial identity without building or maintaining a KYC stack. No data liability. No raw PII. The ZK attestation is the only signal your protocol needs to process.
+High-reliability participants get better terms; your protocol becomes more competitive. \
+Low-reliability participants face tighter controls; default and liquidation exposure decreases. Both happen automatically, without manual underwriting, at the point of every transaction.
 
 ***
 
-#### Integration Path 2: TCT & MVV Reading
+**The Compliance Case**
 
-**What you're doing:** Reading a participant's live creditworthiness score and protocol-assessed credit limit to power differentiated, risk-adjusted market logic.
+Verifying users today means handling raw PII, maintaining KYC infrastructure, and accepting ongoing data liability. Most protocols skip it entirely or expose themselves trying.
 
-TCT is a non-transferable ERC-20. Reading the balance gives you the score. Reading the metadata gives you the MVV (the maximum dollar value the Tythe protocol is willing to vouchsafe for that participant's position). Together, they are the most precise on-chain risk signal available.
+CEP integrates zk-KYC and privacy-preserving sanctions screening via [Billions](https://billions.network). Identity verification and OFAC/AML screening are processed entirely via zero-knowledge attestation. Your market receives a cryptographic pass/fail signal, never the underlying personal data.&#x20;
 
-**TCT Risk Brackets:**
-
-| Range   | Bracket   | Institutional Signal                                      |
-| ------- | --------- | --------------------------------------------------------- |
-| 800–850 | Excellent | Highest reliability — maximum capital efficiency eligible |
-| 740–799 | Very Good | Strong reliability — enhanced terms applicable            |
-| 670–739 | Good      | Reliable — Standard terms                                 |
-| 580–669 | Fair      | Risk neutral — tighter parameters recommended             |
-| 300–579 | Poor      | Elevated risk — high scrutiny recommended                 |
-| 1       | No Data   | Credit invisible — treat as anonymous                     |
-| 0       | Flagged   | Hard risk signal — deny or restrict immediately           |
-
-**Use cases by institution type:**
-
-* **Lending Markets:** Dynamic LTV and interest rate tiers based on TCT bracket. High-reliability borrowers access better rates, you retain more competitive positions without increasing default exposure.
-* **Vaults:** Credit-aware entry thresholds and yield allocation. High-TCT depositors can unlock enhanced yield tiers; high-TCT borrowers unlock lower collateral requirements up to their MVV.
-* **CEXs:** Differentiated fee structures and trading limits. High-TCT traders access tighter spreads and higher position limits, rewarding reliable participants and reducing counterparty risk.
-* **Prediction Markets:** Position size limits and fee discounts calibrated to TCT score. Reliable participants get better access; high-risk profiles face automatic position constraints.
-* **Stablecoin Issuers:** Apply counterparty risk management for analyzing the risk profile of wallets interacting with your token (without needing to directly KYC every user), wallet mint limits, and wallet collateral requirements scaled to TCT and MVV.
-* **RWA / DeFi Institutions:** Investor quality scoring for permissioned pools. TCT and MVV provide an objective, on-chain measure of participant reliability that complements your internal underwriting.
-
-{% hint style="info" %}
-#### TCT is a live signal
-
-A participant's score can change between transactions (either positively via Manual Refresh or negatively via Auto-Slash). Always read TCT at transaction time, not at session initiation. Build your integration to reflect the current state, not a cached value.
-{% endhint %}
+No KYC stack to build. No data liability to absorb. Compliance handled at the identity layer before a participant ever reaches your market.
 
 ***
 
-#### Integration Path 3: CEW Integration
+**The Risk Management Case**
 
-**What you're doing:** Deploying Tythe's Credit Enhancement Wrapper to automate credit-aware logic directly on your protocol's financial transactions without manual underwriting or static rate tables.
+By the time most protocols detect credit deterioration, the damage is done. The Relay Emitter changes the timeline.
 
-The CEW is a smart contract proxy. It intercepts incoming transactions, reads the participant's TCT score in real time, and applies the corresponding credit logic before execution reaches your protocol's core layer. The result is a fully automated, credit-differentiated market with zero manual intervention.
-
-**What the CEW applies:**
-
-| TCT Bracket | CEW Action                                                         |
-| ----------- | ------------------------------------------------------------------ |
-| Excellent   | <mark style="color:$success;">Enhancement</mark> (High)            |
-| Very Good   | <mark style="color:$success;">Enhancement</mark> (Low)             |
-| Good        | <mark style="color:$primary;">Risk Neutral</mark> (standard terms) |
-| Fair        | <mark style="color:$warning;">Enforcement</mark> (Low)             |
-| Poor        | <mark style="color:$warning;">Enforcement</mark> (High)            |
-| Slashed     | <mark style="color:$danger;">Blocked</mark>                        |
-
-**Use cases by institution/market type:**
-
-* **DeFi Lending:** Automate LTV boosts and interest rate discounts for high-TCT borrowers. The CEW enforces risk controls for low-TCT positions without manual intervention.
-* **DeFi Yield:** Apply dynamic entry logic and yield tiers based on participant creditworthiness. The CEW allocates vault access and terms automatically.
-* **DeFi Staking:** Enforce participation thresholds based on TCT score. Reliable stakers access better terms; low-reliability profiles face automatic position constraints.
-* **DeFi Insurance:** Apply dynamic premium and coverage limits based on TCT score at the point of entry. Reliable participants access lower premiums automatically.
-* **Derivatives & Exchanges:** Apply spread reductions and fee discounts before trade execution. High-TCT traders receive better terms; the CEW enforces position limits for lower-reliability participants.
-* **RWA Platforms:** Automate pool entry logic and capital allocation tiers based on participant credit profile and MVV.
-* **Stablecoin Issuers:** Apply dynamic collateral ratios and mint limits based on TCT and MVV before issuance.
-* **DAO Governance:** Enforce participation thresholds and voting weight based on verified identity and TCT score.
-
-**The institutional advantage:** You stop pricing every user as an anonymous worst-case risk. High-reliability participants get better terms, making your protocol more competitive. Low-reliability participants face tighter controls, reducing your default and liquidation exposure. The CEW does both automatically, at the contract level, in real time.
-
-{% hint style="success" %}
-#### The CEW operates within MVV at all times
-
-It will never apply a boost that extends credit beyond what the Tythe protocol has vouchsafed for a given participant. Your capital is never exposed beyond the protocol's assessed risk ceiling.
-{% endhint %}
+The moment a Liquidation, Default, Exploit, or Mercenary event is detected, a structured label reaches your risk systems in real time, before contagion spreads. Every label includes the CEP ID, event typology, severity percentile rank, TCT delta, and epoch timestamp. For institutions managing active exposure across multiple markets, receiving a Default signal at detection versus after the fact is the difference between proactive and reactive risk management.
 
 ***
 
-#### Integration Path 4: Relay Emitter Subscription
+**Use Cases by Institution Type**
 
-**What you're doing:** Subscribing to Tythe's real-time nEvent intelligence feed to monitor credit events across the ecosystem before they affect your positions.
-
-The Relay Emitter is an ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). It monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each individual within their label's spectrum by severity. Labels and rankings are delivered directly to your risk systems in real time.
-
-**nEvent Typology:**
-
-| Event       | Nature                                            | Risk Signal                                        |
-| ----------- | ------------------------------------------------- | -------------------------------------------------- |
-| Liquidation | Collateral failure on an integrated market        | Auto-Slash triggered — severity by percentile rank |
-| Default     | Failure to fulfill debt within grace period       | Hard Slash — reassess active positions             |
-| Exploit     | Verified involvement in smart contract attacks    | Blacklist — terminate exposure immediately         |
-| Mercenary   | Rapid liquidity withdrawal during systemic stress | Velocity Risk alert — monitor correlated positions |
-| Informed    | Patterned high-alpha trades indicating toxic flow | Toxic flow alert — review counterparty exposure    |
-| Whale       | Objectively large on-chain transactions           | Market impact alert — monitor liquidity            |
-
-**Each label includes:**
-
-* CEP ID of the acting entity
-* Event typology
-* Percentile rank within the label's spectrum
-* TCT Delta (precise score change), where applicable
-* Epoch Timestamp (cryptographic sequencing to prevent replay attacks)
-
-**The institutional advantage:** You receive risk-alpha before it moves markets. A Default or Exploit label reaches your systems at the moment it is detected, not after the position has already moved against you. For institutions managing active exposure across multiple markets, the Relay Emitter is the difference between proactive and reactive risk management.
-
-**Access model:** Relay Emitter access is available via tiered subscription with configurable data pool size, user count, and feed cadence. Contact the Tythe team via the Developer Portal for access and pricing.
+* **DeFi Lending:** Dynamic LTV and interest rate tiers replace static rate tables. High-reliability borrowers access better rates while you retain competitive positioning without increasing default exposure. Low-reliability positions face automatic enforcement. No manual intervention required.
+* **DeFi Yield:** Credit-aware entry thresholds and yield allocation. High-TCT depositors unlock enhanced yield tiers. Mercenary and toxic flow actors face automatic restrictions before they affect your pool.
+* **DeFi Staking:** Participation thresholds and reward structures based on live creditworthiness. Reliable stakers access better terms. Low-reliability profiles face automatic constraints at the point of entry.
+* **DeFi Insurance:** Dynamic premium and coverage limits applied at entry based on TCT and MVV. Reliable participants access lower premiums automatically. Pool solvency improves without manual underwriting.
+* **Derivatives & Exchanges:** Differentiated fee structures, spreads, and position limits based on live creditworthiness. High-TCT traders access better execution. Counterparty risk is priced accurately at the point of every trade. Toxic flow and informed trading flagged by the Relay Emitter before it reaches your liquidity.
+* **RWA Platforms:** Investor quality scoring for permissioned pools. TCT and MVV provide an objective, on-chain reliability measure that complements internal underwriting. CEP resolution handles compliance gating without data liability.
+* **Stablecoin Issuers:** Mint limits and collateral requirements scaled to TCT and MVV at issuance. Counterparty risk managed without KYC-ing every user directly.
+* **Card Issuers:** TCT and MVV provide the on-chain credit signal for dynamic credit limit assignment and spending controls. High-reliability cardholders access higher limits automatically. MVV sets the per-transaction enhancement ceiling, no manual underwriting required for limit decisions. CEP compliance verification satisfies KYC requirements at onboarding without handling raw cardholder data.
+* **Prediction Markets:** Position size limits and fee structures calibrated to verified financial capacity. TCT flags high-risk behavioral patterns before they become default exposure. CEP's zk-KYC via Billions closes pseudonymous compliance gaps. The Relay Emitter surfaces suspicious trading patterns and toxic flow in real time.
 
 ***
 
-**Recommended Integration Stack by Institution Type**
+**Recommended Integration Stack**
 
-| Institution             | CEP Resolution | TCT & MVV | CEW      | Relay Emitter |
-| ----------------------- | -------------- | --------- | -------- | ------------- |
-| DeFi Lending            | ✓              | ✓         | ✓        | ✓             |
-| DeFi Yield              | ✓              | ✓         | ✓        | ✓             |
-| DeFi Staking            | ✓              | ✓         | ✓        | Optional      |
-| DeFi Insurance          | ✓              | ✓         | ✓        | ✓             |
-| Derivatives & Exchanges | ✓              | ✓         | ✓        | ✓             |
-| RWA Platforms           | ✓              | ✓         | Optional | ✓             |
-| Stablecoin Issuers      | ✓              | ✓         | ✓        | Optional      |
-| DAO Governance          | ✓              | ✓         | Optional | Optional      |
+<table><thead><tr><th width="177">Institution</th><th>CEP</th><th>TCT + MVV</th><th>CEW</th><th>Relay Emitter</th></tr></thead><tbody><tr><td><strong>DeFi Lending</strong></td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr><tr><td><strong>DeFi Yield</strong></td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr><tr><td><strong>DeFi Staking</strong></td><td>✓</td><td>✓</td><td>✓</td><td>Optional</td></tr><tr><td><strong>DeFi Insurance</strong></td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr><tr><td><strong>Derivatives &#x26; Exchanges</strong></td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr><tr><td><strong>RWA Platforms</strong></td><td>✓</td><td>✓</td><td>Optional</td><td>✓</td></tr><tr><td><strong>Stablecoin Issuers</strong></td><td>✓</td><td>✓</td><td>✓</td><td>Optional</td></tr><tr><td><strong>Card Issuers</strong></td><td>✓</td><td>✓</td><td>✓</td><td>Optional</td></tr><tr><td><strong>Prediction Markets</strong></td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr></tbody></table>
 
 ***
 
-### What's Coming for Institutions
+**What's Coming**
 
-**APIs & SDKs** _(Roadmap)_ REST APIs and language-specific SDKs for web2-native integration will be released as the protocol grows and demand is established. If your stack requires API access ahead of the roadmap, reach out at [business@tythe.network](mailto:dev@tythe.network).
+**APIs & SDKs** _(Roadmap):_ REST APIs and SDKs for web2-native integration. Contact [business@tythe.network](mailto:business@tythe.network) for API access ahead of the roadmap.
 
-**Tythe DAO & TYT Token&#x20;**_**(V1.2):**_ TYT is the Tythe protocol token. Institutional DAO members participate in Tythe governance with a specific mandate; voting on scoring formula parameters, weight adjustments, and protocol upgrade proposals. Institutional DAO members are the only participants with visibility into exact formula weights.
+**Tythe DAO & TYT Token** _(V1.2):_ Institutional DAO members vote on scoring formula parameters and protocol upgrades. Institutional members are the only participants with visibility into exact formula weights.
 
-**Credit Enhancement Vaults (CEV)** _**(V2):**_ ERC-4626 vaults where LPs provide collateral top-offs to back TCT-verified borrowers. CEVs are the only module enabling undercollateralized lending on Tythe; risk is distributed across LPs who opt in for yield and risk premiums. Institutions never absorb default risk they did not explicitly underwrite. Launching after V1 scoring data has matured.
+**Credit Enhancement Vaults** _(V2):_ The only module enabling undercollateralized lending on Tythe. Risk distributed across LPs who opt in explicitly. Institutions never absorb default risk they did not underwrite.
 
-**Credit Data Licensing (CDL)&#x20;**_**(V2):**_ Institutional access to anonymized, user-consented credit data in structured formats for risk modeling, research, and AI training. Data is sovereign, participants opt in, and are compensated directly. Licensing tiers and format specifications will be published ahead of the V2 launch.
+**Credit Data Licensing** _(V2):_ Anonymized, user-consented credit data in structured formats for risk modeling, research, and AI training.
 
-**Agentic Credit** _**(V2):**_ High-reputation AI agents with verified execution history will access credit through the same CEP/TCT/CEW stack as human participants. Institutions integrated with Tythe will automatically serve a new and growing class of creditworthy counterparty. No additional integration required.
+**Agentic Credit** _(V2):_ High-reputation AI agents with verified execution history access credit through the same stack. Institutions integrated today automatically serve a new class of creditworthy counterparty. No additional integration required.
 {% endtab %}
 {% endtabs %}
