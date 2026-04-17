@@ -21,138 +21,102 @@ layout:
 
 {% tabs %}
 {% tab title="Individuals" %}
-This guide walks you through everything you need to go from zero to a fully active credit profile on Tythe, step by step.
+Tythe gives you a financial reputation that works for you. This guide walks you from zero footprint to active value; your profile set up, your live score, and your creditworthiness working across every integrated market.
 
 ***
 
-#### What Tythe Does for You
+**What You're Building**
 
-In traditional finance, your credit score is owned by a bureau. In DeFi, you are treated as an anonymous risk regardless of your track record. Tythe replaces both with a single, verifiable, portable credit profile that you own, you control, and you put to work.
+Three things come together to make your Tythe profile work.
 
-A high TCT score on Tythe means lower borrowing costs, better capital terms, and a financial reputation that travels with you across every integrated protocol and market, without ever exposing your private data.
-
-***
-
-#### Your Primitives
-
-Before you get started, understand the tools that make up your Tythe profile:
-
-**Credit Enhancement Profile (CEP):** Your sovereign credit identity. The CEP is your on-chain profile anchored to the `did:cheqd` network. It links your verified identity and wallet histories into a single, privacy-preserving financial footprint. Everything flows through here.
-
-**Tokenized Creditworthiness (TCT):** Your on-chain credit score. A non-transferable ERC-20 token with a value between 300 and 850. It represents the creditworthiness you have earned through your on-chain behavior and chosen to tokenize. The higher your TCT, the better the capital terms available to you across integrated markets.
-
-**Credit Enhancement Wrapper (CEW):** The transaction interceptor that puts your TCT to work in real time. When you interact with an integrated market, the CEW reads your TCT score and applies the appropriate boost (e.g., lower rates, higher limits, or reduced fees) automatically.
+1. **Credit Enhancement Profile (CEP):** Your sovereign financial identity. Anchored on the `did:cheqd` network, your CEP links your verified identity, your wallets, your credentials, and your credit history into one portable, privacy-preserving profile. You own it permanently. No institution holds it for you.
+2. **Tokenized Creditworthiness (TCT):** Your on-chain credit score. A non-transferable token between 300 and 850, earned through your on-chain behavior and tokenized on-chain when you choose. The higher your TCT, the better the capital terms available to you across every integrated market.
+3. **Maximum Vouchsafed Value (MVV):** Your per-transaction enhancement ceiling, embedded in your TCT token alongside your score. When you interact with a CEW-integrated market, enhancements apply up to your MVV. Transactions above your MVV still go through. The enhancement is applied to the MVV portion, the remainder transacts at standard terms. MVV is derived from your Capital Capacity. Refresh to update it on-chain.
 
 ***
 
-#### Step 1: Activate Your Profile
+**Step 1. Create Your CEP**
 
-**What you're doing:** Creating your CEP and anchoring your identity to the protocol.
+Go to the Tythe Dashboard and complete two steps:
 
-Go to the Tythe Dashboard and complete the following:
+1. **zk-KYC via Billions:** Identity verification and sanctions screening, processed entirely via zero-knowledge attestation. Tythe never holds your raw identity data at any point.
+2. **Connect your primary wallet:** Bind a wallet address to your CEP as your on-chain anchor.
 
-1. **zk-KYC via Privado ID.** Complete identity verification and sanctions screening. This is processed entirely via zero-knowledge attestation. Tythe never holds your raw identity data at any point.
-2. **Connect your primary wallet.** Bind a primary wallet address to your CEP. This is the wallet the protocol will use as the anchor for your credit identity.
-
-Once both steps are complete, your `did:cheqd` identifier is minted. This is your green light that your CEP is live and the scoring engine is active on your profile.
+Once both are done, your `did:cheqd` identifier is minted. Your CEP is live and the scoring engine is active on your profile.
 
 ***
 
-#### Step 2: Build Your Profile
+**Step 2. Build Your Profile**
 
-**What you're doing:** Giving the protocol the data it needs to score you accurately.
+Your CEP pulls on-chain data from connected wallets automatically. The stronger your signal, the more accurately the protocol scores you.
 
-Your CEP pulls on-chain data from your connected wallets automatically. But the more signal you give it, the stronger your profile becomes. Here is what you can add:
+**Link every active wallet:** A wallet you use on Morpho that isn't linked to your CEP is creditworthiness the protocol cannot see and cannot reward you for. CEW only applies enhancements to wallets linked to your CEP. Unlinked addresses are treated as anonymous regardless of your actual score. Link all active addresses once via the Dashboard.
 
-* **Connect additional wallets:** If you use multiple wallets across different protocols, connect them all. A wallet you use on Aave that isn't linked to your CEP is creditworthiness the protocol cannot see and cannot reward you for. Multi-wallet connectivity also signals responsible on-chain security behavior, which positively affects your Action Integrity score.
+**Add Proof of Personhood:** Connect a World ID or equivalent biometric credential for a fixed _+5 TCT boost_ and stronger Sybil resistance. Optional but recommended.
 
-{% hint style="danger" %}
-#### Link every active wallet
-
-Tythe's CEW only applies boosts to interactions made from wallets linked to your CEP. If you borrow on Morpho using a wallet that isn't connected, that market sees you as anonymous and credit invisible; you receive zero benefit from your actual TCT score. Use the dashboard to aggregate all active addresses. Linking a wallet is a simple, one-time transaction.
-{% endhint %}
-
-* **Add Proof of Personhood (PoP).** Connect a verified World ID or equivalent biometric credential to your CEP. This is optional, but it grants a fixed **+5 TCT boost** to your score and strengthens your profile's Sybil resistance.
-* **Log manual activity.** Use the Data tab on the Tythe Dashboard to manually record financial activity the protocol cannot yet pull automatically. This includes RWA actions (ownership, exposure, management, and retention) across platforms like Centrifuge, with Maple Finance, Ondo, Theo, and other major players added as the protocol grows. It also includes DeFi activity on protocols and chains not yet natively supported by Tythe. The richer your logged history, the more complete your credit picture, and the more accurately the protocol can score your Investor Status, Credit Mix, and Action Integrity inputs.
+**Log manual activity:** Use the Data tab in the dashboard to record financial activity the protocol cannot yet pull automatically (RWA positions on Centrifuge, Maple, Ondo, and other platforms not yet natively supported). Richer history means more accurate scoring across your Investor Status, Credit Mix, and Action Integrity inputs.
 
 ***
 
-#### Step 3: Understand Your Score
+**Step 3. Understand Your Score**
 
-**What you're doing:** Learning what drives your TCT and how to grow it.
+Your TCT score is determined by the TCE-26 standard in two layers.
 
-Your TCT score (300–850) is determined by the TCE-26 standard. The formula is two-tiered:
+* **Behavior determines your band:** Historical performance, current risk exposure, credit utilization, new credit activity account for 80% of your score. The remaining 20% is calculated using softer indicators such as investor status, collateral volatility, credit mix, and action integrity. Capital alone cannot move you into a higher band. Only behavior can.
+* **Capacity determines your position within that band:** Your aggregate on-chain net worth, LP depth, verified cashflow, and transaction weight push your score toward the band ceiling and underwrite your Maximum Vouchsafed Value (MVV).
 
-**Your behavior determines your band:** Historical performance, current risk exposure, credit utilization, and new credit activity account for 80% of your score. These inputs measure the quality and consistency of your on-chain behavior over time. Capital alone cannot move you into a higher band, only behavior can.
+Your score exists in two states at all times. Your **staged score** is computed continuously off-chain and is always current. Your **TCT balance** is the on-chain tokenized version, updated only when you Refresh. Integrated markets read your TCT balance, never your staged score.
 
-**Your capacity determines your position within that band.** Your aggregate on-chain net worth, LP depth, verified cashflow, and transaction weight push your score toward the ceiling of your reliability band and underwrite your Maximum Vouchsafed Value (MVV); the protocol's assessed credit limit for your position.
-
-The full scoring breakdown is available in the [TCE-26 Standard](../the-tythe-standard.md).
-
-{% hint style="info" %}
-#### Your score exists in two states.
-
-Your _staged score_ is your off-chain creditworthiness which is continuously updated by the protocol as your behavior changes. Your _TCT balance_ is the on-chain tokenized version of that score which is updated only when you choose to Refresh. The staged score is always current. The TCT balance reflects your score at the last time you chose to tokenize it.
-{% endhint %}
+Full formula breakdown in the [TCE-26 Standard](https://app.gitbook.com/s/pAHIYSR0KV9miINQoxWp/the-tythe-standard).
 
 ***
 
-#### Step 4: Tokenize Your Creditworthiness
+**Step 4. Refresh Your Score**
 
-**What you're doing:** Minting your current staged score onto the blockchain as your live TCT balance.
+Refreshing mints your current staged score as your live TCT balance and MVV on-chain.
 
-When you are ready to use your creditworthiness before opening a new credit line, applying for a rate discount, or demonstrating reliability to an integrated market, hit **Refresh** on the Tythe Dashboard.
+Hit **Refresh** on the Dashboard before opening a new position, before a rate negotiation, or when Tythe notifies you of a meaningful score increase. Here is what happens:
 
-Here is what happens:
+1. The backend computes the delta between your staged score and your current on-chain TCT balance
+2. A signed EIP-712 attestation is generated
+3. The attestation is passed to your wallet for submission
+4. You sign and submit.&#x20;
+5. Your TCT balance and MVV update on-chain
 
-1. Tythe's backend calculates the current delta between your staged score and your on-chain TCT balance.
-2. A human-readable EIP-712 attestation is generated and signed.
-3. The signed attestation is passed to your wallet for submission.
-4. You submit the transaction to the blockchain. Your TCT balance updates.
-
-You pay the gas for this transaction. It is your sovereign act of tokenizing your own creditworthiness; the protocol does not do it for you, and no one else can do it on your behalf.
-
-{% hint style="info" %}
-#### Refresh strategically, not constantly
-
-There is no benefit to refreshing every day. Refresh when it matters: before a new credit position, before a rate negotiation, or when Tythe notifies you of a significant score increase. Save gas by refreshing at the right moment, not the most frequent one.
-{% endhint %}
+You pay the gas for all Refresh acts. No one else can refresh your score on your behalf. There is no benefit to refreshing constantly. Refresh at the right moment, not the most frequent one.
 
 ***
 
-#### Step 5: Put Your TCT to Work
+**Step 5. Put Your Score to Work**
 
-**What you're doing:** Using your score to access better capital terms across integrated markets. Once your TCT balance is live, the CEW goes to work automatically on every integrated market you interact with.
+With your TCT balance live, the Credit Enhancement Wrapper (CEW) applies automatically on every integrated market you interact with. It reads your score and MVV at transaction time and applies the corresponding action instantly. No manual application, no approval process.
 
-* **Borrowers:** CEW reads your TCT and MVV at the point of every loan interaction. A high score unlocks lower interest rates and higher borrowing limits automatically, without manual application or approval.
-* **Yield Participants:** High-TCT and MVV depositors access enhanced yield tiers on integrated vaults. Your reliability earns you better allocation, not just access.
-* **Traders:** On integrated exchanges, TCT/MVV unlocks tighter spreads, reduced margin requirements, and higher position limits. Your track record becomes an execution advantage.
-* **RWA Investors:** Integrated RWA platforms use your TCT and MVV to determine pool access and capital allocation tiers. Your on-chain history speaks before you do.
+* **Borrowers:** Lower interest rates and higher borrowing limits for high-TCT positions. Enhancements apply up to your MVV automatically.
+* **Yield participants:** High-reliability depositors access enhanced yield tiers on integrated vaults.
+* **Traders:** Tighter spreads, reduced margin requirements, and higher position limits for high-TCT traders on integrated exchanges.
+* **RWA Investors:** Pool access and capital allocation tiers based on your TCT and MVV on integrated RWA platforms.
 
-> **Your Score Travels With You:** Whether you're on Morpho, Lido, Centrifuge, or any integrated Uniswap DEX pair, your creditworthiness is readable by any integrated protocol globally. Your TCT follows your CEP, not your geography.
-
-***
-
-#### Protecting Your Score
-
-Here is some important information you need to know about.
-
-1. **Negative events trigger automatic slashes.** If the protocol detects a Liquidation, Default, or Exploit on any wallet linked to your CEP, it bypasses the Refresh process and immediately burns a portion of your TCT balance. This happens automatically with no warning and no delay. The enforcement is protocol-side and gasless.
-2. **Slashed TCT affects your active positions.** A sudden TCT reduction may trigger automated margin calls or CEW adjustments on your active positions on integrated markets. Maintain healthy collateral ratios and avoid edge-behavior to protect your score.
-3. **Disputed slashes have a path to resolution.** If you believe a slash was applied in error, you can raise a dispute with the Justice Arm of the Tythe DAO. AI clerks prepare an evidence brief from your on-chain data. A human jury drawn from your TCT band reviews the case and delivers a verdict. You do not need a lawyer, just your on-chain history.
-4. **Protect your score across wallet changes.** Your CEP is anchored to your root did:cheqd identity, not a single wallet. If you lose access to your primary wallet or choose to rotate addresses, any linked secondary wallet can be promoted to primary via the Tythe Dashboard. To preserve your TCT scoring relationship across wallet changes, link the latest Tythe EIP-712 scoring attestation to your DID as a DID-Linked Resource. If the attestation is linked, your TCT balance can be re-minted to a new primary address. If it is not linked, your score may not be recoverable. Linking the attestation is a sovereign action; only you can do it. The recoverable score is dependent on the recency of the attestation linked to your CEP.
+Your creditworthiness follows your CEP, not your geography. Any integrated market, anywhere.
 
 ***
 
-#### What's Coming for Individuals
+**Protecting Your Score**
 
-The following features are on the Tythe roadmap and not yet live:
+* **Auto-Slash is immediate and gasless:** A Liquidation, Default, or Exploit on any wallet linked to your CEP triggers an instant TCT reduction. No warning, no delay. A sudden slash may trigger automated adjustments on your active positions across integrated markets. Maintain healthy collateral ratios and avoid edge behavior.
+* **Disputed slashes have a resolution path:** If you believe a slash was applied in error, raise a dispute with the Justice Arm of the Tythe DAO. AI clerks prepare an evidence brief from your on-chain data. A human jury drawn from your TCT band reviews the case and delivers a verdict. _Available in V1.2 (post-launch mechanic)_
+* **Protect your score across wallet changes:** Your CEP is anchored to your root `did:cheqd` identity, not a single wallet. Before rotating addresses, link your latest EIP-712 scoring attestation to your DID as a DID-Linked Resource. This preserves your scoring relationship across the change. If the attestation is not linked before you lose access to a wallet, your score may not be recoverable.
 
-**Tythe DAO & TYT Token** _**(V1.2):**_ TYT is the Tythe protocol token. Once live, TYT holders participate in Tythe DAO governance; voting on protocol upgrades, fee parameters, new feature proposals, and the general direction and growth of the protocol. As a TCT earner and protocol participant, your voice shapes what Tythe becomes.
+***
 
-**Credit Enhancement Vaults&#x20;**_**(V2):**_ The only module on Tythe that enables undercollateralized lending. LPs provide collateral top-offs to back high-TCT borrowers; meaning your proven reliability can unlock credit lines that go beyond your posted collateral.
+**What's Coming**
 
-**Credit Data Licensing** _**(V2):**_ Choose to anonymize and license your credit data to institutional researchers, model builders, and AI engineers, and get paid for it. Your data, your revenue.
+**Tythe DAO & TYT Token** _(V1.2)_ TYT holders vote on protocol upgrades, fee parameters, and new feature proposals. As a TCT earner and protocol participant, your voice shapes what Tythe becomes. Tythe DAO Justice Arm handles contested slashes and scoring disputes.
+
+**Credit Enhancement Vaults** _(V2)_ The only module enabling undercollateralized lending. Your TCT and MVV unlock credit lines beyond your posted collateral, backed by LP capital.
+
+**Credit Data Licensing** _(V2)_ Anonymize and license your credit data to institutional researchers and AI engineers. Your data, your revenue.
+
+***
 {% endtab %}
 
 {% tab title="Developers" %}
