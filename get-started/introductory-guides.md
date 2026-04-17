@@ -20,7 +20,7 @@ layout:
 # Introductory Guides
 
 {% tabs %}
-{% tab title="User Guide (Individuals)" %}
+{% tab title="User Guide (For Individuals)" %}
 Tythe gives you a financial reputation that works for you. This guide walks you from zero footprint to active value; your profile set up, your live score, and your creditworthiness working across every integrated market.
 
 ***
@@ -129,7 +129,7 @@ Your creditworthiness follows your CEP, not your geography. Any integrated marke
 ***
 {% endtab %}
 
-{% tab title="Integration Guide (Developers)" %}
+{% tab title="Integration Guide (For Developers)" %}
 Tythe gives your protocol verifiable, real-time credit intelligence at the smart contract level. This guide covers what Tythe exposes to developers and which primitive solves which problem.
 
 ***
@@ -147,7 +147,7 @@ Three on-chain primitives and one off-chain intelligence feed. Integrate one or 
 
 **1. CEP**
 
-Call `resolveWallet(address wallet)` on the Attestation Registry. Returns the wallet's associated `did:cheqd` identifier and primary wallet address. Returns `("", address(0))` for any unlinked wallet; treat these as anonymous.
+Call <mark style="color:red;">`resolveWallet(address wallet)`</mark> on the Attestation Registry. Returns the wallet's associated `did:cheqd` identifier and primary wallet address. Returns <mark style="color:red;">`("", address(0))`</mark> for any unlinked wallet; treat these as anonymous.
 
 What resolution confirms:
 
@@ -255,7 +255,7 @@ The four paths are designed to be composable. Here are the most common combinati
 **Agentic Credit** _(V2):_ AI agents access credit through the same primitives. No additional integration required.
 {% endtab %}
 
-{% tab title="Business Guide (Institutions)" %}
+{% tab title="Business Guide (For Institutions)" %}
 This guide covers how on-chain institutions integrate Tythe's credit primitives to deploy smarter capital, reduce risk exposure, and build more competitive products.
 
 ***
