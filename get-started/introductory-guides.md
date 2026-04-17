@@ -65,6 +65,16 @@ Your TCT score is determined by the TCE-26 standard in two layers.
 * **Behavior determines your band:** Historical performance, current risk exposure, credit utilization, new credit activity account for 80% of your score. The remaining 20% is calculated using softer indicators such as investor status, collateral volatility, credit mix, and action integrity. Capital alone cannot move you into a higher band. Only behavior can.
 * **Capacity determines your position within that band:** Your aggregate on-chain net worth, LP depth, verified cashflow, and transaction weight push your score toward the band ceiling and underwrite your Maximum Vouchsafed Value (MVV).
 
+| Range   | Bracket   | CEW Action                                                   |
+| ------- | --------- | ------------------------------------------------------------ |
+| 800–850 | Excellent | <mark style="color:$success;">Enhancement</mark> (High)      |
+| 740–799 | Very Good | <mark style="color:$success;">Enhancement</mark> (Low)       |
+| 670–739 | Good      | <mark style="color:$primary;">Risk Neutral</mark>; No Change |
+| 580–669 | Fair      | <mark style="color:$warning;">Enforcement</mark> (Low)       |
+| 300–579 | Poor      | <mark style="color:$warning;">Enforcement</mark> (High)      |
+| 1       | No Data   | <mark style="color:$info;">Credit Invisible</mark>           |
+| 0       | Flagged   | <mark style="color:$danger;">Blocked</mark>                  |
+
 Your score exists in two states at all times. Your **staged score** is computed continuously off-chain and is always current. Your **TCT balance** is the on-chain tokenized version, updated only when you Refresh. Integrated markets read your TCT balance, never your staged score.
 
 Full formula breakdown in the [TCE-26 Standard](https://app.gitbook.com/s/pAHIYSR0KV9miINQoxWp/the-tythe-standard).

@@ -104,7 +104,7 @@ Once the credibility band is set, Capital Capacity acts as a scale multiplier th
 * **Verified Cashflow:** Recurring on-chain rewards or zkTLS-verified off-chain income.
 * **Transactional Weight:** Average transaction size distinguishes heavyweight participants from retail activity.
 
-**Maximum Vouchsafed Value (MVV):** Capacity dictates a participant's dollar credit limit. A CEW boost is only applied up to the verified MVV; ensuring the protocol never over-extends its vouchsafe beyond a participant's proven capital surface.
+**Maximum Vouchsafed Value (MVV):** Capacity dictates a participant's dollar credit limit. A CEW Enhancement is only applied up to the verified MVV; ensuring the protocol never over-extends its vouchsafe beyond a participant's proven capital surface.
 
 ***
 
