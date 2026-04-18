@@ -25,7 +25,7 @@ Tythe gives you a financial reputation that works for you. This guide walks you 
 
 ***
 
-**What You're Building**
+**What You're Building on Tythe**
 
 Five things come together to make your Tythe profile work.
 
@@ -156,18 +156,23 @@ Tythe gives your protocol verifiable, real-time credit intelligence at the smart
 
 **What Tythe Exposes**
 
-Three on-chain primitives and one off-chain intelligence feed. Integrate one or all, they are composable by design.
+Three on-chain primitives and one off-chain intelligence feed. Integrate one or all — they are composable by design.
 
 1. **CEP (Credit Enhancement Profile):** Sovereign financial identity anchored on `did:cheqd`. Resolves any wallet to its verified owner, compliance status, and linked resources. The identity layer everything else builds on.
-2. **TCT (Tokenized Creditworthiness):** Non-transferable ERC-20 score (300–850) with MVV embedded in token metadata. The live credit signal your contracts read at transaction time.
-3. **CEW (Credit Enhancement Wrapper):** Smart contract proxy. Intercepts transactions, reads TCT, and applies credit logic automatically. Inherit CEW without re-architecting your stack.
+2. **TCT (Tokenized Creditworthiness):** Non-transferable ERC-20 character score (300-850). The primary credit signal for lending markets, exchanges, insurance protocols, and card issuers.
+
+* **MVV (Maximum Vouchsafed Value):** Per-transaction enhancement ceiling in USD, embedded in TCT metadata. Caps value-based enhancements regardless of which signal the market reads. Sized at one-tenth of the participant's 30-day rolling credit capacity.
+* **TIQ (Tokenized Investment Quality):** Investment quality score (300-850), embedded in TCT metadata. The primary credit signal for RWA platforms and yield vaults. Measures the reliability and performance of capital deployment across investment-oriented activity.
+* **TLQ (Tokenized Liquidity Quality):** Liquidity quality score (300-850), embedded in TCT metadata. The primary credit signal for DEX pairs and LP markets. Measures the consistency and depth of liquidity provision behavior.
+
+3. **CEW (Credit Enhancement Wrapper):** Smart contract proxy. Intercepts transactions, reads the configured signal (TCT, TIQ, or TLQ), and applies two independent credit adjustments — value-based and rate-based — automatically. Inherit CEW without re-architecting your stack.
 4. **Relay Emitter:** Off-chain ML-powered nEvent feed. Classifies and labels negative credit events in real time and delivers structured, actionable signals to your systems.
 
 ***
 
-**1. CEP**
+**1. CEP (Identity Resolution)**
 
-Call <mark style="color:red;">`resolveWallet(address wallet)`</mark> on the Attestation Registry. Returns the wallet's associated `did:cheqd` identifier and primary wallet address. Returns <mark style="color:red;">`("", address(0))`</mark> for any unlinked wallet; treat these as anonymous.
+Call <mark style="color:red;">`resolveWallet(address wallet)`</mark> on the Attestation Registry. Returns the wallet's associated `did:cheqd` identifier and primary wallet address. Returns <mark style="color:red;">`("", address(0))`</mark> for any unlinked wallet (treat these as anonymous).
 
 What resolution confirms:
 
@@ -175,9 +180,15 @@ What resolution confirms:
 * Proof of Personhood confirmed human uniqueness
 * Wallet-to-identity binding. Every linked address maps to one verified root DID
 
-**Build to the DID, not the wallet address.** A participant's CEP persists across wallet rotations. The DID is the persistent identifier for a participant's credit state.
+**Build to the DID, not the wallet address.** A participant's CEP persists across wallet rotations. The DID is the persistent identifier for a participant's credit state. No raw PII ever touches your protocol.
 
-No raw PII ever touches your protocol. The ZK attestation is the only signal your system processes.
+Additional read functions:
+
+```solidity
+isLinked(address wallet)    // true if wallet has a linked CEP
+getTIQ(address wallet)      // TIQ score direct from Registry
+getTLQ(address wallet)      // TLQ score direct from Registry
+```
 
 {% hint style="info" %}
 **Use when:** Your protocol needs to verify a participant is a real, KYC-compliant individual before granting access to lending markets, RWA pools, permissioned vaults, stablecoin issuers.
@@ -185,9 +196,24 @@ No raw PII ever touches your protocol. The ZK attestation is the only signal you
 
 ***
 
-**2. TCT & MVV**
+**2. TCT, MVV, TIQ, TLQ (Credit Signals)**
 
-Call <mark style="color:red;">`balanceOf(address wallet)`</mark> on the TCT Contract to read the score. Call <mark style="color:red;">`getMVV(address wallet)`</mark> to read the MVV in USD, 18 decimals.
+All four signals are readable from the TCT Contract. One contract address, one integration.
+
+```solidity
+balanceOf(address wallet)           // TCT score (300-850)
+getMVV(address wallet)              // MVV in USD, 18 decimals
+getTIQ(address wallet)              // TIQ score (300-850)
+getTLQ(address wallet)              // TLQ score (300-850)
+getScoreBracket(address wallet)     // Bracket enum for TCT score
+scoreToBracket(uint256 score)       // convert any raw score to Bracket enum
+isEligible(address, uint256 minTCT) // true if TCT >= minTCT
+isBlacklisted(address)              // true if wallet is blacklisted
+```
+
+**Signal selection by market type:**
+
+<table><thead><tr><th width="100">Signal</th><th>Use When</th></tr></thead><tbody><tr><td>TCT</td><td>Lending markets, derivatives, exchanges, insurance, card issuers</td></tr><tr><td>TIQ</td><td>RWA platforms, yield vaults, structured credit</td></tr><tr><td>TLQ</td><td>DEX pairs, LP positions, liquidity management</td></tr><tr><td>MVV</td><td>Always available, caps value-based enhancements per transaction regardless of signal</td></tr></tbody></table>
 
 **Score brackets:**
 
@@ -201,78 +227,106 @@ Call <mark style="color:red;">`balanceOf(address wallet)`</mark> on the TCT Cont
 | 1       | No Data   | <mark style="color:$info;">Credit Invisible</mark>           |
 | 0       | Flagged   | <mark style="color:$danger;">Blocked</mark>                  |
 
-* **MVV is an enhancement ceiling, not a transaction gate.** \
-  Transactions above a participant's MVV still proceed, enhancement applies up to MVV, the remainder transacts at standard terms. Never treat MVV as a block.&#x20;
+* **MVV is a dollar ceiling, not a bracket score.** \
+  It caps the dollar value of value-based enhancements per transaction. Transactions above MVV still proceed, enhancement only  applies up to MVV, the remainder at standard terms. MVV is sized by the scoring engine at one-tenth of the participant's 30-day rolling credit capacity. Never treat MVV as a block.
 * **Read at transaction time, not session initiation.** \
-  Scores update between transactions — positively via Manual Refresh, negatively via Auto-Slash. A cached value is stale the moment a score changes.
-
-Additional read functions: <mark style="color:red;">`isEligible(address, uint256 minTCT)`</mark>, <mark style="color:red;">`isBlacklisted(address)`</mark>, <mark style="color:red;">`getScoreBracket(address)`</mark>.
+  Scores update between transactions either positively via Manual Refresh or negatively via Auto-Slash. A cached value is stale the moment a score changes.
 
 {% hint style="info" %}
-**Use when:** Your protocol needs differentiated risk pricing (such as dynamic LTV, tiered interest rates, credit-aware vault thresholds, stablecoin mint limits, DEX fee structures, yield allocation).
+**Use when:** Your protocol needs differentiated risk pricing (dynamic LTV, tiered interest rates, credit-aware vault thresholds, DEX fee structures, investment and liquidity quality scoring).
 {% endhint %}
 
 ***
 
 **3. CEW**
 
-Inherit the CEW interface. Your market is registered via <mark style="color:red;">`registerMarket()`</mark> with a <mark style="color:red;">`MarketConfig`</mark> specifying <mark style="color:red;">`maxBoostBps`</mark>, <mark style="color:red;">`maxReductionBps`</mark>, <mark style="color:red;">`enforceBlock`</mark>, and <mark style="color:red;">`feeToken`</mark>.
+Inherit the CEW interface. Register your market via <mark style="color:red;">`registerMarket(address market, MarketConfig calldata config)`</mark>.
 
-Call <mark style="color:red;">`getCreditAction(uint256 value)`</mark> from within your transaction logic to get a <mark style="color:red;">`CreditAction`</mark> (action type, magnitude in basis points, and MVV ceiling) without modifying state. <mark style="color:red;">`msg.sender`</mark> is the participant, <mark style="color:red;">`address(this)`</mark> is the market.
+**MarketConfig fields:**
 
-**Action types and bracket mapping:**
+```solidity
+struct MarketConfig {
+    bool       isActive;
+    // Value-based config (dollar amount adjustments, capped at MVV)
+    uint256    valueBoostBps;       // max Enhancement on $ amounts (DAO ceiling: 700 = 7%)
+    uint256    valueReductionBps;   // max Enforcement on $ amounts (DAO ceiling: 700 = 7%)
+    bool       enforceValueAdj;     // false = no Enforcement for Fair/Poor on $ amounts
+    // Rate-based config (interest rate adjustments, no MVV cap)
+    uint256    rateBoostBps;        // max Enhancement on interest rates (DAO ceiling: 700 = 7%)
+    uint256    rateReductionBps;    // max Enforcement on interest rates (DAO ceiling: 700 = 7%)
+    bool       enforceRateAdj;      // false = no Enforcement for Fair/Poor on rates
+    // Shared config
+    bool       enforceBlock;        // true = block Flagged wallets
+    address    feeToken;            // token used for Enhancement fee collection
+    SignalType signalType;          // TCT, TIQ, or TLQ — one selection per market
+}
+```
 
+Markets configure exactly one signal type. CEW reads that signal at transaction time and applies two independent adjustments. MVV is always read from the TCT contract regardless of signal type.
 
+Call <mark style="color:red;">`getCreditAction(uint256 value)`</mark> from within your transaction logic to get a <mark style="color:red;">`CreditAction`</mark> without modifying state. <mark style="color:red;">`msg.sender`</mark> is the participant, <mark style="color:red;">`address(this)`</mark> is the market.
 
-<table><thead><tr><th width="120">Bracket</th><th width="374">Action</th><th>Magnitude</th></tr></thead><tbody><tr><td>Excellent</td><td>HighBoost if <mark style="color:red;"><code>maxBoostBps >= 600</code></mark>, <br>LowBoost if <mark style="color:red;"><code>maxBoostBps &#x3C; 600</code></mark></td><td>maxBoostBps or maxBoostBps / 2</td></tr><tr><td>Very Good</td><td>LowBoost</td><td>maxBoostBps / 2</td></tr><tr><td>Good</td><td>Neutral</td><td>0</td></tr><tr><td>Fair</td><td>LowReduction if <mark style="color:red;"><code>maxReductionBps &#x3C; 600</code></mark>, HighReduction if <mark style="color:red;"><code>maxReductionBps >= 600</code></mark></td><td>maxReductionBps or maxReductionBps / 2</td></tr><tr><td>Poor</td><td>HighReduction</td><td>maxReductionBps</td></tr><tr><td>No Data</td><td>Neutral</td><td>0</td></tr><tr><td>Flagged</td><td>Block if <mark style="color:red;"><code>enforceBlock = true</code></mark>, <br>HighReduction if <mark style="color:red;"><code>enforceBlock = false</code></mark></td><td>0 or maxReductionBps</td></tr></tbody></table>
+**CreditAction struct:**
 
-* **On Block:** CEW returns <mark style="color:red;">`CreditAction(Block)`</mark> (it does not revert). Your protocol must implement the revert in your own execution logic after reading the returned action type.
-* **Fee switch:** CEW launches fee-free. When the Tythe DAO activates the fee-switch, a flat 0.07% applies to all three action types. Enhancement fee paid by the individual participant on-chain at transaction time, Enforcement and Blocker fees tracked off-chain and invoiced monthly to your market.
+```solidity
+struct CreditAction {
+    ActionType valueAction;     // action for dollar amount adjustments
+    uint256    valueMagnitude;  // basis points, applied up to MVV
+    uint256    mvvCeiling;      // MVV in USD, 18 decimals
+    ActionType rateAction;      // action for interest rate adjustments
+    uint256    rateMagnitude;   // basis points, no MVV cap
+}
+```
+
+**Action types and bracket mapping — identical for both value and rate tracks:**
+
+<table><thead><tr><th width="110">Bracket</th><th width="200">Action</th><th>Value Magnitude</th><th>Rate Magnitude</th></tr></thead><tbody><tr><td>Excellent</td><td>HighBoost if <mark style="color:red;"><code>valueBoostBps >= 600</code></mark> else LowBoost</td><td>valueBoostBps or valueBoostBps / 2</td><td>rateBoostBps or rateBoostBps / 2</td></tr><tr><td>Very Good</td><td>LowBoost</td><td>valueBoostBps / 2</td><td>rateBoostBps / 2</td></tr><tr><td>Good</td><td>Neutral</td><td>0</td><td>0</td></tr><tr><td>No Data</td><td>Neutral</td><td>0</td><td>0</td></tr><tr><td>Fair</td><td>HighReduction if <mark style="color:red;"><code>valueReductionBps >= 600</code></mark> else LowReduction</td><td>valueReductionBps or valueReductionBps / 2</td><td>rateReductionBps or rateReductionBps / 2</td></tr><tr><td>Poor</td><td>HighReduction</td><td>valueReductionBps</td><td>rateReductionBps</td></tr><tr><td>Flagged</td><td>Block if <mark style="color:red;"><code>enforceBlock = true</code></mark> else HighReduction</td><td>0 or valueReductionBps</td><td>0 or rateReductionBps</td></tr></tbody></table>
+
+If <mark style="color:red;">`enforceValueAdj = false`</mark>, Fair and Poor return Neutral for the value track. If <mark style="color:red;">`enforceRateAdj = false`</mark>, Fair and Poor return Neutral for the rate track. Enforcement is optional — markets that do not want to penalize lower-reliability participants leave both enforcement flags false.
+
+**On Block:** CEW returns <mark style="color:red;">`CreditAction`</mark> with Block on both tracks (does not revert). Your protocol must implement the revert in your own execution logic after reading the returned action type.
+
+**Fee switch:** CEW launches fee-free. <mark style="color:red;">`feesActive`</mark> defaults to false. When the Tythe DAO activates fees, a flat 0.07% applies to all three action types; Enhancement fee paid by the participant on-chain at transaction time, Enforcement and Blocker fees tracked off-chain and invoiced monthly to your market.
 
 {% hint style="info" %}
-**Use when:** Your protocol wants automated, credit-differentiated execution without rebuilding core logic (lending markets, vaults, exchanges, RWA pools, prediction markets).
+**Use when:** Your protocol wants automated, credit-differentiated execution without rebuilding core logic. For lending markets, derivatives & exchanges, RWA pools, DEX pairs, and card issuers.
 {% endhint %}
 
 ***
 
 **4. Relay Emitter**
 
-Off-chain intelligence feed. Subscribe via the Tythe Portal. Labels and percentile rankings delivered to your systems in real time.
+Off-chain intelligence feed. Subscribe via the Tythe Developer Portal. Labels and percentile rankings delivered to your systems in real time.
 
-**nEvent types:**
+**nEvent types and signal impact:**
 
-<table><thead><tr><th width="135">Event</th><th>Trigger</th><th>Enforcement</th></tr></thead><tbody><tr><td>Liquidation</td><td>Collateral failure on an integrated market</td><td>Auto-Slash (severity by percentile rank)</td></tr><tr><td>Default</td><td>Loan not repaid within grace period</td><td>Auto-Slash (severity by percentile rank)</td></tr><tr><td>Exploit</td><td>Verified protocol attack involvement</td><td>Blacklist</td></tr><tr><td>Mercenary</td><td>Rapid liquidity withdrawal under stress</td><td>Alert only (Velocity Risk flag)</td></tr><tr><td>Informed</td><td>Patterned high-alpha toxic flow</td><td>Alert only (metadata tag)</td></tr><tr><td>Whale</td><td>Objectively large on-chain transaction</td><td>Alert only (metadata tag)</td></tr></tbody></table>
+<table><thead><tr><th width="125">Event</th><th>Trigger</th><th width="150">Signal Affected</th><th>Enforcement</th></tr></thead><tbody><tr><td>Liquidation</td><td>Collateral failure on integrated market</td><td>TCT</td><td>Auto-Slash, severity by percentile rank</td></tr><tr><td>Default</td><td>Loan not repaid within grace period</td><td>TCT</td><td>Auto-Slash, severity by percentile rank</td></tr><tr><td>Exploit</td><td>Verified protocol attack involvement</td><td>TCT</td><td>Blacklist, CEP revoked, TCT set to zero</td></tr><tr><td>Mercenary</td><td>Rapid liquidity withdrawal under stress</td><td>TCT, TLQ</td><td>Alert on TCT, Auto-Slash on TLQ by percentile rank</td></tr><tr><td>Informed</td><td>Patterned high-alpha toxic flow</td><td>TCT, TIQ</td><td>Alert on TCT, Auto-Slash on TIQ by percentile rank</td></tr><tr><td>Whale</td><td>Objectively large on-chain transaction</td><td>TIQ, TLQ</td><td>Alert only, metadata tag sent to integrated markets</td></tr></tbody></table>
 
 Each label includes CEP ID, event typology, percentile rank within the label spectrum, TCT delta where applicable, and epoch timestamp for replay prevention.
 
 {% hint style="info" %}
-**Use when:** Your protocol needs early warning on counterparty credit deterioration (lending markets, vault managers, institutional risk desks).
+**Use when:** Your protocol needs early warning on counterparty credit deterioration. For lending markets, vault managers, derivatives & exchanges, RWA platforms, and institutional risk desks.
 {% endhint %}
 
 ***
 
-### Combining Integration Paths
+**Composable Stacks**
 
-The four paths are designed to be composable. Here are the most common combinations:
-
-* **Credit-aware lending market:** CEP resolution (eligibility gate) + TCT/MVV reading (risk-adjusted terms) + CEW (automated enforcement)
-* **Risk-managed vault:** TCT/MVV reading (entry thresholds and LTV logic) + Relay Emitter (real-time default monitoring)
-* **Permissioned RWA pool:** CEP resolution (KYC gate) + TCT/MVV reading (investor quality scoring) + CEW (dynamic yield allocation)
-* **Institutional risk desk:** Relay Emitter (nEvent feed) + TCT/MVV reading (portfolio-level credit exposure monitoring)
+<table><thead><tr><th width="275">Use Case</th><th>Primitives</th></tr></thead><tbody><tr><td>Credit-aware lending market</td><td>CEP + TCT/MVV + CEW (SignalType.TCT)</td></tr><tr><td>Risk-managed vault</td><td>TCT/MVV + Relay Emitter</td></tr><tr><td>Permissioned RWA pool</td><td>CEP + TIQ + CEW (SignalType.TIQ) + Relay Emitter</td></tr><tr><td>DEX LP market</td><td>TLQ + CEW (SignalType.TLQ) + Relay Emitter</td></tr><tr><td>Card issuer</td><td>CEP + TCT/MVV + CEW (SignalType.TCT)</td></tr><tr><td>Institutional risk desk</td><td>Relay Emitter + TCT + TIQ + TLQ</td></tr><tr><td>Full-stack integration</td><td>CEP + TCT + MVV + CEW + Relay Emitter</td></tr></tbody></table>
 
 ***
 
 **What's Coming**
 
-**APIs & SDKs** _(Roadmap):_ REST APIs and language-specific SDKs for web2-native integration. Contact [dev@tythe.network](mailto:dev@tythe.network) if your stack requires API access ahead of the roadmap.
+**APIs and SDKs** _(Roadmap):_ REST APIs and language-specific SDKs for web2-native integration. Contact [dev@tythe.network](mailto:dev@tythe.network) if your stack requires API access ahead of the roadmap.
 
-**Tythe DAO & TYT Token** _(V1.2):_ Vote on technical specifications, integration standards, and protocol upgrade paths.
+**Tythe DAO and TYT Token** _(V1.2):_ Vote on technical specifications, integration standards, and protocol upgrade paths.
 
 **CEV Integration** _(V2):_ Integration hooks for protocols offering undercollateralized lending backed by LP capital.
 
-**Credit Data Licensing** _(V2):_ Anonymized, user-consented credit data for model building and risk research.
+**Credit Data Exchange** _(V3):_ Anonymized, user-consented credit data for model building and risk research.
 
-**Agentic Credit** _(V2):_ AI agents access credit through the same primitives. No additional integration required.
+**Agentic Credit** _(V3):_ AI agents access credit through the same primitives. No additional integration required.
 {% endtab %}
 
 {% tab title="Business Guide (For Institutions)" %}
