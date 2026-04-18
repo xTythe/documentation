@@ -19,7 +19,7 @@ layout:
 
 # The Tythe Standard
 
-The TCE-26 standard defines how on-chain behavioral data is transformed into four verifiable, machine-enforceable credit signals: TCT, MVV, TIQ, and TLQ. Each signal serves a distinct function across integrated markets. All four are computed off-chain by the scoring engine, signed via EIP-712 attestation, and anchored on-chain by the participant at Refresh.
+The TCE (Tythe Credit Enhancement) standard defines how on-chain behavioral data is transformed into four verifiable, machine-enforceable credit signals: TCT, MVV, TIQ, and TLQ. Each signal serves a distinct function across integrated markets. All four are computed off-chain by the scoring engine, signed via EIP-712 attestation, and anchored on-chain by the participant at Refresh.
 
 ***
 
@@ -222,6 +222,24 @@ TCT, TIQ, and TLQ all use the same bracket scale and the same CEW action mapping
 | 0       | Flagged   | <mark style="color:$danger;">Blocked</mark>             |
 
 Enhancement and Enforcement magnitudes are market-configured within DAO-governed bounds. Markets set their own discount rates per bracket within the allowed range. Enforcement is optional, markets may leave Fair and Poor brackets at Neutral if their risk model does not require negative adjustment beyond current provided rates.
+
+***
+
+#### Open Source Commitment
+
+Tythe operates a three-tier transparency model, balancing public trust with formula integrity.
+
+1. **Smart Contract Code:** Fully open source. Auditable by anyone, always. Non-negotiable.
+2. **Formula Structure:** Public. Category names, tier hierarchy, and percentage weights are disclosed so all participants understand what drives their score.
+3. **Exact Parameters and Weights:** Sealed under a DAO license. Visible only to institutional DAO members. Modifications require a successful governance proposal with a mandatory timelock. This prevents gaming without sacrificing accountability.
+
+***
+
+#### The Evolving Standard
+
+TCE-26 (Tythe Credit Enhancement, 2026) is the protocol's launch model. As Tythe matures, new telemetry streams will be integrated into scoring, including zk-verified bank statements, payroll and tax data, cross-chain bridging history, encrypted imports of FICO, CIBIL, and other centralized credit scores, and expanded verifiable credential checks via zkTLS.
+
+Future models (TCE-27 and beyond) are activated only via a successful Tythe DAO governance proposal. No scoring change takes effect without community oversight and a mandatory timelock.
 
 ***
 
