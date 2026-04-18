@@ -21,17 +21,19 @@ layout:
 
 {% tabs %}
 {% tab title="User Guide (For Individuals)" %}
-Tythe gives you a financial reputation that works for you. This guide walks you from zero footprint to active value; your profile set up, your live score, and your creditworthiness working across every integrated market.
+Tythe gives you a financial reputation that works for you. This guide walks you from zero footprint to active value; your profile set up and your live scores and limits working across every integrated market.
 
 ***
 
 **What You're Building**
 
-Three things come together to make your Tythe profile work.
+Five things come together to make your Tythe profile work.
 
 1. **Credit Enhancement Profile (CEP):** Your sovereign financial identity. Anchored on the `did:cheqd` network, your CEP links your verified identity, your wallets, your credentials, and your credit history into one portable, privacy-preserving profile. You own it permanently. No institution holds it for you.
-2. **Tokenized Creditworthiness (TCT):** Your on-chain credit score. A non-transferable token between 300 and 850, earned through your on-chain behavior and tokenized on-chain when you choose. The higher your TCT, the better the capital terms available to you across every integrated market.
-3. **Maximum Vouchsafed Value (MVV):** Your per-transaction enhancement ceiling, embedded in your TCT token alongside your score. When you interact with a CEW-integrated market, enhancements apply up to your MVV. Transactions above your MVV still go through. The enhancement is applied to the MVV portion, the remainder transacts at standard terms. MVV is derived from your Capital Capacity. Refresh to update it on-chain.
+2. **Tokenized Creditworthiness (TCT)** Your on-chain credit character score. A non-transferable token between 300 and 850, earned through seven behavioral inputs (historical performance, current risk exposure, credit utilization, new credit activity, volatility quotient, credit mix, and action integrity). TCT governs your terms on lending markets, exchanges, insurance protocols, and card issuers.
+3. **Tokenized Investment Quality (TIQ):** Your on-chain investment quality score. A non-transferable value between 300 and 850, measuring the reliability and performance of your capital deployment across RWA platforms and yield vaults. TIQ governs your terms on integrated RWA platforms and investment-oriented markets.
+4. **Tokenized Liquidity Quality (TLQ):** Your on-chain liquidity quality score. A non-transferable value between 300 and 850, measuring the consistency and depth of your liquidity provision across DEX pairs and LP positions. TLQ governs your terms on integrated DEX pairs and LP markets.
+5. **Maximum Vouchsafed Value (MVV)** Your per-transaction enhancement ceiling. Sized by the scoring engine at one-tenth of your 30-day rolling credit capacity, which is derived from your capital capacity markers (net worth, LP depth, verified cashflow, investor status, and transaction weight). When CEW applies a value-based enhancement, it applies up to your MVV. Transactions above MVV still go through; the enhancement covers the MVV portion, the remainder transacts at standard terms.
 
 ***
 
@@ -39,8 +41,8 @@ Three things come together to make your Tythe profile work.
 
 Go to the Tythe Dashboard and complete two steps:
 
-1. **zk-KYC via Billions:** Identity verification and sanctions screening, processed entirely via zero-knowledge attestation. Tythe never holds your raw identity data at any point.
-2. **Connect your primary wallet:** Bind a wallet address to your CEP as your on-chain anchor.
+1. **zk-KYC via Billions.** Identity verification and sanctions screening, processed entirely via zero-knowledge attestation. Tythe never holds your raw identity data at any point.
+2. **Connect your primary wallet.** Bind a wallet address to your CEP as your on-chain anchor.
 
 Once both are done, your `did:cheqd` identifier is minted. Your CEP is live and the scoring engine is active on your profile.
 
@@ -48,22 +50,22 @@ Once both are done, your `did:cheqd` identifier is minted. Your CEP is live and 
 
 **Step 2. Build Your Profile**
 
-Your CEP pulls on-chain data from connected wallets automatically. The stronger your signal, the more accurately the protocol scores you.
+Your CEP pulls on-chain data from connected wallets automatically. The stronger your signal, the more accurately the protocol scores you across all four values (TCT, TIQ, TLQ, and MVV).
 
-**Link every active wallet:** A wallet you use on Morpho that isn't linked to your CEP is creditworthiness the protocol cannot see and cannot reward you for. CEW only applies enhancements to wallets linked to your CEP. Unlinked addresses are treated as anonymous regardless of your actual score. Link all active addresses once via the Dashboard.
-
-**Add Proof of Personhood:** Connect a World ID or equivalent biometric credential for a fixed _+5 TCT boost_ and stronger Sybil resistance. Optional but recommended.
-
-**Log manual activity:** Use the Data tab in the dashboard to record financial activity the protocol cannot yet pull automatically (RWA positions on Centrifuge, Maple, Ondo, and other platforms not yet natively supported). Richer history means more accurate scoring across your Investor Status, Credit Mix, and Action Integrity inputs.
+* **Link every active wallet:** A wallet you use on Morpho that is not linked to your CEP is creditworthiness the protocol cannot see and cannot reward you for. CEW only applies enhancements to wallets linked to your CEP. Unlinked addresses are treated as anonymous regardless of your actual scores. Link all active addresses once via the Dashboard.
+* **Add Proof of Personhood:** Connect a World ID or equivalent biometric credential for a fixed **+5 TCT boost** and stronger Sybil resistance. Optional but recommended.
+* **Log manual activity:** Use the Data tab to record financial activity the protocol cannot yet pull automatically, such as RWA positions on Centrifuge, Maple, Ondo, and other platforms not yet natively supported. Richer history means more accurate scoring across your Credit Mix, Action Integrity, and TIQ inputs.
+* **zkTLS off-chain verifications** _(Coming post-launch):_ Once live, zkTLS will allow you to verify off-chain financial data (bank statements, income records, payroll, and more) directly to your CEP without exposing the underlying documents. This expands your scoring surface beyond on-chain activity and strengthens your TCT, TIQ, TLQ, and MVV for participants with strong off-chain financial histories that on-chain data alone cannot capture.
 
 ***
 
-**Step 3. Understand Your Score**
+**Step 3. Understand Scores & Limits**
 
-Your TCT score is determined by the TCE-26 standard in two layers.
+* **TCT** is your character score. Seven behavioral inputs determine your band. Capital alone cannot move you into a higher band. Only behavior earns it.
+* **TIQ** is your investment quality score. It reflects the quality of your capital deployment across RWA platforms and yield vaults.
+* **TLQ** is your liquidity quality score. It reflects the quality of your liquidity provision across DEX pairs and LP positions.
 
-* **Behavior determines your band:** Historical performance, current risk exposure, credit utilization, new credit activity account for 80% of your score. The remaining 20% is calculated using softer indicators such as investor status, collateral volatility, credit mix, and action integrity. Capital alone cannot move you into a higher band. Only behavior can.
-* **Capacity determines your position within that band:** Your aggregate on-chain net worth, LP depth, verified cashflow, and transaction weight push your score toward the band ceiling and underwrite your Maximum Vouchsafed Value (MVV).
+TCT, TIQ, and TLQ all use the same 300-850 bracket scale:
 
 | Range   | Bracket   | CEW Action                                                   |
 | ------- | --------- | ------------------------------------------------------------ |
@@ -75,36 +77,48 @@ Your TCT score is determined by the TCE-26 standard in two layers.
 | 1       | No Data   | <mark style="color:$info;">Credit Invisible</mark>           |
 | 0       | Flagged   | <mark style="color:$danger;">Blocked</mark>                  |
 
-Your score exists in two states at all times. Your **staged score** is computed continuously off-chain and is always current. Your **TCT balance** is the on-chain tokenized version, updated only when you Refresh. Integrated markets read your TCT balance, never your staged score.
+* **MVV** is your per-transaction enhancement limit, expressed as a dollar amount. It reflects your capital capacity and determines the maximum dollar value of any value-based discount CEW will apply on a single transaction. MVV is not scored on a bracket. It is a hard ceiling that CEW reads independently alongside your bracket score.
+
+Your scores and limits exist in two states. Your **staged scores & limits** are computed continuously off-chain and are always current. Your **on-chain balance & values** are updated only when you Refresh. Integrated markets read your on-chain balances and values.
 
 Full formula breakdown in the [TCE-26 Standard](https://app.gitbook.com/s/pAHIYSR0KV9miINQoxWp/the-tythe-standard).
 
 ***
 
-**Step 4. Refresh Your Score**
+**Step 4. Refresh Scores & Limits**
 
-Refreshing mints your current staged score as your live TCT balance and MVV on-chain.
+Refreshing mints your current staged scores and limits as your live on-chain balances. One transaction updates TCT, MVV, TIQ, and TLQ simultaneously.
 
 Hit **Refresh** on the Dashboard before opening a new position, before a rate negotiation, or when Tythe notifies you of a meaningful score increase. Here is what happens:
 
-1. The backend computes the delta between your staged score and your current on-chain TCT balance
-2. A signed EIP-712 attestation is generated
+1. The scoring engine computes the current values for TCT, MVV, TIQ, and TLQ
+2. A signed EIP-712 attestation is generated carrying all four values
 3. The attestation is passed to your wallet for submission
-4. You sign and submit.&#x20;
-5. Your TCT balance and MVV update on-chain
+4. You sign and submit. TCT, MVV, TIQ, and TLQ update on-chain atomically
 
-You pay the gas for all Refresh acts. No one else can refresh your score on your behalf. There is no benefit to refreshing constantly. Refresh at the right moment, not the most frequent one.
+You pay the gas. No one else can refresh your scores on your behalf. Refresh at the right moment, not the most frequent one.
 
 ***
 
-**Step 5. Put Your Score to Work**
+**Step 5. Put Scores & Limits to Work**
 
-With your TCT balance live, the Credit Enhancement Wrapper (CEW) applies automatically on every integrated market you interact with. It reads your score and MVV at transaction time and applies the corresponding action instantly. No manual application, no approval process.
+With your on-chain balances live, the Credit Enhancement Wrapper (CEW) applies automatically on every integrated market you interact with. It reads the relevant score and MVV at transaction time and applies the corresponding action instantly. No manual application, no approval process.
 
-* **Borrowers:** Lower interest rates and higher borrowing limits for high-TCT positions. Enhancements apply up to your MVV automatically.
-* **Yield participants:** High-reliability depositors access enhanced yield tiers on integrated vaults.
-* **Traders:** Tighter spreads, reduced margin requirements, and higher position limits for high-TCT traders on integrated exchanges.
-* **RWA Investors:** Pool access and capital allocation tiers based on your TCT and MVV on integrated RWA platforms.
+Each integrated market configures which signal CEW reads (TCT, TIQ, or TLQ) based on what is most relevant to their product. MVV governs value-based enhancements regardless of which signal the market reads.
+
+**CEW applies two types of discounts:**
+
+* **Value-based:** A percentage reduction on dollar-denominated parameters, such as collateral required, fees charged, premiums. Applied up to your MVV per transaction.
+* **Rate-based:** A percentage reduction on interest rates. No MVV cap, your character score alone governs rate discounts.
+
+**By market type:**
+
+* **Lending markets** read TCT. High-TCT borrowers access lower interest rates and reduced collateral requirements automatically.
+* **Exchanges and derivatives** read TCT. High-TCT traders access tighter spreads and reduced margin requirements.
+* **Insurance protocols** read TCT. High-TCT participants access lower premiums automatically.
+* **Card issuers** read TCT and MVV. High-TCT cardholders access higher credit limits and better fee structures.
+* **RWA platforms** read TIQ. High-TIQ investors access better pool terms and yield allocations.
+* **DEX pairs and LP markets** read TLQ. High-TLQ liquidity providers access better fee structures and position terms.
 
 Your creditworthiness follows your CEP, not your geography. Any integrated market, anywhere.
 
@@ -112,21 +126,27 @@ Your creditworthiness follows your CEP, not your geography. Any integrated marke
 
 **Protecting Your Score**
 
-* **Auto-Slash is immediate and gasless:** A Liquidation, Default, or Exploit on any wallet linked to your CEP triggers an instant TCT reduction. No warning, no delay. A sudden slash may trigger automated adjustments on your active positions across integrated markets. Maintain healthy collateral ratios and avoid edge behavior.
-* **Disputed slashes have a resolution path:** If you believe a slash was applied in error, raise a dispute with the Justice Arm of the Tythe DAO. AI clerks prepare an evidence brief from your on-chain data. A human jury drawn from your TCT band reviews the case and delivers a verdict. _Available in V1.2 (post-launch mechanic)_
-* **Protect your score across wallet changes:** Your CEP is anchored to your root `did:cheqd` identity, not a single wallet. Before rotating addresses, link your latest EIP-712 scoring attestation to your DID as a DID-Linked Resource. This preserves your scoring relationship across the change. If the attestation is not linked before you lose access to a wallet, your score may not be recoverable.
+*   **Auto-Slash is immediate and gasless.** Negative events on any wallet linked to your CEP trigger instant score reductions with no warning and no delay. Different events affect different scores:
+
+    * Liquidation and Default slash TCT
+    * Exploit blacklists your CEP and sets TCT to zero
+    * Mercenary withdrawals slash TLQ
+    * Informed trading patterns slash TIQ
+    * Whale events flag TIQ and TLQ with alerts
+
+    A sudden slash may trigger automated adjustments on your active positions across integrated markets. Maintain healthy collateral ratios, avoid edge behavior, and do not withdraw liquidity aggressively during systemic stress.
+* **Disputed slashes have a resolution path.** If you believe a slash was applied in error, raise a dispute with the Justice Arm of the Tythe DAO. AI clerks prepare an evidence brief from your on-chain data. A human jury drawn from your TCT band reviews the case and delivers a verdict. Available in V1.2.
+* **Protect your scores across wallet changes.** Your CEP is anchored to your root `did:cheqd` identity, not a single wallet. Before rotating addresses, link your latest EIP-712 scoring attestation to your DID as a DID-Linked Resource. This preserves your scoring relationship across the change. If the attestation is not linked before you lose access to a wallet, your scores may not be recoverable.
 
 ***
 
 **What's Coming**
 
-**Tythe DAO & TYT Token** _(V1.2)_ TYT holders vote on protocol upgrades, fee parameters, and new feature proposals. As a TCT earner and protocol participant, your voice shapes what Tythe becomes. Tythe DAO Justice Arm handles contested slashes and scoring disputes.
+**Tythe DAO and TYT Token** _(V1.2):_ TYT holders vote on protocol upgrades, fee parameters, and new feature proposals. The Justice Arm handles contested slashes and scoring disputes.
 
-**Credit Enhancement Vaults** _(V2)_ The only module enabling undercollateralized lending. Your TCT and MVV unlock credit lines beyond your posted collateral, backed by LP capital.
+**Credit Enhancement Vaults** _(V2):_ The only module enabling undercollateralized lending. Your TCT and MVV unlock credit lines beyond your posted collateral, backed by LP capital.
 
-**Credit Data Licensing** _(V2)_ Anonymize and license your credit data to institutional researchers and AI engineers. Your data, your revenue.
-
-***
+**Credit Data Exchange** _(V3):_ Sell your verified credit data to institutional buyers for risk modeling, agent and model training, and credit event patterning. Your data, your revenue.
 {% endtab %}
 
 {% tab title="Integration Guide (For Developers)" %}
@@ -332,3 +352,4 @@ The moment a Liquidation, Default, Exploit, or Mercenary event is detected, a st
 **Agentic Credit** _(V2):_ High-reputation AI agents with verified execution history access credit through the same stack. Institutions integrated today automatically serve a new class of creditworthy counterparty. No additional integration required.
 {% endtab %}
 {% endtabs %}
+
