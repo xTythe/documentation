@@ -245,19 +245,26 @@ Future models (TCE-27 and beyond) are activated only via a successful Tythe DAO 
 
 #### FAQs
 
-* **Why should we trust Tythe's TCT score?**\
-  TCT is built on determinism. Every score update is backed by a verifiable on-chain event or a cryptographic zk-proof. The smart contract code is fully open source. The formula structure is publicly disclosed. The signal is objective, auditable, and resistant to manipulation by any single party.
-* **Does Tythe have the authority to freeze funds?**\
-  No. Tythe is a neutral risk-intelligence layer, not a custodian. The protocol can slash TCT balances based on verified behavioral events. Integrated markets make their own independent decisions on whether to adjust or restrict participant positions based on Tythe's signals.
-* **How does Tythe prevent Sybil attacks?**\
-  Credit is bound to the CEP ID, which requires a unique zk-KYC verification and Proof of Personhood. A participant may control multiple wallets but all wallets map to a single root identity. Credit power cannot be artificially multiplied across fake accounts.
-* **What happens if a participant is wrongly slashed?**\
-  Disputed slashes are handled by the Justice Arm of the Tythe DAO. AI clerks prepare evidence briefs from on-chain data. A human jury drawn from the same TCT band as the disputant reviews the case and delivers a verdict. Disputes at band boundaries are heard by mixed juries from both adjacent bands. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. The stake is burned if the slash is upheld and returned in full if overturned.
-* **What is the difference between TCT, TIQ, and TLQ?**\
-  TCT measures on-chain credit character — borrowing behavior, repayment history, and risk management. It is the primary signal for lending markets, derivatives, exchanges, insurance protocols, and card issuers. TIQ measures investment quality — the reliability and performance of capital deployed across RWA platforms and yield vaults. TLQ measures liquidity quality — the consistency and depth of liquidity provision across DEX pairs and LP positions. All three use the same 300-850 bracket scale and the same CEW action mapping. Markets configure which signal CEW reads at registration.
-* **Can a market read more than one score signal simultaneously?**\
-  No. Each integrated market configures CEW to read exactly one score signal (TCT, TIQ, or TLQ) at registration. MVV limit signal is independent and always available regardless of which score signal the market reads. This keeps the integration clean and the credit logic unambiguous.
-* **Which nEvents affect which signals?**\
-  Liquidation, Default, and Exploit affect TCT only. Mercenary events affect both TCT (alert) and TLQ (Auto-Slash). Informed events affect both TCT (alert) and TIQ (Auto-Slash). Whale events affect TIQ and TLQ as alerts only. MVV is never directly slashed by nEvents — it updates only at Manual Refresh.
-* **What are CAQB, IAQB, and LAQB?**\
-  Three asset quality benchmarks that govern the ceiling calculations for MVV, TIQ, and TLQ respectively. CAQB (Collateral Asset Quality Benchmark) categorizes assets by reliability as collateral backing and governs the MVV ceiling and Volatility Quotient input. IAQB (Investor Asset Quality Benchmark) categorizes assets by reliability as investment vehicles and governs the TIQ ceiling. LAQB (Liquidity Asset Quality Benchmark) categorizes assets by reliability as liquidity pair constituents and governs the TLQ ceiling. All three use AAA to CCC classifications with criteria specific to their domain.
+**1. Why should we trust Tythe's TCT score?**\
+TCT is built on determinism. Every score update is backed by a verifiable on-chain event or a cryptographic zk-proof. The smart contract code is fully open source. The formula structure is publicly disclosed. The signal is objective, auditable, and resistant to manipulation by any single party.
+
+**2. Does Tythe have the authority to freeze funds?**\
+No. Tythe is a neutral risk-intelligence layer, not a custodian. The protocol can slash TCT balances based on verified behavioral events. Integrated markets make their own independent decisions on whether to adjust or restrict participant positions based on Tythe's signals.
+
+**3. How does Tythe prevent Sybil attacks?**\
+Credit is bound to the CEP ID, which requires a unique zk-KYC verification and Proof of Personhood. A participant may control multiple wallets but all wallets map to a single root identity. Credit power cannot be artificially multiplied across fake accounts.
+
+**4. What happens if a participant is wrongly slashed?**\
+Disputed slashes are handled by the Justice Arm of the Tythe DAO. AI clerks prepare evidence briefs from on-chain data. A human jury drawn from the same TCT band as the disputant reviews the case and delivers a verdict. Disputes at band boundaries are heard by mixed juries from both adjacent bands. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. The stake is burned if the slash is upheld and returned in full if overturned.
+
+**5. What is the difference between TCT, TIQ, and TLQ?**\
+TCT measures on-chain credit character — borrowing behavior, repayment history, and risk management. It is the primary signal for lending markets, derivatives, exchanges, insurance protocols, and card issuers. TIQ measures investment quality — the reliability and performance of capital deployed across RWA platforms and yield vaults. TLQ measures liquidity quality — the consistency and depth of liquidity provision across DEX pairs and LP positions. All three use the same 300-850 bracket scale and the same CEW action mapping. Markets configure which signal CEW reads at registration.
+
+**6. Can a market read more than one score signal simultaneously?**\
+No. Each integrated market configures CEW to read exactly one score signal (TCT, TIQ, or TLQ) at registration. MVV limit signal is independent and always available regardless of which score signal the market reads. This keeps the integration clean and the credit logic unambiguous.
+
+**7. Which nEvents affect which signals?**\
+Liquidation, Default, and Exploit affect TCT only. Mercenary events affect both TCT (alert) and TLQ (Auto-Slash). Informed events affect both TCT (alert) and TIQ (Auto-Slash). Whale events affect TIQ and TLQ as alerts only. MVV is never directly slashed by nEvents, it updates only at Manual Refresh.
+
+**8. What are CAQB, IAQB, and LAQB?**\
+Three asset quality benchmarks that govern the ceiling calculations for MVV, TIQ, and TLQ respectively. CAQB (Collateral Asset Quality Benchmark) categorizes assets by reliability as collateral backing and governs the MVV ceiling and Volatility Quotient input. IAQB (Investor Asset Quality Benchmark) categorizes assets by reliability as investment vehicles and governs the TIQ ceiling. LAQB (Liquidity Asset Quality Benchmark) categorizes assets by reliability as liquidity pair constituents and governs the TLQ ceiling. All three use AAA to CCC classifications with criteria specific to their domain.
