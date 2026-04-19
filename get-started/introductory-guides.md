@@ -368,19 +368,13 @@ The moment a Liquidation, Default, Exploit, Mercenary, or Informed event is dete
 * **Derivatives:** Differentiated fee structures, spreads, and margin requirements based on live TCT. High-TCT traders access better execution on both value-based and rate-based terms. Counterparty risk is priced accurately at the point of every trade. Toxic flow and informed trading flagged by the Relay Emitter before it reaches your liquidity.
 * **DeFi Insurance:** Dynamic premium and coverage limits applied at entry based on TCT and MVV. Reliable participants access lower premiums automatically via value-based CEW adjustments. Pool solvency improves without manual underwriting. Mercenary and exploit events surfaced by the Relay Emitter before they affect your coverage pool.
 * **Card Issuers:** TCT and MVV provide the on-chain credit signal for dynamic credit limit assignment and spending controls. High-reliability cardholders access higher limits and better fee structures automatically. MVV sets the per-transaction enhancement ceiling. CEP compliance verification satisfies KYC requirements at onboarding without handling raw cardholder data.
-* **DEX Pairs and LP Markets:** TLQ scores the quality of a participant's liquidity provision; depth of LP positions, quality of pairs provided to, and consistency of participation. CEW reads TLQ to differentiate fee structures and position terms across LP participants. Mercenary withdrawal events surfaced by the Relay Emitter before they drain your liquidity.
+* **AMM DEX Pools:** TLQ scores the quality of a participant's liquidity provision; depth of LP positions, quality of pairs provided to, and consistency of participation. CEW reads TLQ to differentiate fee structures and position terms across LP participants. Mercenary withdrawal events surfaced by the Relay Emitter before they drain your liquidity.
 
 ***
 
 **Recommended Integration Stack**
 
-| Institution              | CEP | Signal    | CEW | Relay Emitter |
-| ------------------------ | --- | --------- | --- | ------------- |
-| DeFi Lending             | ✓   | TCT + MVV | ✓   | ✓             |
-| Derivatives              | ✓   | TCT + MVV | ✓   | ✓             |
-| DeFi Insurance           | ✓   | TCT + MVV | ✓   | ✓             |
-| Card Issuers             | ✓   | TCT + MVV | ✓   | Optional      |
-| DEX Pairs and LP Markets | ✓   | TLQ       | ✓   | ✓             |
+<table><thead><tr><th width="150">Institution</th><th>CEP</th><th>Signal</th><th>CEW</th><th>Relay Emitter</th></tr></thead><tbody><tr><td>DeFi Lending</td><td>✓</td><td>TCT + MVV</td><td>✓</td><td>✓</td></tr><tr><td>Derivatives </td><td>✓</td><td>TCT + MVV</td><td>✓</td><td>✓</td></tr><tr><td>DeFi Insurance</td><td>✓</td><td>TCT + MVV</td><td>✓</td><td>✓</td></tr><tr><td>Card Issuers</td><td>✓</td><td>TCT + MVV</td><td>✓</td><td>Optional</td></tr><tr><td>AMM DEX Pools</td><td>✓</td><td>TLQ</td><td>✓</td><td>✓</td></tr></tbody></table>
 
 ***
 
