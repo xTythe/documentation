@@ -19,7 +19,7 @@ layout:
 
 # The Tythe Standard
 
-The TCE (Tythe Credit Enhancement) standard defines how on-chain behavioral data is transformed into four verifiable, machine-enforceable credit signals: TCT, MVV, TIQ, and TLQ. Each signal serves a distinct function across integrated markets. All four are computed off-chain by the scoring engine, signed via EIP-712 attestation, and anchored on-chain by the participant at Refresh.
+The TCE (Tythe Credit Enhancement) standard defines how on-chain behavioral data is transformed into four verifiable, machine-enforceable credit signals: TCT, MVV, and TLQ. Each signal serves a distinct function across integrated markets. All three are computed off-chain by the scoring engine, signed via EIP-712 attestation, and anchored on-chain by the participant at Refresh.
 
 ***
 
@@ -67,27 +67,6 @@ The 24-month historical window and tier weights are fixed at launch under TCE-26
 
 <details>
 
-<summary><strong>TIQ: Tokenized Investor Quality</strong> </summary>
-
-**Tokenized Investment Quality.** A metadata value scored 300 to 850, embedded in the TCT token alongside TCT and MVV. TIQ measures the quality of a participant's capital deployment across investment-oriented activity such as RWA platforms, yield vaults, and structured credit positions.
-
-TIQ governs CEW actions on RWA platforms and yield vaults where investment quality is the primary risk signal.
-
-**Scoring Inputs**
-
-| Input                | Priority  |
-| -------------------- | --------- |
-| Investor Status      | Primary   |
-| Net Worth            | Secondary |
-| Verified Cashflow    | Secondary |
-| Transactional Weight | Secondary |
-
-TIQ excludes LP depth. Liquidity provision is captured separately by TLQ.
-
-</details>
-
-<details>
-
 <summary><strong>TLQ: Tokenized Liquidity Quality</strong></summary>
 
 **Tokenized Liquidity Quality.** A metadata value scored 300 to 850, embedded in the TCT token alongside TCT and MVV. TLQ measures the quality of a participant's liquidity provision behavior across DEX pairs, LP positions, and liquidity management across markets.
@@ -102,8 +81,6 @@ TLQ governs CEW actions on DEX pairs and LP-related markets where liquidity qual
 | Net Worth            | Secondary |
 | Verified Cashflow    | Secondary |
 | Transactional Weight | Secondary |
-
-TLQ excludes Investor Status. Investment activity is captured separately by TIQ.
 
 </details>
 
@@ -149,21 +126,9 @@ Asset classes below AA are not penalized in TCT scoring. The protocol applies pr
 
 <details>
 
-<summary><strong>IAQB: Investor Asset Quality Benchmark</strong></summary>
-
-Governs the TIQ ceiling. Categorizes assets by reliability as investment vehicles. Primary criteria are yield reliability, institutional legitimacy, underlying asset quality, and exit liquidity.
-
-<table><thead><tr><th width="90">Class</th><th>Standard</th><th>Rationale</th></tr></thead><tbody><tr><td>AAA</td><td>Tokenized T-bills, money market funds, tokenized gold, USDC/USDT/DAI/USDe in yield strategies</td><td>Government-backed or hard asset backed. Most institutionally recognized stablecoins. Reliable, verifiable yield.</td></tr><tr><td>AA</td><td>Tokenized investment-grade corporate bonds, major stablecoins with regular audits outside the top four, BTC/ETH in yield vaults</td><td>Strong underlying credit quality. Verifiable yield. High institutional recognition.</td></tr><tr><td>A</td><td>Tokenized prime real estate, Centrifuge/Maple senior tranches, tokenized ETFs, tokenized short-term treasuries</td><td>Real asset backing with verifiable yield. Some illiquidity risk.</td></tr><tr><td>BBB</td><td>Tokenized private credit (senior), RWA platform junior tranches, algorithmic stablecoins with proven track records and meaningful TVL</td><td>Higher yield, higher risk. Still defensible institutional quality.</td></tr><tr><td>BB</td><td>Tokenized physical assets, tokenized emerging market debt, mid-tier RWA platforms, top 1-40 CMC tokens in yield strategies</td><td>Meaningful credit risk. Yield less reliable. Limited institutional recognition.</td></tr><tr><td>B</td><td>Speculative RWA structures, top 41-100 CMC tokens in yield strategies</td><td>High volatility underlying. Yield unreliable. Minimal institutional backing.</td></tr><tr><td>CCC</td><td>Unaudited or experimental stablecoins, stablecoins with opaque backing or prior depeg history, all other assets</td><td>No institutional recognition. Yield unverifiable or non-existent.</td></tr></tbody></table>
-
-***
-
-</details>
-
-<details>
-
 <summary><strong>LAQB: Liquidity Asset Quality Benchmark</strong></summary>
 
-Governs the TLQ ceiling. Categorizes assets by reliability as liquidity pair constituents — primary criteria are trading volume depth, impermanent loss risk, market depth, and pair legitimacy.
+Governs the TLQ ceiling. Categorizes assets by reliability as liquidity pair constituents; primary criteria are trading volume depth, impermanent loss risk, market depth, and pair legitimacy.
 
 <table><thead><tr><th width="90">Class</th><th>Standard</th><th>Rationale</th></tr></thead><tbody><tr><td>AAA</td><td>USDC/USDT, USDC/DAI, USDC/USDe, major stablecoin pairs</td><td>Near-zero impermanent loss. Consistent fee income. Maximum depth.</td></tr><tr><td>AA</td><td>ETH/USDC, BTC/USDC, ETH/BTC, LST/ETH pairs</td><td>Blue-chip pairs with deep liquidity. Low impermanent loss relative to volume.</td></tr><tr><td>A</td><td>Top 3-20 CMC token pairs with major stablecoins or ETH/BTC</td><td>High volume. Meaningful impermanent loss risk but offset by fee income.</td></tr><tr><td>BBB</td><td>Top 21-40 CMC token pairs, tokenized asset pairs with major stablecoins</td><td>Moderate depth. Impermanent loss risk elevated. Fees can compensate.</td></tr><tr><td>BB</td><td>Top 41-100 CMC token pairs, mid-tier tokenized asset pairs</td><td>Thinner depth. Higher impermanent loss. Fee income less reliable.</td></tr><tr><td>B</td><td>Top 101-300 CMC token pairs, speculative tokenized asset pairs</td><td>Low depth. High impermanent loss risk. Fee income unreliable.</td></tr><tr><td>CCC</td><td>All other pairs, manufactured liquidity pools, pairs with no verifiable organic volume</td><td>No genuine market depth. Fee income non-existent or artificial.</td></tr></tbody></table>
 
@@ -201,7 +166,7 @@ MVV is not directly slashed by nEvents. MVV updates only via Manual Refresh. A T
 
 #### Risk Brackets
 
-TCT, TIQ, and TLQ all use the same bracket scale and the same CEW action mapping. Markets configure which signal CEW reads at registration. The bracket logic is identical regardless of signal type.
+TCT and TLQ use the same bracket scale and the same CEW action mapping. Markets configure which signal CEW reads at registration. The bracket logic is identical regardless of signal type.
 
 {% hint style="info" %}
 **CEW Action Key**
@@ -257,14 +222,14 @@ Credit is bound to the CEP ID, which requires a unique zk-KYC verification and P
 **4. What happens if a participant is wrongly slashed?**\
 Disputed slashes are handled by the Justice Arm of the Tythe DAO. AI clerks prepare evidence briefs from on-chain data. A human jury drawn from the same TCT band as the disputant reviews the case and delivers a verdict. Disputes at band boundaries are heard by mixed juries from both adjacent bands. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. The stake is burned if the slash is upheld and returned in full if overturned.
 
-**5. What is the difference between TCT, TIQ, and TLQ?**\
-TCT measures on-chain credit character — borrowing behavior, repayment history, and risk management. It is the primary signal for lending markets, derivatives, exchanges, insurance protocols, and card issuers. TIQ measures investment quality — the reliability and performance of capital deployed across RWA platforms and yield vaults. TLQ measures liquidity quality — the consistency and depth of liquidity provision across DEX pairs and LP positions. All three use the same 300-850 bracket scale and the same CEW action mapping. Markets configure which signal CEW reads at registration.
+**5. What is the difference between TCT and TLQ?**\
+TCT measures on-chain borrower character (credit behavior, repayment history, and risk management). It is the primary signal for lending markets, derivatives, exchanges, insurance protocols, and card issuers. LQ measures liquidity quality (the consistency and depth of liquidity provision across DEX pairs and LP positions). Both use the same 300-850 bracket scale and the same CEW action mapping. Markets configure which signal CEW reads at registration.
 
 **6. Can a market read more than one score signal simultaneously?**\
-No. Each integrated market configures CEW to read exactly one score signal (TCT, TIQ, or TLQ) at registration. MVV limit signal is independent and always available regardless of which score signal the market reads. This keeps the integration clean and the credit logic unambiguous.
+No. Each integrated market configures CEW to read exactly one score signal (TCT or TLQ) at registration. MVV limit signal is independent and always available regardless of which score signal the market reads. This keeps the integration clean and the credit logic unambiguous.
 
 **7. Which nEvents affect which signals?**\
 Liquidation, Default, and Exploit affect TCT only. Mercenary events affect both TCT (alert) and TLQ (Auto-Slash). Informed events affect both TCT (alert) and TIQ (Auto-Slash). Whale events affect TIQ and TLQ as alerts only. MVV is never directly slashed by nEvents, it updates only at Manual Refresh.
 
-**8. What are CAQB, IAQB, and LAQB?**\
-Three asset quality benchmarks that govern the ceiling calculations for MVV, TIQ, and TLQ respectively. CAQB (Collateral Asset Quality Benchmark) categorizes assets by reliability as collateral backing and governs the MVV ceiling and Volatility Quotient input. IAQB (Investor Asset Quality Benchmark) categorizes assets by reliability as investment vehicles and governs the TIQ ceiling. LAQB (Liquidity Asset Quality Benchmark) categorizes assets by reliability as liquidity pair constituents and governs the TLQ ceiling. All three use AAA to CCC classifications with criteria specific to their domain.
+**8. What are CAQB and LAQB?**\
+**A**sset quality benchmarks that govern the ceiling calculations for MVV and TLQ respectively. CAQB (Collateral Asset Quality Benchmark) categorizes assets by reliability as collateral backing and governs the MVV ceiling and Volatility Quotient input. LAQB (Liquidity Asset Quality Benchmark) categorizes assets by reliability as liquidity pair constituents and governs the TLQ ceiling. Both benchmarks use AAA to CCC classifications with criteria specific to their domain.

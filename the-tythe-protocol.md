@@ -38,7 +38,6 @@ Three problems exist across on-chain financial markets. Tythe solves all three w
 * **Identity (CEP):** The Credit Enhancement Profile is a permanent, user-owned financial identity anchored on the `did:cheqd` network. It unifies wallets, credentials, attestations, and credit history into one sovereign, privacy-preserving profile. Every participant in the protocol builds from a CEP.
 * **On-Chain Intelligence (TCT):** The Tokenized Creditworthiness score (300 to 850) is a non-transferable ERC-20 token representing verified financial reliability. TCT is a pure character score earned through seven behavioral inputs and lost through verified negative events. Embedded in its metadata are three tokenized values that extend the protocol's intelligence surface beyond character alone.
   * **MVV (Maximum Vouchsafed Value):** The protocol's per-transaction credit ceiling for lending and collateral markets.
-  * **TIQ (Tokenized Investment Quality):** The protocol's assessed quality of capital deployment across RWA platforms and yield vaults.
   * **TLQ (Tokenized Liquidity Quality):** The protocol's assessed quality of liquidity provision across DEX pairs and LP positions.
 * **Off-Chain Intelligence (Relay Emitter):** An ML-powered intelligence layer built on gradient boosting models (XGBoost and LightGBM). Monitors on-chain behavioral patterns, classifies negative credit events into labeled categories, and ranks each participant within their label's spectrum by severity. Institutional subscribers receive ranked nEvent labels via tiered subscription feeds with configurable data pool size, user count, and cadence.
 * **Integration (CEW):** The Credit Enhancement Wrapper intercepts financial transactions at execution time and applies TCT-based credit logic automatically. Rate discounts, collateral reductions, and fee adjustments for high-reliability participants. Tighter terms and enforcement for low-reliability ones. Hard denial for blacklisted wallets. No manual underwriting. No static rate tables.
@@ -47,13 +46,3 @@ Three problems exist across on-chain financial markets. Tythe solves all three w
 * **Data** **(CDX):** The Credit Data Exchange enables consent-gated sale of verified credit data from individuals to institutional buyers. Participants set their terms. Buyers list dataset orders. Tythe compiles and delivers at minimum fill.&#x20;
 
 > Agentic Credit extends the same stack to verified AI agents, letting them leverage execution history for protocol-backed credit lines.
-
-***
-
-**How It Works Together**
-
-Tythe is infrastructure. It does not provide liquidity, hold user data, or take positions.
-
-Individuals and agents own their credit profiles. LPs and institutions provide the capital. Tythe provides the objective standard that coordinates them all.
-
-The protocol's job is to make creditworthiness verifiable, portable, and machine-enforceable. Everything else follows from that.
