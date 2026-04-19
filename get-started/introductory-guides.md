@@ -374,13 +374,13 @@ The moment a Liquidation, Default, Exploit, Mercenary, or Informed event is dete
 
 **Recommended Integration Stack**
 
-| Institution               | CEP | Signal    | CEW | Relay Emitter |
-| ------------------------- | --- | --------- | --- | ------------- |
-| DeFi Lending              | ✓   | TCT + MVV | ✓   | ✓             |
-| Derivatives and Exchanges | ✓   | TCT + MVV | ✓   | ✓             |
-| DeFi Insurance            | ✓   | TCT + MVV | ✓   | ✓             |
-| Card Issuers              | ✓   | TCT + MVV | ✓   | Optional      |
-| DEX Pairs and LP Markets  | ✓   | TLQ       | ✓   | ✓             |
+| Institution              | CEP | Signal    | CEW | Relay Emitter |
+| ------------------------ | --- | --------- | --- | ------------- |
+| DeFi Lending             | ✓   | TCT + MVV | ✓   | ✓             |
+| Derivatives              | ✓   | TCT + MVV | ✓   | ✓             |
+| DeFi Insurance           | ✓   | TCT + MVV | ✓   | ✓             |
+| Card Issuers             | ✓   | TCT + MVV | ✓   | Optional      |
+| DEX Pairs and LP Markets | ✓   | TLQ       | ✓   | ✓             |
 
 ***
 
