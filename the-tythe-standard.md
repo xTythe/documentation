@@ -49,7 +49,7 @@ Once mandatory conditions are met, a `did:cheqd` identifier is minted. This is t
 
 <details>
 
-<summary><strong>TCT: Tokenized Creditworthiness</strong></summary>
+<summary><strong>TCT: Tokenized Creditworthiness</strong> </summary>
 
 **Tokenized Creditworthiness.** A non-transferable ERC-20 token scored 300 to 850. TCT is a pure character signal earned through seven behavioral inputs and lost through verified negative events. It represents the reliability and consistency of a participant's on-chain credit behavior over time.
 
@@ -67,7 +67,7 @@ The 24-month historical window and tier weights are fixed at launch under TCE-26
 
 <details>
 
-<summary><strong>TIQ: Tokenized Investor Quality</strong></summary>
+<summary><strong>TIQ: Tokenized Investor Quality</strong> </summary>
 
 **Tokenized Investment Quality.** A metadata value scored 300 to 850, embedded in the TCT token alongside TCT and MVV. TIQ measures the quality of a participant's capital deployment across investment-oriented activity such as RWA platforms, yield vaults, and structured credit positions.
 
@@ -109,7 +109,7 @@ TLQ excludes Investor Status. Investment activity is captured separately by TIQ.
 
 <details>
 
-<summary><strong>MVV: Maximum Vouchsafed Value</strong></summary>
+<summary><strong>MVV: Maximum Vouchsafed Value</strong> </summary>
 
 **Maximum Vouchsafed Value.** A metadata value embedded in the TCT token. MVV is the protocol's assessed per-transaction credit ceiling for lending and collateral markets. CEW Enhancement is applied up to MVV. Transactions above MVV proceed at standard terms for the remainder.
 
@@ -219,7 +219,7 @@ TCT, TIQ, and TLQ all use the same bracket scale and the same CEW action mapping
 | 580-669 | Fair      | <mark style="color:$warning;">Enforcement</mark> (Low)  |
 | 300-579 | Poor      | <mark style="color:$warning;">Enforcement</mark> (High) |
 | 1       | No Data   | <mark style="color:$info;">Credit Invisible</mark>      |
-| 0       | Flagged   | <mark style="color:$danger;">Blocked</mark>             |
+| 0       | Slashed   | <mark style="color:$danger;">Blocked</mark>             |
 
 Enhancement and Enforcement magnitudes are market-configured within DAO-governed bounds. Markets set their own discount rates per bracket within the allowed range. Enforcement is optional, markets may leave Fair and Poor brackets at Neutral if their risk model does not require negative adjustment beyond current provided rates.
 
@@ -246,7 +246,7 @@ Future models (TCE-27 and beyond) are activated only via a successful Tythe DAO 
 #### FAQs
 
 **1. Why should we trust Tythe's TCT score?**\
-TCT is built on determinism. Every score update is backed by a verifiable on-chain event or a cryptographic zk-proof. The smart contract code is fully open source. The formula structure is publicly disclosed. The signal is objective, auditable, and resistant to manipulation by any single party.
+TCT is built on determinism. Every score update is backed by a verifiable on-chain event or a cryptographic zk-proof. The smart contract code is fully open source. The formula structure is publicly disclosed. The signal is objective, auditable, and resistant to manipulation.
 
 **2. Does Tythe have the authority to freeze funds?**\
 No. Tythe is a neutral risk-intelligence layer, not a custodian. The protocol can slash TCT balances based on verified behavioral events. Integrated markets make their own independent decisions on whether to adjust or restrict participant positions based on Tythe's signals.
