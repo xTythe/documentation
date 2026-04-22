@@ -19,7 +19,7 @@ layout:
 
 # The Tythe Standard
 
-The TCE (Tythe Credit Enhancement) standard defines how on-chain behavioral data is transformed into four verifiable, machine-enforceable credit signals: TCT, MVV, and TLQ. Each signal serves a distinct function across integrated markets. All three are computed off-chain by the scoring engine, signed via EIP-712 attestation, and anchored on-chain by the participant at Refresh.
+The TCE (Tythe Credit Enhancement) standard defines how financial and behavioral data is transformed into verifiable, machine-enforceable credit signals: TCT and MVV. Each signal serves a distinct function across integrated markets. Both are computed off-chain by the scoring engine, signed via EIP-712 attestation, and anchored on-chain by the participant at Refresh.
 
 ***
 
@@ -45,7 +45,7 @@ Once mandatory conditions are met, a `did:cheqd` identifier is minted. This is t
 
 ***
 
-#### Scores & Limits
+#### Credit Signals
 
 <details>
 
@@ -62,25 +62,6 @@ TCT governs CEW actions across lending markets, derivatives, exchanges, insuranc
 {% hint style="info" %}
 The 24-month historical window and tier weights are fixed at launch under TCE-26. Adjustments require a successful governance proposal to the Tythe DAO in V1.2.
 {% endhint %}
-
-</details>
-
-<details>
-
-<summary><strong>TLQ: Tokenized Liquidity Quality</strong></summary>
-
-**Tokenized Liquidity Quality.** A metadata value scored 300 to 850, embedded in the TCT token alongside TCT and MVV. TLQ measures the quality of a participant's liquidity provision behavior across DEX pairs, LP positions, and liquidity management across markets.
-
-TLQ governs CEW actions on DEX pairs and LP-related markets where liquidity quality is the primary risk signal.
-
-**Scoring Inputs**
-
-| Input                | Priority  |
-| -------------------- | --------- |
-| LP Depth             | Primary   |
-| Net Worth            | Secondary |
-| Verified Cashflow    | Secondary |
-| Transactional Weight | Secondary |
 
 </details>
 
@@ -108,7 +89,7 @@ MVV ceiling is further governed by the CAQB. Collateral asset quality directly a
 
 ***
 
-#### Benchmarks
+#### Credit Benchmarks
 
 <details>
 
@@ -121,16 +102,6 @@ MVV ceiling is further governed by the CAQB. Collateral asset quality directly a
 {% hint style="info" %}
 Asset classes below AA are not penalized in TCT scoring. The protocol applies progressively heavier MVV discounts against these positions. CCC assets actively hurt the Volatility Quotient subscore and carry zero MVV power.
 {% endhint %}
-
-</details>
-
-<details>
-
-<summary><strong>LAQB: Liquidity Asset Quality Benchmark</strong></summary>
-
-Governs the TLQ ceiling. Categorizes assets by reliability as liquidity pair constituents; primary criteria are trading volume depth, impermanent loss risk, market depth, and pair legitimacy.
-
-<table><thead><tr><th width="90">Class</th><th>Standard</th><th>Rationale</th></tr></thead><tbody><tr><td>AAA</td><td>USDC/USDT, USDC/DAI, USDC/USDe, major stablecoin pairs</td><td>Near-zero impermanent loss. Consistent fee income. Maximum depth.</td></tr><tr><td>AA</td><td>ETH/USDC, BTC/USDC, ETH/BTC, LST/ETH pairs</td><td>Blue-chip pairs with deep liquidity. Low impermanent loss relative to volume.</td></tr><tr><td>A</td><td>Top 3-20 CMC token pairs with major stablecoins or ETH/BTC</td><td>High volume. Meaningful impermanent loss risk but offset by fee income.</td></tr><tr><td>BBB</td><td>Top 21-40 CMC token pairs, tokenized asset pairs with major stablecoins</td><td>Moderate depth. Impermanent loss risk elevated. Fees can compensate.</td></tr><tr><td>BB</td><td>Top 41-100 CMC token pairs, mid-tier tokenized asset pairs</td><td>Thinner depth. Higher impermanent loss. Fee income less reliable.</td></tr><tr><td>B</td><td>Top 101-300 CMC token pairs, speculative tokenized asset pairs</td><td>Low depth. High impermanent loss risk. Fee income unreliable.</td></tr><tr><td>CCC</td><td>All other pairs, manufactured liquidity pools, pairs with no verifiable organic volume</td><td>No genuine market depth. Fee income non-existent or artificial.</td></tr></tbody></table>
 
 </details>
 
@@ -165,8 +136,6 @@ MVV is not directly slashed by nEvents. MVV updates only via Manual Refresh. A T
 ***
 
 #### Risk Brackets
-
-TCT and TLQ use the same bracket scale and the same CEW action mapping. Markets configure which signal CEW reads at registration. The bracket logic is identical regardless of signal type.
 
 {% hint style="info" %}
 **CEW Action Key**
@@ -222,14 +191,8 @@ Credit is bound to the CEP ID, which requires a unique zk-KYC verification and P
 **4. What happens if a participant is wrongly slashed?**\
 Disputed slashes are handled by the Justice Arm of the Tythe DAO. AI clerks prepare evidence briefs from on-chain data. A human jury drawn from the same TCT band as the disputant reviews the case and delivers a verdict. Disputes at band boundaries are heard by mixed juries from both adjacent bands. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. The stake is burned if the slash is upheld and returned in full if overturned.
 
-**5. What is the difference between TCT and TLQ?**\
-TCT measures on-chain borrower character (credit behavior, repayment history, and risk management). It is the primary signal for lending markets, derivatives, exchanges, insurance protocols, and card issuers. LQ measures liquidity quality (the consistency and depth of liquidity provision across DEX pairs and LP positions). Both use the same 300-850 bracket scale and the same CEW action mapping. Markets configure which signal CEW reads at registration.
-
-**6. Can a market read more than one score signal simultaneously?**\
-No. Each integrated market configures CEW to read exactly one score signal (TCT or TLQ) at registration. MVV limit signal is independent and always available regardless of which score signal the market reads. This keeps the integration clean and the credit logic unambiguous.
-
-**7. Which nEvents affect which signals?**\
+**5. Which nEvents affect which signals?**\
 Liquidation, Default, and Exploit affect TCT only. Mercenary events affect both TCT (alert) and TLQ (Auto-Slash). Informed events affect both TCT (alert) and TIQ (Auto-Slash). Whale events affect TIQ and TLQ as alerts only. MVV is never directly slashed by nEvents, it updates only at Manual Refresh.
 
-**8. What are CAQB and LAQB?**\
-**A**sset quality benchmarks that govern the ceiling calculations for MVV and TLQ respectively. CAQB (Collateral Asset Quality Benchmark) categorizes assets by reliability as collateral backing and governs the MVV ceiling and Volatility Quotient input. LAQB (Liquidity Asset Quality Benchmark) categorizes assets by reliability as liquidity pair constituents and governs the TLQ ceiling. Both benchmarks use AAA to CCC classifications with criteria specific to their domain.
+**6. What is CAQB?**\
+Asset quality benchmarks; CAQB (Collateral Asset Quality Benchmark) categorizes assets by reliability as collateral backing and governs the MVV ceiling and Volatility Quotient input. CAQB uses AAA to CCC classifications for asset quality.

@@ -27,12 +27,11 @@ Tythe gives you a financial reputation that works for you. This guide walks you 
 
 **What You're Building on Tythe**
 
-Five things come together to make your Tythe profile work.
+Primitives that come together to make your Tythe profile work.
 
 1. **Credit Enhancement Profile (CEP):** Your sovereign financial identity. Anchored on the `did:cheqd` network, your CEP links your verified identity, your wallets, your credentials, and your credit history into one portable, privacy-preserving profile. You own it permanently. No institution holds it for you.
 2. **Tokenized Creditworthiness (TCT)** Your on-chain credit character score. A non-transferable token between 300 and 850, earned through seven behavioral inputs (historical performance, current risk exposure, credit utilization, new credit activity, volatility quotient, credit mix, and action integrity). TCT governs your terms on lending markets, exchanges, insurance protocols, and card issuers.
-3. **Tokenized Liquidity Quality (TLQ):** Your on-chain liquidity quality score. A non-transferable value between 300 and 850, measuring the consistency and depth of your liquidity provision across DEX pairs and LP positions. TLQ governs your terms on integrated DEX pairs and LP markets.
-4. **Maximum Vouchsafed Value (MVV)** Your per-transaction enhancement ceiling. Sized by the scoring engine at one-tenth of your 30-day rolling credit capacity, which is derived from your capital capacity markers (net worth, LP depth, verified cashflow, investor status, and transaction weight). When CEW applies a value-based enhancement, it applies up to your MVV. Transactions above MVV still go through; the enhancement covers the MVV portion, the remainder transacts at standard terms.
+3. **Maximum Vouchsafed Value (MVV)** Your per-transaction enhancement ceiling. Sized by the scoring engine at one-tenth of your 30-day rolling credit capacity, which is derived from your capital capacity markers (net worth, LP depth, verified cashflow, investor status, and transaction weight). When CEW applies a value-based enhancement, it applies up to your MVV. Transactions above MVV still go through; the enhancement covers the MVV portion, the remainder transacts at standard terms.
 
 ***
 
@@ -49,7 +48,7 @@ Once both are done, your `did:cheqd` identifier is minted. Your CEP is live and 
 
 **Step 2. Build Your Profile**
 
-Your CEP pulls on-chain data from connected wallets automatically. The stronger your signal, the more accurately the protocol scores you across all four values (TCT, TIQ, TLQ, and MVV).
+Your CEP pulls on-chain data from connected wallets automatically. The stronger your signal, the more accurately the protocol scores you across your credit signals (TCT and MVV).
 
 * **Link every active wallet:** A wallet you use on Morpho that is not linked to your CEP is creditworthiness the protocol cannot see and cannot reward you for. CEW only applies enhancements to wallets linked to your CEP. Unlinked addresses are treated as anonymous regardless of your actual scores. Link all active addresses once via the Dashboard.
 * **Add Proof of Personhood:** Connect a World ID or equivalent biometric credential for a fixed **+5 TCT boost** and stronger Sybil resistance. Optional but recommended.
@@ -60,10 +59,9 @@ Your CEP pulls on-chain data from connected wallets automatically. The stronger 
 
 **Step 3. Understand Scores & Limits**
 
-* **TCT** is your character score. Seven behavioral inputs determine your band. Capital alone cannot move you into a higher band. Only behavior earns it.
-* **TLQ** is your liquidity quality score. It reflects the quality of your liquidity provision across DEX pairs and LP positions.
+* **TCT** is your character score. Behavioral inputs determine your band. Capital alone cannot move you into a higher band. Only behavior earns it.
 
-TCT and TLQ all use the same 300-850 bracket scale:
+TCT Brackets:
 
 | Range   | Bracket   | CEW Action                                                   |
 | ------- | --------- | ------------------------------------------------------------ |
@@ -85,14 +83,14 @@ Full formula breakdown in the [TCE-26 Standard](https://app.gitbook.com/s/pAHIYS
 
 **Step 4. Refresh Scores & Limits**
 
-Refreshing mints your current staged scores and limits as your live on-chain balances. One transaction updates TCT, MVV, and TLQ simultaneously.
+Refreshing mints your current staged scores and limits as your live on-chain balances. One transaction updates TCT and MVV simultaneously.
 
 Hit **Refresh** on the Dashboard before opening a new position, before a rate negotiation, or when Tythe notifies you of a meaningful score increase. Here is what happens:
 
 1. The scoring engine computes the current values for TCT, MVV, and TLQ
 2. A signed EIP-712 attestation is generated carrying all four values
 3. The attestation is passed to your wallet for submission
-4. You sign and submit. TCT, MVV, and TLQ update on-chain atomically
+4. You sign and submit. TCT and MVV update on-chain atomically
 
 You pay the gas. No one else can refresh your scores on your behalf. Refresh at the right moment, not the most frequent one.
 
@@ -158,9 +156,8 @@ Three on-chain primitives and one off-chain intelligence feed. Integrate one or 
 2. **TCT (Tokenized Creditworthiness):** Non-transferable ERC-20 character score (300-850). The primary credit signal for lending markets, exchanges, insurance protocols, and card issuers.
 
 * **MVV (Maximum Vouchsafed Value):** Per-transaction enhancement ceiling in USD, embedded in TCT metadata. Caps value-based enhancements regardless of which signal the market reads. Sized at one-tenth of the participant's 30-day rolling credit capacity.
-* **TLQ (Tokenized Liquidity Quality):** Liquidity quality score (300-850), embedded in TCT metadata. The primary credit signal for DEX pairs and LP markets. Measures the consistency and depth of liquidity provision behavior.
 
-3. **CEW (Credit Enhancement Wrapper):** Smart contract proxy. Intercepts transactions, reads the configured signal (TCT, TIQ, or TLQ), and applies two independent credit adjustments; value-based and rate-based, automatically. Inherit CEW without re-architecting your stack.
+3. **CEW (Credit Enhancement Wrapper):** Smart contract proxy. Intercepts transactions, reads the credit signal, and applies two independent credit adjustments; value-based and rate-based, automatically. Inherit CEW without re-architecting your stack.
 4. **Relay Emitter:** Off-chain ML-powered nEvent feed. Classifies and labels negative credit events in real time and delivers structured, actionable signals to your systems.
 
 ***
