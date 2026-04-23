@@ -53,7 +53,7 @@ Once mandatory conditions are met, a `did:cheqd` identifier is minted. This is t
 
 **Tokenized Creditworthiness.** A non-transferable ERC-20 token scored 300 to 850. TCT is a pure character signal earned through seven behavioral inputs and lost through verified negative events. It represents the reliability and consistency of a participant's on-chain credit behavior over time.
 
-TCT governs CEW actions across lending markets, derivatives, exchanges, insurance protocols, and card issuers.
+TCT governs CAL actions across lending markets, derivatives, exchanges, insurance protocols, and card issuers.
 
 **Scoring Inputs**
 
@@ -69,7 +69,7 @@ The 24-month historical window and tier weights are fixed at launch under TCE-26
 
 <summary><strong>MVV: Maximum Vouchsafed Value</strong> </summary>
 
-**Maximum Vouchsafed Value.** A metadata value embedded in the TCT token. MVV is the protocol's assessed per-transaction credit ceiling for lending and collateral markets. CEW Enhancement is applied up to MVV. Transactions above MVV proceed at standard terms for the remainder.
+**Maximum Vouchsafed Value.** A metadata value embedded in the TCT token. MVV is the protocol's assessed per-transaction credit ceiling for lending and collateral markets. CAL Enhancement is applied up to MVV. Transactions above MVV proceed at standard terms for the remainder.
 
 MVV is not a depleting credit line. It is a per-transaction ceiling that reflects a participant's capital capacity at the time of their last Refresh.
 
@@ -138,14 +138,14 @@ MVV is not directly slashed by nEvents. MVV updates only via Manual Refresh. A T
 #### Risk Brackets
 
 {% hint style="info" %}
-**CEW Action Key**
+**CAL Action Key**
 
 * <mark style="color:$success;">Enhancement</mark> = Positive Boost
 * <mark style="color:$warning;">Enforcement</mark> = Negative Adjustment
 * &#x20;<mark style="color:$danger;">Block</mark> = Hard Deny
 {% endhint %}
 
-| Range   | Bracket   | CEW Action                                              |
+| Range   | Bracket   | CAL Action                                              |
 | ------- | --------- | ------------------------------------------------------- |
 | 800-850 | Excellent | <mark style="color:$success;">Enhancement</mark> (High) |
 | 740-799 | Very Good | <mark style="color:$success;">Enhancement</mark> (Low)  |
@@ -186,13 +186,10 @@ TCT is built on determinism. Every score update is backed by a verifiable on-cha
 No. Tythe is a neutral risk-intelligence layer, not a custodian. The protocol can slash TCT balances based on verified behavioral events. Integrated markets make their own independent decisions on whether to adjust or restrict participant positions based on Tythe's signals.
 
 **3. How does Tythe prevent Sybil attacks?**\
-Credit is bound to the CEP ID, which requires a unique zk-KYC verification and Proof of Personhood. A participant may control multiple wallets but all wallets map to a single root identity. Credit power cannot be artificially multiplied across fake accounts.
+Credit is bound to the credit profile's unique DID, which requires a zk-KYC verification and Proof of Personhood. A participant may control multiple wallets but all wallets map to a single root identity. Credit power cannot be artificially multiplied across fake accounts.
 
 **4. What happens if a participant is wrongly slashed?**\
 Disputed slashes are handled by the Justice Arm of the Tythe DAO. AI clerks prepare evidence briefs from on-chain data. A human jury drawn from the same TCT band as the disputant reviews the case and delivers a verdict. Disputes at band boundaries are heard by mixed juries from both adjacent bands. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. The stake is burned if the slash is upheld and returned in full if overturned.
 
-**5. Which nEvents affect which signals?**\
-Liquidation, Default, and Exploit affect TCT only. Mercenary events affect both TCT (alert) and TLQ (Auto-Slash). Informed events affect both TCT (alert) and TIQ (Auto-Slash). Whale events affect TIQ and TLQ as alerts only. MVV is never directly slashed by nEvents, it updates only at Manual Refresh.
-
-**6. What is CAQB?**\
+**5. What is CAQB?**\
 Asset quality benchmarks; CAQB (Collateral Asset Quality Benchmark) categorizes assets by reliability as collateral backing and governs the MVV ceiling and Volatility Quotient input. CAQB uses AAA to CCC classifications for asset quality.
