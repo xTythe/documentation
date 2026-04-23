@@ -29,7 +29,7 @@ Tythe gives you a financial reputation that works for you. This guide walks you 
 
 Three primitives come together to make your Tythe profile work.
 
-1. **Credit Profile (CEP)** Your sovereign financial identity. Anchored on the <mark style="color:orange;">`did:cheqd`</mark> network, your Credit Profile links your verified identity, your wallets, your credentials, and your credit history into one portable, privacy-preserving profile. You own it permanently. No institution holds it for you.
+1. **Credit Profile (CEP)** Your sovereign financial identity. Anchored on the `did:cheqd` network, your Credit Profile links your verified identity, your wallets, your credentials, and your credit history into one portable, privacy-preserving profile. You own it permanently. No institution holds it for you.
 2. **Tokenized Creditworthiness (TCT)** Your on-chain credit character score. A non-transferable token between 300 and 850, earned through seven behavioral inputs: historical performance, current risk exposure, credit utilization, new credit activity, volatility quotient, credit mix, and action integrity. TCT governs your terms on every integrated market.
 3. **Maximum Vouchsafed Value (MVV)** Your credit limits, derived from your capital capacity. Two values:
 
@@ -145,19 +145,19 @@ Tythe gives your protocol verifiable, real-time credit intelligence at the smart
 
 Four on-chain primitives and one off-chain intelligence feed. Integrate one or all. They are composable by design.
 
-| Primitive            | What It Is                                                                                                        | What You Build With It                                |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Credit Profile (CEP) | Sovereign DID on <mark style="color:orange;">`did:cheqd`</mark> with verified KYC and wallet-to-identity mappings | Permissioned access, compliance gating                |
-| TCT                  | Non-transferable ERC-20 credit score (300-850)                                                                    | Risk-adjusted rates, dynamic LTV, credit-aware vaults |
-| tMVV + rMVV          | Per-transaction credit ceiling and 30-day rolling enhancement budget                                              | Enhancement limits, credit capacity bounds            |
-| CAL                  | Smart contract primitive applying TCT-based adjustments at transaction time                                       | Automated credit-differentiated execution             |
-| Relay Emitter        | Off-chain ML-powered nEvent feed with real-time labels and percentile rankings                                    | Live risk monitoring, default detection               |
+| Primitive            | What It Is                                                                     | What You Build With It                                |
+| -------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| Credit Profile (CEP) | Sovereign DID on `did:cheqd` with verified KYC and wallet-to-identity mappings | Permissioned access, compliance gating                |
+| TCT                  | Non-transferable ERC-20 credit score (300-850)                                 | Risk-adjusted rates, dynamic LTV, credit-aware vaults |
+| tMVV + rMVV          | Per-transaction credit ceiling and 30-day rolling enhancement budget           | Enhancement limits, credit capacity bounds            |
+| CAL                  | Smart contract primitive applying TCT-based adjustments at transaction time    | Automated credit-differentiated execution             |
+| Relay Emitter        | Off-chain ML-powered nEvent feed with real-time labels and percentile rankings | Live risk monitoring, default detection               |
 
 ***
 
 **1. Credit Profile (Identity Resolution)**
 
-Call <mark style="color:red;">`resolveWallet(address wallet)`</mark> on the Attestation Registry. Returns the wallet's associated <mark style="color:orange;">`did:cheqd`</mark> identifier and primary wallet address. Returns <mark style="color:red;">`("", address(0))`</mark> for any unlinked wallet. Treat unlinked wallets as anonymous.
+Call `resolveWallet(address wallet)` on the Attestation Registry. Returns the wallet's associated `did:cheqd` identifier and primary wallet address. Returns `("", address(0))` for any unlinked wallet. Treat unlinked wallets as anonymous.
 
 What resolution confirms:
 
@@ -205,7 +205,7 @@ isBlacklisted(address)                 // true if wallet is blacklisted
 
 * tMVV caps the value-based enhancement on any single transaction.
 * rMVV is the 30-day rolling budget. Every value-based enhancement depletes rMVV by the enhancement amount. When rMVV hits zero, no further value-based enhancements until the window resets. Rate-based adjustments never deplete rMVV.
-* CAL's effective value-based enhancement ceiling per transaction = <mark style="color:red;">`min(tMVV, availableRMVV, transactionValue)`</mark>.
+* CAL's effective value-based enhancement ceiling per transaction = `min(tMVV, availableRMVV, transactionValue)`.
 
 **Read at transaction time, not session initiation.** TCT updates between transactions via Manual Refresh (positive) or Auto-Slash (negative). rMVV depletes in real time. A cached value is stale the moment anything changes.
 
@@ -217,20 +217,20 @@ isBlacklisted(address)                 // true if wallet is blacklisted
 
 CAL is a smart contract primitive that any protocol builds into their transaction flow for automatic, credit-differentiated adjustments based on a borrower's TCT score. Three integration paths are available.
 
-**Path 1 (Execution):** For protocols building with CAL pre-launch or rebuilding before their next major version. Inherit CAL, override <mark style="color:red;">`_executeWithCredit()`</mark>, and get fully automated credit-differentiated execution baked into your transaction flow.
+**Path 1 (Execution):** For protocols building with CAL pre-launch or rebuilding before their next major version. Inherit CAL, override `_executeWithCredit()`, and get fully automated credit-differentiated execution baked into your transaction flow.
 
-**Path 2 (Advisory):** For existing protocols that cannot or choose not to rebuild. Call <mark style="color:red;">`getCreditAction(address wallet, uint256 transactionValue, address market)`</mark> as a public view function at transaction time. Receive a <mark style="color:red;">`CreditAction`</mark> struct. Implement the adjustment in your own execution logic. One external call. No rebuilding required.
+**Path 2 (Advisory):** For existing protocols that cannot or choose not to rebuild. Call `getCreditAction(address wallet, uint256 transactionValue, address market)` as a public view function at transaction time. Receive a `CreditAction` struct. Implement the adjustment in your own execution logic. One external call. No rebuilding required.
 
 **Path 3 (Read):** Read TCT and MVV directly from the TCT contract and build entirely custom adjustment logic. No CAL interaction required.
 
 **Register your market:**
 
-Call <mark style="color:red;">`registerMarket(address market, MarketConfig calldata config)`</mark>.
+Call `registerMarket(address market, MarketConfig calldata config)`.
 
 One immutable flag set at registration determines the integration pathway:
 
-* <mark style="color:red;">`isInternal = true`</mark>: Tythe Prime. Value track is MVV-governed, capped at <mark style="color:red;">`min(transactionValue, tMVV, availableRMVV)`</mark> and depletes rMVV on every Enhancement.
-* <mark style="color:red;">`isInternal = false`</mark>: External protocol. Value track is uncapped. No rMVV consumption.
+* `isInternal = true`: Tythe Prime. Value track is MVV-governed, capped at `min(transactionValue, tMVV, availableRMVV)` and depletes rMVV on every Enhancement.
+* `isInternal = false`: External protocol. Value track is uncapped. No rMVV consumption.
 
 **MarketConfig struct:**
 
@@ -304,11 +304,11 @@ enum ActionType {
 }
 ```
 
-**On Block:** CAL reverts with <mark style="color:red;">`BlockedWallet()`</mark> directly. No handling required by your protocol.
+**On Block:** CAL reverts with `BlockedWallet()` directly. No handling required by your protocol.
 
-**On Enhancement (internal pathway only):** CAL automatically calls <mark style="color:red;">`consumeRMVV`</mark> on the TCT contract after applying a value-based Enhancement. Your protocol does not need to handle rMVV depletion.
+**On Enhancement (internal pathway only):** CAL automatically calls `consumeRMVV` on the TCT contract after applying a value-based Enhancement. Your protocol does not need to handle rMVV depletion.
 
-**isInternal is immutable.** Attempting to change it via <mark style="color:red;">`updateMarketConfig`</mark> reverts with <mark style="color:red;">`CannotChangePathway()`</mark>.
+**isInternal is immutable.** Attempting to change it via `updateMarketConfig` reverts with `CannotChangePathway()`.
 
 **Fee model:**
 
