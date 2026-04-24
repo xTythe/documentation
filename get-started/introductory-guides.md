@@ -34,7 +34,7 @@ Three primitives come together to make your Tythe profile work.
 3. **Maximum Vouchsafed Value (MVV)** Your credit limits, derived from your capital capacity. Two values:
 
 * **tMVV (transaction limit):** The maximum value-based enhancement CAL can apply on any single transaction. A hard ceiling per transaction.
-* **rMVV (rolling limit):** Your 30-day enhancement budget across all transactions. rMVV = tMVV x 10. Every value-based enhancement you receive depletes your rMVV. It resets automatically every 30 days.
+* **rMVV (rolling limit):**&#x59;our 30-day credit budget across Tythe Prime. rMVV = tMVV x 10. It depletes when a Collateral Maximization vault commits capital to top-off your position. Your rMVV consumption level also influences the value-track adjustments CAL applies on Tythe Prime, with higher consumption meaning more conservative adjustments. Resets automatically every 30 days.
 
 Transactions above your limits still go through. The enhancement covers what fits within your limits. The remainder transacts at standard terms.
 
@@ -76,7 +76,7 @@ Your Credit Profile pulls on-chain data from connected wallets automatically. Th
 | 1       | No Data   | <mark style="color:$info;">Credit Invisible</mark>           |
 | 0       | Flagged   | <mark style="color:$danger;">Blocked</mark>                  |
 
-**tMVV and rMVV** are your credit limits, expressed as dollar amounts. tMVV caps any single value-based enhancement. rMVV is your 30-day budget: it depletes as value-based enhancements are applied and resets every 30 days. Neither is scored on a bracket. CAL reads them independently alongside your TCT bracket.
+**tMVV and rMVV** are your credit limits, expressed as dollar amounts. tMVV caps any single credit-based enhancement. rMVV is your 30-day budget: it depletes when a Collateral Maximization vault commits a vault contribution. The Credit Adjustment Layer (CAL) reads rMVV consumption to modulate value-track boost magnitude on Tythe Prime but never depletes it directly. Rate-based adjustments never deplete rMVV.
 
 Your scores and limits exist in two states. Your **staged values** are computed continuously off-chain and are always current. Your **on-chain balances** are updated only when you Refresh. Integrated markets read your on-chain balances.
 
@@ -105,7 +105,7 @@ With your on-chain values live, the Credit Adjustment Layer (CAL) applies automa
 
 **CAL applies two independent adjustments:**
 
-* **Value track:** Applies to dollar-denominated parameters such as collateral amounts, credit limits, and flat fees. Capped at the lowest of your tMVV, remaining rMVV, and the transaction value. Depletes your rMVV budget as enhancements are applied.
+* **Value track:** Applies to dollar-denominated parameters. On Tythe Prime, capped at the lowest of your tMVV, remaining rMVV, and the transaction value. Your rMVV consumption level modulates the boost magnitude. On external markets, uncapped.
 * **Rate track:** Applies to percentage-based parameters such as interest rates, LTV ratios, and margin requirements. Your TCT bracket alone governs this track. Does not deplete rMVV.
 
 **By market type:**
@@ -204,7 +204,7 @@ isBlacklisted(address)                 // true if wallet is blacklisted
 **tMVV and rMVV are dollar ceilings, not bracket scores.**
 
 * tMVV caps the value-based enhancement on any single transaction.
-* rMVV is the 30-day rolling budget. Every value-based enhancement depletes rMVV by the enhancement amount. When rMVV hits zero, no further value-based enhancements until the window resets. Rate-based adjustments never deplete rMVV.
+* rMVV is the 30-day rolling budget. CAL reads rMVV consumption to modulate value-track boost magnitude on the internal pathway but no CAL adjustment depletes rMVV directly.
 * CAL's effective value-based enhancement ceiling per transaction = `min(tMVV, availableRMVV, transactionValue)`.
 
 **Read at transaction time, not session initiation.** TCT updates between transactions via Manual Refresh (positive) or Auto-Slash (negative). rMVV depletes in real time. A cached value is stale the moment anything changes.
@@ -306,7 +306,7 @@ enum ActionType {
 
 **On Block:** CAL reverts with `BlockedWallet()` directly. No handling required by your protocol.
 
-**On Enhancement (internal pathway only):** CAL automatically calls `consumeRMVV` on the TCT contract after applying a value-based Enhancement. Your protocol does not need to handle rMVV depletion.
+**On Enhancement:** _(internal pathway only)_ CAL reads rMVV consumption to compute the value-track modifier but does not deplete rMVV. Your protocol never needs to handle rMVV depletion.
 
 **isInternal is immutable.** Attempting to change it via `updateMarketConfig` reverts with `CannotChangePathway()`.
 
@@ -383,7 +383,7 @@ Four on-chain primitives and one off-chain intelligence feed. Each addresses a s
 
 Every market today prices anonymous participants at the same worst-case rate. That is capital inefficiency by design. You leave revenue on the table from high-quality participants and absorb unnecessary risk from low-quality ones.
 
-Tythe makes the distinction machine-readable, on-chain, and enforceable at the contract level. A participant with an Excellent TCT score is not the same borrower as someone with no credit history. A participant with a high tMVV is not the same capital capacity as one with a near-zero credit limit.
+Tythe makes the distinction machine-readable, on-chain, and enforceable at the contract level. A participant with an Excellent TCT score is not the same borrower as someone with no credit history. A participant with a high MVV limit is not the same capital capacity as one with a near-zero credit limit.
 
 High-reliability participants get better terms: your protocol becomes more competitive. Low-reliability participants face tighter controls: your default and liquidation exposure decreases. Both happen automatically, without manual underwriting, at the point of every transaction.
 
