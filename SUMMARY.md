@@ -12,7 +12,7 @@
     * [Justice Arm](get-started/roadmap-items/tythe-dao/justice-arm.md)
     * [Governance Arm](get-started/roadmap-items/tythe-dao/governance-arm.md)
   * [Tythe Prime](get-started/roadmap-items/tythe-prime.md)
-  * [Credit Data Exchange (CDX)](get-started/roadmap-items/credit-data-exchange-cdx.md)
+  * [Credit Data](get-started/roadmap-items/credit-data.md)
   * [Agentic Credit](get-started/roadmap-items/agentic-credit.md)
 
 ## Resources
