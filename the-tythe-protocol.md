@@ -26,7 +26,7 @@ Tythe is the neutral, decentralized protocol for credit. It provides the infrast
 **The Problem.** Three problems exist across on-chain financial markets today.
 
 1. **Anonymous counterparties.** Every wallet is unknown by default. Protocols cannot distinguish reliable participants from bad actors. Institutions cannot verify users without exposing private data. There is no portable standard for financial identity.
-2. **Undifferentiated risk pricing.** Every participant gets the same terms regardless of their track record. High-reliability participants are overcharged. Low-reliability participants are underpriced. Capital efficiency suffers on both sides.
+2. **Undifferentiated risk pricing.** Every participant gets the same terms regardless of their track record. High-reliability participants are overcharged due to static rates set for low-reliability participants. Capital efficiency suffers on both sides.
 3. **Over-collateralization as the default.** DeFi's answer to trust was to demand everything upfront. To borrow $1, lock up $1.50. Capital trapped in collateral is capital that cannot work. There is no path to credit-based efficiency without a credit standard to build on.
 
 ***
