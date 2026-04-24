@@ -47,9 +47,8 @@ Tythe is the neutral, decentralized protocol for credit. It provides the infrast
 
 * **Prime Efficient:** A risk-adjusted lending market where every borrower's terms are calibrated to their exact TCT score. Curators set standard parameters reflecting their maximum risk exposure. CAL adjusts rates and LTV ratios from those standards based on each borrower's credit profile. Better TCT and MVV health means better terms. Borrowers pay a membership fee for vault access. The market can range from being efficiently overcollateralized to selectively undercollateralized depending on vault-specific curator configuration and borrower risk profile.
 * **Collateral Maximization:** A borrowing power amplifier for Superprime borrowers (780+ TCT). Borrowers post collateral and receive a vault contribution top-off that increases their borrowing power beyond what their collateral alone supports. Positions open on a target lending market or inside a Prime Efficient vault. The vault contribution is sized by the borrower's collateral and capped at their tMVV. Additionally, the vault contribution is deducted from the borrower's rMVV.&#x20;
-* **Default Insurance:** An internal backstop for Prime Efficient and Collateral Maximization vaults that opt in. A matching-based system where Insurance LPs (Sellers) specify the risk profiles they are willing to cover and their minimum premium. Vault LPs (Buyers) specify the coverage they need and the maximum premium they will pay. The protocol matches on overlap. Idle insurance capital earns yield through curator-deployed float strategies. Coverage is optional for KYC-verified vaults. For zk-KYC vaults without coverage, protocol guardrails apply automatically.
 
-Collateral Maximization increases the quantity of capital a borrower can access. Prime Efficient optimizes the terms they get on it. Default Insurance becomes the guardrail that protects active vault LPs. The three products are designed to stack.
+Collateral Maximization increases the quantity of capital a borrower can access. Prime Efficient optimizes the terms they get on it. The three products are designed to stack.
 
 ***
 
