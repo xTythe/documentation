@@ -15,44 +15,77 @@ layout:
     visible: true
   tags:
     visible: true
+  actions:
+    visible: true
 ---
 
 # The Tythe Protocol
 
-Tythe is the neutral, decentralized protocol for credit. It provides the infrastructure to transform on-chain behavioral data into verifiable creditworthiness across on-chain finance.
+Tythe is the neutral, decentralized protocol for credit. It turns on-chain behavior into verifiable creditworthiness that any onchain market can use to price risk and deploy capital.
 
 ***
 
-**The Problem.** Three problems exist across on-chain financial markets today.
+#### The Problem
 
-1. **Anonymous counterparties.** Every wallet is unknown by default. Protocols cannot distinguish reliable participants from bad actors. Institutions cannot verify users without exposing private data. There is no portable standard for financial identity.
-2. **Undifferentiated risk pricing.** Every participant gets the same terms regardless of their track record. High-reliability participants are overcharged due to static rates set for low-reliability participants. Capital efficiency suffers on both sides.
-3. **Over-collateralization as the default.** DeFi's answer to trust was to demand everything upfront. To borrow $1, lock up $1.50. Capital trapped in collateral is capital that cannot work. There is no path to credit-based efficiency without a credit standard to build on.
+On-chain finance has three structural problems.
 
-***
+**Anonymous counterparties.** Every wallet is unknown by default. Protocols cannot tell a reliable participant from a bad actor. There is no portable standard for financial identity.
 
-**Tythe Protocol.** The neutral infrastructure layer. Open, composable, and buildable by anyone. Tythe Protocol provides the identity, intelligence, integration, and data primitives that on-chain financial markets need to price risk accurately and deploy capital efficiently.
+**Undifferentiated pricing.** Every participant gets the same terms regardless of track record. Reliable participants subsidize the unreliable. Capital efficiency suffers on both sides.
 
-* **Credit Profile.** A self-sovereign identity anchored on the `did:cheqd` network. Unifies wallets, credentials, attestations, and credit history into one portable, regulatory compliant, privacy-preserving profile. Built and owned by individuals. Resolved and verified by markets.
-* **Credit Intelligence.** The full picture of an individual's creditworthiness. Character determines the credit score. Capacity determines the credit limit. Together they give any integrated market a complete, enforceable credit signal in real time.
-  * **TCT (Tokenized Creditworthiness).** A non-transferable on-chain credit score from 300 to 850. A pure character signal earned through seven behavioral inputs and lost through verified negative events.
-  * **MVV (Maximum Vouchsafed Value).** The protocol's assessed credit limit, sized by capital capacity. Expressed as a per-transaction ceiling (tMVV) and a 30-day rolling budget (rMVV).
-  * **Relay Emitter.** The protocol's live risk feed. An ML-powered layer that monitors on-chain behavioral patterns, classifies negative credit events, and ranks each participant by severity within their event category. Internally it drives Auto-Slash enforcement. Externally it delivers real-time risk-alpha to institutional subscribers before it moves markets.
-* **Credit Adjustment.** The on-chain primitive that puts credit intelligence to work. The Credit Adjustment Layer (CAL) reads a individual's credit profile (score and limit) at transaction time and automatically applies credit-differentiated adjustments to any integrated market. Better terms for reliable participants. Tighter terms for risky ones. No manual underwriting. No static rate tables.
-* **Credit Data.** The Credit Data Exchange (CDX) enables consent-gated sale of verified credit data from individuals to institutional buyers. Buyers list dataset orders. Participants opt in on their own terms. Tythe compiles and delivers at minimum fill. Every transaction is order-specific and consent-gated. No data is accessed, compiled, or delivered without explicit individual opt-in.
+**Overcollateralization as the default.** To borrow a dollar, lock up more than a dollar. Capital that sits in collateral cannot work elsewhere. There is no path past this without a credit standard to build on.
 
 ***
 
-**Tythe Prime.** The capital efficiency market built natively on the Tythe Protocol stack. Accessible to Prime (670+ TCT) and Superprime (780+ TCT) participants only. Tythe Prime is where the protocol's credit intelligence translates directly into better capital terms. Borrowers access positions they could not otherwise reach. LPs deploy capital into a credit-differentiated market where every counterparty is verified and scored. Curators build and manage vaults with full parameter control.
+#### The Stack
 
-* **Prime Efficient:** A risk-adjusted lending market where every borrower's terms are calibrated to their exact TCT score. Curators set standard parameters reflecting their maximum risk exposure. CAL adjusts rates and LTV ratios from those standards based on each borrower's credit profile. Better TCT and MVV health means better terms. Borrowers pay a membership fee for vault access. The market can range from being efficiently overcollateralized to selectively undercollateralized depending on vault-specific curator configuration and borrower risk profile.
-* **Collateral Maximization:** A borrowing power amplifier market. Borrowers post collateral and receive a vault contribution top-off that increases their borrowing power beyond what their collateral alone supports. Positions open on a target lending market or inside a Prime Efficient vault. The vault contribution is sized by the borrower's collateral and capped at their tMVV. Additionally, the vault contribution is deducted from the borrower's rMVV.&#x20;
+**Tythe Credit Intelligence.** The data layer that produces the scores, reports, and indices describing credit on-chain.
 
-Collateral Maximization increases the quantity of capital a borrower can access. Prime Efficient optimizes the terms they get on it. The two products are designed to stack.
+**Tythe Prime Markets.** Permissionless prime brokerage infrastructure that uses existing onchain markets as the liquidity and liquidation layer, and provides the credit and efficiency layer on top.
+
+**Tythe DAO Governance.** The governance layer launching alongside the TYT token post testnet.
 
 ***
 
-**Tythe DAO.** The decentralized governance and arbitration layer of the Tythe Protocol. No single entity, including Tythe, can unilaterally control scoring parameters, dispute outcomes, or protocol direction. Two arms, distinct functions, deliberate separation between them.
+#### Tythe Credit Intelligence
 
-* **Justice Arm.** Handles disputed slashes and contested scoring events. AI clerks prepare evidence briefs from on-chain data. Human juries drawn from the same TCT band as the disputant hear and resolve each case. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. Burned if the slash is upheld. Returned in full if overturned. No legal representation required. On-chain history is the only evidence that matters.
-* **Governance Arm.** Manages scoring parameters, formula upgrades, treasury allocation, and protocol direction via the TYT token. Activates once TYT is live and the protocol has established a verifiable data foundation worth governing. Two voting tracks operate independently: Track 1 for formula governance requires both a minimum TCT threshold and TYT holdings. Track 2 for all other protocol decisions uses pure TYT weighting. Formula weights are visible to institutional DAO members only, preventing gaming without sacrificing accountability.
+**1. Credit Scores**
+
+A numeric measure of financial credibility. Integer between 300 and 850, with reserved low-end values for participants without sufficient data (score = 1) or with verified protocol exploits in their history (score = 0).
+
+* **Borrower Score.** Credibility for collateralized borrowing. Computed from a participant's history across integrated lending venues such as Aave, Morpho, Spark, and Compound.\
+  Euler, Sky, and Fluid venue support post-launch.
+* **Trader Score.** Counterparty safety for leveraged perpetuals trading. Computed from a participant's history across integrated perp venues such as Hyperliquid and EdgeX.\
+  Aster, ApeX, and dYdX venue support post-launch.
+
+Both scores can be issued against a single wallet or against an aggregated profile linking multiple wallets to one credit identity.
+
+**2. Credit Reports**
+
+The full account of behavior behind a score. The positions, the events, the trajectory.
+
+* **Borrower Report.** The borrowing history backing a Borrower Score. Positions, repayments, liquidations, exposure over time.
+* **Trader Report.** The trading history backing a Trader Score. Positions, liquidations, leverage, performance over time.
+
+Both reports can be issued against a single wallet or against an aggregated profile linking multiple wallets to one credit identity. Reports are produced for distinct audiences: Risk and Underwriting (Finance), AI and Machine Training (Intelligence), Modeling and Analysis (Research), with the report field set tuned to each.
+
+**3. Credit Indices**
+
+Market-level and asset-level signals derived from the same data layer as the scores.
+
+* **Market Risk Index.** Measures the risk relationship between a market and its counterparty users. Anyone can deploy an index for any market by specifying its risk structure once and maintaining its participant list. The contract reads each participant's scores and computes aggregate risk from both directions; the market's risk to its counterparties, and the counterparties' risk to the market.
+* **Asset Volatility Index.** Measures the volatility profile of an asset for onchain market risk calculations. Feeds asset-level risk into Market Risk Indices and external risk integrations.
+
+Indices can be deployed permissionlessly against existing markets (a live Aave pool, a Morpho market, a Hyperliquid pair, an insurance/coverage app \[such as the Aave app], a card program \[for example, the Coinbase One credit card]) or against test markets (hypothetical configurations used to evaluate risk before deployment).
+
+***
+
+### Tythe Prime Markets
+
+Tythe Prime is permissionless prime brokerage infrastructure that uses existing onchain markets as venues. Tythe Prime provides the credit and efficiency layer for these markets to offer better deals to their customers and users without changing their platform's risk appetite. Brokers create and operate brokerage markets that combine depositor collateral with liquidity provider capital to open credit-amplified positions on the target venue. Depositors access positions beyond what their collateral alone supports; liquidity providers earn fees from the markets they fund; brokers run credit policy and set native terms. Two market types: Public Broker Markets are permissionless, single-venue, and parameter-locked at deployment; Private Broker Markets are invite-only and support multi-venue portfolio construction. Access requires a Borrower Score of 670 (or higher) to access Brokerage Money Markets or a Trader Score of 670 (or higher) to access Brokerage Trading Markets.
+
+***
+
+### Tythe DAO Governance
+
+The decentralized autonomous organization of the Tythe protocol. No single entity, including the Tythe team, controls scoring parameters, dispute resolution, or protocol direction unilaterally. The DAO launches alongside the TYT token before mainnet launch, with initial scope covering scoring parameter adjustment, treasury, protocol direction, and distribution of TYT rewards to ecosystem participants (liquidity providers, brokers, and high-credibility borrowers and traders). Disputes over scoring events are reviewed by a machine learning model trained on the same behavioral data that feeds the scores.
