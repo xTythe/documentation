@@ -74,9 +74,8 @@ Both reports can be issued against a single wallet or against an aggregated prof
 Market-level and asset-level signals derived from the same data layer as the scores.
 
 * **Market Risk Index.** Measures the risk relationship between a market and its counterparty users. Anyone can deploy an index for any market by specifying its risk structure once and maintaining its participant list. The contract reads each participant's scores and computes aggregate risk from both directions; the market's risk to its counterparties, and the counterparties' risk to the market.
-* **Asset Volatility Index.** Measures the volatility profile of an asset for onchain market risk calculations. Feeds asset-level risk into Market Risk Indices and external risk integrations.
 
-Indices can be deployed permissionlessly against existing markets (a live Aave pool, a Morpho market, a Hyperliquid pair, an insurance/coverage app \[such as the Aave app], a card program \[for example, the Coinbase One credit card]) or against test markets (hypothetical configurations used to evaluate risk before deployment).
+Market Risk Indices can be deployed permissionlessly against existing markets (a live Aave pool, a Morpho market, a Hyperliquid pair, an insurance/coverage app \[such as the Aave app], a card program \[for example, the Coinbase One credit card]) or against test markets (hypothetical configurations used to evaluate risk before deployment).
 
 ***
 

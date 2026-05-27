@@ -15,181 +15,206 @@ layout:
     visible: true
   tags:
     visible: true
+  actions:
+    visible: true
 ---
 
 # The Tythe Standard
 
-The TCE (Tythe Credit Enhancement) standard defines how financial and behavioral data is transformed into verifiable, machine-enforceable credit signals: TCT and MVV. Each signal serves a distinct function across integrated markets. Both are computed off-chain by the scoring engine, signed via EIP-712 attestation, and anchored on-chain by the participant at Refresh.
+The **Tythe** **Credit Intelligence** standard defines how financial and behavioral data is transformed into the verifiable credit signals that underlie everything in the Tythe Credit Intelligence stack: Credit Scores, Credit Reports, and Credit Indices.
+
+Tythe Credit Intelligence 26 is the launch model. Both Credit Scores are computed off-chain by the scoring engine, signed via EIP-712 attestation, and anchored on-chain by the participant at Refresh, or by the backend when a Negative Event is detected.
 
 ***
 
-#### Compliance
+#### Compliance Gate
 
-The Compliance Gate is a non-weighted prerequisite. The scoring engine remains dormant until compliance conditions are met. No TCT token can be minted or refreshed without a verified Compliance Gate, regardless of on-chain activity.
+Compliance is a binary prerequisite. The scoring engine remains dormant until compliance conditions are met. No score is computed or attested without a verified Compliance Gate.
 
-**Mandatory**
+**Mandatory at registration:**
 
-* **zk-KYC via Billions:** Identity verification and sanctions screening (OFAC/AML) processed via zero-knowledge attestation. No raw identity data is held by the protocol at any point.
-* **Primary Wallet:** A verified primary wallet must be bound to the DID at registration. V1 launches with native Base and EVM support. Additional EVM, SVM, and Move wallet support added alongside protocol growth.
+* **Proof of Personhood via World ID.** Biometric-anchored Sybil resistance. One human, one credit identity. Mandatory at profile creation.
+* **Primary Wallet Address.** A verified wallet bound to the `did:cheqd` identifier as DID-Linked Resource (DLR). V1 launches on Base with additional support for top-EVM wallets such as MetaMask, Rabby, Trust Wallet, and more.
 
-**Optional**
+**Optional post-registration:**
 
-* **Proof of Personhood (PoP):** Biometric-anchored Sybil resistance via World ID. Grants a fixed **+5 TCT boost** and strengthens profile Sybil resistance.
-* **Additional Wallets:** Multi-wallet connectivity signals responsible on-chain security practices. Captured within the Action Integrity input.
+* **Additional wallets.** Multi-wallet connectivity via a two-signature `LinkWallet` flow on the Attestation Registry. Linking signals that a participant is aggregating their on-chain history into one credit identity. All linked wallets contribute to the aggregated profile's scores.
 
-Once mandatory conditions are met, a `did:cheqd` identifier is minted. This is the green light for protocol participation.
+Once mandatory conditions are met, a `did:cheqd` identifier is the participant's permanent credit identifier within the Tythe protocol.
 
-{% hint style="warning" %}
-**Protocol Note:** If a participant's compliance status is revoked post-mint, their TCT is immediately frozen and flagged. Reinstatement (which is usually accompanied by a TCT penalty) requires re-verification through the Compliance Gate.
-{% endhint %}
+> **Protocol Note.** If a participant's profile is blacklisted via verified Exploit, both scores are forced to 0 and the profile is terminally revoked. Blacklist reversal requires an explicit unblacklist attestation, available only through the dispute review pipeline.
 
 ***
 
-#### Credit Signals
+#### Credit Scores
+
+Two scores, both produced by the same scoring engine, both anchored on the same on-chain contract under a combined dual-score attestation.
 
 <details>
 
-<summary><strong>TCT: Tokenized Creditworthiness</strong> </summary>
+<summary><strong>Tythe Borrower Score</strong></summary>
 
-**Tokenized Creditworthiness.** A non-transferable ERC-20 token scored 300 to 850. TCT is a pure character signal earned through seven behavioral inputs and lost through verified negative events. It represents the reliability and consistency of a participant's on-chain credit behavior over time.
+Measures credibility for collateralized borrowing across integrated lending venues. Integer in `{0, 1} ∪ [300, 850]`.
 
-TCT governs CAL actions across lending markets, derivatives, exchanges, insurance protocols, and card issuers.
+Six subscores, weighted to produce a probability of borrower failure that maps to the final score.
 
-**Scoring Inputs**
-
-<table><thead><tr><th width="200">Input</th><th width="100">Weight</th><th>What It Measures</th></tr></thead><tbody><tr><td>Historical Performance</td><td>35%</td><td>Successful loan fulfillment over a 24-month window. Defaults carry a heavy decay factor. The longest memory in the formula.</td></tr><tr><td>Current Risk (LaR)</td><td>20%</td><td>Aggregate liabilities across all mapped wallets against real-time collateral values. Captures live solvency exposure.</td></tr><tr><td>Credit Utilization</td><td>15%</td><td>Delta between current LTV and maximum permitted LTV. High edge-behavior is penalized in real time.</td></tr><tr><td>New Credit</td><td>10%</td><td>Frequency of debt acquisition. Detects financial distress or predatory borrowing patterns.</td></tr><tr><td>Volatility Quotient</td><td>9%</td><td>Penalizes over-exposure to low-liquidity or high-volatility assets. Calibrated directly by the CAQB.</td></tr><tr><td>Credit Mix</td><td>6%</td><td>Rewards sophistication; interaction with complex vaults, LP management, and blue-chip protocols.</td></tr><tr><td>Action Integrity</td><td>5%</td><td>Staking duration and protocol stickiness. Rewards committed, non-mercenary participation.</td></tr></tbody></table>
-
-{% hint style="info" %}
-The 24-month historical window and tier weights are fixed at launch under TCE-26. Adjustments require a successful governance proposal to the Tythe DAO in V1.2.
-{% endhint %}
+| Subscore               | Weight | What it measures                                                                                                                                       |
+| ---------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Historical Performance | 35%    | Successful loan fulfillment across a 24-month window. Defaults carry heavy decay. Longest memory in the formula.                                       |
+| Current Risk           | 23%    | Aggregate Liabilities at Risk across all linked wallets against real-time collateral. Captures live solvency exposure via stochastic price simulation. |
+| Credit Utilization     | 15%    | Delta between current loan-to-value and the maximum permitted loan-to-value across active positions. Edge-behavior is penalized.                       |
+| New Credit             | 10%    | Frequency of new debt origination. Detects financial distress or predatory borrowing patterns.                                                         |
+| Volatility Quotient    | 9%     | Exposure to low-liquidity or high-volatility collateral. Calibrated by the Asset Volatility Benchmark.                                                 |
+| Credit Mix             | 8%     | Sophistication of credit history, including vault complexity, blue-chip depth, protocol and position diversity.                                        |
 
 </details>
 
 <details>
 
-<summary><strong>MVV: Maximum Vouchsafed Value</strong> </summary>
+<summary><strong>Tythe Trader Score</strong></summary>
 
-**Maximum Vouchsafed Value.** A metadata value embedded in the TCT token. MVV is the protocol's assessed per-transaction credit ceiling for lending and collateral markets. CAL Enhancement is applied up to MVV. Transactions above MVV proceed at standard terms for the remainder.
+Measures counterparty safety for leveraged perpetuals trading across integrated perp venues. Integer in `{0, 1} ∪ [300, 850]`.
 
-MVV is not a depleting credit line. It is a per-transaction ceiling that reflects a participant's capital capacity at the time of their last Refresh.
+Six subscores, weighted to produce a probability of counterparty failure that maps to the final score.
 
-**Scoring Inputs**
-
-| Input                | What It Measures                                              |
-| -------------------- | ------------------------------------------------------------- |
-| Net Worth            | Real-time TVL across all mapped addresses                     |
-| LP Depth             | Size and duration of provided DEX liquidity                   |
-| Investor Status      | Quality of capital deployment on RWA platforms                |
-| Verified Cashflow    | Recurring on-chain rewards or zkTLS-verified off-chain income |
-| Transactional Weight | Average transaction size                                      |
-
-MVV ceiling is further governed by the CAQB. Collateral asset quality directly affects how much the protocol is willing to vouchsafe against a given position.
+| Subscore              | Weight | What it measures                                                                                                          |
+| --------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
+| Historical Harm       | 35%    | Ratio of liquidation volume to terminating-event volume over a 24-month window, combined with per-event severity.         |
+| Current Risk          | 23%    | Probability that any currently open position liquidates within a 7-day forward horizon under stochastic price simulation. |
+| Leverage Utilization  | 15%    | Notional-time-weighted average effective leverage across currently open positions.                                        |
+| Volatility Resilience | 10%    | Realized liquidation rate on positions held during high-volatility regimes versus low-volatility regimes.                 |
+| Close Calls           | 9%     | Frequency of near-miss events where margin ratio approached the liquidation threshold without crossing it.                |
+| Trader Quality        | 8%     | Composite of activity, experience, and luck-resistant profitability (profit factor over a 365-day window).                |
 
 </details>
 
-***
 
-#### Credit Benchmarks
 
-<details>
+1.  **Score States**<br>
 
-<summary><strong>CAQB: Collateral Asset Quality Benchmark</strong></summary>
+    | Value   | State   | Meaning                                                                                   |
+    | ------- | ------- | ----------------------------------------------------------------------------------------- |
+    | 300–850 | Scored  | Probability-derived credibility score.                                                    |
+    | 1       | No Data | Insufficient or stale activity to score the participant. Reversible by resuming activity. |
+    | 0       | Slashed | Verified Exploit; profile terminally revoked.                                             |
 
-**Collateral Asset Quality Benchmark.** A risk-weighting index that categorizes collateral assets from AAA (Pristine) to CCC (Junk) based on 180-day realized volatility and secondary market depth. The CAQB governs the Volatility Quotient input in TCT scoring and the ceiling calculations for MVV.
 
-<table><thead><tr><th width="90">Class</th><th>Standard</th><th width="150">Scoring Impact</th><th>MVV Ceiling Impact</th></tr></thead><tbody><tr><td>AAA</td><td>Major stables, tokenized gold, T-bills, money market funds</td><td>Positive</td><td>Full ceiling eligible</td></tr><tr><td>AA</td><td>BTC, ETH and LSTs, short-term tokenized treasuries</td><td>Neutral-Positive</td><td>Full ceiling eligible</td></tr><tr><td>A</td><td>Top 3-40 CMC, tokenized stocks/ETFs</td><td>Neutral</td><td>Slightly discounted</td></tr><tr><td>BBB </td><td>Top 41-100 CMC, tokenized private credit</td><td>Neutral</td><td>Discounted</td></tr><tr><td>BB</td><td>Top 101-150 CMC, mid memes, tokenized real estate</td><td>Neutral</td><td>Moderately discounted</td></tr><tr><td>B </td><td>Top 151-300 CMC, tokenized physical assets</td><td>Neutral</td><td>Heavily discounted</td></tr><tr><td>CCC</td><td>All other assets</td><td>Negative</td><td>Excluded</td></tr></tbody></table>
 
-{% hint style="info" %}
-Asset classes below AA are not penalized in TCT scoring. The protocol applies progressively heavier MVV discounts against these positions. CCC assets actively hurt the Volatility Quotient subscore and carry zero MVV power.
-{% endhint %}
+2.  **Risk Brackets:** Brackets are descriptive. TThey map score ranges to qualitative tiers so participants and counterparties can contextualize what a score means. Markets and integrations consume the underlying integer score directly.\
+    \
+    &#xNAN;_&#x4E;ote:_ _Bracket boundaries are identical for both the Tythe Borrower Score and the Tythe Trader Score. Both scores use the same probability-to-integer transformation, so the integer-to-bracket mapping is mathematically shared and consistent._<br>
 
-</details>
+    <table><thead><tr><th width="350">Range</th><th>Bracket</th></tr></thead><tbody><tr><td>800–850</td><td>Excellent</td></tr><tr><td>740–799</td><td>Very Good</td></tr><tr><td>670–739</td><td>Good</td></tr><tr><td>580–669</td><td>Fair</td></tr><tr><td>300–579</td><td>Poor</td></tr><tr><td>1</td><td>No Data</td></tr><tr><td>0</td><td>Slashed</td></tr></tbody></table>
 
-***
 
-#### Credit Events
+3. **Scores Updates:** Three update mechanisms operate against each score.
 
-<details>
-
-<summary><strong>nEvents: Negative Events</strong></summary>
-
-**Negative Events.** Verifiable on-chain credit deterioration events detected, classified, and ranked by the Relay Emitter. nEvents trigger Auto-Slash enforcement on the relevant signal. Slash severity is determined by the participant's percentile rank within their label's spectrum.
-
-Each nEvent label includes:&#x20;
-
-* CEP ID
-* Event typology
-* Percentile rank
-* TCT delta (where applicable)
-* Epoch timestamp for replay prevention
-
-**nEvent Typology and Signal Impact**
-
-<table><thead><tr><th width="120">Event</th><th>Nature</th><th width="150">Signal Affected</th><th>Enforcement</th></tr></thead><tbody><tr><td>Liquidation</td><td>Collateral failure on an integrated market</td><td>TCT</td><td>Auto-Slash (severity by percentile rank)</td></tr><tr><td>Default</td><td>Failure to fulfill debt within grace period</td><td>TCT</td><td>Auto-Slash (severity by percentile rank)</td></tr><tr><td>Exploit</td><td>Verified involvement in smart contract attacks</td><td>TCT</td><td>Blacklist (CEP revoked, TCT set to 0)</td></tr><tr><td>Mercenary</td><td>Rapid liquidity withdrawal during systemic stress</td><td>TCT, TLQ</td><td>Alert on TCT (Auto-Slash on TLQ by percentile rank)</td></tr><tr><td>Informed</td><td>Patterned high-alpha trades indicating toxic arbitrage</td><td>TCT, TLQ</td><td>Alert on TCT (Auto-Slash on TLQ by percentile rank)</td></tr><tr><td>Whale</td><td>Objectively large on-chain transactions</td><td>TIQ, TLQ</td><td>Alert only (metadata tag sent to integrated markets)</td></tr></tbody></table>
-
-{% hint style="info" %}
-MVV is not directly slashed by nEvents. MVV updates only via Manual Refresh. A TCT slash may reduce a participant's scored capacity inputs at next Refresh, resulting in a lower MVV on the next update.
-{% endhint %}
-
-</details>
+* **Participant Refresh (On-Chain).** \
+  Voluntary update. The participant pays gas to anchor a new score on-chain. Triggered typically before opening a new position where score-driven terms matter.
+* **Negative Event (On-Chain).** \
+  Automatic update fired by the backend when a qualifying on-chain event is detected (liquidation, default, exploit). The backend pays gas. The participant takes no action.
+* **Backend Recompute (Off-Chain).** \
+  The backend runs the full scoring pipeline every 15 minutes against every scored participant and stores the result as the participant's current off-chain score. The off-chain score does not update on-chain state. It informs the participant via notification when a Refresh would meaningfully change their on-chain score.\
+  \
+  A participant's on-chain score is the externally verifiable value at the time of their last Refresh or Negative Event. The off-chain score is the participant's current state at any given moment.\
+  \
+  Subscore weights are fixed at launch. Adjustments require a successful Tythe DAO governance proposal with mandatory timelock.\
+  \
+  Both scores can be issued against an arbitrary wallet or against an aggregated profile linking multiple wallets to one credit identity.
 
 ***
 
-#### Risk Brackets
+#### Asset Volatility Benchmark
 
-{% hint style="info" %}
-**CAL Action Key**
+The Asset Volatility Benchmark is a 7-tier classification of on-chain assets, governing how volatility factors into scoring math and risk-adjacent calculations. Tiers run from AAA to CCC.
 
-* <mark style="color:$success;">Enhancement</mark> = Positive Boost
-* <mark style="color:$warning;">Enforcement</mark> = Negative Adjustment
-* &#x20;<mark style="color:$danger;">Block</mark> = Hard Deny
-{% endhint %}
+| Class | Standard                                                               |
+| ----- | ---------------------------------------------------------------------- |
+| AAA   | Major stablecoins, tokenized gold, T-bills, money market funds         |
+| AA    | Bitcoin, Ether, liquid staking tokens, short-term tokenized treasuries |
+| A     | Top 3–40 by market cap, tokenized equities                             |
+| BBB   | Top 41–100 by market cap, tokenized private credit                     |
+| BB    | Top 101–150 by market cap, mid-cap memes, tokenized real estate        |
+| B     | Top 151–300 by market cap, tokenized physical assets                   |
+| CCC   | All other assets (catchall)                                            |
 
-| Range   | Bracket   | CAL Action                                              |
-| ------- | --------- | ------------------------------------------------------- |
-| 800-850 | Excellent | <mark style="color:$success;">Enhancement</mark> (High) |
-| 740-799 | Very Good | <mark style="color:$success;">Enhancement</mark> (Low)  |
-| 670-739 | Good      | <mark style="color:$primary;">Neutral</mark>            |
-| 580-669 | Fair      | <mark style="color:$warning;">Enforcement</mark> (Low)  |
-| 300-579 | Poor      | <mark style="color:$warning;">Enforcement</mark> (High) |
-| 1       | No Data   | <mark style="color:$info;">Credit Invisible</mark>      |
-| 0       | Slashed   | <mark style="color:$danger;">Blocked</mark>             |
+The benchmark is library-resident and governance-versioned — updates ship as library releases approved by Tythe DAO. CCC-classified assets reduce the Volatility Quotient subscore in Tythe Borrower Score and contribute to Volatility-weighted Historical Harm in Tythe Trader Score.
 
-Enhancement and Enforcement magnitudes are market-configured within DAO-governed bounds. Markets set their own discount rates per bracket within the allowed range. Enforcement is optional, markets may leave Fair and Poor brackets at Neutral if their risk model does not require negative adjustment beyond current provided rates.
+The Asset Volatility Benchmark is also the foundation for the Asset Volatility Index, an externally-exposed Credit Index product that exposes asset-level volatility signals to integrated markets and risk consumers.
+
+***
+
+#### Negative Events
+
+Verifiable on-chain events that trigger immediate Recompute. Negative Events skip the participant's voluntary Refresh; the backend signs and submits an attestation as soon as the event is detected on the venue feed.
+
+Severity is captured naturally through the scoring formula. A small partial liquidation moves the score modestly. A full liquidation with significant bad debt moves it substantially. An Exploit forces the score to 0.
+
+
+
+1. **Tythe Borrower Score Negative Events**
+
+| Event       | Trigger                                                                                                                      | Effect                                                                        |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Liquidation | Collateral failure on an integrated lending venue                                                                            | Negative Event                                                                |
+| Default     | Failure to fulfill debt within grace period (fixed-term loans past due, or persistent at-risk positions on open-term venues) | Negative Event                                                                |
+| Exploit     | Verified involvement in a smart-contract attack                                                                              | Score forced to 0, profile blacklisted on the Attestation Registry. Terminal. |
+
+2. **Tythe Trader Score Negative Events**
+
+| Event                | Trigger                                                | Effect                                                                        |
+| -------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| Position Liquidation | Full or partial liquidation by the perp venue's engine | Negative Event                                                                |
+| Exploit              | Verified involvement in a smart-contract attack        | Score forced to 0, profile blacklisted on the Attestation Registry. Terminal. |
+
+Exploits are a Negative Event subtype across both scores. They bypass the normal scoring pipeline, force the score to 0, and blacklist the profile via a separate cryptographic role. The cost of a false-positive blacklist is high (exploit classification requires manual verification before attestation).
+
+Disputed Negative Events are reviewed by a machine learning model (gradient-boosted, LightGBM/XGBoost architecture) trained on the same behavioral data that feeds the scores. The same model architecture serves both Tythe Borrower Score and Tythe Trader Score disputes. Overturned Exploit classifications produce an unblacklist attestation that restores the profile to active status.
 
 ***
 
 #### Open Source Commitment
 
-Tythe operates a three-tier transparency model, balancing public trust with formula integrity.
+Tythe operates a three-tier transparency model. The goal is full credibility on the system's mechanics while protecting the protocol from formula-gaming.
 
-1. **Smart Contract Code:** Fully open source. Auditable by anyone, always. Non-negotiable.
-2. **Formula Structure:** Public. Category names, tier hierarchy, and percentage weights are disclosed so all participants understand what drives their score.
-3. **Exact Parameters and Weights:** Sealed under a DAO license. Visible only to institutional DAO members. Modifications require a successful governance proposal with a mandatory timelock. This prevents gaming without sacrificing accountability.
+**1. Smart contract code.** Fully open source. Auditable by anyone, always. Non-negotiable.
+
+**2. Methodology structure.** Publicly documented. Subscore names and weight signatures, the Compliance Gate conditions, the Asset Volatility Benchmark tier structure, the Negative Event typology, the recompute trigger structure. Anyone reading these docs can understand the shape of what drives a score and why.
+
+**3. Math and formulas.** Proprietary. Specific anchor curve values, sigmoid centers, Monte Carlo convergence parameters, score transform constants, and Credit Adjustment interpolation math are sealed under DAO license. Visible only to institutional DAO members. Modifications require successful governance proposal with mandatory timelock.
+
+This balance prevents bad actors from reverse-engineering optimal exploitation patterns against the scoring math while preserving full accountability on the system's mechanics. Everything that lets a participant understand their score is public; the deep parametric values that would let an adversary precisely game the formula stay sealed.
 
 ***
 
 #### The Evolving Standard
 
-TCE-26 (Tythe Credit Enhancement, 2026) is the protocol's launch model. As Tythe matures, new telemetry streams will be integrated into scoring, including zk-verified bank statements, payroll and tax data, cross-chain bridging history, encrypted imports of FICO, CIBIL, and other centralized credit scores, and expanded verifiable credential checks via zkTLS.
+Tythe Credit Intelligence V1 is the launch model. Future versions activate only via successful Tythe DAO governance proposal with mandatory timelock. No scoring change takes effect without community oversight.
 
-Future models (TCE-27 and beyond) are activated only via a successful Tythe DAO governance proposal. No scoring change takes effect without community oversight and a mandatory timelock.
+The most immediate forward direction is **zkTLS-verified off-chain financials.** Bank balance proofs, payroll attestations, tax filings, and other off-chain financial signals integrate into the scoring math via zero-knowledge proofs. No raw financial data leaves the participant's custody, only the verified claim is consumed by the scoring engine. This extension is well-defined in shape and sequenced after V1.
+
+Subsequent versions may integrate additional telemetry as DAO governance approves them.
 
 ***
 
 #### FAQs
 
-**1. Why should we trust Tythe's TCT score?**\
-TCT is built on determinism. Every score update is backed by a verifiable on-chain event or a cryptographic zk-proof. The smart contract code is fully open source. The formula structure is publicly disclosed. The signal is objective, auditable, and resistant to manipulation.
+**1. Why should we trust Tythe's scores?**
 
-**2. Does Tythe have the authority to freeze funds?**\
-No. Tythe is a neutral risk-intelligence layer, not a custodian. The protocol can slash TCT balances based on verified behavioral events. Integrated markets make their own independent decisions on whether to adjust or restrict participant positions based on Tythe's signals.
+Determinism. Every score update is backed by a verifiable on-chain event or a zero-knowledge proof. The smart contract code is fully open source. The methodology structure is publicly documented. The scoring engine produces an attested score signed via EIP-712 and anchored on-chain. The signature is verifiable, the inputs are traceable, the math is repeatable. A score is not a black-box opinion. It is a computation against a documented standard, with cryptographic provenance at every step.&#x20;
 
-**3. How does Tythe prevent Sybil attacks?**\
-Credit is bound to the credit profile's unique DID, which requires a zk-KYC verification and Proof of Personhood. A participant may control multiple wallets but all wallets map to a single root identity. Credit power cannot be artificially multiplied across fake accounts.
+**2. Does Tythe have authority to freeze user funds?**
 
-**4. What happens if a participant is wrongly slashed?**\
-Disputed slashes are handled by the Justice Arm of the Tythe DAO. AI clerks prepare evidence briefs from on-chain data. A human jury drawn from the same TCT band as the disputant reviews the case and delivers a verdict. Disputes at band boundaries are heard by mixed juries from both adjacent bands. To raise a dispute, participants stake a protocol-defined amount of TCT as a good faith deposit. The stake is burned if the slash is upheld and returned in full if overturned.
+No. Tythe is a neutral credit-intelligence layer, not a custodian. The protocol can attest score updates based on verifiable events. Integrated markets make their own independent decisions about whether to adjust or restrict participant positions based on those signals.
 
-**5. What is CAQB?**\
-Asset quality benchmarks; CAQB (Collateral Asset Quality Benchmark) categorizes assets by reliability as collateral backing and governs the MVV ceiling and Volatility Quotient input. CAQB uses AAA to CCC classifications for asset quality.
+**3. How does Tythe prevent Sybil attacks?**
+
+Credit is bound to a single profile; a `did:cheqd` identifier verified by Proof of Personhood via World ID. One human, one credit identity. A participant may link multiple wallets to their profile, but all wallets map to the same root identity. Credibility cannot be artificially multiplied across fake accounts, nor can it be recycled to another one.
+
+**4. What happens if a participant is wrongly slashed?**
+
+Disputed Negative Events are reviewed by a machine learning model (a gradient-boosted classifier (LightGBM/XGBoost architecture) trained on the same behavioral data that feeds the scores). The model adjudicates whether the original classification stands. Overturned classifications result in score restoration. In the case of overturned Exploit classifications, an unblacklist attestation returns the profile to active status.
+
+**5. What is the Asset Volatility Benchmark?**
+
+A 7-tier classification (AAA through CCC) that categorizes on-chain assets by volatility profile and liquidity depth. The benchmark feeds the Volatility Quotient subscore in Tythe Borrower Score and the volatility weighting in Tythe Trader Score's Historical Harm.&#x20;
