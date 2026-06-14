@@ -49,4 +49,4 @@ Interacting with _SCD_ carries risks that differ from a fiat-backed stablecoin, 
 4. Oracle risk
 5. Liquidity risk
 
-Synclear mitigates these through multi-venue diversification, position limits, circuit breakers, oracle redundancy, and a Surplus Reserve, but they cannot be eliminated. Please read the [Risk Disclosure](https://claude.ai/risks-and-resources/diligence-materials/risk-disclosure.md) section in full before depositing.
+Synclear mitigates these through multi-venue diversification, position limits, circuit breakers, oracle redundancy, and a Surplus Reserve, but they cannot be completely eliminated. Please read the [Risk Disclosure](https://claude.ai/risks-and-resources/diligence-materials/risk-disclosure.md) section in full before depositing.
