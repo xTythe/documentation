@@ -33,7 +33,7 @@ Converted stablecoins do not sit idle. Beyond a minimum reserve held for instant
 _SCD_ backing generates revenue from several independent sources, paid out to _stSCD_ holders:
 
 1. Funding and basis from the delta-neutral positions.
-2. Interest from the protocol's own SCD Credit Markets (via the IMM) and external lending markets.
+2. Interest from the protocol's own SCD Credit Markets and external lending markets.
 3. Soft-liquidation fees and hard-liquidation bonuses through the Stability Pool.
 4. A share of all protocol fees, plus a baseline reserve that puts idle stablecoins to work across fixed-yield positions (Pendle PT, blue-chip markets), protocol-owned SCD/USDC liquidity, and short-term instruments such as tokenized T-bills.
 

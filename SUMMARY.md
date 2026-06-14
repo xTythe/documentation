@@ -6,6 +6,7 @@
 
 * [Synclear Protocol](introduction/synclear-protocol.md)
 * [Synclear Dollar: SCD](introduction/synclear-dollar-scd.md)
+* [Comparative Analysis](introduction/comparative-analysis.md)
 
 ## SCD Yield Vaults
 
