@@ -4,17 +4,18 @@
 
 ## Introduction
 
-* [Page 1](introduction/page-1.md)
+* [Synclear Protocol](introduction/synclear-protocol.md)
+* [Synclear Dollar: SCD](introduction/synclear-dollar-scd.md)
 
-## Yield Layer
+## SCD Yield Vaults
 
-* [Page 2](yield-layer/page-2.md)
+* [Page 2](scd-yield-vaults/page-2.md)
 
-## Liquidity Layer
+## SCD Credit Markets
 
 ## Management & Stability
 
-* [Page 3](management-and-stability/page-3.md)
+* [Peg Stability Module (PSM)](management-and-stability/peg-stability-module-psm.md)
 
 ## Risks & Resources
 
