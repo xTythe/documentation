@@ -1,28 +1,27 @@
 # Table of contents
 
-* [Tythe Documentation](README.md)
-* [The Tythe Protocol](the-tythe-protocol.md)
-* [The Tythe Standard](the-tythe-standard.md)
+* [Synclear Documentation](README.md)
 
-## Get Started
+## Introduction
 
-* [Introductory Guides](get-started/introductory-guides.md)
-* [Roadmap Items](get-started/roadmap-items/README.md)
-  * [Tythe DAO](get-started/roadmap-items/tythe-dao/README.md)
-    * [Justice Arm](get-started/roadmap-items/tythe-dao/justice-arm.md)
-    * [Governance Arm](get-started/roadmap-items/tythe-dao/governance-arm.md)
-  * [Tythe Prime](get-started/roadmap-items/tythe-prime.md)
-  * [Credit Data](get-started/roadmap-items/credit-data.md)
-  * [Agentic Credit](get-started/roadmap-items/agentic-credit.md)
+* [Page 1](introduction/page-1.md)
 
-## Resources
+## Yield Layer
 
-* [Addresses](resources/addresses.md)
-* [Contracts](resources/contracts.md)
-* [Native Glossary](resources/native-glossary.md)
-* [Whitepapers](resources/whitepapers.md)
-* [Landing Page](https://tythe.network/)
-* [Blog Page](https://tythe.network/blog/)
-* [Legal](resources/legal/README.md)
-  * [Privacy Policy](resources/legal/privacy-policy.md)
-  * [Terms of Service](resources/legal/terms-of-service.md)
+* [Page 2](yield-layer/page-2.md)
+
+## Liquidity Layer
+
+## Management & Stability
+
+* [Page 3](management-and-stability/page-3.md)
+
+## Risks & Resources
+
+***
+
+* [Page 5](page-5.md)
+
+## Roadmap
+
+* [Page 4](roadmap/page-4.md)
