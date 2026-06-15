@@ -10,7 +10,7 @@
 
 ## SCD Yield Vaults
 
-* [Page 2](scd-yield-vaults/page-2.md)
+* [Yield Mechanics](scd-yield-vaults/yield-mechanics.md)
 
 ## SCD Credit Markets
 
@@ -22,7 +22,7 @@
 
 ***
 
-* [Page 5](page-5.md)
+* [Risk Disclosure](risk-disclosure.md)
 
 ## Roadmap
 

@@ -6,60 +6,62 @@ Synclear did not invent the synthetic dollar. It builds on a lineage of protocol
 
 Stablecoins are the most-used instrument in crypto. The large majority of trading pairs across spot and derivatives venues are denominated in them, they settle trillions of dollars on-chain, and they are the only crypto asset to have found durable, global product-market fit with over 100 million users. They are the foundation the rest of the industry is built on, and the largest single market crypto addresses.
 
-That foundation still has structural gaps, in both the centralized and the decentralized models.
+That foundation still has structural gaps. To see where, it helps to separate two things that are often confused: what backs a dollar, and how centralized the system that runs it is.
 
-#### The centralized model and its limits
+**Backing model** is what stands behind the dollar: fiat reserves, overcollateralized crypto, an algorithm, or delta neutral hedged (a synthetic dollar). **Operational centralization** is a separate axis entirely: who custodies the assets, where execution happens, whether minting is permissioned, and whether the system can be censored. A dollar can be synthetic in its backing yet fully centralized in its operation. Most of today's leaders are exactly that. Synclear is built to minimize centralization on both axes at once: decentralized by default, with the centralization that remains kept bounded, disclosed, and used only as a backstop, where the leaders rely on it as their primary operating mode.&#x20;
 
-Fiat-backed stablecoins like USDC and USDT are stable and capital-efficient, but they carry costs the holder does not choose:
+#### Backing models and their limits
 
-* **Custodial and banking dependency.** The backing sits in bonds and regulated bank accounts, exposed to censorship, banking failure, and jurisdiction-specific regulation.
-* **Return-free risk.** The issuer keeps the yield earned on the backing and passes the depeg risk to the holder. You take the downside; they take the income.
+Each backing model solved part of the problem and left part open:
 
-#### The decentralized attempts and their limits
-
-Decentralized designs tried to remove that dependency, and historically ran into three walls:
-
-* **Overcollateralized stablecoins** scaled only as fast as on-chain leverage demand for ETH, and several have since leaned on tokenized Treasuries to grow, trading away censorship resistance for scale.
-* **Algorithmic stablecoins** proved structurally fragile and have repeatedly failed.
-* **Prior delta-neutral synthetic dollars** could not scale because they depended on decentralized venues that, at the time, lacked the liquidity to absorb their hedges. When a protocol's own short positions overwhelmed a thin venue, funding rates turned against it and the model broke.
+* **Fiat-backed** (USDC, USDT, USD1) is stable and capital-efficient, but the backing sits in bonds and regulated bank accounts, exposed to censorship, banking failure, and jurisdiction-specific regulation. It also carries return-free risk: the issuer keeps the yield earned on the backing and passes depeg risk to the holder. You take the downside; they take the income.
+* **Overcollateralized crypto** scaled only as fast as on-chain leverage demand for ETH, and several such stablecoins have since leaned on tokenized treasuries to grow, trading away censorship resistance for scale.
+* **Algorithmic** designs proved structurally fragile and have repeatedly failed.
+* **Delta-neutral synthetic** dollars back the dollar with hedged crypto and are the most promising of the four. Earlier on-chain attempts could not scale because they depended on decentralized venues that, at the time, lacked the liquidity to absorb their hedges. When a protocol's own unbounded short positions overwhelmed a thin venue, funding rates turned against it and the model broke.
 
 That last wall is the one most relevant to Synclear, and the one that has moved the most.
 
-#### The landscape has shifted
+#### The centralization most leaders accept
+
+The synthetic-dollar model itself does not require centralization, but reaching scale on it, so far, has. The leading synthetic dollars hedge on centralized exchanges, hold backing with off-chain custodians, and gate minting behind KYC. They are decentralized in marketing and centralized in operation. That is the trade each made to grow, and it is the gap Synclear is designed to fill: keeping backing, custody, and hedging on-chain and permissionless by default, while still capturing the same hedged-crypto yield. Synclear is not centralization-free, and does not claim to be. It holds stablecoins and tokenized Treasuries as a backstop and a yield floor, and it runs a hybrid execution router (described in the trade-offs below). The difference is one of degree and role: for the leaders, centralized custody and execution are the primary operating mode; for Synclear, the centralization that remains is minimal, bounded by hard on-chain limits, and used as a backstop rather than the foundation.
+
+### The landscape has shifted
 
 The constraint that limited earlier on-chain delta-neutral designs was real, and it is now lifting quickly. Decentralized perpetual venues have gone from a niche to a structural part of the market:
 
 * Perp DEX trading volume grew from $1.50 trillion in 2024 to $6.38 trillion in 2025, more than a fourfold increase in a single year.
-* Decentralized venues now hold around 13.5% of perpetuals open interest, led by Hyperliquid, up from low single digits at the start of 2025.
-* Hyperliquid alone carries roughly $10 billion in open interest, more than all other major perp DEXs combined.
-* During the Q4 2025 drawdown, CEX spot volume collapsed from $2.21T to $0.95T while perp DEX volumes held strong, peaking at $1.18T in October, showing that on-chain derivatives liquidity is becoming resilient rather than fair-weather.
+* Decentralized venues now hold around 13.5% of perpetuals open interest, up from low single digits at the start of 2025, and the share runs higher in bull markets when on-chain leverage demand peaks.
+* Liquidity is no longer concentrated in one venue. Hyperliquid still carries the largest share (roughly $10 billion in open interest), but Aster, Lighter, EdgeX, and dYdX V4 now hold significant share, giving a delta-neutral protocol several deep venues to hedge across rather than one.
+* During the Q4 2025 drawdown, CEX spot volume fell sharply while perp DEX volumes held strong, peaking near $1.4 trillion in October, showing that on-chain derivatives liquidity is becoming resilient rather than fair-weather.
 
 The trend is not a straight line. The DEX-to-CEX ratio has moved with normal volatility, and centralized venues still hold the majority of perpetual volume. But the two-year direction is unambiguous, and it points one way. A fully on-chain delta-neutral dollar no longer depends on liquidity that does not exist. It depends on liquidity that is growing every year, and protocols like Synclear that consistently supply the short side are part of what deepens it.
 
 #### Learning from the leaders
 
-Three protocols define the current synthetic-dollar landscape. Each pioneered something genuine, and each carries a structural limitation that comes from the choices it made.
+Three protocols define the current crypto/tokenized asset-backed dollar landscape. Each pioneered something genuine, and each carries a structural limitation that comes from the choices it made.
 
-**Ethena** proved the delta-neutral synthetic dollar at scale. It is the standard design for backing a dollar with hedged crypto rather than fiat reserves. Its constraint is where the hedging happens: Ethena executes on centralized exchanges through off-exchange custody, gates direct minting and redemption behind KYC for whitelisted market makers, and has faced regulatory friction (its token was barred in the EU under MiCA). The result is excellent scale built on a centralized operational perimeter.
+**Ethena** proved the delta-neutral synthetic dollar at scale. It is the standard design for backing a dollar with hedged crypto rather than fiat reserves. Its constraint is where the hedging happens: Ethena executes on centralized exchanges through off-exchange custody, and gates direct minting and redemption behind KYB/KYC for whitelisted institutions, hedge funds, and market makers. The result is excellent scale built on a centralized operational perimeter.
 
-**Sky** (formerly MakerDAO) proved the PSM and the overcollateralized CDP, and remains one of the largest and most battle-tested dollar systems in DeFi. Its constraints are yield and backing: the savings rate is set by governance vote rather than the market, and a large share of backing is USDC parked in the PSM and tokenized Treasuries, which means Sky's dollar inherits much of the same centralized exposure as the assets behind it, at a yield that has sat in the 3.5%-7% range.
+**Sky** (formerly MakerDAO) proved the PSM and the overcollateralized CDP, and remains one of the largest and most battle-tested dollar systems in DeFi. It is the one leader that is genuinely decentralized in operation: on-chain governance, permissionless CDPs, no custodian. Its trade is on the other axis. A large share of backing is now USDC parked in the PSM and tokenized treasuries, so the dollar is decentralized in machinery but increasingly centralized in what stands behind it, at a governance-set yield that has sat in the 3.5% to 7% range rather than a market rate.
 
-**Falcon** advanced multi-asset collateral, accepting a broad basket from blue-chip crypto to tokenized real-world assets to mint its dollar. Its constraints are custody, capital inefficiency, and verifiability: a large majority of its reserves are held off-chain with centralized custodians, minting and redemption require KYC, and the protocol has drawn scrutiny over reserve transparency and has experienced depeg episodes. The collateral breadth is real, but it requires overcollateralization, and the trust assumptions behind it are heavier than they first appear.
+**Falcon** advanced multi-asset collateral, accepting a broad basket from blue-chip crypto and tokenized real-world assets to governance tokens to mint its dollar. Its constraints are custody, capital inefficiency, and verifiability: a large majority of its reserves are held off-chain with centralized custodians, minting and redemption require KYC, and the protocol has drawn scrutiny over reserve transparency and has experienced depeg episodes. The collateral breadth is real, but it requires overcollateralization, and the trust assumptions behind it are heavier than they first appear.
 
-None of these are architecturally flawed. Their yield-bearing dollars are exactly the kind of productive collateral Synclear accepts in its Credit Markets, so their success expands Synclear's own collateral base. The point is not that they failed. It is that each made a centralizing trade to reach scale, and that trade leaves a clean space for a protocol that does not make it.
+None of these are architecturally flawed. Their yield-bearing dollars are exactly the kind of productive collateral Synclear accepts in its Credit Markets, so their success expands Synclear's own collateral base. The point is not that they failed. It is that each accepted centralization on at least one axis to reach scale: Ethena and Falcon in their operation, Sky in its backing. That leaves a clean space for a protocol that accepts it on neither.
 
 #### How Synclear compares
 
-<table data-header-hidden><thead><tr><th></th><th width="128"></th><th width="147"></th><th></th><th></th></tr></thead><tbody><tr><td></td><td>Ethena</td><td>Sky</td><td>Falcon</td><td><strong>Synclear</strong></td></tr><tr><td>Backing model</td><td>Delta-neutral (CEX)</td><td>CDP + RWA/USDC</td><td>Multi-asset, overcollateralized</td><td><strong>Delta-neutral (DEX) + diversified, on-chain</strong></td></tr><tr><td>Custody</td><td>Off-exchange (centralized)</td><td>On-chain + RWA custodians</td><td>~Off-chain custodians</td><td><strong>Fully on-chain</strong></td></tr><tr><td>Hedging venues</td><td>Centralized exchanges</td><td>n/a</td><td>Centralized exchanges</td><td><strong>Decentralized exchanges</strong></td></tr><tr><td>Mint / redeem</td><td>KYC, whitelisted</td><td>Permissionless</td><td>KYC required</td><td><strong>Permissionless</strong></td></tr><tr><td>Yield source</td><td>Funding + staking</td><td>Governance-set rate</td><td>Custodial strategies</td><td><strong>Funding + on-chain credit + diversified</strong></td></tr><tr><td>Borrow against collateral</td><td>No</td><td>Yes (via Spark)</td><td>No</td><td><strong>Yes, with on-chain credit scoring</strong></td></tr><tr><td>Scale ceiling</td><td>Very high</td><td>Very high</td><td>High</td><td><strong>Grows with DEX open interest</strong></td></tr></tbody></table>
+Synclear's position is the one none of the leaders occupy: a synthetic dollar whose backing, custody, and hedging are on-chain and permissionless by default, paired with a credit market where users borrow against their assets on terms set by an on-chain credit score. The yield engine mints the dollar and funds the borrowing; the credit market creates demand for the dollar and a yield stream that does not depend on perpetual funding at all. Each layer scales on a different axis, so together they grow past the ceiling that limits a yield product alone.
 
-Synclear's position is the one none of the leaders occupy: a synthetic dollar whose backing, custody, and hedging are all on-chain and permissionless, paired with a credit market where users borrow against their assets on terms set by an on-chain credit score. The yield engine mints the dollar and funds the borrowing; the credit market creates demand for the dollar and a yield stream that does not depend on perpetual funding at all. Each layer scales on a different axis, so together they grow past the ceiling that limits a yield product alone.
+The delta-neutral difference goes deeper than where the hedging happens. Synclear is designed so the constraint that broke earlier on-chain attempts cannot break it. The protocol caps its hedging at a conservative share of available open interest (7%), and when a venue cannot absorb more, new backing is converted to liquid stablecoins instead of forced onto the market. It never drives funding against itself to grow. Supply is therefore bounded by the depth of stable backing across DeFi, which is effectively unlimited, not by the open interest of any single venue, which is what killed prior delta-neutral dollars. The hedging sleeve scales with decentralized open interest as it grows, rather than breaking on it.
+
+That same scarcity becomes a product rather than a ceiling. Because on-chain hedging capacity is genuinely limited, Synclear allocates it as a competitive, concentrated yield market rather than a benefit spread thin across everyone, turning the one hard constraint of on-chain delta-neutral into a source of yield in its own right. To learn more about Synclear's competitive delta-neutral hedging strategy, see [Yield Mechanics](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/10/scd-yield-vaults/yield-mechanics).
 
 #### The trade-offs we accept
 
 Synclear states its trade-offs plainly rather than hiding them:
 
-* **Scale grows with DeFi, not ahead of it.** A fully on-chain delta-neutral sleeve is bounded by decentralized open interest, so Synclear will not match the raw scale of a centralized-venue design on day one. The convert-to-stable design means supply is never capped by any single venue, and the addressable ceiling rises every year as on-chain markets deepen. Synclear is built to grow with that curve, and to help bend it.
+* **Scale grows with DeFi, not ahead of it.** A fully on-chain delta-neutral sleeve is bounded by Perpetual DEX open interest (OI), so Synclear will not match the raw scale of a centralized-venue design on day one. The convert-to-stable design means supply is never capped by any single venue, and the addressable ceiling rises every year as on-chain markets deepen. Synclear is built to grow with that curve, and to help bend it.
 * **On-chain execution carries oracle and venue risk.** Pricing and hedging on decentralized infrastructure means exposure to oracle failure and venue stress. Synclear mitigates this with multi-venue diversification, position limits, oracle redundancy, and circuit breakers, but the risk is real and disclosed.
 * **The asset manager is a hybrid.** Cross-venue hedging cannot be executed purely on-chain, so an off-chain router proposes allocations inside an immutable on-chain envelope that holds custody and enforces every limit. The router can never move funds outside the rules or take custody. This is a deliberate, disclosed design, and it decentralizes progressively over time.
 
-Full detail on every risk is in the [Risk Disclosure](https://claude.ai/risks-and-resources/diligence-materials/risk-disclosure.md).
+Full detail on every carried risk can be found on the [Risk Disclosure](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/10/risk-disclosure) page.
