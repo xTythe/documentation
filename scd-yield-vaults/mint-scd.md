@@ -8,7 +8,7 @@ Minting _SCD_ is always immediate and 1:1. Anyone, anywhere can mint, with no KY
 
 This page covers what you can deposit, how a mint executes, the fees involved, and how to redeem. For how the mechanism keeps _SCD_ fully backed and safe to scale, see [Synclear Dollar: SCD](../introduction/synclear-dollar-scd.md).
 
-**What you can deposit**
+#### What you can deposit
 
 _SCD_ can be minted from a basket of allowlisted assets across three categories. The allowlist is governed and expands over time.
 
@@ -18,7 +18,7 @@ _SCD_ can be minted from a basket of allowlisted assets across three categories.
 
 Every deposit mints _SCD_ at a dollar of value for a dollar of asset, whatever the category. What differs is how the protocol conditions the backing behind it, described next.
 
-**How a mint executes**
+#### How a mint executes
 
 You receive _SCD_ 1:1, less the cost of executing any hedge or conversion. The protocol decides at the moment of minting how to handle the deposit, based on the asset and current market conditions:
 
@@ -31,13 +31,13 @@ You receive _SCD_ 1:1, less the cost of executing any hedge or conversion. The p
 
 The protocol makes this choice, not you, and it never delays your mint. Minting is always immediate and 1:1, and no deposit is refused. The hedge-or-convert decision governs what the backing becomes, never whether or when you can mint. The reasoning behind the convert path, and why it lets _SCD_ scale past the depth of any single venue, is covered in [Synclear Dollar: SCD](../introduction/synclear-dollar-scd.md).
 
-**Fees**
+#### Fees
 
 * **USDC and USDT.** No protocol fee, in or out. These two swap 1:1 in both directions.
 * **Blue-chip crypto and gold.** Minting carries a protocol fee plus the execution cost of opening the hedge or converting to a stablecoin, both priced into the _SCD_ you receive. There is no separate origination fee.
 * **Redeeming beyond the instant buffer.** When redemptions exceed the instant USDC and USDT buffer and must draw on slower backing, they queue and a surge fee proportional to queue depth applies, paid to the _stSCD_ holders who remain.
 
-**Redeeming SCD**
+#### Redeeming SCD
 
 Redemption is the reverse swap: burn _SCD_ and reclaim a dollar of backing for each _SCD_. An instant USDC and USDT buffer held inside the mint and redeem engine serves redemptions immediately and at no fee, 1:1, up to its capacity. When redemptions exceed it, the remainder routes through the Withdrawal Queue as slower backing, such as open hedges, unwinds. How that buffer and continuous peg stability arbitrage hold _SCD_ at a dollar is covered in [Stabilize SCD](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/12/scd-yield-vaults/stabilize-scd).
 
