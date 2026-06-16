@@ -20,9 +20,7 @@
 
 ## Risks & Resources
 
-***
-
-* [Risk Disclosure](risk-disclosure.md)
+* [Risk Disclosure](risks-and-resources/risk-disclosure.md)
 
 ## Roadmap
 
