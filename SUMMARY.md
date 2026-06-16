@@ -10,7 +10,9 @@
 
 ## SCD Yield Vaults
 
-* [Yield Mechanics](scd-yield-vaults/yield-mechanics.md)
+* [Mint SCD](scd-yield-vaults/mint-scd.md)
+* [Stake SCD](scd-yield-vaults/stake-scd.md)
+* [Stabilize SCD](scd-yield-vaults/stabilize-scd.md)
 
 ## SCD Credit Markets
 
