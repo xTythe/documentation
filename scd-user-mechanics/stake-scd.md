@@ -6,7 +6,7 @@ Staking turns _SCD_ into _stSCD_, its yield-bearing form. _SCD_ held on its own 
 _SCD_ is free to mint, hold, trade, and redeem anywhere. Staking into _stSCD_ to earn protocol yield is the only action that may be restricted in your jurisdiction. You are responsible for compliance with your own local laws.
 {% endhint %}
 
-This page covers how staking works, how _stSCD_ accrues value, and how to unstake. For where the yield itself comes from, see [Yield Mechanics](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/13/scd-yield-vaults/yield-mechanics).
+This page covers how staking works, how _stSCD_ accrues value, and how to unstake. For where the yield itself comes from, see [Yield & Asset Management](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/14/yield-and-asset-management).
 
 #### Staking: SCD for stSCD
 
@@ -24,10 +24,10 @@ _stSCD_ also shares in the protocol's delta-neutral funding market without compe
 
 That concentrated position is the funding-capture slot, a competitive tier for participants who want maximum funding exposure and will compete to hold it. It is not a fixed-size club. Slot capacity, both the amount deployable and the number of participants, grows as on-chain open interest and liquidity deepen, so the tier expands with the market rather than staying capped.
 
-Returns are variable and uncapped, with no fixed or guaranteed rate. How all of this is produced, split, and scaled over time is covered in [Yield Mechanics](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/13/scd-yield-vaults/yield-mechanics).
+Returns are variable and uncapped, with no fixed or guaranteed rate. How all of this is produced, split, and scaled over time is covered in [Yield & Asset Management](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/14/yield-and-asset-management).
 
 #### Unstaking: stSCD for SCD
 
-Unstaking converts _stSCD_ back into _SCD_ at its current accrued value. It is not instant. Two protections sit on either side of holding _stSCD_: yield vests gradually so no one can time their entry to capture it, and unstaking carries a cooldown so no one can rush the exit at the cost of the holders who stay. During the cooldown the _SCD_ is held before it is released, and if many holders unstake at once, requests are served in order through a queue. The cooldown length and queue terms are set by the protocol.
+Unstaking converts _stSCD_ back into _SCD_ at its current accrued value. It is not instant. Two protections sit on either side of holding _stSCD_: yield vests gradually so no one can time their entry to capture it, and unstaking carries a cooldown so no one can rush the exit at the cost of the holders who stay. During the cooldown the _SCD_ is held before it is released. The cooldown period is set by the protocol.
 
-Unstaking _stSCD_ and redeeming _SCD_ are two separate steps with two separate waiting mechanisms. The cooldown and queue above apply only to unstaking, which returns _SCD_ and nothing further. Redeeming that _SCD_ for its underlying backing is a different process on the mint and redeem engine, with its own instant buffer and its own queue for when slower backing has to unwind. Once you hold _SCD_ you can also just keep it or use it across DeFi rather than redeem. The full redemption flow can be found on the [Mint SCD](mint-scd.md) page.
+Unstaking _stSCD_ and redeeming _SCD_ are two separate steps with two separate waiting mechanisms. The cooldown above applies only to unstaking, which returns _SCD_ and nothing further. Redeeming that _SCD_ for its underlying backing is a different process on the mint and redeem engine, with its own instant buffer and a queue mechanism for when slower backing has to unwind. Once you hold _SCD_ you can also just keep it or use it across DeFi rather than redeem. The full redemption flow can be found on the [Swap SCD](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/14/scd-user-mechanics/swap-scd) page.

@@ -8,18 +8,17 @@
 * [Synclear Dollar: SCD](introduction/synclear-dollar-scd.md)
 * [Comparative Analysis](introduction/comparative-analysis.md)
 
-## SCD Yield Vaults
+## SCD User Mechanics
 
-* [Mint SCD](scd-yield-vaults/mint-scd.md)
-* [Stake SCD](scd-yield-vaults/stake-scd.md)
-* [Stabilize SCD](scd-yield-vaults/stabilize-scd.md)
-* [Yield Mechanics](scd-yield-vaults/yield-mechanics.md)
+* [Swap SCD](scd-user-mechanics/swap-scd.md)
+* [Stake SCD](scd-user-mechanics/stake-scd.md)
+* [Stabilize SCD](scd-user-mechanics/stabilize-scd.md)
+
+## Yield & Asset Management
+
+* [Peg Stability Module (PSM)](yield-and-asset-management/peg-stability-module-psm.md)
 
 ## SCD Credit Markets
-
-## Management & Stability
-
-* [Peg Stability Module (PSM)](management-and-stability/peg-stability-module-psm.md)
 
 ## Risks & Resources
 

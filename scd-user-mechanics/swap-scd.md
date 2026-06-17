@@ -1,4 +1,4 @@
-# Mint SCD
+# Swap SCD
 
 Minting is how _SCD_ enters circulation. You deposit an allowlisted asset and receive _SCD_ 1:1 in a single swap, open to anyone with no KYC and no whitelist. There is no queue and no approval step: the deposit and the _SCD_ you receive settle in the same transaction.
 
@@ -43,4 +43,4 @@ Redemption is the reverse swap: burn _SCD_ and reclaim a dollar of backing for e
 
 You can also exit _SCD_ without redeeming at all, by trading it on external AMM pools such as Uniswap, Aerodrome, or Curve against USDC, USDT, and other assets. Redeeming swaps with the protocol at par; trading sells on the open market at whatever price it is quoting.
 
-> _SCD_ is a stablecoin and earns nothing while you hold it. To put it to work, stake into _stSCD_, covered in [Stake SCD](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/12/scd-yield-vaults/stake-scd).
+> _SCD_ is a stablecoin and earns nothing while you hold it. To put it to work, stake 1:1 for _stSCD_, covered in [Stake SCD](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/12/scd-yield-vaults/stake-scd).
