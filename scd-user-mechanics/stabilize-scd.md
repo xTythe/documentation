@@ -14,7 +14,7 @@ What keeps the band tight is that the stablecoin lane (USDC and USDT) carries no
 
 #### The instant redemption buffer
 
-The below-a-dollar (SCD < $1) side of that arbitrage only works if redemption is fast and certain. The protocol holds a buffer of liquid stablecoins, USDC and USDT, inside the redeem engine that serves redemptions immediately, 1:1, with no fee, up to its capacity. This is the always-open window arbitrageurs rely on: a guaranteed instant exit at a dollar, which is what lets them close the gap the moment _SCD_ slips below peg. When redemptions run past the buffer, the remainder is served through the Withdrawal Queue as slower backing unwinds. Details covered [here](swap-scd.md).
+The below-a-dollar (_SCD_ < $1) side of that arbitrage only works if redemption is fast and certain. The protocol holds a buffer of liquid stablecoins, USDC and USDT, inside the redeem engine that serves redemptions immediately, 1:1, with no fee, up to its capacity. This is the window arbitrageurs rely on: a reliable instant exit at a dollar, up to the buffer's capacity, which is what lets them close the gap the moment _SCD_ slips below peg. When redemptions run past the buffer, the remainder is served through the Withdrawal Queue as slower backing unwinds. Details covered on [Swap SCD](swap-scd.md).
 
 #### A lean buffer, defended by a throttle
 

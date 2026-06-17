@@ -1,16 +1,16 @@
 # Stake SCD
 
-Staking turns _SCD_ into _stSCD_, its yield-bearing form. _SCD_ held on its own earns nothing; _stSCD_ captures the return the protocol's backing generates and pays it to you continuously. Staking is open to anyone, though earning yield through _stSCD_ is the one action subject to jurisdictional restrictions.
+Staking turns _SCD_ into _stSCD_, its yield-bearing form. _SCD_ held on its own earns nothing; _stSCD_ captures the return the protocol's backing generates and pays it to you continuously.
 
 {% hint style="info" %}
-_SCD_ is free to mint, hold, trade, and redeem anywhere. Staking into _stSCD_ to earn protocol yield is the only action that may be restricted in your jurisdiction. You are responsible for compliance with your own local laws.
+_SCD_ is free and permissionless to mint, hold, borrow, trade, and redeem anywhere. Staking for _stSCD_ to earn protocol yield is the only action subject to jurisdictional restrictions. You are responsible for compliance with your own local laws.
 {% endhint %}
 
 This page covers how staking works, how _stSCD_ accrues value, and how to unstake. For where the yield itself comes from, see [Yield & Asset Management](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/14/yield-and-asset-management).
 
 #### Staking: SCD for stSCD
 
-You deposit _SCD_ and receive _stSCD_ in return, a single token that represents your share of the staked pool.
+You deposit _SCD_ and receive _stSCD_ in return at a 1:1 rate, a single token that represents your share of the staked pool.
 
 * **One token, rising value.** _stSCD_ does not change in quantity. Instead, each _stSCD_ becomes redeemable for more _SCD_ over time as yield accrues. Your balance stays the same; what it is worth grows.
 * **Yield accrues smoothly.** Earnings vest into the _stSCD_ value gradually rather than in jumps, so no one can stake just before a payout, capture it, and leave. You earn for the time you are actually staked.
