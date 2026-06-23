@@ -4,26 +4,25 @@
 
 ## Introduction
 
-* [Synclear Protocol](introduction/synclear-protocol.md)
-* [Synclear Dollar: SCD](introduction/synclear-dollar-scd.md)
+* [Synclear](introduction/synclear.md)
+* [Synclear Dollar (SCD)](introduction/synclear-dollar-scd/README.md)
+  * [Mint SCD](introduction/synclear-dollar-scd/mint-scd.md)
+  * [Redeem SCD](introduction/synclear-dollar-scd/redeem-scd.md)
+  * [Stabilize SCD](introduction/synclear-dollar-scd/stabilize-scd.md)
 * [Comparative Analysis](introduction/comparative-analysis.md)
 
-## SCD User Mechanics
+## Savings Accounts
 
-* [Swap SCD](scd-user-mechanics/swap-scd.md)
-* [Stake SCD](scd-user-mechanics/stake-scd.md)
-* [Stabilize SCD](scd-user-mechanics/stabilize-scd.md)
+## Strategy Funds
 
-## Yield & Asset Management
+* [Peg Stability Module (PSM)](strategy-funds/peg-stability-module-psm.md)
 
-* [Peg Stability Module (PSM)](yield-and-asset-management/peg-stability-module-psm.md)
+## Credit Markets
 
-## SCD Credit Markets
+## Protocol Resources
 
-## Risks & Resources
+* [Risk Disclosure](protocol-resources/risk-disclosure.md)
 
-* [Risk Disclosure](risks-and-resources/risk-disclosure.md)
+## Protocol Roadmap
 
-## Roadmap
-
-* [Page 4](roadmap/page-4.md)
+* [Page 4](protocol-roadmap/page-4.md)
