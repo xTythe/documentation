@@ -1,3 +1,7 @@
+---
+description: Institutional-grade dollar finance for savings, investment, and credit.
+---
+
 # Synclear
 
 {% hint style="info" %}
@@ -8,14 +12,16 @@ This means the risks of holding SCD are inherently different from those of a fia
 
 #### Overview
 
-Synclear is an on-chain financial protocol. It issues SCD (Synclear Dollar), a conservative synthetic dollar, runs the savings accounts and investment funds that earn on it, and underwrites loans to on-chain businesses through transparent credit markets.
+Synclear is an on-chain dollar finance protocol. It issues SCD (Synclear Dollar), a conservative synthetic dollar, runs the savings accounts and investment funds that earn on it, and underwrites loans to on-chain businesses through transparent credit markets.
 
 You mint SCD 1:1 by swapping USDC or USDT, and redeem it the same way on demand. Its backing is held conservatively and kept fully reserved, protected by a protocol-owned reserve, so the dollar stays whole while the backing works. SCD does not earn on its own. sSCD is its permissionless saved form, which earns the yield the backing generates and composes freely across open DeFi.
 
 Beyond the dollar's own yield, the Strategy Funds open higher-yield strategies such as the Options Derivatives Fund and the Cashflow Credit Fund, where you hold each strategy's return and risk directly. They are funded separately and ring-fenced from SCD's backing, so the dollar stays conservative no matter how any strategy performs. You buy into Strategy Funds with USDC or USDT, fresh or redeemed from SCD you already hold.
 
-The credit markets are where on-chain businesses borrow against their own revenue rather than by posting collateral, underwritten on live cash-flow data and repaid through automated revenue capture. The Cashflow Credit Fund supplies the loans, so its investors carry that risk, not SCD. Automated revenue capture bounds defualt risk but cannot mitigate it completely.\
-See the [Credit Markets](https://app.gitbook.com/s/DJA9njN2uMlkeZuQfMaD/credit-markets) section for how capture and underwriting work.
+The credit markets are where on-chain businesses borrow against their own revenue rather than by posting collateral, underwritten on live cash-flow data and repaid through automated revenue capture. The Cashflow Credit Fund supplies the loans, so its investors carry that risk, not SCD.&#x20;
+
+> Automated revenue capture contains default risk but cannot mitigate it completely.\
+> See the [Credit Markets](https://app.gitbook.com/s/DJA9njN2uMlkeZuQfMaD/credit-markets) section for how capture and underwriting work.
 
 Synclear builds natively only the strategies that are its own edge, the options and credit engines, and allocates to established protocols (like [Ethena](https://ethena.fi) and [Theo](https://theo.xyz)). Hedging runs on vetted venues under qualified custody, and credit is underwritten on real cash-flow data. Backing is verifiable on-chain throughout.
 
