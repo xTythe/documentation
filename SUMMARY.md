@@ -1,15 +1,14 @@
 # Table of contents
 
-* [Synclear Documentation](README.md)
+* [Introduction](README.md)
 
-## Introduction
+## Synclear Dollar
 
-* [Synclear](introduction/synclear.md)
-* [Synclear Dollar (SCD)](introduction/synclear-dollar-scd/README.md)
-  * [Mint SCD](introduction/synclear-dollar-scd/mint-scd.md)
-  * [Redeem SCD](introduction/synclear-dollar-scd/redeem-scd.md)
-  * [Stabilize SCD](introduction/synclear-dollar-scd/stabilize-scd.md)
-* [Comparative Analysis](introduction/comparative-analysis.md)
+* [Synclear Dollar (SCD)](synclear-dollar/synclear-dollar-scd/README.md)
+  * [Mint SCD](synclear-dollar/synclear-dollar-scd/mint-scd.md)
+  * [Redeem SCD](synclear-dollar/synclear-dollar-scd/redeem-scd.md)
+  * [Stabilize SCD](synclear-dollar/synclear-dollar-scd/stabilize-scd.md)
+* [Comparative Analysis](synclear-dollar/comparative-analysis.md)
 
 ## Savings Accounts
 
