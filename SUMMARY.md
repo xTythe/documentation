@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Synclear](README.md)
 
 ## Synclear Dollar
 

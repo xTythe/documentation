@@ -1,4 +1,5 @@
 ---
+description: Institutional-grade dollar finance for savings, investment, and credit.
 hidden: true
 icon: house
 layout:
@@ -22,7 +23,7 @@ layout:
 metaLinks: {}
 ---
 
-# Introduction
+# Synclear
 
 Synclear is an on-chain dollar finance protocol and asset manager. It issues the Synclear Dollar (SCD), runs the savings accounts and investment funds that earn on it, and operates credit markets that lend to on-chain businesses and individuals.
 
