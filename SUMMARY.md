@@ -2,13 +2,10 @@
 
 * [Synclear](README.md)
 
-## Synclear Dollar
+## Protocol Introduction
 
-* [Synclear Dollar (SCD)](synclear-dollar/synclear-dollar-scd/README.md)
-  * [Mint SCD](synclear-dollar/synclear-dollar-scd/mint-scd.md)
-  * [Redeem SCD](synclear-dollar/synclear-dollar-scd/redeem-scd.md)
-  * [Stabilize SCD](synclear-dollar/synclear-dollar-scd/stabilize-scd.md)
-* [Comparative Analysis](synclear-dollar/comparative-analysis.md)
+* [Trust, Transparency & Security](protocol-introduction/trust-transparency-and-security.md)
+* [Comparative Analysis](protocol-introduction/comparative-analysis.md)
 
 ## Savings Accounts
 
