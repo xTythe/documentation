@@ -1,7 +1,5 @@
 ---
 description: Institutional-grade dollar finance for savings, investment, and credit.
-hidden: true
-icon: house
 layout:
   width: wide
   title:
@@ -23,7 +21,7 @@ layout:
 metaLinks: {}
 ---
 
-# Synclear
+# Welcome to Synclear
 
 Synclear is an on-chain asset manager. You deposit the stablecoins you already hold (such as USDC, USDT, USD1, USDe, USDG, USDS, PYUSD, and RLUSD), and Synclear puts them to work across savings, investment funds, and credit.
 

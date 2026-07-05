@@ -1,9 +1,8 @@
 # Table of contents
 
-* [Synclear](README.md)
-
 ## Protocol Introduction
 
+* [Welcome to Synclear](README.md)
 * [Trust, Transparency & Security](protocol-introduction/trust-transparency-and-security.md)
 * [Comparative Analysis](protocol-introduction/comparative-analysis.md)
 
