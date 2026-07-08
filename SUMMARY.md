@@ -8,9 +8,11 @@
 
 ## Savings Accounts
 
-## Strategy Funds
+* [Page 1](savings-accounts/page-1.md)
 
-* [Peg Stability Module (PSM)](strategy-funds/peg-stability-module-psm.md)
+## Investment Funds
+
+* [Peg Stability Module (PSM)](investment-funds/peg-stability-module-psm.md)
 
 ## Credit Markets
 
