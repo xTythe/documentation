@@ -1,5 +1,6 @@
 ---
 description: Institutional-grade dollar finance for savings, investment, and credit.
+hidden: true
 layout:
   width: wide
   title:
