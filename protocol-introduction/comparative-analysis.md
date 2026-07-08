@@ -4,9 +4,9 @@
 
 Stablecoins are the settled question of this cycle. The total stablecoin supply stands near $315 billion as of mid-2026, up from under $50 billion five years earlier, and USDT and USDC alone account for roughly 83 percent of it. They moved about $33 trillion in 2025, a figure that on an adjusted basis rivals Visa's annual payments volume, and they now serve tens of millions of monthly active users. Stablecoin issuers collectively hold more than $150 billion in US Treasury bills, ranking them among the largest holders of US government debt in the world.
 
-The point is simple: the dollar problem is solved. The market does not need another stablecoin to compete with USDC and USDT, and Synclear does not try to be one.
+The point is simple: the dollar problem is solved. The market does not need another stablecoin to compete with established infrastructure, and Synclear does not try to be one.
 
-<figure><img src="../.gitbook/assets/Image 7-8-26 at 3.31 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Image 7-8-26 at 5.37 PM.png" alt=""><figcaption></figcaption></figure>
 
 #### The open problem is what those dollars earn
 
@@ -18,7 +18,7 @@ The demand to fix this is already visible in the data: more than $670 billion in
 
 Every existing option forces a single tradeoff on the holder.
 
-<figure><img src="../.gitbook/assets/Image 7-8-26 at 3.36 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Image 7-8-26 at 5.31 PM.png" alt=""><figcaption></figcaption></figure>
 
 **Fiat stablecoins (USDC, USDT).** Deep, liquid, and trusted, but return-free by design. The yield exists; it goes to the issuer, not to you.
 
@@ -36,13 +36,11 @@ Read the branches together and the missing one is clear. No existing option lets
 
 Synclear is an on-chain asset manager that puts existing stablecoins to work and lets the holder choose how far up the risk curve to go.
 
-**You choose your risk; you are not pooled into one.** Open Savings holds only treasury bills, on-chain lending, and cash. Gated Savings adds a delta-neutral sleeve capped at roughly 10 to 20 percent. The Options Yield Fund and Cashflow Credit Fund take defined strategy risk for those who opt in. Each is ring-fenced from the others, so reaching for more yield is a decision the holder makes, not a property of a single token they must hold.
+**You choose your risk; you are not pooled into one.** Open Savings holds only treasury bills, on-chain lending, and cash. Gated Savings adds a delta-neutral sleeve capped at roughly 30 to 40 percent. The Options Yield Fund and Cashflow Credit Fund take defined strategy risk for those who opt in. Each is ring-fenced from the others, so reaching for more yield is a decision the holder makes, not a property of a single token they must hold.
 
 **The yield base is diversified, and includes a source uncorrelated with crypto.** Treasury-bill yield, on-chain lending, a delta-neutral sleeve, an options book, and credit. Interest from lending to real businesses is driven by those businesses' economics, not by perpetual funding, so it does not fall in lockstep with crypto sentiment the way a single-strategy dollar does. Where a strategy is already run best elsewhere, Synclear allocates to it rather than rebuilding it: the delta-neutral exposure routes to Ethena and Theo. The ecosystem is a set of suppliers, not competitors to displace.
 
 **Credit is originated, and originated differently.** This is the axis no synthetic-dollar protocol offers and the two credit protocols could not do safely. Synclear lends to on-chain businesses against their on-chain revenue, and repayment runs through automated capture at the source of that revenue.
-
-> **\[Diagram 3: capture versus recovery]** Two flows side by side. Top, "the old way (Maple, Goldfinch)": Loan → Borrower → Default → Off-chain lawsuit → Partial recovery, months later. Bottom, "Synclear": Loan → Borrower's on-chain revenue → Automated capture at source → Continuous, mechanical repayment. The contrast makes the point without a caption: one waits for a courtroom, the other collects at the source.
 
 #### Lessons from the failures
 
@@ -53,6 +51,8 @@ The largest collapses in this category trace to a few root causes. Synclear rule
 **Unsecured, concentrated credit (Maple v1, 2022).** When Orthogonal Trading concealed its FTX exposure and defaulted, it took $36 million across eight loans, about 30 percent of Maple's active loans at the time, and the main pool lost 80 percent of remaining capital because most of it had gone to that single borrower. Synclear isolates every borrower in its own market, underwrites on live cash-flow data rather than trust, and captures revenue at the source.
 
 **Credit that cannot be enforced on-chain (Goldfinch, wound down 2026).** Off-chain borrowers, off-chain collection, no enforceable recovery. Synclear lends only where revenue is already on-chain and can be captured directly, so repayment is mechanical rather than dependent on a promise or a courtroom.
+
+<figure><img src="../.gitbook/assets/Image 7-8-26 at 6.03 PM.png" alt=""><figcaption></figcaption></figure>
 
 #### Where this leaves Synclear
 
