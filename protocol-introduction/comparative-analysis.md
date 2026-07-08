@@ -1,57 +1,75 @@
 # Comparative Analysis
 
-On-chain dollar finance is no longer early. There are live protocols managing billions, and there is a decade of precedent that shows which designs endure and which fail. This page places Synclear inside that record with data. It gives credit where competitors have earned it, and it is specific about the axes where Synclear is built differently and why that matters.
+#### The dollars already won
 
-#### The landscape
+Stablecoins are the settled question of this cycle. The total stablecoin supply stands near $315 billion as of mid-2026, up from under $50 billion five years earlier, and USDT and USDC alone account for roughly 83 percent of it. They moved about $33 trillion in 2025, a figure that on an adjusted basis rivals Visa's annual payments volume, and they now serve tens of millions of monthly active users. Stablecoin issuers collectively hold more than $150 billion in US Treasury bills, ranking them among the largest holders of US government debt in the world.
 
-The protocols nearest to Synclear cluster into three groups: synthetic-dollar yield (Ethena, Falcon), tokenized real-world assets and curated savings (Ondo, Sky), and on-chain credit (Maple, and the failed Goldfinch). The table below is a factual snapshot, not a ranking. Figures are drawn from public dashboards in Q2 2026 and move continuously.
+The point is simple: the dollar problem is solved. The market does not need another stablecoin to compete with USDC and USDT, and Synclear does not try to be one.
 
-| Protocol     | Model                                               | Scale (2026)       | Yield                       | Backing / collateral                                                             | Originates credit           |
-| ------------ | --------------------------------------------------- | ------------------ | --------------------------- | -------------------------------------------------------------------------------- | --------------------------- |
-| **Ethena**   | Synthetic dollar, single delta-neutral basis trade  | \~$5.6–5.9B USDe   | sUSDe \~9–12% (range 4–35%) | Staked ETH and BTC, hedged with short perps                                      | No                          |
-| **Falcon**   | Overcollateralized synthetic dollar, multi-strategy | \~$1.3–1.5B TVL    | sUSDf \~8.7%                | Wide: BTC, ETH, SOL, altcoins, stablecoins, RWAs                                 | No                          |
-| **Sky**      | Curated savings, stablecoin                         | Multi-billion USDS | sUSDS 3.75%                 | Tokenized RWAs and overcollateralized crypto lending                             | No                          |
-| **Ondo**     | Tokenized US Treasuries                             | \~$3.5–3.8B TVL    | Tracks T-bill rate          | US Treasuries, held with institutional custodians                                | No                          |
-| **Maple**    | Institutional crypto lending                        | \~$2.1–3.9B TVL    | High single digits          | Overcollateralized crypto (105–150%+), some institutional undercollateralized    | Yes, to trading firms       |
-| **Synclear** | Asset manager and credit originator                 | Launch             | Tiered by product           | Conservative tiered: T-bills, lending, cash, plus a bounded delta-neutral sleeve | Yes, to on-chain businesses |
+<figure><img src="../.gitbook/assets/Image 7-8-26 at 3.31 PM.png" alt=""><figcaption></figcaption></figure>
 
-Two honest observations from this table. First, Synclear enters with a design, not a track record, and the incumbents have real scale. Second, of every protocol here, only Maple originates credit, and it lends to crypto trading firms, not to operating businesses. The rest assemble yield from existing sources. That gap is where Synclear is built to be different.
+#### The open problem is what those dollars earn
 
-#### Where Synclear is built differently
+Here is what is not solved. Most of the trillions sitting in stablecoins earn their holders nothing. When you hold USDC or USDT, the issuer invests the backing in Treasury bills and keeps the yield; you carry the risk and receive none of the return. That is a return-free risk, and it is the largest pool of idle capital in crypto.
 
-**1. You choose your risk. You are not pooled into one.**
+The demand to fix this is already visible in the data: more than $670 billion in stablecoin loans have been originated over the past five years, with on-chain lending running above $50 billion a month. Once people hold stablecoins, they look for a return on them. The question Synclear answers is not "what is a better dollar," but "what is the best way to put the dollars you already hold to work."
 
-Ethena and Falcon each issue a single dollar backed by a single pooled strategy set. When you hold USDe or USDf, you hold that protocol's entire risk posture, whatever it happens to be. With Ethena, that means exposure to perpetual funding rates, which is why sUSDe yield has ranged from 4% to 35% and can compress toward zero when funding turns negative, as it did in the October 2025 unwind that took USDe supply from roughly $14B down to under $6B. With Falcon, it means backing that includes a wide set of assets: alongside BTC, ETH, and stablecoins, Falcon accepts long-tail tokens such as SOL, AVAX, NEAR, and TON as collateral. Falcon manages this with overcollateralization and an insurance fund, and it is a legitimate design, but every USDf holder shares that collateral base whether they would choose it or not.
+#### The ways to earn on stablecoins today, and what each gives up
 
-Synclear does not pool everyone into one dollar. Each product carries its own backing and its own risk, and the user selects the tier: Open Savings holds only treasury bills, on-chain lending, and cash; Gated Savings adds a delta-neutral sleeve capped at roughly 10 to 20 percent; the funds take defined strategy risk for those who opt in. Reaching for more yield is a choice the user makes, not a property of a single token they must hold to participate. This is the difference between an asset manager and a single-strategy issuer.
+Every existing option forces a single tradeoff on the holder.
 
-**2. Diversified yield, including a source uncorrelated with crypto**
+<figure><img src="../.gitbook/assets/Image 7-8-26 at 3.36 PM.png" alt=""><figcaption></figcaption></figure>
 
-Ethena's yield comes from one place: perpetual funding. That is an elegant engine, and in positive-funding regimes it pays well, but it rises and falls with crypto market sentiment, and its worst periods coincide with everyone else's. Falcon diversifies across funding, spreads, staking, and options, which is genuinely more robust.
+**Fiat stablecoins (USDC, USDT).** Deep, liquid, and trusted, but return-free by design. The yield exists; it goes to the issuer, not to you.
 
-Synclear diversifies further, and adds a source none of the synthetic-dollar protocols hold: credit. Interest from lending to real businesses is driven by those businesses' economics, not by perpetual funding rates, so it does not move in lockstep with crypto sentiment. Combined with treasury-bill yield, on-chain lending, the delta-neutral sleeve, and the options book, this gives Synclear a yield base that draws from several independent regimes rather than one. Where a strategy is already run best by someone else, Synclear allocates to it rather than rebuilding it: the delta-neutral exposure routes to Ethena and Theo. The ecosystem is treated as a set of suppliers, not competitors.
+**Single-strategy synthetic dollars (Ethena, Falcon).** These put backing to work, and they proved the model, but each issues one dollar over one pooled strategy set, and holding it means holding that entire posture. Ethena, at roughly $5.6 to $5.9 billion in supply, earns from a single source, perpetual funding, which is why its yield has swung between about 4 and 35 percent and compresses toward zero when funding turns negative, as it did in the October 2025 unwind that cut its supply from a peak near $14 billion. Falcon, near $2 billion in TVL and Synclear's closest peer, diversifies its strategies more and manages risk with overcollateralization and an insurance fund, which is a genuinely strong design. But it accepts a wide collateral base, including long-tail tokens such as SOL, AVAX, NEAR, and TON, and every USDf holder shares that base whether they would choose it or not.
 
-**3. Credit origination, and done differently from those who tried it**
+**Curated savings (Sky).** Conservative and dependable, but a single rate for everyone. The Sky Savings Rate sat at 3.75 percent in Q2 2026. There is no way to reach for more within the product, and no credit exposure at all.
 
-This is the axis that separates Synclear from the entire synthetic-dollar field, none of which originates credit, and from the two protocols that did.
+**On-chain credit (Maple, Goldfinch).** The one genuinely differentiated yield source, and the hardest to do well. Maple, the category leader at roughly $2 to $4 billion in TVL, lends to crypto trading firms for basis trades and inventory; when a borrower fails, recovery runs off-chain, and as one risk report puts it, there is nothing to seize on-chain, so lenders wait months or years for lawyers. Goldfinch tried to lend to real-world businesses and could not enforce repayment off-chain; after roughly $100 million originated and a string of defaults, it began winding down in 2026, with at least one large depositor recovering only about 30 percent of principal.
 
-**Against Maple.** Maple is the most successful on-chain credit protocol, near $2.1–3.9B in TVL and the category leader, rebuilt with real discipline after its 2022 failure. Credit is due there. But Maple lends to crypto-native trading firms for basis trades and inventory, secured either by overcollateralized crypto or, for vetted institutions, by underwriting and legal agreements. When one of those borrowers fails, recovery runs off-chain: as one risk report puts it plainly, there is nothing to seize on-chain, and lenders wait months or years for lawyers. Synclear lends to operating businesses against their on-chain revenue, and repayment runs through automated capture at the source of that revenue. Recovery is mechanical and continuous, not a lawsuit after the fact.
+#### The gap
 
-**Against Goldfinch.** Goldfinch is the cautionary tale, and it is a recent one: after roughly $100M originated over six years and a string of defaults, Tugende, Stratos, Lend East, it began winding down in June 2026, with at least one large depositor reporting recovery of only about 30 percent of principal. Its model was to lend to off-chain businesses in emerging markets, where, in the words of one critic, the borrower could literally flee and there were no credit bureaus and no practical legal recovery. The lesson its own founder drew was blunt: putting emerging-market credit on-chain does not make underwriting it any easier. Synclear inverts the part that killed Goldfinch. It lends only where revenue is already on-chain and can be captured at the source, so repayment does not depend on off-chain collection or a borrower's willingness to pay. The borrower cannot divert revenue the protocol is already capturing.
+Read the branches together and the missing one is clear. No existing option lets a holder **choose their own level of risk, across a yield base diversified enough to hold up in any regime, that includes credit originated safely.** Each forces one tradeoff: earn nothing, or accept one pooled posture, or accept one capped rate, or accept credit risk recovered through a courtroom. That gap is the design space Synclear was built to fill.
+
+#### Synclear: the resolution
+
+Synclear is an on-chain asset manager that puts existing stablecoins to work and lets the holder choose how far up the risk curve to go.
+
+**You choose your risk; you are not pooled into one.** Open Savings holds only treasury bills, on-chain lending, and cash. Gated Savings adds a delta-neutral sleeve capped at roughly 10 to 20 percent. The Options Yield Fund and Cashflow Credit Fund take defined strategy risk for those who opt in. Each is ring-fenced from the others, so reaching for more yield is a decision the holder makes, not a property of a single token they must hold.
+
+**The yield base is diversified, and includes a source uncorrelated with crypto.** Treasury-bill yield, on-chain lending, a delta-neutral sleeve, an options book, and credit. Interest from lending to real businesses is driven by those businesses' economics, not by perpetual funding, so it does not fall in lockstep with crypto sentiment the way a single-strategy dollar does. Where a strategy is already run best elsewhere, Synclear allocates to it rather than rebuilding it: the delta-neutral exposure routes to Ethena and Theo. The ecosystem is a set of suppliers, not competitors to displace.
+
+**Credit is originated, and originated differently.** This is the axis no synthetic-dollar protocol offers and the two credit protocols could not do safely. Synclear lends to on-chain businesses against their on-chain revenue, and repayment runs through automated capture at the source of that revenue.
+
+> **\[Diagram 3: capture versus recovery]** Two flows side by side. Top, "the old way (Maple, Goldfinch)": Loan → Borrower → Default → Off-chain lawsuit → Partial recovery, months later. Bottom, "Synclear": Loan → Borrower's on-chain revenue → Automated capture at source → Continuous, mechanical repayment. The contrast makes the point without a caption: one waits for a courtroom, the other collects at the source.
 
 #### Lessons from the failures
 
 The largest collapses in this category trace to a few root causes. Synclear rules out each by structure.
 
-**Reflexive dollars (Terra, 2022).** UST was backed by its own sister token rather than by real assets. When confidence fell, backing and dollar fell together, and roughly $40B evaporated in days. Synclear holds real, dollar-stable assets, verifiable on-chain, and no product depends on the price of a Synclear-issued token to stay whole.
+**Reflexive dollars (Terra, 2022).** UST was backed by its own sister token rather than by real assets; when confidence fell, backing and dollar fell together, and roughly $40 billion evaporated in days. Synclear holds real, dollar-stable assets, verifiable on-chain, and no product depends on the price of a Synclear-issued token to stay whole.
 
-**Unsecured, concentrated credit (Maple v1, 2022).** When Orthogonal Trading concealed its FTX exposure and defaulted, it took $36M across eight loans, about 30 percent of Maple's active loans at the time, and the main pool lost 80 percent of remaining capital because it had lent most of its funds to that single borrower. Synclear isolates every borrower in its own market, so one default cannot spread, underwrites on live cash-flow data rather than trust, and captures revenue at the source rather than relying on the borrower to repay.
+**Unsecured, concentrated credit (Maple v1, 2022).** When Orthogonal Trading concealed its FTX exposure and defaulted, it took $36 million across eight loans, about 30 percent of Maple's active loans at the time, and the main pool lost 80 percent of remaining capital because most of it had gone to that single borrower. Synclear isolates every borrower in its own market, underwrites on live cash-flow data rather than trust, and captures revenue at the source.
 
-**Credit that cannot be enforced on-chain (Goldfinch, wound down 2026).** Off-chain borrowers, off-chain collection, no enforceable recovery. Synclear captures on-chain revenue directly, so repayment is mechanical rather than dependent on a promise or a courtroom.
+**Credit that cannot be enforced on-chain (Goldfinch, wound down 2026).** Off-chain borrowers, off-chain collection, no enforceable recovery. Synclear lends only where revenue is already on-chain and can be captured directly, so repayment is mechanical rather than dependent on a promise or a courtroom.
 
 #### Where this leaves Synclear
 
-Synclear enters a proven category against real incumbents, and it does not claim their scale. What it claims is a design that combines what the survivors got right and avoids what the failures got wrong: an asset manager that lets each user choose their own risk rather than pooling everyone into one dollar, a yield base diversified across independent sources including credit, and a credit book that originates against on-chain revenue captured at the source, the one thing the synthetic-dollar field does not do and the two credit protocols that tried it could not do safely. The numbers above belong to the incumbents today. The design is Synclear's argument for why it belongs among them.
+Synclear enters a proven category against real incumbents, and it does not claim their scale. What it claims is the one position none of them occupies: an asset manager that lets each holder choose their own risk rather than pooling everyone into one dollar, a yield base diversified across independent sources including credit, and a credit book originated against on-chain revenue captured at the source. The dollars already won. Synclear is the best way to put them to work.
 
-***
+#### References
 
+Figures are drawn from public dashboards and reporting as of Q2 2026 and change continuously. Verify against live sources before relying on any number.
+
+1. Stablecoin market cap (\~$315B), issuer share (USDT and USDC \~83%), Treasury holdings (>$150B): CoinLaw and DefiLlama, mid-2026.
+2. Stablecoin transaction volume (\~$33T in 2025, adjusted basis rivaling Visa): Visa Onchain Analytics, Artemis, and World Economic Forum reporting.
+3. Monthly active stablecoin users (tens of millions): Visa Onchain Analytics.
+4. Stablecoin lending (>$670B cumulative originated, >$50B monthly): Stablecoin Insider / Artemis.
+5. Ethena (USDe supply \~$5.6-5.9B, sUSDe APY range, October 2025 unwind): DeFiLlama, Ethena dashboard, Eco / Stablecoin Insider.
+6. Falcon Finance (TVL \~$2B, collateral set, insurance fund): IQ.wiki, Messari, CoinMarketCap.
+7. Sky Savings Rate (3.75%, Q2 2026): Sky governance, via Eco.
+8. Maple Finance (TVL \~$2-4B, lending model, off-chain recovery): DeFiLlama, OAK Research, Hindenrank.
+9. Maple v1 / Orthogonal default (Dec 2022, $36M across eight loans, \~30% of active loans, \~80% pool loss): The Block, via subsequent reporting.
+10. Goldfinch (\~$100M originated, 2026 wind-down, \~30% principal recovery reported): The Defiant, DL News, CoinDesk.
+11. Terra / UST collapse (\~$40B, May 2022): contemporaneous reporting; confirm exact figure at publish time.
