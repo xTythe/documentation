@@ -6,7 +6,7 @@ Stablecoins are the settled question of this cycle. The total stablecoin supply 
 
 The point is simple: the dollar problem is solved. The market does not need another stablecoin to compete with established infrastructure, and Synclear does not try to be one.
 
-<figure><img src="../.gitbook/assets/Image 7-8-26 at 5.37 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Image 7-8-26 at 8.13 PM.png" alt=""><figcaption></figcaption></figure>
 
 #### The open problem is what those dollars earn
 
@@ -18,7 +18,7 @@ The demand to fix this is already visible in the data: more than $670 billion in
 
 Every existing option forces a single tradeoff on the holder.
 
-<figure><img src="../.gitbook/assets/Image 7-8-26 at 5.31 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Image 7-8-26 at 8.14 PM.png" alt=""><figcaption></figcaption></figure>
 
 **Fiat stablecoins (USDC, USDT).** Deep, liquid, and trusted, but return-free by design. The yield exists; it goes to the issuer, not to you.
 
@@ -52,7 +52,7 @@ The largest collapses in this category trace to a few root causes. Synclear rule
 
 **Credit that cannot be enforced on-chain (Goldfinch, wound down 2026).** Off-chain borrowers, off-chain collection, no enforceable recovery. Synclear lends only where revenue is already on-chain and can be captured directly, so repayment is mechanical rather than dependent on a promise or a courtroom.
 
-<figure><img src="../.gitbook/assets/Image 7-8-26 at 6.03 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Image 7-8-26 at 8.14 PM (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Where this leaves Synclear
 
