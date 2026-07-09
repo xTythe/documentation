@@ -8,7 +8,9 @@
 
 ## Savings Accounts
 
-* [Page 1](savings-accounts/page-1.md)
+* [Savings Overview](savings-accounts/savings-overview.md)
+* [Open Savings](savings-accounts/open-savings.md)
+* [Managed Savings](savings-accounts/managed-savings.md)
 
 ## Investment Funds
 

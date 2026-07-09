@@ -1,3 +1,7 @@
+---
+description: Why Synclear
+---
+
 # Comparative Analysis
 
 #### The dollars already won
@@ -22,7 +26,7 @@ Every existing option forces a single tradeoff on the holder.
 
 **Fiat stablecoins (USDC, USDT).** Deep, liquid, and trusted, but return-free by design. The yield exists; it goes to the issuer, not to you.
 
-**Single-strategy synthetic dollars (Ethena, Falcon).** These put backing to work, and they proved the model, but each issues one dollar over one pooled strategy set, and holding it means holding that entire posture. Ethena, at roughly $5.6 to $5.9 billion in supply, earns from a single source, perpetual funding, which is why its yield has swung between about 4 and 35 percent and compresses toward zero when funding turns negative, as it did in the October 2025 unwind that cut its supply from a peak near $14 billion. Falcon, near $2 billion in TVL and Synclear's closest peer, diversifies its strategies more and manages risk with overcollateralization and an insurance fund, which is a genuinely strong design. But it accepts a wide collateral base, including long-tail tokens such as SOL, AVAX, NEAR, and TON, and every USDf holder shares that base whether they would choose it or not.
+**Pooled-strategy synthetic dollars (Ethena, Falcon).** These put backing to work, and they proved the model, but each issues one dollar over one pooled strategy set, and holding it means holding that entire posture. Ethena, at roughly $5.6 to $5.9 billion in supply, earns from a single source, perpetual funding, which is why its yield has swung between about 4 and 35 percent and compresses toward zero when funding turns negative, as it did in the October 2025 unwind that cut its supply from a peak near $14 billion. Falcon, near $1.5 billion in TVL and Synclear's closest peer, diversifies its strategies more and manages risk with overcollateralization and an insurance fund, which is a genuinely strong design. But it accepts a wide collateral base, including long-tail tokens (such as altcoins and governance tokens), and every USDf holder shares that yield base whether they would choose it or not.
 
 **Curated savings (Sky).** Conservative and dependable, but a single rate for everyone. The Sky Savings Rate sat at 3.75 percent in Q2 2026. There is no way to reach for more within the product, and no credit exposure at all.
 
@@ -36,9 +40,9 @@ Read the branches together and the missing one is clear. No existing option lets
 
 Synclear is an on-chain asset manager that puts existing stablecoins to work and lets the holder choose how far up the risk curve to go.
 
-**You choose your risk; you are not pooled into one.** Open Savings holds only treasury bills, on-chain lending, and cash. Gated Savings adds a delta-neutral sleeve capped at roughly 30 to 40 percent. The Options Yield Fund and Cashflow Credit Fund take defined strategy risk for those who opt in. Each is ring-fenced from the others, so reaching for more yield is a decision the holder makes, not a property of a single token they must hold.
+**You choose your risk; you are not pooled into one.** Open Savings holds only treasury bills, on-chain lending, and cash. Managed Savings actively reallocates across the Open Savings base plus a delta-neutral sleeve to reach for more yield within conservative limits. The Options Yield Fund and Cashflow Credit Fund take defined strategy risk for those who opt in. Each is ring-fenced from the others, so reaching for more yield is a decision the holder makes, not a property of a single token they must hold.
 
-**The yield base is diversified, and includes a source uncorrelated with crypto.** Treasury-bill yield, on-chain lending, a delta-neutral sleeve, an options book, and credit. Interest from lending to real businesses is driven by those businesses' economics, not by perpetual funding, so it does not fall in lockstep with crypto sentiment the way a single-strategy dollar does. Where a strategy is already run best elsewhere, Synclear allocates to it rather than rebuilding it: the delta-neutral exposure routes to Ethena and Theo. The ecosystem is a set of suppliers, not competitors to displace.
+**The yield base is diversified, and includes a source uncorrelated with crypto.** Treasury-bill yield, on-chain lending, delta-neutral opportunities, an options book, and natively originated credit. Interest from lending to real businesses is driven by those businesses' economics, not by perpetual funding, so it does not fall in lockstep with crypto sentiment the way a single-strategy dollar does. Where a strategy is already run best elsewhere, Synclear allocates to it rather than rebuilding it: the delta-neutral exposure routes to Ethena and Theo. The ecosystem is a set of suppliers, not competitors to displace.
 
 **Credit is originated, and originated differently.** This is the axis no synthetic-dollar protocol offers and the two credit protocols could not do safely. Synclear lends to on-chain businesses against their on-chain revenue, and repayment runs through automated capture at the source of that revenue.
 
@@ -56,7 +60,7 @@ The largest collapses in this category trace to a few root causes. Synclear rule
 
 #### Where this leaves Synclear
 
-Synclear enters a proven category against real incumbents, and it does not claim their scale. What it claims is the one position none of them occupies: an asset manager that lets each holder choose their own risk rather than pooling everyone into one dollar, a yield base diversified across independent sources including credit, and a credit book originated against on-chain revenue captured at the source. The dollars already won. Synclear is the best way to put them to work.
+Synclear enters a proven category against real incumbents, and it does not claim their scale. What it claims is the one position none of them occupies: an asset manager that lets each holder choose their own risk rather than pooling everyone into one dollar, a yield base diversified across independent sources, and a credit book originated against on-chain revenue captured at the source. The dollars already won. Synclear is simply the best way to put them to work.
 
 #### References
 
