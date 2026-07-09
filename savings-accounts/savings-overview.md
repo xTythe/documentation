@@ -8,7 +8,7 @@ Open Savings is the permissionless baseline. It is open to everyone with no veri
 
 Managed Savings is the conservative way to chase yield. It holds the same base as Open Savings and adds a delta-neutral sleeve, then actively manages the whole mix. An algorithmic manager reallocates across the account's strategies within protocol-defined risk limits, moving toward whichever is paying best as conditions change. The posture stays conservative throughout, but the account works to earn more than a static mix would. Because it deploys into managed strategies and holds assets under institutional custody, it requires identity verification.
 
-|                | Open Savings                           | Managed Savings                                |
+| --             | Open Savings                           | Managed Savings                                |
 | -------------- | -------------------------------------- | ---------------------------------------------- |
 | **Objective**  | Protect funds, earn a baseline return  | Actively reach for more yield within limits    |
 | **Access**     | Everyone, no verification              | Verified users (KYC)                           |
