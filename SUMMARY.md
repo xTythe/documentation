@@ -8,15 +8,19 @@
 
 ## Savings Accounts
 
-* [Savings Overview](savings-accounts/savings-overview.md)
-* [Open Savings](savings-accounts/open-savings.md)
-* [Managed Savings](savings-accounts/managed-savings.md)
+* [Overview](savings-accounts/overview.md)
+* [Open Savings Account](savings-accounts/open-savings-account.md)
+* [Managed Savings Account](savings-accounts/managed-savings-account.md)
 
 ## Investment Funds
 
-* [Peg Stability Module (PSM)](investment-funds/peg-stability-module-psm.md)
+* [Overview](investment-funds/overview.md)
+* [Options Yield Fund](investment-funds/options-yield-fund.md)
+* [Cashflow Credit Fund](investment-funds/cashflow-credit-fund.md)
 
 ## Credit Markets
+
+* [Page 1](credit-markets/page-1.md)
 
 ## Protocol Resources
 

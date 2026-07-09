@@ -24,7 +24,7 @@ metaLinks: {}
 
 # Welcome to Synclear
 
-Synclear is an on-chain asset manager. You deposit the stablecoins you already hold (such as USDC, USDT, USD1, USDe, USDG, USDS, PYUSD, and RLUSD), and Synclear puts them to work across savings, investment funds, and credit.
+Synclear is an on-chain asset manager. You deposit the stablecoins you already hold (such as USDC, USDT, USD1, USDe, USDG, DAI/USDS, PYUSD, and RLUSD), and Synclear puts them to work across savings, investment funds, and credit.
 
 Backing is verifiable on-chain, risk is measured and bounded rather than hidden. Synclear leverages established managers like Ethena and Theo rather than rebuilding what already works.
 
