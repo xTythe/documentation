@@ -1,12 +1,11 @@
-# Savings Overview
+# Overview
 
 Savings Accounts are the conservative core of Synclear. You deposit a stablecoin you already hold and earn a return on it while it stays a dollar. There are two accounts, Open Savings and Managed Savings. They share the same conservative DNA and differ in their objective: Open Savings protects your funds while earning a baseline return, and Managed Savings actively reaches for more yield within conservative limits.
 
 #### The two accounts
 
-Open Savings is the permissionless baseline. It is open to everyone with no verification and holds only conservative, dollar-stable positions: tokenized treasury bills, on-chain overcollateralized lending, and liquid stablecoins held as cash. It takes no market exposure and is designed to protect capital while earning a steady, near risk-free return. It is the simplest way to put idle dollars to work.
-
-Managed Savings is the conservative way to chase yield. It holds the same base as Open Savings and adds a delta-neutral sleeve, then actively manages the whole mix. An algorithmic manager reallocates across the account's strategies within protocol-defined risk limits, moving toward whichever is paying best as conditions change. The posture stays conservative throughout, but the account works to earn more than a static mix would. Because it deploys into managed strategies and holds assets under institutional custody, it requires identity verification.
+1. **Open Savings** is the permissionless baseline. It is open to everyone with no verification and holds only conservative, dollar-stable positions: tokenized treasury bills, on-chain overcollateralized lending, and liquid stablecoins held as cash. It takes no market exposure and is designed to protect capital while earning a steady, near risk-free return. It is the simplest way to put idle dollars to work.
+2. **Managed Savings** is the conservative way to chase yield. It holds the same base as Open Savings and adds a delta-neutral sleeve (Synclear's own hedged options strategy, Ethena's crypto funding strategy, and Theo's gold carry strategy), then actively manages the whole mix. An algorithmic manager reallocates across the account's strategies within protocol-defined risk limits, moving toward whichever is paying best as conditions change. The posture stays conservative throughout, but the account works to earn more than a static mix would. Because it deploys into managed strategies and holds assets under institutional custody, it requires identity verification.
 
 | --             | Open Savings                           | Managed Savings                                |
 | -------------- | -------------------------------------- | ---------------------------------------------- |
@@ -15,13 +14,7 @@ Managed Savings is the conservative way to chase yield. It holds the same base a
 | **Strategies** | Treasury bills, on-chain lending, cash | The same, plus delta-neutral strategies        |
 | **Management** | Conservatively held                    | Actively reallocated by an algorithmic manager |
 
-#### How the strategies work
-
-Open Savings holds three conservative building blocks: tokenized treasury bills (such as BUIDL and USDY), on-chain overcollateralized lending (such as Aave and Morpho), and liquid stablecoins as cash. Each earns a dollar-denominated return that does not move with the crypto market.
-
-Managed Savings holds those same three, plus a delta-neutral sleeve made up of Synclear's own hedged options strategy, Ethena's crypto funding strategy, and Theo's gold carry strategy. Delta-neutral means each position is hedged so it holds its dollar value regardless of market direction, which is what keeps the account conservative even as it reaches for more yield.
-
-What makes Managed Savings distinct is that the allocation is not fixed. An algorithmic manager continuously shifts capital across these strategies within protocol-defined risk boundaries to capture the best available yield. If, for example, crypto funding rates spike and the funding strategy's return rises sharply, the manager can move more of the account toward it, then move back as conditions normalise. The result is a conservative portfolio that is actively worked, rather than a static one.
+<figure><img src="../.gitbook/assets/Image 7-10-26 at 11.50 PM.png" alt=""><figcaption></figcaption></figure>
 
 #### How savings work
 
