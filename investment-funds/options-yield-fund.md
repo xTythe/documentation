@@ -16,6 +16,8 @@ The Options Yield Fund is a floating-NAV product. Its share price rises when the
 
 This is a strategy that earns steadily in most conditions and can lose sharply in rare ones. It suits investors who understand that profile and want exposure to it, not those looking for a stable-value place to hold dollars. For that, the savings accounts are the right choice.
 
+<figure><img src="../.gitbook/assets/Image 7-11-26 at 2.05 PM.png" alt=""><figcaption></figcaption></figure>
+
 #### How to use the fund
 
 {% stepper %}

@@ -35,23 +35,25 @@ The tail risk worth naming is correlation. In a broad downturn, many borrowers c
 
 At launch, the book is deliberately conservative: short loan terms, modest advances, high-quality borrowers, and small initial ticket sizes, scaled up only as the book builds a track record.
 
+<figure><img src="../.gitbook/assets/Image 7-11-26 at 2.00 PM.png" alt=""><figcaption></figcaption></figure>
+
 #### How to use the fund
 
 {% stepper %}
 {% step %}
-### **Invest**
+#### **Invest**
 
 Once verified, invest with a supported stablecoin. In return you receive a fund share, an ERC-4626 token representing your stake in the loan book.
 {% endstep %}
 
 {% step %}
-### **Earn**
+#### **Earn**
 
 The share's value floats with the fund's net asset value, rising as the book earns interest. There is nothing to claim; the return accrues in the share.
 {% endstep %}
 
 {% step %}
-### **Redeem**
+#### **Redeem**
 
 Redeem the share for its current value, subject to the fund's liquidity terms. Because the underlying is a book of loans rather than instantly liquid assets, redemptions may be subject to available liquidity or a notice period.
 {% endstep %}

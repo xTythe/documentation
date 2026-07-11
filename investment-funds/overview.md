@@ -2,6 +2,8 @@
 
 Investment Funds are where Synclear steps beyond savings into higher-yield strategies. Where the savings accounts are designed to hold their value, the funds take defined strategy risk in exchange for higher potential return, and you hold that return and its risk directly. There are two funds at launch, the Options Yield Fund and the Cashflow Credit Fund, both available to verified users.
 
+<figure><img src="../.gitbook/assets/Image 7-11-26 at 2.21 PM.png" alt=""><figcaption></figcaption></figure>
+
 #### Funds versus savings
 
 The difference between a fund and a savings account is where the risk sits.

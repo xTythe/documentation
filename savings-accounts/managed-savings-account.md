@@ -40,6 +40,8 @@ It does not cover strategy losses. The sleeve losing value because funding turne
 
 #### How to use Managed Savings
 
+<figure><img src="../.gitbook/assets/Image 7-11-26 at 1.29 PM.png" alt=""><figcaption></figcaption></figure>
+
 {% stepper %}
 {% step %}
 #### **Deposit**

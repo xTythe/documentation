@@ -1,4 +1,4 @@
-# Open Savings
+# Open Savings Account
 
 Open Savings is the permissionless, conservative foundation of Synclear. Deposit a stablecoin and earn a steady, dollar-denominated return while your funds stay in minimal-risk, dollar-stable positions. It is open to everyone, with no verification, no lockup, and no jurisdictional restriction. Its purpose is simple: protect your capital while it earns.
 
@@ -21,6 +21,8 @@ The return on Open Savings is the blended yield of its backing: the treasury-bil
 Open Savings is deliberately similar to conservative savings products found elsewhere in the market. What it offers is a dependable, permissionless baseline, not a novel or elevated yield. Users who want more can move to Managed Savings or the investment funds.
 
 #### How to use Open Savings
+
+<figure><img src="../.gitbook/assets/Image 7-11-26 at 1.31 PM.png" alt=""><figcaption></figcaption></figure>
 
 {% stepper %}
 {% step %}
