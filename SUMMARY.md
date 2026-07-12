@@ -20,7 +20,11 @@
 
 ## Credit Markets
 
-* [Page 1](credit-markets/page-1.md)
+* [Overview](credit-markets/overview.md)
+* [Credit Markets for Businesses](credit-markets/credit-markets-for-businesses/README.md)
+  * [How Borrowing Works](credit-markets/credit-markets-for-businesses/how-borrowing-works.md)
+  * [Collateral & Terms](credit-markets/credit-markets-for-businesses/collateral-and-terms.md)
+  * [Repayment, Health, & Default](credit-markets/credit-markets-for-businesses/repayment-health-and-default.md)
 
 ## Protocol Resources
 
@@ -28,4 +32,7 @@
 
 ## Protocol Roadmap
 
-* [Page 4](protocol-roadmap/page-4.md)
+* [Credit Markets for Individuals](protocol-roadmap/credit-markets-for-individuals/README.md)
+  * [How Borrowing Works](protocol-roadmap/credit-markets-for-individuals/how-borrowing-works.md)
+  * [Your Credit Score](protocol-roadmap/credit-markets-for-individuals/your-credit-score.md)
+  * [Liquidation & Risk](protocol-roadmap/credit-markets-for-individuals/liquidation-and-risk.md)
