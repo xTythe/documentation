@@ -28,6 +28,10 @@
 
 ## Protocol Resources
 
+* [Transparency Dashboard](protocol-resources/transparency-dashboard.md)
+* [Audits & Security](protocol-resources/audits-and-security.md)
+* [Providers](protocol-resources/providers.md)
+* [Fees](protocol-resources/fees.md)
 * [Risk Disclosure](protocol-resources/risk-disclosure.md)
 
 ## Protocol Roadmap
