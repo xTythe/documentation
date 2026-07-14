@@ -50,4 +50,4 @@ The credit markets lend to on-chain businesses, and the discipline behind that l
 
 Synclear is operated by a registered Delaware C-corporation. Access reflects a compliance-oriented design: depositing into Open Savings is open to everyone with no verification, while the Managed Savings tier, the investment funds, and borrowing require identity verification (KYC for individuals, KYB for businesses) and are subject to the rules of each user's jurisdiction. Users are responsible for compliance with the laws that apply to them.
 
-For the underlying evidence, audit reports, disclosures, oracle specifications, and the live transparency dashboard, see Protocol Resources. Before depositing into any product, please read the Risk Disclosure in full.
+For the underlying evidence, audit reports, disclosures, oracle specifications, and the live transparency dashboard, see Protocol Resources. Before depositing into any product, please read the [Risk Disclosure](../protocol-resources/risk-disclosure.md) in full.
