@@ -23,7 +23,7 @@ Synclear scores you from 300 to 850, on the same scale used for the business boo
 | **Capital Solvency** | Your capacity to sustain a position: liquid reserves against debt, and net worth against position size          |
 | **Operator Quality** | Your discipline: above all, whether you act when a position deteriorates, or drift toward liquidation           |
 
-A wallet without enough history to score does not receive a neutral benefit of the doubt. It scores low, and it earns no discount. Full detail is on Your Score.
+A wallet without enough history to score does not receive a neutral benefit of the doubt. It scores low, and it earns no discount. Full detail is on [Your Synclear Credit Score](your-synclear-credit-score.md).
 
 #### Step 3: Your offer
 

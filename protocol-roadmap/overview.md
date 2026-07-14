@@ -4,7 +4,7 @@ Synclear launches as an on-chain asset manager and credit originator: two saving
 
 What follows extends that in two directions. It deepens origination, which is the part of Synclear no one else does, and it scales the asset-management platform. Nothing on this roadmap diversifies into products that others already run better, because routing capital to them is more useful than competing with them.
 
-**Nothing here has a date.** Each item ships when its dependencies are met, and each dependency is stated. A roadmap with dates is a roadmap that becomes untrue.
+**Nothing here has a date.** Each item ships when its dependencies are met, and each dependency is stated.
 
 ***
 
@@ -50,7 +50,7 @@ Tokenized treasuries are the right collateral to start with because their value 
 
 Today, lending to Synclear's borrowers means investing in the Cashflow Credit Fund and holding a diversified book. Order-book credit lets a lender read the underwriting on a specific business and fund that loan directly, choosing exactly which borrowers they lend to.
 
-It is a sharper instrument, and a more dangerous one. A lender who funds a single loan holds that borrower's risk undiluted, where the fund spreads it across many. It is built for lenders who want that, and the pooled fund continues to backstop what the order book does not fill.
+It is a sharper and more robust instrument. A lender who funds a single loan holds that borrower's risk undiluted, where the fund spreads it across many. It is built for lenders who want that, and the pooled fund continues to backstop what the order book does not fill.
 
 **Gated on:** enough lender depth that loans actually fill, and a track record that makes per-loan underwriting legible to those reading it.
 
@@ -80,10 +80,10 @@ _SNC_ is Synclear's token, launching around mainnet. It is designed to do three 
 
 **Govern.** _SNC_ holders vote on protocol parameters: risk limits, fees, strategy approvals, and treasury allocation.
 
-**Backstop.** Staked _SNC_ absorbs shortfalls, so stakers accept slashing risk in exchange for a share of protocol revenue. This makes the token part of the protocol's safety layer rather than a claim on it.
+**Backstop.** Staked _SNC_ absorbs shortfalls, so stakers accept slashing risk in exchange for a share of protocol revenue. This makes the token part of the protocol's safety layer.
 
-**Accrue value.** Protocol revenue funds _SNC_ buybacks, after the first-loss buffer and insurance reserves are funded. Buffers come first, always. A protocol that pays its token holders before it capitalises its own safety layer has its priorities inverted.
+**Accrue value.** Protocol revenue funds _SNC_ buybacks, after the credit book's first-loss buffer and the protocol's insurance reserves are funded. Insurance and cover come first, always.
 
 Synclear will remain CeDeFi in structure. Underwriting a borrower, holding assets with a custodian, and enforcing a defaulted loan all require a legal entity, and no vote can perform them. What decentralises is stewardship of the protocol's parameters, not the operation of its credit desk. Saying otherwise would be a decentralisation theatre that this protocol has no interest in performing.
 
-**Full detail, including supply, distribution, and the revenue model, will be published in a separate tokenomics paper.** It is not summarised here, because a token deserves a real document rather than a paragraph.
+**Full detail, including supply, distribution, and the revenue model, will be published in a separate tokenomics paper.** It is not summarised here.

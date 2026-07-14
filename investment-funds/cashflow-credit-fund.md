@@ -20,12 +20,17 @@ Two further features contain risk. Every borrower sits in its own isolated marke
 
 #### Insurance
 
-Two forms of insurance sit alongside the waterfall.
+The only form of insurance sits alongside the waterfall.
 
-* **Underwriting Insurance** reimburses losses that trace to an error in Synclear's own underwriting, our fault in assessing a borrower, provided through a third-party underwriter and adjudicated by independent technical investigation. It exists so that if we underwrite badly, we bear it, not you.
 * **Smart-contract insurance**, provided by Chainproof and Nexus Mutual, covers losses from a technical failure or exploit of the fund's contracts.
 
-The boundary matters. Neither insurance covers ordinary credit losses. A soundly-underwritten borrower who still defaults is the credit risk you knowingly take in exchange for the yield; the insurance covers Synclear's failures, not the risk you opted into.
+#### First-loss cover
+
+The first-loss buffer is Synclear's capital, funded from protocol revenue and seed capital, and it sits below you in the waterfall. Losses on the loan book hit it before they hit you, whatever caused them. There is no claim to file, no adjudication, and no argument about whether a default was our error or ordinary credit risk. If the book performs badly, Synclear's capital is destroyed first.
+
+This is deliberate, and it is the strongest thing we can tell you about our underwriting. An originator that takes the first loss on its own book has every reason to underwrite it honestly. An originator that sells you the whole risk and keeps the fee does not.
+
+Beyond the buffer, a soundly underwritten borrower who still defaults is the credit risk you knowingly took in exchange for the yield.
 
 #### The honest risk
 

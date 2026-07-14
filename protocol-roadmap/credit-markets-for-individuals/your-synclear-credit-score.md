@@ -2,7 +2,7 @@
 description: Coming with Morpho Midnight. Not available at launch.
 ---
 
-# Your Credit Score
+# Your Synclear Credit Score
 
 Your Synclear credit score runs from 300 to 850. It is built entirely from what you have done on-chain, and it determines how much collateral you post and what you pay.
 
@@ -53,7 +53,7 @@ Three further measures contribute:
 2. **Diversification.** Whether your capital is concentrated in one protocol or spread across several.
 3. **Protocol safety.** Whether you operate through audited, established venues.
 
-Involvement in exploits applies a penalty.
+Involvement in exploits applies a severe penalty.
 
 #### How the score is built
 
@@ -63,11 +63,9 @@ The four subscores are combined into a single number between 300 and 850. The sa
 
 #### What is not in your score
 
-**Your current position.** How risky your open position is right now is not part of your creditworthiness. It is measured separately and continuously as Health Factor and Liquidation Risk, and it governs liquidation, not pricing. Mixing the two would mean that borrowing more made you look less creditworthy, which is circular and wrong.
-
-**Your identity beyond verification.** Synclear scores your on-chain behaviour. It does not import a credit bureau file, and your Synclear score has no relationship to a traditional credit score.
-
-**Your wealth alone.** Capital Solvency measures capacity, but a large balance does not buy a good score. A wealthy wallet that has been liquidated repeatedly scores poorly, and a modest wallet with a clean, disciplined record scores well. The score measures behaviour, and money is not behaviour.
+* **Your current position.** How risky your open position is right now is not part of your creditworthiness. It is measured separately and continuously as Health Factor and Liquidation Risk, and it governs liquidation, not pricing. Mixing the two would mean that borrowing more made you look less creditworthy, which is circular and wrong.
+* **Your identity beyond verification.** Synclear scores your on-chain behaviour. It does not import a credit bureau file, and your Synclear score has no relationship to a traditional credit score.
+* **Your wealth alone.** Capital Solvency measures capacity, but a large balance does not buy a good score. A wealthy wallet that has been liquidated repeatedly scores poorly, and a modest wallet with a clean, disciplined record scores well. The score measures behaviour, and money is not behaviour.
 
 #### Improving your score
 

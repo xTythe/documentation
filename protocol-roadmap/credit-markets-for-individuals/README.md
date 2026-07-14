@@ -42,7 +42,7 @@ Four sub-scores, all drawn from what you have actually done on-chain.
 3. **Capital Solvency.** Your capacity to sustain a position: liquid reserves against outstanding debt, and total on-chain net worth against the size of what you are borrowing.
 4. **Operator Quality.** Discipline, and the strongest single signal in the model: when a position of yours has deteriorated, did you act, topping up or repaying, or did you drift toward liquidation? Alongside how long you have been active, how diversified you are, and whether you use audited protocols.
 
-Full detail is on [Your Credit Score](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/43/protocol-roadmap/credit-markets-for-individuals/your-credit-score).
+Full detail is on [Your Synclear Credit Score](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/43/protocol-roadmap/credit-markets-for-individuals/your-credit-score).
 
 #### Liquidation
 
@@ -66,5 +66,5 @@ Midnight is not yet live. These markets launch when it does, and when the indivi
 #### In this section
 
 * [How Borrowing Works](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/43/protocol-roadmap/credit-markets-for-individuals/how-borrowing-works), from verification to your loan
-* [Your Credit Score](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/43/protocol-roadmap/credit-markets-for-individuals/your-credit-score), the four subscores and how to improve them
+* [Your Synclear Credit Score](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/43/protocol-roadmap/credit-markets-for-individuals/your-credit-score), the four subscores and how to improve them
 * [Liquidation and Risk](https://app.gitbook.com/o/0aiW3e41N69QHIAXxWlx/s/DJA9njN2uMlkeZuQfMaD/~/edit/~/changes/43/protocol-roadmap/credit-markets-for-individuals/liquidation-and-risk), Health Factor, Liquidation Risk, and the honest trade in a higher loan-to-value

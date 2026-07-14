@@ -54,19 +54,15 @@ If a loan is not fully recovered, the loss is absorbed in a fixed order. Each la
 
 Two structural limits contain any single failure. Each borrower sits in an **isolated market**, so a default cannot spread to another loan. And no borrower may hold more than **5% of the fund's deployed capital**, so no single failure can take a meaningful share of lenders' capital. The protocol that lost most of a pool to one borrower did so because neither of these limits existed.
 
-**Underwriting Insurance** sits alongside the waterfall, not inside it. It covers losses caused by an error in Synclear's own underwriting. It does not cover a soundly underwritten borrower who fails anyway. That is ordinary credit risk, and it is carried by the fund's investors, who knowingly accepted it in exchange for the yield.
+> **The first-loss buffer is Synclear's own capital.** It is not insurance, and there is no claim to file. Synclear's takes the hit before any investor is, whatever the cause of the loss. If the underwriting on this page is poor, Synclear pays for it first. That is the alignment behind every loan in the book.
 
 #### What Synclear does not do
 
-**No confession of judgment.** Merchant cash advance contracts have historically required borrowers to sign away their right to contest a claim in advance, allowing the lender to seize assets without a hearing. Synclear requires no such waiver.
-
-**No blanket lien on your business.** Revenue-based lenders routinely file a UCC-1 lien against all of a business's assets, which blocks the business from obtaining other financing. Synclear takes a defined claim on a defined share of revenue, and posted collateral where applicable. Nothing else.
-
-**No stacking.** A business borrowing from Synclear has one loan in one isolated market with one known capture rate. The practice of layering multiple advances until combined capture suffocates a business cannot happen here.
-
-**No discretionary default.** A loan is in default when it meets defined, published conditions. There is no clause permitting Synclear to call the balance because it has formed a subjective view of the borrower.
-
-**No penalty for repaying early.** Interest is charged on the outstanding balance. Repay sooner and you pay less.
+* **No confession of judgment.** Merchant cash advance contracts have historically required borrowers to sign away their right to contest a claim in advance, allowing the lender to seize assets without a hearing. Synclear requires no such waiver.
+* **No blanket lien on your business.** Revenue-based lenders routinely file a UCC-1 lien against all of a business's assets, which blocks the business from obtaining other financing. Synclear takes a defined claim on a defined share of revenue, and posted collateral where applicable. Nothing else.
+* **No stacking.** A business borrowing from Synclear has one loan in one isolated market with one known capture rate. The practice of layering multiple advances until combined capture suffocates a business cannot happen here.
+* **No discretionary default.** A loan is in default when it meets defined, published conditions. There is no clause permitting Synclear to call the balance because it has formed a subjective view of the borrower.
+* **No penalty for repaying early.** Interest is charged on the outstanding balance. Repay sooner and you pay less.
 
 #### For lenders
 

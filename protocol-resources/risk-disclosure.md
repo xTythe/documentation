@@ -41,11 +41,10 @@ Managed Savings carries every Open Savings risk, plus the following.
 
 1. **Credit risk.** You are a lender. Businesses fail, and some loans will not be repaid in full.
 2. **Correlation risk, the tail worth naming.** The book is diversified across many borrowers, which protects it in normal conditions. In a broad downturn, many borrowers can weaken at once, and that diversification protects you least at exactly the moment it matters most.
-3. **The buffer is finite.** A first-loss buffer absorbs initial losses before they reach investors. It is sized against modelled losses, and a loss that exceeds it reduces the value of your investment directly.
-4. **Insurance does not cover ordinary defaults.** Underwriting Insurance covers losses caused by an error in Synclear's own underwriting. A soundly underwritten borrower who fails anyway is ordinary credit risk, and it is yours.
-5. **Capture can fail.** Repayment depends on revenue continuing to arrive at addresses the protocol captures from. A borrower whose revenue collapses has nothing to capture. A borrower who diverts revenue to an address outside the agreement is in breach, and recovery then depends on enforcement against their verified legal identity, which is slower and less certain than capture.
-6. **The loan book has no track record.** Synclear's credit book is new. The loss model behind it is built on external data and conservative assumptions, and until the book has been through a full cycle, its real loss rate is an estimate rather than a measurement.
-7. **Liquidity.** The underlying assets are loans, not instantly liquid instruments. Redemption may be subject to available liquidity or a notice period.
+3. **The buffer is not insurance, and it is finite.** Synclear's first-loss buffer absorbs losses on the loan book before they reach you, whatever the cause. It is Synclear's own capital, not a policy, and there is no claim to file. It is also sized against modelled losses, and a loss that exceeds it reduces the value of your investment directly. Beyond the buffer, credit risk is yours.
+4. **Capture can fail.** Repayment depends on revenue continuing to arrive at addresses the protocol captures from. A borrower whose revenue collapses has nothing to capture. A borrower who diverts revenue to an address outside the agreement is in breach, and recovery then depends on enforcement against their verified legal identity, which is slower and less certain than capture.
+5. **The loan book has no track record.** Synclear's credit book is new. The loss model behind it is built on external data and conservative assumptions, and until the book has been through a full cycle, its real loss rate is an estimate rather than a measurement.
+6. **Liquidity.** The underlying assets are loans, not instantly liquid instruments. Redemption may be subject to available liquidity or a notice period.
 
 #### For borrowers
 

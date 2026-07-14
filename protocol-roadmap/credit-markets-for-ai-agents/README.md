@@ -22,9 +22,8 @@ Tying every agent to a verified principal restores each of those protections. Th
 
 #### The two paths
 
-**A business deploys an agent.** The business passes KYB and is underwritten on its live cash-flow data, exactly as it would be if a human were borrowing. It then authorizes an agent to draw against its credit envelope: to top up working capital when cash runs low, to draw on a schedule, or to manage a position without a person in the loop.
-
-**An individual deploys an agent.** The individual is verified and scored, earning a collateral discount on the loan-to-value they can borrow at. They then authorize an agent to operate within it: to manage collateral, to top up a position when its health falls, to borrow and repay within limits they set.
+1. **A business deploys an agent.** The business passes KYB and is underwritten on its live cash-flow data, exactly as it would be if a human were borrowing. It then authorizes an agent to draw against its credit envelope: to top up working capital when cash runs low, to draw on a schedule, or to manage a position without a person in the loop.
+2. **An individual deploys an agent.** The individual is verified and scored, earning a collateral discount on the loan-to-value they can borrow at. They then authorize an agent to operate within it: to manage collateral, to top up a position when its health falls, to borrow and repay within limits they set.
 
 In both cases the credit decision is made about the principal, before any agent is involved. The agent inherits an envelope. It does not earn one.
 
@@ -38,7 +37,7 @@ The principal can revoke the mandate at any time.
 
 This rests on infrastructure that now exists. ERC-8004, developed jointly by the Ethereum Foundation, MetaMask, Google, and Coinbase and live on mainnet since January 2026, provides on-chain agent identity explicitly designed to link an agent's actions to a verified sponsor. It composes with account abstraction, where a wallet delegates narrow, expiring authority to an agent that never holds raw private keys.
 
-Full detail is on Mandates and Limits.
+Full detail is on [Mandates and Limits](mandates-and-limits.md).
 
 #### The agent's record is the principal's record
 
@@ -48,7 +47,7 @@ This follows from how liability actually works. When an agent acts within the au
 
 The incentive this creates is the correct one. A borrower who deploys a careless agent pays for it in their own score, their own collateral requirement, and their own rate. Nobody will delegate credit decisions to an untested agent when the cost of its mistakes lands on their own borrowing terms.
 
-Full detail is on Accountability and Scoring.
+Full detail is on [Accountability and Scoring](accountability-and-scoring.md).
 
 #### Why this is worth building
 

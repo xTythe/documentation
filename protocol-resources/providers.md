@@ -52,13 +52,12 @@ Open Savings and the conservative base of Managed Savings deploy into the follow
 
 #### 5. Insurance
 
-| Provider                    | Cover                                                                                                                                                                     |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Chainproof**              | Smart-contract failure and exploit. A regulated, institutionally-focused underwriter, with claims adjudicated by independent technical investigation rather than by vote. |
-| **Nexus Mutual**            | Smart-contract failure and exploit.                                                                                                                                       |
-| **Third-party underwriter** | Underwriting error on the Cashflow Credit Fund, adjudicated independently.                                                                                                |
+| Provider         | Cover                                                                                                                                                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Chainproof**   | Smart-contract failure and exploit. A regulated, institutionally-focused underwriter, with claims adjudicated by independent technical investigation rather than by vote. |
+| **Nexus Mutual** | Smart-contract failure and exploit.                                                                                                                                       |
 
-Chaser Insurance, covering technical failure of the algorithmic manager on Managed Savings, is funded by protocol revenue with third-party underwriting where additional capacity is required. Details are on Trust, Transparency & Security.
+Chaser Insurance, covering technical failure of the algorithmic manager on Managed Savings, is funded by protocol revenue. The Cashflow Credit Fund is not insured against credit losses; it is backed by Synclear's own first-loss capital, which absorbs losses before they reach investors. Details are on [Trust, Transparency & Security](../protocol-introduction/trust-transparency-and-security.md).
 
 #### 6. Deposit assets
 

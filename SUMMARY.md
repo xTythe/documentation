@@ -39,7 +39,7 @@
 * [Overview](protocol-roadmap/overview.md)
 * [Credit Markets for Individuals](protocol-roadmap/credit-markets-for-individuals/README.md)
   * [How Borrowing Works](protocol-roadmap/credit-markets-for-individuals/how-borrowing-works.md)
-  * [Your Credit Score](protocol-roadmap/credit-markets-for-individuals/your-credit-score.md)
+  * [Your Synclear Credit Score](protocol-roadmap/credit-markets-for-individuals/your-synclear-credit-score.md)
   * [Liquidation & Risk](protocol-roadmap/credit-markets-for-individuals/liquidation-and-risk.md)
 * [Credit Markets for AI Agents](protocol-roadmap/credit-markets-for-ai-agents/README.md)
   * [Mandates & Limits](protocol-roadmap/credit-markets-for-ai-agents/mandates-and-limits.md)
