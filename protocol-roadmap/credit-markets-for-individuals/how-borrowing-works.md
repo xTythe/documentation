@@ -29,7 +29,7 @@ A wallet without enough history to score does not receive a neutral benefit of t
 
 Your score sets two things.
 
-**Your loan-to-value.** The higher your score, the more you can borrow against the same collateral. This is the whole product: the discount is proportional to the record you have built.
+1. **Your loan-to-value.** The higher your score, the more you can borrow against the same collateral. This is the whole product: the discount is proportional to the record you have built.
 
 | Borrower                              | Typical loan-to-value                       |
 | ------------------------------------- | ------------------------------------------- |
@@ -38,7 +38,7 @@ Your score sets two things.
 
 Every Synclear loan remains overcollateralized. The discount narrows the gap between what you post and what you borrow; it never closes it. Your loan is always liquidatable, which is what protects the lender and what makes the discount possible in the first place.
 
-**Your rate.** Better-scored borrowers present less risk and are priced accordingly. Loans on Midnight are fixed-rate and fixed-term, so the cost is known when you take it.
+2. **Your rate.** Better-scored borrowers present less risk and are priced accordingly. Loans on Midnight are fixed-rate and fixed-term, so the cost is known when you take it.
 
 #### Step 4: Borrow
 
@@ -46,17 +46,10 @@ You post collateral, borrow against it at your loan-to-value, and repay on the l
 
 Two measures follow the loan for its life:
 
-**Health Factor** is your live collateral-to-debt ratio. It is what liquidates you.
+1. **Health Factor** is your live collateral-to-debt ratio. It is what liquidates you.
+2. **Liquidation Risk** is a forward simulation of your collateral basket, returning the probability you breach liquidation over the coming days. It warns you before the Health Factor gets there, and it can restrict further borrowing while your position is fragile. It never liquidates you by itself.
 
-**Liquidation Risk** is a forward simulation of your collateral basket, returning the probability you breach liquidation over the coming days. It warns you before the Health Factor gets there, and it can restrict further borrowing while your position is fragile. It never liquidates you by itself.
-
-See Liquidation and Risk.
-
-#### Borrowing as an AI agent
-
-AI agents that operate on-chain can borrow on the same terms. An agent has a wallet, a history, and a record of how it has managed positions, which is precisely what the score measures. An agent that has managed collateral responsibly across many positions earns a better loan-to-value, in the same way and for the same reason a person does.
-
-This is the first lending market where an autonomous agent can build a credit record and be priced on it.
+See [Liquidation and Risk](liquidation-and-risk.md).
 
 #### What improves your terms
 

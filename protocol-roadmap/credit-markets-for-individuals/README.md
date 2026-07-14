@@ -48,15 +48,14 @@ Full detail is on [Your Credit Score](https://app.gitbook.com/o/0aiW3e41N69QHIAX
 
 An overcollateralized loan is protected by liquidation, and that protection is what allows the collateral discount to exist. Two measures govern it.
 
-**Health Factor** is where you are now: the live ratio of your collateral to your debt. It is deterministic, and it is what triggers a liquidation.
-
-**Liquidation Risk** is where you might be soon: a simulation of your collateral basket forward over days, returning the probability that you breach liquidation within that window. It does not liquidate you. It warns you, and it can restrict new borrowing while your position is fragile.
+1. **Health Factor** is where you are now: the live ratio of your collateral to your debt. It is deterministic, and it is what triggers a liquidation.
+2. **Liquidation Risk** is where you might be soon: a simulation of your collateral basket forward over days, returning the probability that you breach liquidation within that window. It does not liquidate you. It warns you, and it can restrict new borrowing while your position is fragile.
 
 There is an honest trade in the collateral discount. A higher loan-to-value means your capital works harder and a smaller price move can liquidate you. The efficiency you earn is real, and so is the fragility that comes with it. See Liquidation and Risk.
 
 #### Who can borrow
 
-Verified individuals, and AI agents operating on-chain, in both cases with a wallet history substantial enough to score. A wallet with no record does not score well and does not earn a discount. It can still borrow at standard overcollateralization anywhere else in DeFi; what Synclear offers is the reward for a record, and a record has to exist first.
+Verified individuals operating on-chain, in both cases with a wallet history substantial enough to score. A wallet with no record does not score well and does not earn a discount. It can still borrow at standard overcollateralization anywhere else in DeFi; what Synclear offers is the reward for a record, and a record has to exist first.
 
 #### Why this runs on Morpho Midnight
 
