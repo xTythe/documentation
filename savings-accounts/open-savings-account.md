@@ -6,11 +6,9 @@ Open Savings is the permissionless, conservative foundation of Synclear. Deposit
 
 Open Savings holds only conservative, dollar-stable assets, deployed into yield rather than left idle. None of its backing moves with the crypto market.
 
-**Tokenized treasury bills.** Short-term US government debt, held through tokenized treasury products such as BlackRock's BUIDL and Ondo's USDY. Treasury bills are among the lowest-risk dollar instruments available, and they earn the prevailing short-term rate.
-
-**On-chain overcollateralized lending.** Stablecoins supplied to established on-chain money markets such as Aave and Morpho, where every loan is backed by more collateral than it lends. This earns lending interest while the overcollateralization protects the supplied capital.
-
-**Liquid stablecoins as cash.** A portion is held in liquid stablecoins, providing immediate liquidity for withdrawals and ballast for the account.
+* **Tokenized treasury bills.** Short-term US government debt, held through tokenized treasury products such as BlackRock's BUIDL and Ondo's USDY. Treasury bills are among the lowest-risk dollar instruments available, and they earn the prevailing short-term rate.
+* **On-chain overcollateralized lending.** Stablecoins supplied to established on-chain money markets such as Aave and Morpho, where every loan is backed by more collateral than it lends. This earns lending interest while the overcollateralization protects the supplied capital.
+* **Liquid stablecoins as cash.** A portion is held in liquid stablecoins, providing immediate liquidity for withdrawals and ballast for the account.
 
 Each of these is dollar-denominated and holds its value independent of crypto prices. Together they form a conservative portfolio built to protect capital first and earn second.
 
