@@ -30,15 +30,11 @@ If health deteriorates, the borrower is contacted first. Most cash-flow problems
 
 Where health falls below defined thresholds, Synclear escalates in stages.
 
-**Capture ratchets up.** The capture rate is raised toward its maximum, so more of each incoming payment goes to the loan. The loan repays faster from the revenue that still exists.
-
-**Draws freeze.** No further capital is extended to the borrower.
-
-**The loan accelerates.** The full outstanding balance becomes due.
-
-**Collateral is seized.** Any collateral the borrower posted is liquidated against the balance.
-
-**Recovery is pursued.** KYB binds the loan to a verified legal identity, so Synclear can pursue recovery through ordinary legal means, including debt collection. A borrower cannot walk away from an on-chain loan into anonymity.
+1. **Capture ratchets up.** The capture rate is raised toward its maximum, so more of each incoming payment goes to the loan. The loan repays faster from the revenue that still exists.
+2. **Draws freeze.** No further capital is extended to the borrower.
+3. **The loan accelerates.** The full outstanding balance becomes due.
+4. **Collateral is seized.** Any collateral the borrower posted is liquidated against the balance.
+5. **Recovery is pursued.** KYB binds the loan to a verified legal identity, so Synclear can pursue recovery through ordinary legal means, including debt collection. A borrower cannot walk away from an on-chain loan into anonymity.
 
 #### The loss waterfall
 

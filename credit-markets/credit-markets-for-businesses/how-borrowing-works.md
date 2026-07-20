@@ -18,19 +18,27 @@ To qualify, a business must meet all of the following:
 
 The 670 floor matters. Merchant cash advance providers routinely lend to businesses scoring 500 and below, then price for the defaults that follow. Synclear does not lend below the floor at any price. A business that cannot service a loan is not made a better borrower by being charged more.
 
-#### Step 1: Verification (KYB)
+{% stepper %}
+{% step %}
+#### **Verification (KYB)**
 
 The business verifies its legal identity, ownership, and control, and connects the on-chain addresses through which its revenue arrives. Businesses apply directly. There are no brokers in the process, and no broker markup in the price, which is one of the structural abuses of the merchant cash advance industry.
+{% endstep %}
 
-#### Step 2: Underwriting
+{% step %}
+#### **Underwriting**
 
 Synclear underwrites on live cash-flow data, not on reputation or a pitch. The scoring engine reads the business's actual on-chain revenue history: how much it earns, how stable that income is, how it has trended, and how reliably it has met obligations.
 
 The output is not a yes or no. It is a risk profile that sets the boundaries of the loan.
+{% endstep %}
 
-#### Step 3: Your eligibility offer
+{% step %}
+#### **Your eligibility offer**
 
 Underwriting returns an offer that defines what the business may borrow, expressed as five limits.
+{% endstep %}
+{% endstepper %}
 
 1. **Maximum advance.** Sized in months of revenue, and capped at launch by borrower tier:
 
